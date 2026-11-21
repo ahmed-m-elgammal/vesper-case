@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "WorldContent -- the police precinct world that hosts every case",
   "type": "object",
-  "required": ["detective", "intro", "exterior", "interior", "people", "graphs"],
+  "required": ["detective", "intro", "exterior", "interior", "career", "people", "graphs"],
   "properties": {
     "detective": {
       "type": "object",
@@ -25,8 +25,32 @@
         "lines": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
       }
     },
+    "career": {
+      "type": "object",
+      "description": "Promotion ladder: one rank up every N closed cases. Pure data -- adding ranks needs no code.",
+      "required": ["explanation", "ranks"],
+      "properties": {
+        "explanation": { "type": "string" },
+        "ceremony": { "type": "array", "items": { "type": "string" } },
+        "ranks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "title", "after"],
+            "properties": {
+              "id": { "type": "string" },
+              "title": { "type": "string" },
+              "after": { "type": "integer", "minimum": 0, "description": "Closed cases required. Ranks[0] must be 0; thresholds must increase." },
+              "note": { "type": "string", "description": "What the rank unlocks, shown on the service record." }
+            }
+          }
+        }
+      }
+    },
     "exterior": { "$ref": "#/$defs/stationScene" },
     "interior": { "$ref": "#/$defs/stationScene" },
+    "upper": { "$ref": "#/$defs/stationScene" },
     "people": {
       "type": "object",
       "description": "Station staff talkable via dialogue graphs (portrait, tint, names).",
@@ -38,7 +62,8 @@
           "shortName": { "type": "string" },
           "initial": { "type": "string" },
           "tint": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
-          "portrait": { "type": "string" }
+          "portrait": { "type": "string" },
+          "role": { "type": "string", "description": "One-line post, shown in conversation sheets." }
         }
       }
     },
@@ -56,6 +81,15 @@
         "art": { "type": "string" },
         "title": { "type": "string" },
         "ambientCaption": { "type": "string" },
+        "firstEntry": {
+          "type": "object",
+          "description": "Narration played once, the first time the player walks in (persisted via the world flag).",
+          "required": ["flag", "lines"],
+          "properties": {
+            "flag": { "type": "string", "pattern": "^seen:" },
+            "lines": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+          }
+        },
         "hotspots": {
           "type": "array",
           "minItems": 1,
@@ -72,8 +106,8 @@
                 "description": "World-space rect [x, y, w, h] on the 1920x1080 scene art."
               },
               "label": { "type": "string" },
-              "kind": { "type": "string", "enum": ["door", "files", "dialogue", "flavor", "locked"] },
-              "to": { "type": "string", "enum": ["exterior", "interior"], "description": "door: which station level to enter" },
+              "kind": { "type": "string", "enum": ["door", "files", "dialogue", "flavor", "locked", "career"] },
+              "to": { "type": "string", "enum": ["exterior", "interior", "upper"], "description": "door: which station level to enter" },
               "dialogue": { "type": "string", "description": "dialogue: graph id in world.graphs" },
               "line": { "type": "string", "description": "flavor/locked: toast line" }
             }

@@ -15,7 +15,7 @@
 import { Computed, Observable } from '../core/Observable';
 import { EventBus } from '../core/EventBus';
 import { ContentRepository, WorldRepository } from '../data/ContentRepository';
-import type { CaseProgress, Clue, GameState, Room, Settings } from '../data/types';
+import type { CareerRank, CaseProgress, Clue, GameState, Room, Settings, StationLevel } from '../data/types';
 import { freshCaseProgress, freshState, migrateState } from '../data/types';
 import type { DialogueContext, DialogueEffects } from '../dialogue/types';
 import { SaveSystem } from '../save/SaveSystem';
@@ -37,7 +37,7 @@ export class GameVM implements DialogueContext {
   dialogueScope: 'case' | 'world' = 'case';
 
   readonly phase$: Observable<GameState['phase'] | 'boot'>;
-  readonly stationLevel$: Observable<GameState['stationLevel']>;
+  readonly stationLevel$: Observable<StationLevel>;
   readonly activeCase$: Observable<string | null>;
   readonly roomId$: Observable<string | null>;
   readonly clues$: Observable<Record<string, { at: number }>>;
@@ -63,7 +63,7 @@ export class GameVM implements DialogueContext {
       this.saveFlash$.value = Date.now();
     });
     this.phase$ = new Observable<GameState['phase'] | 'boot'>('boot');
-    this.stationLevel$ = new Observable<GameState['stationLevel']>('exterior');
+    this.stationLevel$ = new Observable<StationLevel>('exterior');
     this.activeCase$ = new Observable<string | null>(this.state.activeCaseId);
     this.roomId$ = new Observable<string | null>(null);
     this.clues$ = new Observable<Record<string, { at: number }>>({});
@@ -137,7 +137,12 @@ export class GameVM implements DialogueContext {
   caseStatusFor(id: string): DeskStatus {
     const meta = this.world.case(id);
     const cp = this.state.cases[id];
-    if (meta && meta.status !== 'available') return 'offline';
+    if (meta) {
+      // Rank-gated folders (sealed/cold/soon with a rankRequired): offline until
+      // the career ladder reaches the required title -- pure data, no ids here.
+      if (meta.rankRequired && !this.rankSatisfied(meta.rankRequired)) return 'offline';
+      if (meta.status !== 'available') return 'offline';
+    }
     if (!cp) return 'unsolved';
     if (cp.solved) return 'solved';
     const touched =
@@ -147,6 +152,58 @@ export class GameVM implements DialogueContext {
       cp.prologueDone ||
       cp.prologuePage > 0;
     return touched ? 'in-progress' : 'unsolved';
+  }
+
+  /* ------------------------------------------------ career ladder */
+
+  /** Career ranks from world.json, in promotion order. */
+  get careerRanks(): CareerRank[] {
+    return [...(this.world.world.career?.ranks ?? [])].sort((a, b) => a.after - b.after);
+  }
+
+  /** Cases closed across the whole career (every folder with solved: true). */
+  solvedCount(): number {
+    return Object.values(this.state.cases).filter((c) => c.solved).length;
+  }
+
+  /** The rank held after n closed cases (the last rank whose threshold is met). */
+  rankForSolved(n: number): CareerRank | null {
+    let rank: CareerRank | null = null;
+    for (const r of this.careerRanks) if (n >= r.after) rank = r;
+    return rank;
+  }
+
+  /** The rank the detective holds right now. */
+  currentRank(): CareerRank | null {
+    return this.rankForSolved(this.solvedCount());
+  }
+
+  /** The next promotion target, or null at the top of the ladder. */
+  nextRank(): CareerRank | null {
+    const n = this.solvedCount();
+    return this.careerRanks.find((r) => r.after > n) ?? null;
+  }
+
+  /** True when the ladder has reached the rank title a folder asks for. */
+  rankSatisfied(requiredTitle: string): boolean {
+    const cur = this.currentRank();
+    const req = this.careerRanks.find((r) => r.title === requiredTitle);
+    if (!cur || !req) return false;
+    return this.careerRanks.indexOf(cur) >= this.careerRanks.indexOf(req);
+  }
+
+  /** Rank id queued for the ceremony card, if one is waiting. */
+  pendingPromotion(): string | null {
+    return this.state.career.pending ?? null;
+  }
+
+  /** The ceremony has been watched: file it and clear the pending slot. */
+  acknowledgePromotion(): void {
+    const id = this.state.career.pending;
+    if (!id) return;
+    if (!this.state.career.promotionsSeen.includes(id)) this.state.career.promotionsSeen.push(id);
+    this.state.career.pending = null;
+    this.commit();
   }
 
   /* ------------------------------------------------ state lifecycle */
@@ -203,7 +260,7 @@ export class GameVM implements DialogueContext {
     this.commit();
   }
 
-  setStationLevel(level: GameState['stationLevel']): void {
+  setStationLevel(level: StationLevel): void {
     if (this.state.stationLevel === level) return;
     this.state.stationLevel = level;
     this.stationLevel$.value = level;
@@ -261,7 +318,15 @@ export class GameVM implements DialogueContext {
   markCaseSolved(): void {
     const cp = this.cpOrNull();
     if (!cp || cp.solved) return;
+    const rankBefore = this.currentRank();
     cp.solved = true;
+    // The precinct notices: world-scope flag "case:<id>:solved" lets staff react.
+    if (this.state.activeCaseId) this.setWorldFlag(`case:${this.state.activeCaseId}:solved`);
+    // Career check: crossing a rank threshold queues the promotion ceremony.
+    const rankAfter = this.currentRank();
+    if (rankBefore && rankAfter && rankAfter.id !== rankBefore.id) {
+      this.state.career.pending = rankAfter.id;
+    }
     this.commit();
   }
 

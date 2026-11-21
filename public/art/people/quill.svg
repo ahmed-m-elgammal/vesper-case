@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="pplQlW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="71" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="pplQlS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#pplQlS)">
+    <ellipse cx="160" cy="480" rx="190" ry="80" fill="#8a4a7d" opacity="0.15"/>
+    <ellipse cx="650" cy="150" rx="150" ry="80" fill="#c9a25e" opacity="0.14"/>
+    <ellipse cx="400" cy="290" rx="260" ry="220" fill="#8a4a7d" opacity="0.09"/>
+    <ellipse cx="400" cy="520" rx="300" ry="120" fill="#2e2a33" opacity="0.09"/>
+    <rect x="70" y="140" width="220" height="300" fill="#5e4632" opacity="0.14"/>
+  </g>
+  <g filter="url(#pplQlW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+  <!-- backdrop: archive shelves + typewriter + card -->
+  <g filter="url(#pplQlW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <rect x="70" y="130" width="210" height="320" stroke-width="3.4" opacity="0.75" fill="#5e4632" fill-opacity="0.16"/>
+    <path d="M70 210 H280 M70 290 H280 M70 370 H280" stroke-width="2.8" opacity="0.65"/>
+    <g stroke-width="2.4" fill="#c9a25e" fill-opacity="0.45">
+      <path d="M90 180 H106 V166 H90 Z M114 180 H130 V168 H114 Z M138 180 H154 V166 H138 Z"/>
+      <path d="M96 260 H112 V248 H96 Z M120 260 H136 V250 H120 Z"/>
+      <path d="M92 340 H108 V328 H92 Z M116 340 H132 V330 H116 Z M140 340 H156 V332 H140 Z"/>
+    </g>
+    <g fill="#8a8f98" fill-opacity="0.5" stroke-width="2.6">
+      <rect x="176" y="238" width="66" height="40" rx="3"/>
+      <rect x="182" y="318" width="60" height="40" rx="3"/>
+    </g>
+    <!-- typewriter on the counter -->
+    <path d="M600 470 H740" stroke-width="3.4" opacity="0.7"/>
+    <path d="M616 468 Q646 448 676 468 L668 496 Q646 506 624 496 Z" stroke-width="3" fill="#3a3f52" fill-opacity="0.7"/>
+    <path d="M628 464 L636 444 L660 444 L668 464" stroke-width="2.6"/>
+    <rect x="636" y="424" width="24" height="22" stroke-width="2.2" fill="#f4ecdb" fill-opacity="0.9"/>
+    <circle cx="684" cy="486" r="7" stroke-width="2.2"/>
+    <!-- the index card with the P -->
+    <rect x="500" y="420" width="70" height="46" rx="4" stroke-width="2.6" fill="#f4ecdb" fill-opacity="0.92" transform="rotate(-4 535 443)"/>
+    <text x="535" y="452" font-family="Special Elite, serif" font-size="26" fill="#8a4a7d" stroke="none" text-anchor="middle" transform="rotate(-4 535 443)">P</text>
+    <path d="M510 430 H560" stroke-width="1.6" opacity="0.5" transform="rotate(-4 535 443)"/>
+  </g>
+  <g filter="url(#pplQlW)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- shoulders: high-collar blouse + fitted cardigan -->
+    <path d="M198 588 Q216 482 300 440 Q346 420 400 420 Q454 420 500 440 Q584 482 602 588" fill="#5a3d54" fill-opacity="0.88" stroke-width="4"/>
+    <path d="M304 462 Q296 524 306 588 M496 462 Q504 524 494 588" stroke-width="2.2" opacity="0.45"/>
+    <path d="M330 508 H470" stroke-width="2" opacity="0.4"/>
+    <!-- collar buttons -->
+    <path d="M352 430 L400 474 L448 430" stroke-width="3.2"/>
+    <path d="M400 474 L400 588" stroke-width="3" opacity="0.65"/>
+    <g stroke-width="2.4" fill="#c9a25e" fill-opacity="0.85">
+      <circle cx="400" cy="500" r="5"/>
+      <circle cx="400" cy="534" r="5"/>
+      <circle cx="400" cy="566" r="5"/>
+    </g>
+    <!-- pearl brooch at the collar -->
+    <circle cx="400" cy="452" r="9" stroke-width="2.6" fill="#c9a25e" fill-opacity="0.35"/>
+    <circle cx="397" cy="449" r="2.6" fill="#f4ecdb" stroke="none"/>
+    <!-- neck -->
+    <path d="M376 386 V432 M424 386 V432" stroke-width="3.2"/>
+    <!-- head: narrow, precise -->
+    <path d="M400 154 Q458 154 472 216 Q484 276 460 330 Q440 372 400 374 Q360 372 340 330 Q316 276 328 216 Q342 154 400 154" fill="#f4ecdb" stroke-width="4"/>
+    <!-- shading -->
+    <g stroke-width="1.8" opacity="0.26">
+      <path d="M454 224 L442 254 M460 250 L448 282 M458 278 L446 308"/>
+    </g>
+    <!-- tight bun with pin -->
+    <path d="M330 186 Q322 140 366 120 Q400 108 434 120 Q478 140 470 186 Q460 152 424 144 Q400 138 376 144 Q340 152 330 186" fill="#5a5560" fill-opacity="0.9" stroke-width="3.4"/>
+    <circle cx="470" cy="150" r="26" fill="#5a5560" fill-opacity="0.9" stroke-width="3.2"/>
+    <path d="M456 132 L486 158 M484 134 L458 160" stroke-width="2" opacity="0.6"/>
+    <path d="M452 118 L492 128" stroke="#c9a25e" stroke-width="2.6" opacity="0.9"/>
+    <g stroke-width="1.8" opacity="0.5">
+      <path d="M348 158 Q372 146 398 146 M414 144 Q442 150 460 168"/>
+    </g>
+    <!-- small round spectacles -->
+    <path d="M348 236 Q366 228 388 234" stroke-width="3.2"/>
+    <path d="M412 234 Q434 228 452 236" stroke-width="3.2"/>
+    <circle cx="370" cy="254" r="17" stroke-width="2.6" opacity="0.8"/>
+    <circle cx="430" cy="254" r="17" stroke-width="2.6" opacity="0.8"/>
+    <path d="M387 252 H413" stroke-width="2.4" opacity="0.8"/>
+    <path d="M353 254 L340 258 M447 254 L460 258" stroke-width="2" opacity="0.7"/>
+    <circle cx="370" cy="254" r="4.4" fill="#2e2a33" stroke-width="2"/>
+    <circle cx="430" cy="254" r="4.4" fill="#2e2a33" stroke-width="2"/>
+    <path d="M364 246 L376 258 M424 246 L436 258" stroke-width="1.4" opacity="0.45"/>
+    <!-- nose + precise mouth -->
+    <path d="M397 272 Q393 288 399 296 Q405 290 401 272" stroke-width="2.2" opacity="0.6"/>
+    <path d="M380 322 Q400 328 420 322" stroke-width="3"/>
+    <path d="M384 334 Q400 338 416 334" stroke-width="2" opacity="0.45"/>
+    <path d="M344 288 Q350 296 344 304 M456 288 Q450 296 456 304" stroke-width="2" opacity="0.45"/>
+  </g>
+  <g filter="url(#pplQlW)" stroke="#6b6472" stroke-width="1.6" opacity="0.35">
+    <path d="M226 490 Q256 480 282 494 M528 494 Q558 482 582 496"/>
+  </g>
+</svg>

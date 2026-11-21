@@ -12,6 +12,13 @@ import type { StationHotspot, StationSceneData } from '../../data/types';
 const WORLD_W = 1920;
 const WORLD_H = 1080;
 
+/** Scene key -> precinct level (the guard below keys off this mapping). */
+const LEVEL_BY_KEY: Record<string, 'exterior' | 'interior' | 'upper'> = {
+  'station-ext': 'exterior',
+  'station-int': 'interior',
+  'station-up': 'upper',
+};
+
 export abstract class StationSceneBase extends Phaser.Scene {
   protected ctx!: SceneCtx;
   private unsubs: Array<() => void> = [];
@@ -31,6 +38,16 @@ export abstract class StationSceneBase extends Phaser.Scene {
   create(): void {
     const vm = this.ctx.vm;
 
+    // Boot race guard: the scene list auto-starts the first station scene, and
+    // a stop() during another scene's loading phase does not stick. So every
+    // station scene checks, at create time, whether it is still the level the
+    // precinct wants -- if not, it stands down quietly.
+    const mine = LEVEL_BY_KEY[this.scene.key];
+    if (mine && mine !== vm.state.stationLevel) {
+      this.scene.stop();
+      return;
+    }
+
     const img = this.add.image(WORLD_W / 2, WORLD_H / 2, this.artKey());
     img.setOrigin(0.5);
     const zoom = Math.min(1280 / WORLD_W, 720 / WORLD_H) * 0.98;
@@ -38,6 +55,12 @@ export abstract class StationSceneBase extends Phaser.Scene {
     this.cameras.main.centerOn(WORLD_W / 2, WORLD_H / 2);
 
     this.buildHotspots();
+
+    // First time into this level: play the once-only narration (data-driven).
+    const fe = this.sceneData().firstEntry;
+    if (fe && !vm.state.station.flags[fe.flag]) {
+      this.ctx.hooks.narrate?.({ flag: fe.flag, lines: fe.lines });
+    }
 
     // Location caption chip, bottom-left (HUD is hidden in the precinct).
     const title = this.sceneData().title;
@@ -76,13 +99,16 @@ export abstract class StationSceneBase extends Phaser.Scene {
     const vm = this.ctx.vm;
     switch (h.kind) {
       case 'door':
-        this.ctx.hooks.wipe(() => vm.setStationLevel(h.to === 'interior' ? 'interior' : 'exterior'));
+        this.ctx.hooks.wipe(() => vm.setStationLevel((h.to ?? 'interior') as 'exterior' | 'interior' | 'upper'));
         break;
       case 'files':
         this.ctx.hooks.openCaseFiles();
         break;
       case 'dialogue':
         if (h.dialogue) this.ctx.hooks.openDialogue(h.dialogue);
+        break;
+      case 'career':
+        this.ctx.hooks.openCareer?.();
         break;
       case 'flavor':
       case 'locked':
@@ -97,7 +123,7 @@ export abstract class StationSceneBase extends Phaser.Scene {
       const [x, y, w, hh] = h.spot;
       const cx = x + w / 2;
       const cy = y + hh / 2;
-      const interactive = h.kind === 'door' || h.kind === 'files' || h.kind === 'dialogue';
+      const interactive = h.kind === 'door' || h.kind === 'files' || h.kind === 'dialogue' || h.kind === 'career';
 
       const zone = this.add.zone(cx, cy, w, hh).setInteractive({ useHandCursor: interactive });
 

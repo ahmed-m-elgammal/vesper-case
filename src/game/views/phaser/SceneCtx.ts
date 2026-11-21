@@ -14,6 +14,10 @@ export interface SceneHooks {
   openDialogue(suspectId: string): void;
   /** Open the desk drawer: the case-file registry (station interior). */
   openCaseFiles(): void;
+  /** Open the service record: career ladder + history (station plaque). */
+  openCareer?(): void;
+  /** Play once-only narration for a station level's first entry. */
+  narrate?(payload: { flag: string; lines: string[] }): void;
   toast(text: string, kind: 'clue' | 'info' | 'warn'): void;
   /** Play the sketch-wipe and swap scenes at midpoint. */
   wipe(mid: () => void): void;

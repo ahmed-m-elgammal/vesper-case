@@ -24,6 +24,22 @@
       "Somewhere on that desk is a folder with your first case in it. Go and take it."
     ]
   },
+  "career": {
+    "explanation": "Ten clean closures move a detective up one grade. It is the oldest rule in the building -- typed once, crossed out twice, and finally pinned behind the duty board where nobody pretends they cannot see it.",
+    "ceremony": [
+      "The bullpen goes quiet the way it only does for two things: bad news and promotions.",
+      "Captain Breche reads the commendation from the top step, and the room counts your closed files along with her.",
+      "Sergeant Hollis whistles through his teeth. Constable Dewi applauds half a beat early, as always. Miss Quill does not look up, but she types the new rank into the duty roster before the applause has finished."
+    ],
+    "ranks": [
+      { "id": "grade-1", "title": "Detective Grade I", "after": 0, "note": "The ground floor: house deaths, lost property, one folder at a time." },
+      { "id": "grade-2", "title": "Detective Grade II", "after": 10, "note": "Opens the pier file -- and everything else the river keeps." },
+      { "id": "grade-3", "title": "Detective Grade III", "after": 20, "note": "Cold cases. The grey boxes. The alley that has waited since 1931." },
+      { "id": "inspector", "title": "Inspector", "after": 30, "note": "You start reading other people's shelves -- and signing other people's chits." },
+      { "id": "chief-inspector", "title": "Chief Inspector", "after": 40, "note": "The floor answers to you on the nights Breche is at the commissioner's." },
+      { "id": "superintendent", "title": "Superintendent", "after": 50, "note": "Nobody in the history of this precinct has got there and kept the squint." }
+    ]
+  },
   "exterior": {
     "art": "/art/station_ext.svg",
     "title": "Old Town Precinct -- the street",
@@ -40,16 +56,51 @@
     "art": "/art/station_int.svg",
     "title": "Old Town Precinct -- the bullpen",
     "ambientCaption": "[typewriters, a kettle somewhere, rain against the glass]",
+    "firstEntry": {
+      "flag": "seen:interior",
+      "lines": [
+        "The bullpen smells of rain, typewriter ribbon, and somebody's burnt toast.",
+        "Fourteen desks, eleven of them occupied. The one by the radiator has a new name-plate -- E. BYRNE -- and the brass is still bright enough to catch the lamplight.",
+        "The chair behind it is ugly and worn on the left arm, where somebody leaned for years. It does not know you yet. It will.",
+        "On the desk: a blotter, a half tin of pencils, and four folders that are not yours -- plus, since this morning, one that is."
+      ]
+    },
     "hotspots": [
       { "id": "desk", "spot": [706, 640, 580, 380], "label": "Your desk -- case files", "kind": "files" },
+      { "id": "plaque", "spot": [860, 950, 220, 100], "label": "Your badge -- service record", "kind": "career" },
       { "id": "captain", "spot": [108, 180, 444, 600], "label": "Captain Breche's office", "kind": "dialogue", "dialogue": "captain" },
       { "id": "hollis", "spot": [1120, 498, 440, 190], "label": "Sergeant Hollis", "kind": "dialogue", "dialogue": "hollis_station" },
+      { "id": "dewi", "spot": [1330, 700, 230, 260], "label": "Constable Dewi", "kind": "dialogue", "dialogue": "dewi_station" },
       { "id": "board", "spot": [1316, 196, 470, 316], "label": "Duty board", "kind": "flavor", "line": "The duty board in chalk: two constables out with flu, a pawnshop detail, and under YOUR CASE, in Breche's hand: BYRNE -- VESPER. IT MOVES OR YOU DO." },
       { "id": "evidence", "spot": [1038, 322, 208, 262], "label": "Evidence room", "kind": "locked", "line": "The evidence room door has a brass lock older than the walls and a sign: SIGNED KEYS ONLY. The grey box from 1931 is in there, and it is not yours yet." },
-      { "id": "stairs", "spot": [1686, 236, 196, 620], "label": "Upstairs archive", "kind": "locked", "line": "The stairs go up to the archive and the canteen. Nobody goes up before the second pot of coffee. Nobody." },
+      { "id": "stairs", "spot": [1686, 236, 196, 620], "label": "Up to the canteen and archive", "kind": "door", "to": "upper" },
       { "id": "exit", "spot": [206, 656, 186, 336], "label": "Out to the street", "kind": "door", "to": "exterior" },
       { "id": "window", "spot": [618, 208, 384, 296], "label": "Rain window", "kind": "flavor", "line": "Rain crawls down the pane in threads. Somewhere out there is Hollow Lane, and a house that will not talk until you knock." },
       { "id": "cooler", "spot": [1556, 556, 152, 250], "label": "Water cooler", "kind": "flavor", "line": "The cooler gargles. Constable Dewi swears it is the best interrogation tool in the building." }
+    ]
+  },
+  "upper": {
+    "art": "/art/station_up.svg",
+    "title": "Old Town Precinct -- the upper floor",
+    "ambientCaption": "[the kettle ticks, the radio murmurs, rain on the glass]",
+    "firstEntry": {
+      "flag": "seen:upper",
+      "lines": [
+        "The stairs complain about the traffic. Up here it is quieter: the canteen, the archive, and the records room behind its signed keys.",
+        "The kettle has a view of the whole floor. The radio murmurs to nobody. The shelves carry a fair copy of every case this precinct has closed since 1929.",
+        "You shelved some of these yourself, on night shifts, with a torch held in your teeth. Walking this floor as a detective feels like hearing your own name read out of turn."
+      ]
+    },
+    "hotspots": [
+      { "id": "stairs", "spot": [50, 470, 240, 490], "label": "Down to the bullpen", "kind": "door", "to": "interior" },
+      { "id": "quill", "spot": [1240, 560, 420, 380], "label": "Miss Quill -- the archive counter", "kind": "dialogue", "dialogue": "quill_archive" },
+      { "id": "cray", "spot": [290, 560, 380, 330], "label": "Dr. Cray -- the canteen table", "kind": "dialogue", "dialogue": "cray_canteen" },
+      { "id": "window", "spot": [190, 180, 350, 300], "label": "Rain window", "kind": "flavor", "line": "Same rain, one floor up. From here you can see the tram shelter, the pawnshop, and the corner where Hollow Lane begins." },
+      { "id": "board", "spot": [540, 135, 300, 220], "label": "Canteen notices", "kind": "flavor", "line": "Canteen notices: a card-game signup sheet with Dewi's name on it four times, a recipe for barley broth, and a card that reads DON'T FEED THE SERGEANT AFTER TEN." },
+      { "id": "kettle", "spot": [880, 255, 240, 285], "label": "The stove and kettle", "kind": "flavor", "line": "The kettle is always within four minutes of boiling. Dr. Cray calls it the only honest witness in the building -- it is present for every confession and every lie." },
+      { "id": "radio", "spot": [1120, 240, 190, 180], "label": "The wireless", "kind": "flavor", "line": "The wireless murmurs dance music through static. Miss Quill tunes it to the shipping forecast when she thinks nobody is listening." },
+      { "id": "shelves", "spot": [1320, 110, 340, 320], "label": "The archive shelves", "kind": "flavor", "line": "Grey boxes and tan spines, every closed case since 1929. One drawer sits half-open -- the one that misfiled a letter twice and made your career." },
+      { "id": "records", "spot": [1690, 140, 220, 530], "label": "Records room", "kind": "locked", "line": "The records room keeps the originals: wills, confessions, and things the fire in 1931 did not burn. SIGNED KEYS ONLY -- and yours is not one of them yet." }
     ]
   },
   "people": {
@@ -58,14 +109,40 @@
       "shortName": "Cpt. Breche",
       "initial": "B",
       "tint": "#7d4a68",
-      "portrait": "/art/people/captain.svg"
+      "portrait": "/art/people/captain.svg",
+      "role": "Precinct captain -- plain speaking, bad coffee"
     },
     "hollis": {
       "name": "Sergeant Hollis",
       "shortName": "Sgt. Hollis",
       "initial": "H",
       "tint": "#55684a",
-      "portrait": "/art/people/hollis.svg"
+      "portrait": "/art/people/hollis.svg",
+      "role": "Desk sergeant -- statements, floor, cribbage"
+    },
+    "dewi": {
+      "name": "Constable Dewi Carew",
+      "shortName": "Cst. Dewi",
+      "initial": "D",
+      "tint": "#3f6e8e",
+      "portrait": "/art/people/dewi.svg",
+      "role": "Beat constable -- errands, earfuls, gossip"
+    },
+    "quill": {
+      "name": "Miss Ada Quill",
+      "shortName": "Miss Quill",
+      "initial": "Q",
+      "tint": "#8a4a7d",
+      "portrait": "/art/people/quill.svg",
+      "role": "Records clerk -- keeper of the shelves"
+    },
+    "cray": {
+      "name": "Dr. Barnaby Cray",
+      "shortName": "Dr. Cray",
+      "initial": "C",
+      "tint": "#6e6a3f",
+      "portrait": "/art/people/cray.svg",
+      "role": "Divisional surgeon -- sandwiches and scalpels"
     }
   },
   "graphs": {
@@ -83,9 +160,12 @@
           "choices": [
             { "text": "@dlg.captain.q.files", "next": "files" },
             { "text": "@dlg.captain.q.precinct", "next": "precinct" },
+            { "text": "@dlg.captain.q.staff", "next": "staff" },
+            { "text": "@dlg.captain.q.career", "next": "career" },
             { "text": "@dlg.captain.q.advice_first", "cond": { "noFlag": "case:taken" }, "next": "advice_first" },
             { "text": "@dlg.captain.q.advice_case", "cond": { "flag": "case:taken" }, "next": "advice_case" },
             { "text": "@dlg.captain.q.hollis", "next": "hollis_opinion" },
+            { "text": "@dlg.captain.q.solved", "cond": { "flag": "case:vesper:solved" }, "next": "solved" },
             { "text": "@dlg.ui.leave", "close": true }
           ]
         },
@@ -104,6 +184,28 @@
           "beats": [
             { "sp": "npc", "t": "@dlg.captain.precinct.1" },
             { "sp": "npc", "t": "@dlg.captain.precinct.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.captain.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "staff": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.captain.staff.1" },
+            { "sp": "npc", "t": "@dlg.captain.staff.2" },
+            { "sp": "npc", "t": "@dlg.captain.staff.3" }
+          ],
+          "choices": [
+            { "text": "@dlg.captain.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "career": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.captain.career.1" },
+            { "sp": "npc", "t": "@dlg.captain.career.2" },
+            { "sp": "npc", "t": "@dlg.captain.career.3" }
           ],
           "choices": [
             { "text": "@dlg.captain.q.back", "next": "root" },
@@ -139,6 +241,17 @@
             { "text": "@dlg.captain.q.back", "next": "root" },
             { "text": "@dlg.ui.leave", "close": true }
           ]
+        },
+        "solved": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.captain.solved.1" },
+            { "sp": "npc", "t": "@dlg.captain.solved.2" },
+            { "sp": "npc", "t": "@dlg.captain.solved.3" }
+          ],
+          "choices": [
+            { "text": "@dlg.captain.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
         }
       }
     },
@@ -156,6 +269,9 @@
           "choices": [
             { "text": "@dlg.hollis.q.hollow", "cond": { "flag": "case:taken" }, "next": "hollow" },
             { "text": "@dlg.hollis.q.before_case", "cond": { "noFlag": "case:taken" }, "next": "before_case" },
+            { "text": "@dlg.hollis.q.floor", "next": "floor" },
+            { "text": "@dlg.hollis.q.career", "next": "career" },
+            { "text": "@dlg.hollis.q.solved", "cond": { "flag": "case:vesper:solved" }, "next": "solved" },
             { "text": "@dlg.hollis.q.mentor", "next": "mentor" },
             { "text": "@dlg.hollis.q.weather", "next": "weather" },
             { "text": "@dlg.ui.leave", "close": true }
@@ -181,6 +297,38 @@
             { "text": "@dlg.ui.leave", "close": true }
           ]
         },
+        "floor": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.hollis.floor.1" },
+            { "sp": "npc", "t": "@dlg.hollis.floor.2" },
+            { "sp": "npc", "t": "@dlg.hollis.floor.3" }
+          ],
+          "choices": [
+            { "text": "@dlg.hollis.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "career": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.hollis.career.1" },
+            { "sp": "npc", "t": "@dlg.hollis.career.2" },
+            { "sp": "npc", "t": "@dlg.hollis.career.3" }
+          ],
+          "choices": [
+            { "text": "@dlg.hollis.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "solved": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.hollis.solved.1" },
+            { "sp": "npc", "t": "@dlg.hollis.solved.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.hollis.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
         "mentor": {
           "beats": [
             { "sp": "npc", "t": "@dlg.hollis.mentor.1" },
@@ -198,6 +346,258 @@
           ],
           "choices": [
             { "text": "@dlg.hollis.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        }
+      }
+    },
+    "dewi_station": {
+      "id": "dewi_station",
+      "suspect": "dewi",
+      "speaker": "@dlg.name.dewi",
+      "start": "root",
+      "nodes": {
+        "root": {
+          "effects": { "setFlags": ["talked:dewi:any"] },
+          "beats": [
+            { "sp": "npc", "t": "@dlg.dewi.root.1" },
+            { "sp": "npc", "t": "@dlg.dewi.root.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.dewi.q.advice", "cond": { "noFlag": "talked:dewi:advice" }, "next": "advice" },
+            { "text": "@dlg.dewi.q.errands", "next": "errands" },
+            { "text": "@dlg.dewi.q.gossip", "next": "gossip" },
+            { "text": "@dlg.dewi.q.cards", "next": "cards" },
+            { "text": "@dlg.dewi.q.vesper", "cond": { "flag": "case:taken" }, "next": "vesper" },
+            { "text": "@dlg.dewi.q.solved", "cond": { "flag": "case:vesper:solved" }, "next": "solved" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "advice": {
+          "effects": { "setFlags": ["talked:dewi:advice"] },
+          "beats": [
+            { "sp": "npc", "t": "@dlg.dewi.advice.1" },
+            { "sp": "npc", "t": "@dlg.dewi.advice.2" },
+            { "sp": "you", "t": "@dlg.dewi.advice.3" },
+            { "sp": "npc", "t": "@dlg.dewi.advice.4" }
+          ],
+          "choices": [
+            { "text": "@dlg.dewi.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "errands": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.dewi.errands.1" },
+            { "sp": "npc", "t": "@dlg.dewi.errands.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.dewi.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "gossip": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.dewi.gossip.1" },
+            { "sp": "npc", "t": "@dlg.dewi.gossip.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.dewi.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "cards": {
+          "effects": { "setVars": { "dewi:cards": 1 } },
+          "beats": [
+            { "sp": "npc", "t": "@dlg.dewi.cards.1" },
+            { "sp": "you", "t": "@dlg.dewi.cards.2" },
+            { "sp": "npc", "t": "@dlg.dewi.cards.3" }
+          ],
+          "choices": [
+            { "text": "@dlg.dewi.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "vesper": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.dewi.vesper.1" },
+            { "sp": "npc", "t": "@dlg.dewi.vesper.2" },
+            { "sp": "npc", "t": "@dlg.dewi.vesper.3" }
+          ],
+          "choices": [
+            { "text": "@dlg.dewi.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "solved": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.dewi.solved.1" },
+            { "sp": "npc", "t": "@dlg.dewi.solved.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.dewi.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        }
+      }
+    },
+    "quill_archive": {
+      "id": "quill_archive",
+      "suspect": "quill",
+      "speaker": "@dlg.name.quill",
+      "start": "root",
+      "nodes": {
+        "root": {
+          "effects": { "setFlags": ["talked:quill:any"] },
+          "beats": [
+            { "sp": "npc", "t": "@dlg.quill.root.1" },
+            { "sp": "npc", "t": "@dlg.quill.root.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.quill.q.shelves", "next": "shelves" },
+            { "text": "@dlg.quill.q.letter", "cond": { "noFlag": "talked:quill:letter" }, "next": "letter" },
+            { "text": "@dlg.quill.q.career", "next": "career" },
+            { "text": "@dlg.quill.q.upstairs", "next": "upstairs" },
+            { "text": "@dlg.quill.q.vesper", "cond": { "flag": "case:taken" }, "next": "vesper" },
+            { "text": "@dlg.quill.q.solved", "cond": { "flag": "case:vesper:solved" }, "next": "solved" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "shelves": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.quill.shelves.1" },
+            { "sp": "npc", "t": "@dlg.quill.shelves.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.quill.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "letter": {
+          "effects": { "setFlags": ["talked:quill:letter"] },
+          "beats": [
+            { "sp": "npc", "t": "@dlg.quill.letter.1" },
+            { "sp": "you", "t": "@dlg.quill.letter.2" },
+            { "sp": "npc", "t": "@dlg.quill.letter.3" },
+            { "sp": "npc", "t": "@dlg.quill.letter.4" }
+          ],
+          "choices": [
+            { "text": "@dlg.quill.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "career": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.quill.career.1" },
+            { "sp": "npc", "t": "@dlg.quill.career.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.quill.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "upstairs": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.quill.upstairs.1" },
+            { "sp": "npc", "t": "@dlg.quill.upstairs.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.quill.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "vesper": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.quill.vesper.1" },
+            { "sp": "npc", "t": "@dlg.quill.vesper.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.quill.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "solved": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.quill.solved.1" },
+            { "sp": "npc", "t": "@dlg.quill.solved.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.quill.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        }
+      }
+    },
+    "cray_canteen": {
+      "id": "cray_canteen",
+      "suspect": "cray",
+      "speaker": "@dlg.name.cray",
+      "start": "root",
+      "nodes": {
+        "root": {
+          "effects": { "setFlags": ["talked:cray:any"] },
+          "beats": [
+            { "sp": "npc", "t": "@dlg.cray.root.1" },
+            { "sp": "npc", "t": "@dlg.cray.root.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.cray.q.sandwich", "next": "sandwich" },
+            { "text": "@dlg.cray.q.trade", "next": "trade" },
+            { "text": "@dlg.cray.q.vesper", "cond": { "flag": "case:taken" }, "next": "vesper" },
+            { "text": "@dlg.cray.q.hollis", "next": "hollis" },
+            { "text": "@dlg.cray.q.solved", "cond": { "flag": "case:vesper:solved" }, "next": "solved" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "sandwich": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.cray.sandwich.1" },
+            { "sp": "npc", "t": "@dlg.cray.sandwich.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.cray.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "trade": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.cray.trade.1" },
+            { "sp": "npc", "t": "@dlg.cray.trade.2" },
+            { "sp": "npc", "t": "@dlg.cray.trade.3" }
+          ],
+          "choices": [
+            { "text": "@dlg.cray.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "vesper": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.cray.vesper.1" },
+            { "sp": "npc", "t": "@dlg.cray.vesper.2" },
+            { "sp": "npc", "t": "@dlg.cray.vesper.3" }
+          ],
+          "choices": [
+            { "text": "@dlg.cray.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "hollis": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.cray.hollis.1" },
+            { "sp": "npc", "t": "@dlg.cray.hollis.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.cray.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "solved": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.cray.solved.1" },
+            { "sp": "npc", "t": "@dlg.cray.solved.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.cray.q.back", "next": "root" },
             { "text": "@dlg.ui.leave", "close": true }
           ]
         }

@@ -337,13 +337,27 @@ export function validateGraphs(
 /* World content (the precinct) + case registry                        */
 /* ------------------------------------------------------------------ */
 
-const HOTSPOT_KINDS = new Set(['door', 'files', 'dialogue', 'flavor', 'locked']);
+const HOTSPOT_KINDS = new Set(['door', 'files', 'dialogue', 'flavor', 'locked', 'career']);
+
+/** Which levels a door on each level may lead to (the station's floor plan). */
+const DOOR_TARGETS: Record<string, string[]> = {
+  exterior: ['interior'],
+  interior: ['exterior', 'upper'],
+  upper: ['interior'],
+};
 
 function checkScene(sc: unknown, what: string, errors: string[]): void {
   const so = obj(sc);
   assert(isStr(so.art), `${what}.art missing`, errors);
   assert(isStr(so.title), `${what}.title missing`, errors);
   assert(isStr(so.ambientCaption), `${what}.ambientCaption missing`, errors);
+  const fe = obj(so.firstEntry);
+  if (fe.flag !== undefined || fe.lines !== undefined) {
+    assert(isStr(fe.flag) && /^seen:[a-z0-9:-]+$/.test(String(fe.flag)), `${what}.firstEntry.flag must be a "seen:*" flag`, errors);
+    reqArr(fe.lines, `${what}.firstEntry.lines`, errors).forEach((ln, i) =>
+      assert(typeof ln === 'string' && ln.length > 0, `${what}.firstEntry.lines[${i}] must be non-empty`, errors)
+    );
+  }
   const hs = reqArr(so.hotspots, `${what}.hotspots`, errors);
   const ids = new Set<string>();
   hs.forEach((h, i) => {
@@ -357,7 +371,14 @@ function checkScene(sc: unknown, what: string, errors: string[]): void {
     assert(isStr(ho.label), `${what}.hotspots[${i}].label missing`, errors);
     const kind = String(ho.kind ?? '');
     assert(HOTSPOT_KINDS.has(kind), `${what}.hotspots[${i}].kind "${kind}" invalid`, errors);
-    if (kind === 'door') assert(ho.to === 'exterior' || ho.to === 'interior', `${what}.hotspots[${i}].to must be exterior|interior`, errors);
+    if (kind === 'door') {
+      const targets = DOOR_TARGETS[what] ?? [];
+      assert(
+        targets.includes(String(ho.to)),
+        `${what}.hotspots[${i}].to must be one of ${targets.join('|')} (floor plan)`,
+        errors
+      );
+    }
     if (kind === 'dialogue') assert(isStr(ho.dialogue), `${what}.hotspots[${i}].dialogue missing`, errors);
     if (kind === 'flavor' || kind === 'locked') assert(isStr(ho.line), `${what}.hotspots[${i}].line missing`, errors);
   });
@@ -381,17 +402,7 @@ export function validateWorld(raw: Record<string, unknown>): string[] {
 
   checkScene(raw.exterior, 'exterior', errors);
   checkScene(raw.interior, 'interior', errors);
-
-  // Door targets must point at the opposite scene (exterior <-> interior).
-  for (const [name, sc] of [['exterior', raw.exterior], ['interior', raw.interior]] as const) {
-    const other = name === 'exterior' ? 'interior' : 'exterior';
-    const hs = obj(sc).hotspots;
-    const list = Array.isArray(hs) ? hs : [];
-    list.forEach((h: unknown, i: number) => {
-      const ho = obj(h);
-      if (ho.kind === 'door') assert(ho.to === other, `${name}.hotspots[${i}] door must lead to "${other}"`, errors);
-    });
-  }
+  if (raw.upper !== undefined) checkScene(raw.upper, 'upper', errors);
 
   // people
   for (const [pid, p] of Object.entries(obj(raw.people))) {
@@ -399,12 +410,34 @@ export function validateWorld(raw: Record<string, unknown>): string[] {
     ['name', 'shortName', 'initial', 'tint'].forEach((k) => assert(isStr(po[k]), `people.${pid}.${k} missing`, errors));
   }
 
+  // career ladder: strictly increasing thresholds, unique ids/titles
+  const career = obj(raw.career);
+  assert(isStr(career.explanation), 'career.explanation missing', errors);
+  const ranks = reqArr(career.ranks, 'career.ranks', errors);
+  const rankIds = new Set<string>();
+  const rankTitles = new Set<string>();
+  let lastAfter = -1;
+  ranks.forEach((r, i) => {
+    const ro = obj(r);
+    assert(isStr(ro.id), `career.ranks[${i}].id missing`, errors);
+    if (isStr(ro.id)) assert(!rankIds.has(ro.id), `career.ranks[${i}] duplicate id "${ro.id}"`, errors), rankIds.add(String(ro.id));
+    assert(isStr(ro.title), `career.ranks[${i}].title missing`, errors);
+    if (isStr(ro.title)) {
+      assert(!rankTitles.has(ro.title), `career.ranks[${i}] duplicate title "${ro.title}"`, errors);
+      rankTitles.add(String(ro.title));
+    }
+    assert(typeof ro.after === 'number' && (ro.after as number) > lastAfter, `career.ranks[${i}].after must increase (promotion order)`, errors);
+    if (typeof ro.after === 'number') lastAfter = ro.after;
+  });
+  assert(ranks.length > 0 && (obj(ranks[0]) as Record<string, unknown>).after === 0, 'career.ranks[0] must be the starting rank (after: 0)', errors);
+
   // station graphs: flags-only conditions (no case clues) + merged locale keys
   const localeKeys = new Set(Object.keys(obj(raw.locale)));
   validateGraphs((raw.graphs ?? {}) as Record<string, DialogueGraph>, new Set<string>(), localeKeys, 'world.graphs', errors);
 
   // dialogue hotspots must point at an existing world graph
-  for (const [name, sc] of [['exterior', raw.exterior], ['interior', raw.interior]] as const) {
+  for (const [name, sc] of [['exterior', raw.exterior], ['interior', raw.interior], ['upper', raw.upper]] as const) {
+    if (!sc) continue;
     const hs = obj(sc).hotspots;
     const list = Array.isArray(hs) ? hs : [];
     list.forEach((h: unknown, i: number) => {
@@ -441,6 +474,7 @@ export function validateCaseRegistry(raw: Record<string, unknown>): string[] {
     if (typeof co.slot === 'number') slots.add(String(co.slot));
     assert(/^#[0-9a-fA-F]{6}$/.test(String(co.accent)), `cases[${i}].accent must be a hex colour`, errors);
     assert(Array.isArray(co.memo), `cases[${i}].memo must be an array`, errors);
+    if (co.rankRequired !== undefined) assert(isStr(co.rankRequired), `cases[${i}].rankRequired must be a career rank title`, errors);
   });
   assert(cases.some((c) => obj(c).status === 'available'), 'at least one case must be status "available"', errors);
   return errors;

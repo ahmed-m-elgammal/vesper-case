@@ -4,32 +4,52 @@
     <filter id="pplCpS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
   </defs>
   <rect width="800" height="600" fill="#f4ecdb"/>
+  <!-- layered washes -->
   <g filter="url(#pplCpS)">
-    <ellipse cx="140" cy="500" rx="200" ry="80" fill="#7d4a68" opacity="0.14"/>
-    <ellipse cx="660" cy="140" rx="140" ry="70" fill="#c9a25e" opacity="0.14"/>
+    <ellipse cx="140" cy="500" rx="200" ry="80" fill="#7d4a68" opacity="0.16"/>
+    <ellipse cx="660" cy="140" rx="140" ry="70" fill="#c9a25e" opacity="0.16"/>
     <ellipse cx="420" cy="300" rx="260" ry="220" fill="#7d4a68" opacity="0.10"/>
-    <rect x="90" y="360" width="240" height="200" fill="#5e4632" opacity="0.16"/>
+    <ellipse cx="230" cy="180" rx="120" ry="90" fill="#3a3f52" opacity="0.10"/>
+    <rect x="90" y="360" width="240" height="200" fill="#5e4632" opacity="0.18"/>
+    <ellipse cx="400" cy="520" rx="300" ry="120" fill="#2e2a33" opacity="0.10"/>
   </g>
   <g filter="url(#pplCpW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
     <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
     <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
   </g>
-  <!-- office backdrop: window + filing cabinet -->
+  <!-- office backdrop: rain window + filing cabinet + plant -->
   <g filter="url(#pplCpW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
-    <rect x="530" y="90" width="200" height="180" stroke-width="3.4" opacity="0.75"/>
+    <rect x="530" y="90" width="200" height="180" stroke-width="3.4" opacity="0.75" fill="#b9c2c9" fill-opacity="0.22"/>
     <path d="M630 90 V270 M530 180 H730" stroke-width="2.4" opacity="0.6"/>
     <path d="M548 108 L700 250" stroke="#f4ecdb" stroke-width="8" opacity="0.5"/>
-    <rect x="60" y="240" width="150" height="220" stroke-width="3.4" opacity="0.7"/>
+    <path d="M560 130 L608 236 M660 110 L716 226" stroke="#8fa3b0" stroke-width="2" opacity="0.45"/>
+    <rect x="60" y="240" width="150" height="220" stroke-width="3.4" opacity="0.7" fill="#5e4632" fill-opacity="0.14"/>
     <path d="M60 300 H210 M60 360 H210" stroke-width="2.4" opacity="0.6"/>
     <rect x="118" y="266" width="34" height="12" rx="3" stroke-width="2.2" opacity="0.7"/>
+    <rect x="118" y="326" width="34" height="12" rx="3" stroke-width="2.2" opacity="0.7"/>
+    <!-- plant on the cabinet -->
+    <path d="M118 240 Q104 206 122 188 M128 240 Q140 210 128 184 M124 240 Q124 214 124 196" stroke="#2c7a4b" stroke-width="2.6" opacity="0.8"/>
+    <path d="M106 240 H142 L136 260 H112 Z" stroke-width="2.6" fill="#b4552d" fill-opacity="0.4"/>
+    <!-- curtain edge -->
+    <path d="M508 84 Q520 170 508 278" stroke-width="2.6" opacity="0.5"/>
+    <path d="M508 84 Q528 60 552 84" stroke-width="2.6" opacity="0.5"/>
   </g>
   <g filter="url(#pplCpW)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <!-- shoulders: high-collar tunic -->
-    <path d="M180 588 Q196 470 292 428 Q340 410 400 410 Q460 410 508 428 Q604 470 620 588" fill="#2e3244" fill-opacity="0.88" stroke-width="4"/>
-    <!-- collar + tie -->
+    <!-- shoulders: high-collar tunic, pocket + watch chain -->
+    <path d="M180 588 Q196 470 292 428 Q340 410 400 410 Q460 410 508 428 Q604 470 620 588" fill="#2e3244" fill-opacity="0.9" stroke-width="4"/>
+    <path d="M232 470 Q228 530 240 588" stroke-width="2.4" opacity="0.5"/>
+    <path d="M560 470 Q568 530 556 588" stroke-width="2.4" opacity="0.5"/>
+    <rect x="238" y="510" width="72" height="52" rx="6" stroke-width="2.8" opacity="0.75"/>
+    <path d="M246 536 H302" stroke-width="2" opacity="0.55"/>
+    <!-- watch chain across the front -->
+    <path d="M470 470 Q500 500 492 560 Q488 580 476 588" stroke="#c9a25e" stroke-width="2.4" opacity="0.8"/>
+    <circle cx="478" cy="562" r="8" stroke="#c9a25e" stroke-width="2.6" opacity="0.9"/>
+    <!-- collar + brooch -->
     <path d="M340 424 L400 470 L460 424" stroke-width="3.4" fill="none"/>
     <path d="M400 470 L400 588" stroke-width="3" opacity="0.7"/>
     <path d="M356 440 Q400 462 444 440" stroke="#c9a25e" stroke-width="2.6" opacity="0.8"/>
+    <circle cx="400" cy="456" r="7" stroke="#c9a25e" stroke-width="2.6"/>
+    <path d="M397 453 L403 459 M403 453 L397 459" stroke="#c9a25e" stroke-width="2"/>
     <!-- captain stars -->
     <g stroke="#c9a25e" stroke-width="2.4" fill="#c9a25e" opacity="0.95">
       <path d="M318 486 l6 12 14 2 -10 9 3 13 -13 -7 -13 7 3 -13 -10 -9 14 -2 z"/>
@@ -39,23 +59,35 @@
     <path d="M368 380 V428 M432 380 V428" stroke-width="3.4"/>
     <!-- head -->
     <path d="M400 150 Q470 150 486 220 Q500 288 470 344 Q446 386 400 388 Q354 386 330 344 Q300 288 314 220 Q330 150 400 150" fill="#f4ecdb" stroke-width="4"/>
-    <!-- grey-streaked bun -->
+    <!-- shading crosshatch, right side -->
+    <g stroke-width="1.8" opacity="0.28">
+      <path d="M462 220 L448 250 M470 244 L456 276 M472 272 L458 304 M468 300 L452 330"/>
+    </g>
+    <!-- grey-streaked bun with strands -->
     <path d="M322 178 Q296 150 314 122 Q344 96 400 96 Q456 96 486 122 Q504 150 478 178 Q448 128 400 124 Q352 128 322 178" fill="#6b6472" fill-opacity="0.85" stroke-width="3.6"/>
     <path d="M482 140 Q516 132 512 164 Q508 190 484 196" fill="#6b6472" fill-opacity="0.85" stroke-width="3.4"/>
-    <!-- face: stern brows, eyes, mouth -->
-    <path d="M340 232 Q368 218 396 230" stroke-width="4"/>
-    <path d="M404 230 Q432 218 460 232" stroke-width="4"/>
+    <g stroke-width="1.8" opacity="0.5">
+      <path d="M338 132 Q366 116 398 114 M344 150 Q374 132 404 128 M452 122 Q472 132 478 152"/>
+    </g>
+    <path d="M336 176 Q328 150 340 132 M464 176 Q474 148 462 130" stroke-width="2.2" opacity="0.55"/>
+    <!-- stern brows, eyes, nose, mouth -->
+    <path d="M340 232 Q368 216 396 230" stroke-width="4"/>
+    <path d="M404 230 Q432 216 460 232" stroke-width="4"/>
     <circle cx="368" cy="252" r="4.6" fill="#2e2a33" stroke-width="2"/>
     <circle cx="432" cy="252" r="4.6" fill="#2e2a33" stroke-width="2"/>
     <path d="M354 244 Q368 240 382 244" stroke-width="2.2" opacity="0.7"/>
     <path d="M418 244 Q432 240 446 244" stroke-width="2.2" opacity="0.7"/>
+    <path d="M398 268 Q394 284 400 294 Q406 284 402 268" stroke-width="2.4" opacity="0.65"/>
+    <path d="M340 272 Q334 284 342 294 M460 272 Q466 284 458 294" stroke-width="2" opacity="0.5"/>
     <path d="M388 316 Q400 310 412 316" stroke-width="3.4"/>
-    <path d="M376 344 Q400 354 424 344" stroke-width="3"/>
+    <path d="M376 344 Q400 352 424 344" stroke-width="3"/>
+    <path d="M370 358 Q400 368 430 358" stroke-width="2" opacity="0.45"/>
     <!-- reading glasses on chain -->
     <path d="M340 262 L332 300 M460 262 L468 300" stroke-width="2" opacity="0.5"/>
     <circle cx="368" cy="254" r="20" stroke-width="2.4" opacity="0.55"/>
     <circle cx="432" cy="254" r="20" stroke-width="2.4" opacity="0.55"/>
     <path d="M388 254 H412" stroke-width="2.4" opacity="0.55"/>
+    <path d="M364 250 L372 258 M430 250 L438 258" stroke-width="1.6" opacity="0.5"/>
   </g>
   <!-- paper grain hatch -->
   <g filter="url(#pplCpW)" stroke="#6b6472" stroke-width="1.6" opacity="0.35">

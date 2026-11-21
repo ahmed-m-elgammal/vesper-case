@@ -963,3 +963,117 @@ html[data-accent='forest'] { --accent: #2c7a4b; }
 .intro-foot { text-align: right; padding-top: 0.6rem; }
 .intro-next { font-family: var(--type); font-size: 0.66rem; letter-spacing: 0.18em; opacity: 0.55; animation: intropulse 1.6s ease-in-out infinite; }
 @keyframes intropulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 0.85; } }
+
+/* ------------------------------------------------ precinct: career overlays */
+
+.narration-overlay { z-index: 50; }
+
+.career-overlay { z-index: 43; background: rgba(30, 32, 44, 0.8); }
+.career-card {
+  width: min(1060px, 94vw);
+  height: min(720px, 92vh);
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 22px 30px 20px 34px / 30px 20px 34px 22px;
+  box-shadow: 10px 14px 0 rgba(20, 21, 28, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem 1.4rem;
+}
+.career-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; border-bottom: 2px dashed rgba(46, 42, 51, 0.4); padding-bottom: 0.8rem; }
+.career-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
+  gap: 1.1rem;
+  padding-top: 1rem;
+  min-height: 0;
+  overflow-y: auto;
+}
+.career-rankpane {
+  border: 2.5px solid var(--ink);
+  border-radius: 14px 18px 12px 16px / 16px 12px 18px 14px;
+  background: var(--paper-2);
+  padding: 1.1rem 1.2rem;
+  border-top: 7px solid var(--folder-accent, var(--accent));
+  align-self: start;
+}
+.career-rank-kicker { font-family: var(--type); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--accent); }
+.career-rank-title { font-family: var(--type); font-size: 1.6rem; margin: 0.2rem 0 0.4rem; }
+.career-rank-note { font-style: italic; opacity: 0.75; line-height: 1.45; }
+.career-count { font-family: var(--hand); font-size: 1.2rem; margin-top: 0.6rem; }
+.career-nextline { font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem; }
+.career-bar { height: 12px; border: 2px solid var(--ink); border-radius: 8px; background: #e8d9b5; overflow: hidden; margin-top: 0.4rem; }
+.career-bar-fill { height: 100%; background: var(--accent); transition: width 0.5s ease; }
+.career-bar-note { font-family: var(--type); font-size: 0.62rem; letter-spacing: 0.14em; opacity: 0.6; margin-top: 0.25rem; }
+.career-rule-quote { font-style: italic; opacity: 0.72; line-height: 1.5; border-top: 2px dashed rgba(46, 42, 51, 0.3); margin-top: 0.9rem; padding-top: 0.7rem; font-size: 0.86rem; }
+
+.career-ladder-head { font-family: var(--type); font-size: 0.62rem; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 0.5rem; }
+.career-rung {
+  border: 2px solid rgba(46, 42, 51, 0.45);
+  border-radius: 10px;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.45rem;
+  opacity: 0.62;
+  background: #e8d9b5;
+}
+.career-rung.on { opacity: 1; background: var(--paper-2); border-color: var(--ink); }
+.career-rung.now { border-left: 7px solid var(--accent); box-shadow: 3px 4px 0 rgba(20, 21, 28, 0.25); }
+.career-rung-title { font-family: var(--type); font-size: 0.95rem; }
+.career-rung-after { font-family: var(--type); font-size: 0.6rem; letter-spacing: 0.12em; opacity: 0.65; }
+.career-rung-note { font-size: 0.78rem; opacity: 0.7; line-height: 1.4; margin-top: 0.15rem; }
+
+.career-history { grid-column: 1 / -1; }
+.career-folder {
+  display: flex; align-items: center; gap: 0.8rem;
+  border: 2px solid rgba(46, 42, 51, 0.45);
+  border-left: 6px solid var(--folder-accent, var(--accent));
+  border-radius: 10px;
+  background: #e8d9b5;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.4rem;
+}
+.career-folder-code { font-family: var(--type); font-size: 0.66rem; letter-spacing: 0.1em; opacity: 0.7; min-width: 76px; }
+.career-folder-main { flex: 1; }
+.career-folder-title { font-family: var(--type); font-size: 0.95rem; }
+.career-folder-detail { font-size: 0.78rem; opacity: 0.72; }
+.career-folder-status { font-family: var(--type); font-size: 0.6rem; letter-spacing: 0.12em; border: 2px solid currentColor; border-radius: 6px; padding: 0.06rem 0.4rem; transform: rotate(3deg); }
+.career-empty { font-style: italic; opacity: 0.6; }
+
+.career-story { grid-column: 1 / -1; border-top: 2px dashed rgba(46, 42, 51, 0.4); padding-top: 0.9rem; }
+.career-story-line { line-height: 1.6; margin: 0.45rem 0; opacity: 0.85; }
+
+.casefile-ranklock { border: 2px dashed rgba(46, 42, 51, 0.5); border-radius: 10px; padding: 0.7rem 0.9rem; margin: 0.7rem 0; background: rgba(138, 74, 32, 0.06); }
+.casefile-ranklock-line { font-family: var(--type); font-size: 0.7rem; letter-spacing: 0.1em; color: #8a4a20; }
+
+/* ------------------------------------------------ precinct: promotion ceremony */
+
+.promotion-overlay { z-index: 55; background: rgba(24, 25, 34, 0.88); }
+.promotion-card {
+  width: min(680px, 92vw);
+  max-height: 92vh;
+  overflow-y: auto;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 18px 26px 20px 30px / 26px 18px 30px 20px;
+  box-shadow: 10px 14px 0 rgba(20, 21, 28, 0.5);
+  padding: 1.6rem 1.8rem;
+  text-align: center;
+}
+.promotion-seal {
+  display: inline-block;
+  font-family: var(--type); font-size: 0.66rem; letter-spacing: 0.24em;
+  color: #fdf8ec; background: var(--accent);
+  border: 2px solid var(--ink);
+  border-radius: 6px 14px 8px 12px / 12px 8px 14px 6px;
+  padding: 0.3rem 0.9rem;
+  transform: rotate(-1.5deg);
+}
+.promotion-title { font-family: var(--type); font-size: 2rem; margin: 0.9rem 0 0.3rem; }
+.promotion-sub { font-family: var(--hand); font-size: 1.25rem; opacity: 0.75; line-height: 1.45; }
+.promotion-lines { text-align: left; margin: 1.1rem 0; border-top: 2px dashed rgba(46, 42, 51, 0.35); border-bottom: 2px dashed rgba(46, 42, 51, 0.35); padding: 0.9rem 0.2rem; }
+.promotion-line { line-height: 1.55; margin: 0.4rem 0; font-style: italic; opacity: 0.85; }
+.promotion-note { text-align: left; background: var(--paper-2); border: 2px solid rgba(46, 42, 51, 0.5); border-radius: 12px; padding: 0.9rem 1.1rem; margin-bottom: 1.1rem; }
+.promotion-note-head { font-family: var(--type); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 0.3rem; }
+.promotion-note-line { line-height: 1.5; margin: 0.3rem 0; }
+.endcard-count { border-top: 2px dashed rgba(46, 42, 51, 0.3); padding-top: 0.7rem; }

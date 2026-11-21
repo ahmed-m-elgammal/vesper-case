@@ -9,10 +9,18 @@ import { HubScene } from './HubScene';
 import { RoomScene } from './RoomScene';
 import { StationExtScene } from './StationExtScene';
 import { StationIntScene } from './StationIntScene';
+import { StationUpScene } from './StationUpScene';
 import { DESIGN_H, DESIGN_W, setSceneCtx, type SceneCtx, type RoomSceneData } from './SceneCtx';
 
 export class PhaserHost {
   readonly game: Phaser.Game;
+
+  /** Station level -> Phaser scene key (level names and keys must not drift). */
+  private static readonly STATION_KEY = {
+    exterior: 'station-ext',
+    interior: 'station-int',
+    upper: 'station-up',
+  } as const;
 
   constructor(parent: HTMLElement, ctx: SceneCtx) {
     setSceneCtx(ctx); // scenes read this via getSceneCtx()
@@ -33,7 +41,7 @@ export class PhaserHost {
       },
       audio: { noAudio: true },
       input: { windowEvents: false },
-      scene: [StationExtScene, StationIntScene, HubScene, RoomScene],
+      scene: [StationExtScene, StationIntScene, StationUpScene, HubScene, RoomScene],
     });
   }
 
@@ -44,32 +52,37 @@ export class PhaserHost {
     });
   }
 
-  showStation(level: 'exterior' | 'interior'): void {
+  showStation(level: 'exterior' | 'interior' | 'upper'): void {
     const s = this.game.scene;
     if (s.isActive('room')) s.stop('room');
     if (s.isActive('hub')) s.stop('hub');
-    if (level === 'exterior') {
-      if (s.isActive('station-int')) s.stop('station-int');
-      if (!s.isActive('station-ext')) s.start('station-ext');
-    } else {
-      if (s.isActive('station-ext')) s.stop('station-ext');
-      if (!s.isActive('station-int')) s.start('station-int');
+    // Level names come from world.json ('interior'...); scene keys are the
+    // short forms ('station-int'...). Map explicitly -- never concatenate.
+    // Stop the other station scenes unconditionally: at boot the street scene
+    // may still be in its loading phase, where isActive() is false but it
+    // would come up later. stop() on a non-running scene is harmless.
+    const key = PhaserHost.STATION_KEY[level];
+    for (const other of ['station-ext', 'station-int', 'station-up'] as const) {
+      if (other !== key) s.stop(other);
     }
+    if (!s.isActive(key)) s.start(key);
   }
 
   showHub(): void {
     const s = this.game.scene;
     if (s.isActive('room')) s.stop('room');
-    if (s.isActive('station-ext')) s.stop('station-ext');
-    if (s.isActive('station-int')) s.stop('station-int');
+    for (const st of ['station-ext', 'station-int', 'station-up'] as const) {
+      if (s.isActive(st)) s.stop(st);
+    }
     if (!s.isActive('hub')) s.start('hub');
   }
 
   showRoom(data: RoomSceneData): void {
     const s = this.game.scene;
     if (s.isActive('hub')) s.stop('hub');
-    if (s.isActive('station-ext')) s.stop('station-ext');
-    if (s.isActive('station-int')) s.stop('station-int');
+    for (const st of ['station-ext', 'station-int', 'station-up'] as const) {
+      if (s.isActive(st)) s.stop(st);
+    }
     s.start('room', data);
   }
 

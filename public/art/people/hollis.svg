@@ -5,55 +5,79 @@
   </defs>
   <rect width="800" height="600" fill="#f4ecdb"/>
   <g filter="url(#pplHlS)">
-    <ellipse cx="660" cy="520" rx="200" ry="80" fill="#55684a" opacity="0.16"/>
+    <ellipse cx="660" cy="520" rx="200" ry="80" fill="#55684a" opacity="0.18"/>
     <ellipse cx="180" cy="160" rx="150" ry="70" fill="#c9a25e" opacity="0.13"/>
-    <ellipse cx="400" cy="300" rx="260" ry="220" fill="#55684a" opacity="0.10"/>
-    <rect x="470" y="330" width="260" height="180" fill="#5e4632" opacity="0.14"/>
+    <ellipse cx="400" cy="300" rx="260" ry="220" fill="#55684a" opacity="0.11"/>
+    <ellipse cx="400" cy="520" rx="300" ry="120" fill="#2e2a33" opacity="0.10"/>
+    <rect x="470" y="330" width="260" height="180" fill="#5e4632" opacity="0.16"/>
   </g>
   <g filter="url(#pplHlW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
     <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
     <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
   </g>
-  <!-- desk backdrop: phone, papers, kettle steam -->
+  <!-- desk backdrop: phone, papers, kettle steam, duty chalk -->
   <g filter="url(#pplHlW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
     <path d="M470 430 H740" stroke-width="3.6" opacity="0.7"/>
-    <rect x="600" y="380" width="80" height="50" rx="10" stroke-width="3.2" opacity="0.7"/>
+    <rect x="600" y="380" width="80" height="50" rx="10" stroke-width="3.2" opacity="0.7" fill="#3a3f52" fill-opacity="0.35"/>
     <path d="M612 380 Q626 352 656 358" stroke-width="3.4" opacity="0.7"/>
-    <rect x="500" y="392" width="84" height="38" stroke-width="2.4" opacity="0.55"/>
+    <circle cx="620" cy="404" r="6" stroke-width="2.4" opacity="0.7"/>
+    <rect x="500" y="392" width="84" height="38" stroke-width="2.4" opacity="0.55" fill="#f4ecdb" fill-opacity="0.6"/>
     <path d="M512 406 H572 M512 418 H560" stroke-width="2" opacity="0.5"/>
     <g stroke-width="2.6" opacity="0.5">
       <path d="M700 350 Q690 330 704 312 Q718 296 708 278"/>
       <path d="M730 356 Q722 340 732 324"/>
     </g>
+    <!-- chalk duty strip on the wall -->
+    <path d="M64 120 H240" stroke-width="3" opacity="0.4"/>
+    <path d="M76 146 H180 M76 168 H206" stroke-width="2" opacity="0.3"/>
   </g>
   <g filter="url(#pplHlW)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <!-- shoulders: sergeant tunic -->
-    <path d="M188 588 Q206 466 300 426 Q348 408 400 408 Q452 408 500 426 Q594 466 612 588" fill="#3c4a38" fill-opacity="0.88" stroke-width="4"/>
+    <!-- shoulders: sergeant tunic with pleats + pocket -->
+    <path d="M188 588 Q206 466 300 426 Q348 408 400 408 Q452 408 500 426 Q594 466 612 588" fill="#3c4a38" fill-opacity="0.9" stroke-width="4"/>
+    <path d="M288 448 Q278 520 288 588 M512 448 Q522 520 512 588" stroke-width="2.4" opacity="0.5"/>
+    <rect x="330" y="516" width="66" height="46" rx="6" stroke-width="2.6" opacity="0.7"/>
+    <path d="M338 540 H388" stroke-width="2" opacity="0.5"/>
+    <path d="M446 500 L440 588" stroke-width="2.4" opacity="0.6"/>
     <!-- collar + tie -->
     <path d="M344 422 L400 468 L456 422" stroke-width="3.4"/>
     <path d="M400 468 L400 588" stroke-width="3" opacity="0.7"/>
+    <path d="M392 490 L408 490" stroke-width="2" opacity="0.5"/>
     <!-- sergeant stripes -->
     <g stroke="#c9a25e" stroke-width="3" opacity="0.95">
       <path d="M246 470 L296 452 M250 490 L300 472 M254 510 L304 492"/>
       <path d="M554 470 L504 452 M550 490 L500 472 M546 510 L496 492"/>
     </g>
+    <!-- whistle chain -->
+    <path d="M352 470 Q370 500 392 560" stroke="#c9a25e" stroke-width="2" opacity="0.55"/>
     <!-- neck -->
     <path d="M368 378 V426 M432 378 V426" stroke-width="3.4"/>
     <!-- head -->
     <path d="M400 152 Q466 152 482 220 Q496 288 468 342 Q444 384 400 386 Q356 384 332 342 Q304 288 318 220 Q334 152 400 152" fill="#f4ecdb" stroke-width="4"/>
-    <!-- flat cap -->
+    <!-- shading crosshatch, left side -->
+    <g stroke-width="1.8" opacity="0.26">
+      <path d="M338 224 L352 254 M330 248 L344 280 M328 276 L342 308 M332 304 L348 334"/>
+    </g>
+    <!-- flat cap with badge -->
     <path d="M318 176 Q330 118 400 108 Q470 118 482 176 Q400 148 318 176" fill="#2e3244" fill-opacity="0.9" stroke-width="3.8"/>
     <path d="M300 180 Q400 132 500 180 Q472 196 400 190 Q328 196 300 180" fill="#2e3244" fill-opacity="0.9" stroke-width="3.6"/>
-    <!-- kind eyes + bushy mustache -->
+    <circle cx="400" cy="132" r="12" stroke="#c9a25e" stroke-width="2.6" fill="#c9a25e" fill-opacity="0.4"/>
+    <path d="M394 128 L406 136 M406 128 L394 136" stroke="#c9a25e" stroke-width="2"/>
+    <path d="M338 140 Q368 122 400 120 M462 142 Q436 124 408 120" stroke-width="1.8" opacity="0.4"/>
+    <!-- kind eyes + craggy cheeks -->
     <path d="M344 238 Q366 228 390 236" stroke-width="3.6"/>
     <path d="M410 236 Q434 228 456 238" stroke-width="3.6"/>
     <circle cx="366" cy="252" r="4.4" fill="#2e2a33" stroke-width="2"/>
     <circle cx="434" cy="252" r="4.4" fill="#2e2a33" stroke-width="2"/>
     <path d="M352 240 Q366 236 380 240" stroke-width="2" opacity="0.7"/>
     <path d="M420 240 Q434 236 448 240" stroke-width="2" opacity="0.7"/>
+    <path d="M396 266 Q392 282 398 292 Q404 284 400 266" stroke-width="2.2" opacity="0.6"/>
+    <path d="M336 272 Q328 284 336 296 M464 272 Q472 284 464 296" stroke-width="2.2" opacity="0.55"/>
+    <path d="M342 296 Q350 304 342 312 M458 296 Q450 304 458 312" stroke-width="2" opacity="0.4"/>
     <!-- the mustache -->
     <path d="M356 300 Q400 286 444 300 Q448 312 436 318 Q400 306 364 318 Q352 312 356 300" fill="#6b6472" fill-opacity="0.9" stroke-width="3"/>
+    <path d="M368 302 Q388 294 408 302 M396 306 Q414 300 430 306" stroke-width="1.8" opacity="0.5"/>
     <path d="M376 330 Q400 338 424 330" stroke-width="3"/>
+    <path d="M380 344 Q400 350 420 344" stroke-width="2" opacity="0.45"/>
     <!-- smile crinkles -->
     <path d="M336 272 Q330 282 336 292 M464 272 Q470 282 464 292" stroke-width="2" opacity="0.6"/>
   </g>

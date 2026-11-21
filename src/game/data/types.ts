@@ -248,9 +248,14 @@ export interface WorldPerson {
   initial: string;
   tint: string;
   portrait?: string;
+  /** One-line role shown under the name when talking in the precinct. */
+  role?: string;
 }
 
-export type StationHotspotKind = 'door' | 'files' | 'dialogue' | 'flavor' | 'locked';
+/** The three walkable precinct levels, in visiting order. */
+export type StationLevel = 'exterior' | 'interior' | 'upper';
+
+export type StationHotspotKind = 'door' | 'files' | 'dialogue' | 'flavor' | 'locked' | 'career';
 
 export interface StationHotspot {
   id: string;
@@ -259,7 +264,7 @@ export interface StationHotspot {
   label: string;
   kind: StationHotspotKind;
   /** door: which station level to enter. */
-  to?: 'exterior' | 'interior';
+  to?: StationLevel;
   /** dialogue: graph id in world.graphs. */
   dialogue?: string;
   /** flavor/locked: toast line. */
@@ -271,6 +276,30 @@ export interface StationSceneData {
   title: string;
   ambientCaption: string;
   hotspots: StationHotspot[];
+  /** Narration shown once, the first time the player enters this level. */
+  firstEntry?: { flag: string; lines: string[] };
+}
+
+/* ------------------------------------------------------------------ */
+/* Career ladder -- data-driven ranks (promotion every N closed cases)  */
+/* ------------------------------------------------------------------ */
+
+export interface CareerRank {
+  id: string;
+  /** Display title, e.g. "Detective Grade II". Also matched by cases.json rankRequired. */
+  title: string;
+  /** Cases that must be closed before this rank is granted. */
+  after: number;
+  /** What the new rank makes available (shown on the service record). */
+  note?: string;
+}
+
+export interface CareerSection {
+  /** The in-fiction rule, in the precinct's own voice. */
+  explanation: string;
+  /** Framing lines for the promotion ceremony card. */
+  ceremony?: string[];
+  ranks: CareerRank[];
 }
 
 export interface DetectiveLore {
@@ -288,7 +317,11 @@ export interface WorldContent {
   intro: { when: 'first-station-entry'; lines: string[] };
   exterior: StationSceneData;
   interior: StationSceneData;
+  /** The floor above the bullpen: canteen + archive (optional until authored). */
+  upper?: StationSceneData;
   people: Record<string, WorldPerson>;
+  /** Career ladder: promotion every N closed cases, read by desk + ceremonies. */
+  career: CareerSection;
   /** Station staff conversation graphs (same shape as case graphs). */
   graphs: Record<string, import('../dialogue/types').DialogueGraph>;
 }
@@ -308,6 +341,7 @@ export interface CaseFileMeta {
   pitch: string;
   memo: string[];
   firstCase?: boolean;
+  /** Career title this folder unlocks at (matched against career ranks). */
   rankRequired?: string;
 }
 
@@ -359,7 +393,7 @@ export interface GameState {
   /** 'station' = precinct world (case selection); the rest live inside a case. */
   phase: 'station' | 'prologue' | 'hub' | 'room';
   /** Which precinct view is showing while phase === 'station'. */
-  stationLevel: 'exterior' | 'interior';
+  stationLevel: StationLevel;
   /** Precinct intro card has been shown (once, ever). */
   introSeen: boolean;
   /** The folder being worked, or null when no case is taken yet. */
@@ -370,6 +404,8 @@ export interface GameState {
   cases: Record<string, CaseProgress>;
   /** World-scope progression: precinct NPC memory (talked:* etc.), case-independent. */
   station: { flags: Record<string, boolean>; vars: Record<string, number> };
+  /** Career progression: ranks acknowledged + one pending ceremony, if any. */
+  career: { promotionsSeen: string[]; pending: string | null };
   settings: Settings;
   updatedAt: number;
 }
@@ -384,6 +420,7 @@ export function freshState(): GameState {
     roomId: null,
     cases: {},
     station: { flags: {}, vars: {} },
+    career: { promotionsSeen: [], pending: null },
     settings: { textSize: 1, highlights: true, accent: 'rust', subtitles: true },
     updatedAt: 0,
   };
@@ -405,8 +442,9 @@ interface LegacyState {
   station?: { flags?: Record<string, boolean>; vars?: Record<string, number> };
   cases?: Record<string, CaseProgress>;
   activeCaseId?: string | null;
-  stationLevel?: 'exterior' | 'interior';
+  stationLevel?: StationLevel;
   introSeen?: boolean;
+  career?: { promotionsSeen?: string[]; pending?: string | null };
 }
 
 /**
@@ -451,9 +489,14 @@ export function migrateState(loaded: Partial<GameState> | null | undefined): Gam
     }
   }
 
-  state.stationLevel = state.stationLevel === 'interior' ? 'interior' : 'exterior';
+  state.stationLevel = ['exterior', 'interior', 'upper'].includes(state.stationLevel) ? state.stationLevel : 'exterior';
   state.cases = state.cases ?? {};
   state.station = { flags: { ...(old.station?.flags ?? {}) }, vars: { ...(old.station?.vars ?? {}) } };
+  // Career block is additive: keep whatever a v3 save carried, else start clean.
+  state.career = {
+    promotionsSeen: Array.isArray(old.career?.promotionsSeen) ? old.career.promotionsSeen : [],
+    pending: typeof old.career?.pending === 'string' ? old.career.pending : null,
+  };
   if (state.activeCaseId && !state.cases[state.activeCaseId]) {
     state.cases[state.activeCaseId] = freshCaseProgress();
   }

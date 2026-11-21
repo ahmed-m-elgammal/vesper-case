@@ -29,6 +29,9 @@ import { ToastView } from './overlays/ToastView';
 import { TransitionView } from './overlays/TransitionView';
 import { EndCardView } from './overlays/EndCardView';
 import { CaseFilesView } from './overlays/CaseFilesView';
+import { CareerView } from './overlays/CareerView';
+import { PromotionCard } from './overlays/PromotionCard';
+import { NarrationCard } from './overlays/NarrationCard';
 import { StationIntroCard } from './overlays/StationIntroCard';
 import type { NotebookTab } from '../viewmodels/NotebookVM';
 
@@ -53,7 +56,10 @@ export class GameRoot {
   private wipe!: TransitionView;
   private endcard!: EndCardView;
   private caseFiles!: CaseFilesView;
+  private careerView!: CareerView;
   private introCard: StationIntroCard | null = null;
+  private narrationCard: NarrationCard | null = null;
+  private promoCard: PromotionCard | null = null;
   private startView: StartView | null = null;
   private unsubs: Array<() => void> = [];
   private destroyed = false;
@@ -138,11 +144,14 @@ export class GameRoot {
     this.toasts = new ToastView(this.vm);
     this.wipe = new TransitionView();
     this.endcard = new EndCardView(this.vm, () => {
-      this.vm.gotoHub();
+      // The closed case goes back to its captain: the precinct reacts, the
+      // count ticks, and a promotion ceremony waits if one is due.
+      this.vm.gotoStation();
     });
     this.caseFiles = new CaseFilesView(this.vm, {
       onTakeCase: (id) => void this.vm.selectCase(id),
     });
+    this.careerView = new CareerView(this.vm);
 
     const layer = this.stage.querySelector('.overlay-layer') as HTMLElement;
     layer.append(
@@ -152,6 +161,7 @@ export class GameRoot {
       this.gate.node,
       this.menu.node,
       this.caseFiles.node,
+      this.careerView.node,
       hintView.node,
       this.endcard.node,
       this.wipe.node
@@ -170,6 +180,8 @@ export class GameRoot {
         openGate: (gateId) => this.gate.open(gateId),
         openDialogue: (speakerId) => this.dvm.openGraph(speakerId),
         openCaseFiles: () => this.caseFiles.open(),
+        openCareer: () => this.careerView.open(),
+        narrate: (payload) => this.playNarration(payload),
         toast: (text, kind) => this.vm.toast(text, kind),
         wipe: (mid) => this.wipe.play(mid),
       },
@@ -225,6 +237,7 @@ export class GameRoot {
         if (id) this.vm.markGateOffered(id);
         this.gate.close();
       } else if (this.caseFiles.isOpen) this.caseFiles.close();
+      else if (this.careerView.isOpen) this.careerView.close();
     };
     window.addEventListener('keydown', onKey);
     this.unsubs.push(() => window.removeEventListener('keydown', onKey));
@@ -291,6 +304,29 @@ export class GameRoot {
     this.stage.append(this.introCard.node);
   }
 
+  /** Once-only level narration (data from world.json scenes' firstEntry). */
+  private playNarration(payload: { flag: string; lines: string[] }): void {
+    if (this.narrationCard) return;
+    this.narrationCard = new NarrationCard('Old Town Precinct', payload.lines, () => {
+      this.narrationCard = null;
+      this.vm.setWorldFlag(payload.flag);
+    });
+    this.stage.append(this.narrationCard.node);
+  }
+
+  /** The commendation ceremony, if a promotion is waiting when the player returns. */
+  private maybeShowPromotion(): void {
+    const pending = this.vm.pendingPromotion();
+    if (!pending || this.promoCard) return;
+    const rank = this.vm.careerRanks.find((r) => r.id === pending);
+    if (!rank) return;
+    this.promoCard = new PromotionCard(this.vm, rank, () => {
+      this.promoCard = null;
+      this.vm.acknowledgePromotion();
+    });
+    this.stage.append(this.promoCard.node);
+  }
+
   private async routeAfterImport(phase: string | undefined): Promise<void> {
     const state = this.vm.state;
     if (state.activeCaseId && this.vm.repo.caseId !== state.activeCaseId) {
@@ -315,6 +351,7 @@ export class GameRoot {
         this.hud.attachRoom(null);
         this.phaser.showStation(this.vm.state.stationLevel);
         this.maybeShowIntro();
+        this.maybeShowPromotion();
         break;
       }
       case 'prologue': {
@@ -322,9 +359,18 @@ export class GameRoot {
           this.introCard.node.remove();
           this.introCard = null;
         }
+        if (this.narrationCard) {
+          this.narrationCard.node.remove();
+          this.narrationCard = null;
+        }
+        if (this.promoCard) {
+          this.promoCard.node.remove();
+          this.promoCard = null;
+        }
         this.hud.node.classList.add('hidden');
         this.phaser.game.scene.stop('station-ext');
         this.phaser.game.scene.stop('station-int');
+        this.phaser.game.scene.stop('station-up');
         this.phaser.game.scene.stop('hub');
         this.phaser.game.scene.stop('room');
         this.ensurePrologue();
@@ -335,6 +381,10 @@ export class GameRoot {
         if (this.introCard) {
           this.introCard.node.remove();
           this.introCard = null;
+        }
+        if (this.narrationCard) {
+          this.narrationCard.node.remove();
+          this.narrationCard = null;
         }
         this.hud.node.classList.remove('hidden');
         this.roomVM = null;
@@ -370,6 +420,8 @@ export class GameRoot {
         openGate: (gateId) => this.gate.open(gateId),
         openDialogue: (speakerId) => this.dvm.openGraph(speakerId),
         openCaseFiles: () => this.caseFiles.open(),
+        openCareer: () => this.careerView.open(),
+        narrate: (payload) => this.playNarration(payload),
         toast: (text, kind) => this.vm.toast(text, kind),
         wipe: (mid) => this.wipe.play(mid),
       },

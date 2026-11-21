@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="pplCyW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="83" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="pplCyS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#pplCyS)">
+    <ellipse cx="150" cy="490" rx="190" ry="80" fill="#6e6a3f" opacity="0.16"/>
+    <ellipse cx="650" cy="150" rx="150" ry="80" fill="#c9a25e" opacity="0.14"/>
+    <ellipse cx="400" cy="290" rx="260" ry="220" fill="#6e6a3f" opacity="0.10"/>
+    <ellipse cx="400" cy="520" rx="300" ry="120" fill="#2e2a33" opacity="0.10"/>
+    <rect x="500" y="360" width="240" height="160" fill="#5e4632" opacity="0.15"/>
+  </g>
+  <g filter="url(#pplCyW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+  <!-- backdrop: canteen table, sandwich plate, kettle in the distance -->
+  <g filter="url(#pplCyW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M500 470 H740" stroke-width="3.6" opacity="0.75"/>
+    <ellipse cx="610" cy="452" rx="52" ry="14" stroke-width="2.8" fill="#f4ecdb" fill-opacity="0.8"/>
+    <path d="M578 444 Q596 428 612 440 Q630 430 644 444" stroke-width="2.6" fill="#c9a25e" fill-opacity="0.4"/>
+    <path d="M700 430 H726 V458 H700 Z" stroke-width="2.6" fill="#e8b24a" fill-opacity="0.35"/>
+    <path d="M704 430 H722" stroke-width="2" opacity="0.6"/>
+    <!-- kettle, far -->
+    <path d="M92 380 H150" stroke-width="3" opacity="0.55"/>
+    <path d="M106 380 Q120 356 140 380 L136 398 Q122 406 110 398 Z" stroke-width="2.6" fill="#e8b24a" fill-opacity="0.55"/>
+    <path d="M140 366 Q152 368 148 384" stroke-width="2.4" opacity="0.7"/>
+    <g stroke-width="2" opacity="0.4">
+      <path d="M118 348 Q112 336 120 326 M132 350 Q128 340 134 330"/>
+    </g>
+    <!-- clipboard leaning -->
+    <path d="M680 380 L716 374 L720 452 L684 458 Z" stroke-width="2.8" fill="#f4ecdb" fill-opacity="0.85"/>
+    <path d="M692 398 H706 M690 414 H712 M692 430 H708" stroke-width="1.8" opacity="0.5"/>
+  </g>
+  <g filter="url(#pplCyW)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- shoulders: shirt + waistcoat -->
+    <path d="M192 588 Q210 474 300 434 Q348 414 400 414 Q452 414 500 434 Q590 474 608 588" fill="#4a4632" fill-opacity="0.9" stroke-width="4"/>
+    <!-- rolled sleeves -->
+    <path d="M226 490 Q216 530 224 574 M574 490 Q584 530 576 574" stroke-width="2.6" opacity="0.5"/>
+    <path d="M214 504 Q232 498 244 508 M556 504 Q568 498 586 508" stroke-width="2.4" opacity="0.55"/>
+    <!-- waistcoat opening + buttons -->
+    <path d="M352 432 L400 478 L448 432" stroke-width="3.2"/>
+    <path d="M376 470 Q366 520 378 588 M424 470 Q434 520 422 588" stroke-width="2.4" opacity="0.6"/>
+    <g stroke-width="2.4" fill="#2e2a33" fill-opacity="0.8">
+      <circle cx="400" cy="500" r="5"/>
+      <circle cx="400" cy="536" r="5"/>
+      <circle cx="400" cy="570" r="5"/>
+    </g>
+    <!-- pocket watch chain -->
+    <path d="M420 508 Q452 522 458 560 Q460 578 452 588" stroke="#c9a25e" stroke-width="2.4" opacity="0.9"/>
+    <circle cx="454" cy="566" r="8" stroke="#c9a25e" stroke-width="2.6" fill="#c9a25e" fill-opacity="0.4"/>
+    <!-- neck, thick -->
+    <path d="M372 380 V428 M428 380 V428" stroke-width="3.4"/>
+    <!-- head: heavy, balding -->
+    <path d="M400 148 Q470 148 486 218 Q500 288 470 342 Q446 386 400 388 Q354 386 330 342 Q300 288 314 218 Q330 148 400 148" fill="#f4ecdb" stroke-width="4"/>
+    <!-- tonsure of grey hair -->
+    <path d="M318 220 Q314 178 340 152 Q322 196 330 236 Q322 232 318 220" fill="#6b6472" fill-opacity="0.85" stroke-width="3"/>
+    <path d="M482 220 Q486 178 460 152 Q478 196 470 236 Q478 232 482 220" fill="#6b6472" fill-opacity="0.85" stroke-width="3"/>
+    <path d="M326 210 Q320 260 334 300 M474 210 Q480 260 466 300" stroke-width="2.4" opacity="0.6"/>
+    <!-- bald shine -->
+    <path d="M366 170 Q400 158 434 170" stroke-width="2.4" opacity="0.5"/>
+    <path d="M380 162 Q400 156 420 162" stroke-width="1.8" opacity="0.4"/>
+    <!-- shading -->
+    <g stroke-width="1.8" opacity="0.26">
+      <path d="M458 220 L446 252 M466 248 L454 280 M464 276 L452 308 M460 304 L448 332"/>
+    </g>
+    <!-- heavy brows, wry eyes -->
+    <path d="M342 234 Q366 226 390 234" stroke-width="4"/>
+    <path d="M410 234 Q434 226 458 234" stroke-width="4"/>
+    <circle cx="366" cy="252" r="4.6" fill="#2e2a33" stroke-width="2"/>
+    <circle cx="434" cy="252" r="4.6" fill="#2e2a33" stroke-width="2"/>
+    <path d="M354 242 Q366 238 380 242" stroke-width="2" opacity="0.6"/>
+    <path d="M420 242 Q434 238 446 242" stroke-width="2" opacity="0.6"/>
+    <path d="M394 266 Q390 284 398 296 Q406 288 402 266" stroke-width="2.6" opacity="0.65"/>
+    <!-- wry, half-smile -->
+    <path d="M366 322 Q400 330 434 318" stroke-width="3.2"/>
+    <path d="M374 336 Q400 344 428 336" stroke-width="2.4" opacity="0.7"/>
+    <path d="M430 332 Q442 330 448 324" stroke-width="2" opacity="0.5"/>
+    <path d="M338 280 Q332 292 340 304 M462 280 Q468 292 460 304" stroke-width="2.2" opacity="0.5"/>
+    <!-- jowls hint -->
+    <path d="M356 348 Q368 356 380 352 M444 348 Q432 356 420 352" stroke-width="2" opacity="0.4"/>
+  </g>
+  <!-- the sandwich, mid-air by his chest -->
+  <g filter="url(#pplCyW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M300 520 L360 508 L366 540 L306 552 Z" stroke-width="3.4" fill="#c9a25e" fill-opacity="0.55"/>
+    <path d="M306 530 L358 520" stroke-width="2.4" opacity="0.7"/>
+    <path d="M310 536 L354 528" stroke-width="2.2" stroke="#2c7a4b" opacity="0.6"/>
+    <path d="M300 520 Q290 514 282 524" stroke-width="3" opacity="0.8"/>
+  </g>
+  <g filter="url(#pplCyW)" stroke="#6b6472" stroke-width="1.6" opacity="0.35">
+    <path d="M232 490 Q262 480 288 494 M544 494 Q574 482 598 496"/>
+  </g>
+</svg>

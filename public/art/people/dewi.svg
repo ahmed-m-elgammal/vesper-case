@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="pplDwW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="67" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="pplDwS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#pplDwS)">
+    <ellipse cx="150" cy="470" rx="190" ry="80" fill="#3f6e8e" opacity="0.15"/>
+    <ellipse cx="640" cy="150" rx="150" ry="80" fill="#c9a25e" opacity="0.15"/>
+    <ellipse cx="400" cy="290" rx="260" ry="220" fill="#3f6e8e" opacity="0.10"/>
+    <ellipse cx="400" cy="520" rx="300" ry="120" fill="#2e2a33" opacity="0.09"/>
+    <rect x="480" y="300" width="250" height="220" fill="#5e4632" opacity="0.13"/>
+  </g>
+  <g filter="url(#pplDwW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+  <!-- backdrop: sill with pigeons + biscuit tin shelf -->
+  <g filter="url(#pplDwW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <rect x="520" y="240" width="210" height="150" stroke-width="3.2" opacity="0.7" fill="#b9c2c9" fill-opacity="0.22"/>
+    <path d="M625 240 V390 M520 315 H730" stroke-width="2.2" opacity="0.55"/>
+    <path d="M540 430 H720" stroke-width="3.6" opacity="0.7"/>
+    <!-- pigeon one -->
+    <path d="M556 420 Q552 402 566 396 Q580 390 588 400 Q600 394 604 404 Q612 406 608 414 Q610 424 596 426 L588 432 L584 424 Q566 428 556 420" stroke-width="2.8" fill="#8a8f98" fill-opacity="0.5"/>
+    <circle cx="604" cy="402" r="3" fill="#2e2a33" stroke-width="1.6"/>
+    <path d="M608 404 L616 406" stroke-width="2"/>
+    <!-- pigeon two, pecking -->
+    <path d="M660 424 Q656 410 668 404 Q680 398 690 408 Q700 416 694 424 Q696 430 684 432 L676 436 L674 428 Q664 430 660 424" stroke-width="2.8" fill="#8a8f98" fill-opacity="0.5"/>
+    <path d="M688 408 L696 400" stroke-width="2.4"/>
+    <!-- biscuit tin on a shelf -->
+    <path d="M100 200 H250 M100 200 V230 M250 200 V230" stroke-width="2.6" opacity="0.6"/>
+    <rect x="130" y="164" width="76" height="36" rx="4" stroke-width="2.8" fill="#e8b24a" fill-opacity="0.4"/>
+    <path d="M146 182 H190" stroke-width="2" opacity="0.6"/>
+    <!-- steam wisp -->
+    <path d="M690 470 Q680 450 694 434" stroke-width="2.2" opacity="0.45"/>
+  </g>
+  <g filter="url(#pplDwW)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- shoulders: constable double-breasted tunic -->
+    <path d="M196 588 Q214 478 302 434 Q348 414 400 414 Q452 414 498 434 Q586 478 604 588" fill="#34506b" fill-opacity="0.9" stroke-width="4"/>
+    <path d="M296 456 Q286 520 296 588 M504 456 Q514 520 504 588" stroke-width="2.2" opacity="0.45"/>
+    <!-- satchel strap -->
+    <path d="M238 470 L520 588 L560 588 L268 458" stroke-width="6" fill="#5e4632" fill-opacity="0.45"/>
+    <path d="M238 470 L520 588" stroke-width="2.4" opacity="0.5"/>
+    <!-- brass buttons, two columns -->
+    <g stroke="#c9a25e" stroke-width="2.4" fill="#c9a25e" fill-opacity="0.85">
+      <circle cx="342" cy="492" r="6"/>
+      <circle cx="342" cy="528" r="6"/>
+      <circle cx="342" cy="562" r="6"/>
+      <circle cx="458" cy="492" r="6"/>
+      <circle cx="458" cy="528" r="6"/>
+      <circle cx="458" cy="562" r="6"/>
+    </g>
+    <!-- collar + tie -->
+    <path d="M348 428 L400 470 L452 428" stroke-width="3.2"/>
+    <path d="M400 470 L400 588" stroke-width="3" opacity="0.7"/>
+    <path d="M390 486 H410" stroke-width="2" opacity="0.5"/>
+    <!-- constable epaulette -->
+    <path d="M240 452 Q268 438 296 446" stroke-width="2.6" opacity="0.7"/>
+    <path d="M560 452 Q532 438 504 446" stroke-width="2.6" opacity="0.7"/>
+    <!-- neck -->
+    <path d="M372 382 V430 M428 382 V430" stroke-width="3.2"/>
+    <!-- head: young, round -->
+    <path d="M400 158 Q462 158 476 222 Q488 284 462 338 Q440 380 400 382 Q360 380 338 338 Q312 284 324 222 Q338 158 400 158" fill="#f4ecdb" stroke-width="4"/>
+    <!-- messy hair with a cowlick -->
+    <path d="M326 190 Q318 140 366 118 Q400 104 434 118 Q482 140 474 190 Q468 158 428 148 Q400 142 372 148 Q332 158 326 190" fill="#4a3a2a" fill-opacity="0.9" stroke-width="3.4"/>
+    <path d="M382 112 Q378 92 396 84 Q414 92 408 108" fill="#4a3a2a" fill-opacity="0.9" stroke-width="2.8"/>
+    <g stroke-width="1.8" opacity="0.5">
+      <path d="M340 160 Q366 146 396 144 M408 142 Q440 148 460 166"/>
+    </g>
+    <!-- big eager eyes + brows up -->
+    <path d="M348 234 Q368 224 390 232" stroke-width="3.4"/>
+    <path d="M410 232 Q432 224 452 234" stroke-width="3.4"/>
+    <circle cx="368" cy="252" r="5.4" fill="#2e2a33" stroke-width="2"/>
+    <circle cx="432" cy="252" r="5.4" fill="#2e2a33" stroke-width="2"/>
+    <circle cx="370" cy="250" r="1.8" fill="#f4ecdb" stroke="none"/>
+    <circle cx="434" cy="250" r="1.8" fill="#f4ecdb" stroke="none"/>
+    <path d="M396 268 Q392 284 398 292 Q404 284 400 268" stroke-width="2.2" opacity="0.6"/>
+    <!-- enormous grin -->
+    <path d="M366 318 Q400 344 434 318 Q428 336 400 340 Q372 336 366 318" fill="#f4ecdb" stroke-width="3.2"/>
+    <path d="M374 320 Q400 336 426 320" stroke-width="2" opacity="0.6"/>
+    <path d="M352 300 Q344 312 354 322 M448 300 Q456 312 446 322" stroke-width="2" opacity="0.5"/>
+  </g>
+  <!-- grain -->
+  <g filter="url(#pplDwW)" stroke="#6b6472" stroke-width="1.6" opacity="0.35">
+    <path d="M220 480 Q250 470 276 484 M536 486 Q566 474 590 488"/>
+  </g>
+</svg>

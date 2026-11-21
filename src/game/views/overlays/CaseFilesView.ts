@@ -37,11 +37,15 @@ export class CaseFilesView {
     const card = el('div', { class: 'casefiles-card' });
     const head = el('div', { class: 'casefiles-head' });
     const det = vm.world.world.detective;
+    const rank = vm.currentRank();
     head.append(
       el('div', { class: 'casefiles-title-block' }, [
         el('div', { class: 'casefiles-kicker', text: `${det.station.toUpperCase()} -- DESK ${det.desk}` }),
         el('div', { class: 'casefiles-title', text: 'The case files' }),
-        el('div', { class: 'casefiles-detective', text: `${det.name} -- ${det.rank}, badge ${det.badge}` }),
+        el('div', {
+          class: 'casefiles-detective',
+          text: `${det.name} -- ${rank?.title ?? det.rank}, badge ${det.badge} -- ${vm.solvedCount()} closed`,
+        }),
       ]),
       el('button', { class: 'btn btn-quiet', text: 'Back to the bullpen', onclick: () => this.close() })
     );
@@ -130,6 +134,21 @@ export class CaseFilesView {
       ]),
       el('div', { class: 'casefile-note', text: STAMP_NOTE[status] })
     );
+
+    if (status === 'offline' && c.rankRequired) {
+      // Rank-locked folder: show the live progress toward the grade (pure data).
+      const target = this.vm.careerRanks.find((r) => r.title === c.rankRequired);
+      if (target) {
+        const solved = this.vm.solvedCount();
+        const pct = Math.min(100, Math.round((solved / target.after) * 100));
+        pane.append(
+          el('div', { class: 'casefile-ranklock' }, [
+            el('div', { class: 'casefile-ranklock-line', text: `Sealed until ${target.title} -- ${solved} / ${target.after} cases closed` }),
+            el('div', { class: 'career-bar casefile-ranklock-bar' }, [el('div', { class: 'career-bar-fill', style: `width:${pct}%` })]),
+          ])
+        );
+      }
+    }
 
     if (c.status === 'available') {
       const label =

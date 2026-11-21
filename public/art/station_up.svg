@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <filter id="upWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="37" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="upSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="upSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="11"/>
+    </filter>
+    <pattern id="upFloor" width="120" height="70" patternUnits="userSpaceOnUse">
+      <path d="M0 1 H120 M0 36 H120" stroke="#6b5233" stroke-width="2.4" opacity="0.35" fill="none"/>
+      <path d="M34 1 V36 M86 1 V36 M12 36 V70 M62 36 V70 M108 36 V70" stroke="#6b5233" stroke-width="2.4" opacity="0.35" fill="none"/>
+    </pattern>
+    <pattern id="upBrick" width="86" height="40" patternUnits="userSpaceOnUse">
+      <path d="M0 1 H86 M0 20 H86 M0 39 H86" stroke="#8a5a3c" stroke-width="1.6" opacity="0.22" fill="none"/>
+      <path d="M24 1 V20 M64 20 V39" stroke="#8a5a3c" stroke-width="1.6" opacity="0.22" fill="none"/>
+    </pattern>
+  </defs>
+
+  <!-- paper base -->
+  <rect width="1920" height="1080" fill="#f4ecdb"/>
+
+  <!-- warm upper-floor washes -->
+  <g filter="url(#upSoft)">
+    <ellipse cx="500" cy="240" rx="560" ry="200" fill="#c9a25e" opacity="0.26"/>
+    <ellipse cx="1460" cy="260" rx="420" ry="220" fill="#9aa88f" opacity="0.16"/>
+    <ellipse cx="480" cy="760" rx="480" ry="220" fill="#c9a25e" opacity="0.14"/>
+    <ellipse cx="1400" cy="820" rx="500" ry="220" fill="#6b5233" opacity="0.16"/>
+    <ellipse cx="900" cy="420" rx="360" ry="260" fill="#3a3f52" opacity="0.10"/>
+  </g>
+
+  <!-- back wall brick + floor -->
+  <g filter="url(#upWobble)">
+    <rect x="30" y="110" width="1860" height="600" fill="#e3d3b3" opacity="0.5"/>
+    <rect x="30" y="110" width="1860" height="600" fill="url(#upBrick)"/>
+    <rect x="0" y="700" width="1920" height="380" fill="url(#upFloor)"/>
+    <path d="M-10 704 Q480 690 960 700 T1930 694" stroke="#6b5233" stroke-width="4" fill="none" opacity="0.7"/>
+  </g>
+
+  <!-- ceiling + hanging lamps -->
+  <g filter="url(#upWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M-10 92 Q480 44 960 84 T1930 66" stroke-width="4"/>
+    <path d="M480 78 V208 M1280 72 V196" stroke-width="3"/>
+    <path d="M438 208 H522 L506 248 H454 Z" fill="#e8b24a" fill-opacity="0.8" stroke-width="4"/>
+    <path d="M1238 196 H1322 L1306 236 H1254 Z" fill="#e8b24a" fill-opacity="0.8" stroke-width="4"/>
+  </g>
+
+  <!-- rain window (canteen end) -->
+  <g filter="url(#upWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="206" y="196" width="320" height="270" stroke-width="4" fill="#b9c2c9" fill-opacity="0.35"/>
+    <path d="M366 196 V466 M206 336 H526" stroke-width="2.6" opacity="0.7"/>
+    <rect x="180" y="176" width="372" height="16" stroke-width="3.4" fill="#e3d3b3"/>
+    <path d="M240 240 L290 420 M330 210 L390 440 M450 250 L482 400" stroke="#8fa3b0" stroke-width="2.4" opacity="0.5"/>
+    <path d="M226 470 Q366 452 506 470" stroke-width="3.4"/>
+  </g>
+
+  <!-- canteen notice board -->
+  <g filter="url(#upWobble)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <rect x="548" y="142" width="288" height="206" stroke-width="4" fill="#a4713e" fill-opacity="0.4"/>
+    <rect x="566" y="160" width="112" height="78" stroke-width="2.6" fill="#f4ecdb" fill-opacity="0.85"/>
+    <rect x="700" y="160" width="112" height="78" stroke-width="2.6" fill="#f4ecdb" fill-opacity="0.85"/>
+    <rect x="600" y="258" width="150" height="66" stroke-width="2.6" fill="#f4ecdb" fill-opacity="0.85"/>
+    <path d="M594 178 H646 M594 194 H660 M594 210 H634" stroke-width="2" opacity="0.6"/>
+    <path d="M716 178 H768 M716 194 H782" stroke-width="2" opacity="0.6"/>
+    <circle cx="586" cy="166" r="5" fill="#b4552d" stroke-width="2"/>
+    <circle cx="718" cy="166" r="5" fill="#2c7a4b" stroke-width="2"/>
+    <circle cx="620" cy="264" r="5" fill="#1f5fd0" stroke-width="2"/>
+  </g>
+  <g filter="url(#upWobble)" stroke="#2e2a33" stroke-width="2.2" opacity="0.8" fill="none">
+    <path d="M576 354 L660 366 Q668 368 662 376 L640 398" fill="#e8b24a" fill-opacity="0.6"/>
+    <text x="700" y="384" font-family="Caveat, cursive" font-size="34" fill="#2e2a33" stroke="none" transform="rotate(-2 700 384)">canteen notices</text>
+  </g>
+
+  <!-- stove + kettle -->
+  <g filter="url(#upWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="892" y="330" width="212" height="196" stroke-width="4" fill="#3a3f52" fill-opacity="0.82"/>
+    <path d="M904 352 H892 M1040 330 H1104" stroke-width="3"/>
+    <rect x="912" y="372" width="80" height="54" stroke-width="2.8" fill="#e8b24a" fill-opacity="0.5"/>
+    <path d="M1014 372 V402 M1006 402 H1022" stroke-width="2.6"/>
+    <path d="M920 470 H1076" stroke-width="2.6" opacity="0.7"/>
+    <!-- kettle -->
+    <path d="M958 296 Q998 282 1038 296 L1030 326 Q998 336 966 326 Z" fill="#e8b24a" fill-opacity="0.85" stroke-width="3.4"/>
+    <path d="M1038 300 Q1062 302 1058 322" stroke-width="3"/>
+    <path d="M958 296 Q934 300 940 320" stroke-width="3"/>
+    <path d="M990 282 Q986 266 1000 260" stroke-width="3"/>
+    <!-- steam -->
+    <path d="M986 246 Q978 230 990 216 M1006 248 Q1000 234 1012 222" stroke-width="2.4" opacity="0.5"/>
+  </g>
+
+  <!-- radio on wall bracket -->
+  <g filter="url(#upWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1128 258 H1300" stroke-width="4"/>
+    <path d="M1160 258 V232 M1268 258 V232" stroke-width="3"/>
+    <rect x="1152" y="272" width="130" height="126" rx="10" stroke-width="4" fill="#5e4632" fill-opacity="0.8"/>
+    <path d="M1168 292 Q1217 282 1266 292" stroke-width="2.6" opacity="0.7"/>
+    <circle cx="1204" cy="330" r="26" stroke-width="3" fill="#c9a25e" fill-opacity="0.35"/>
+    <circle cx="1256" cy="330" r="16" stroke-width="3" fill="#c9a25e" fill-opacity="0.35"/>
+    <path d="M1170 374 H1240" stroke-width="2.6" opacity="0.7"/>
+    <!-- sound waves -->
+    <path d="M1298 300 Q1318 336 1298 372 M1316 290 Q1344 336 1316 384" stroke-width="2.4" opacity="0.45"/>
+  </g>
+
+  <!-- archive shelves + grey boxes -->
+  <g filter="url(#upWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1322" y="118" width="336" height="540" stroke-width="4.4" fill="#5e4632" fill-opacity="0.28"/>
+    <path d="M1322 232 H1658 M1322 346 H1658 M1322 460 H1658 M1322 574 H1658" stroke-width="3.6"/>
+    <!-- grey evidence boxes on the shelves -->
+    <g fill="#8a8f98" fill-opacity="0.6" stroke-width="3">
+      <rect x="1338" y="176" width="88" height="52" rx="3"/>
+      <rect x="1440" y="176" width="88" height="52" rx="3"/>
+      <rect x="1544" y="176" width="92" height="52" rx="3"/>
+      <rect x="1342" y="290" width="92" height="52" rx="3"/>
+      <rect x="1550" y="290" width="86" height="52" rx="3"/>
+      <rect x="1338" y="404" width="88" height="52" rx="3"/>
+      <rect x="1444" y="404" width="92" height="52" rx="3"/>
+    </g>
+    <g stroke-width="2.2" opacity="0.75">
+      <path d="M1348 202 H1408 M1352 202 V216 M1352 202 V188" />
+      <path d="M1460 316 H1520 M1464 316 V330 M1464 316 V302" />
+      <path d="M1458 430 H1518 M1462 430 V444 M1462 430 V416" />
+    </g>
+    <!-- tan file spines -->
+    <g stroke-width="2.6" stroke="#2e2a33">
+      <path d="M1352 348 H1368 V338 H1352 Z M1376 348 H1392 V336 H1376 Z M1400 348 H1416 V340 H1400 Z" fill="#c9a25e" fill-opacity="0.5"/>
+      <path d="M1544 464 H1560 V452 H1544 Z M1568 464 H1584 V454 H1568 Z" fill="#c9a25e" fill-opacity="0.5"/>
+      <path d="M1348 580 H1364 V570 H1348 Z M1372 580 H1388 V572 H1372 Z" fill="#c9a25e" fill-opacity="0.5"/>
+    </g>
+    <!-- the misfiled drawer, slightly open -->
+    <path d="M1478 574 L1478 540 L1604 540 L1604 574" stroke-width="3.4" fill="#5e4632" fill-opacity="0.35"/>
+    <path d="M1530 556 H1552" stroke-width="2.6"/>
+    <path d="M1490 536 L1520 516" stroke-width="2.2" opacity="0.7"/>
+  </g>
+
+  <!-- records room door (signed keys only) -->
+  <g filter="url(#upWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1696" y="146" width="196" height="514" stroke-width="4.6" fill="#4a3a2a" fill-opacity="0.85"/>
+    <rect x="1714" y="168" width="160" height="470" stroke-width="2.6" opacity="0.6"/>
+    <path d="M1714 336 H1874 M1714 504 H1874" stroke-width="2.2" opacity="0.5"/>
+    <!-- brass lock plate -->
+    <rect x="1756" y="382" width="76" height="96" rx="8" stroke-width="3.4" fill="#c9a25e" fill-opacity="0.55"/>
+    <circle cx="1794" cy="414" r="13" stroke-width="3.2"/>
+    <path d="M1794 427 V448 M1786 448 H1802" stroke-width="3.2"/>
+    <!-- sign -->
+    <rect x="1718" y="248" width="156" height="64" rx="4" stroke-width="3" fill="#f4ecdb" fill-opacity="0.9"/>
+    <text x="1796" y="276" font-family="Special Elite, serif" font-size="21" fill="#2e2a33" stroke="none" text-anchor="middle">SIGNED KEYS</text>
+    <text x="1796" y="300" font-family="Special Elite, serif" font-size="21" fill="#2e2a33" stroke="none" text-anchor="middle">ONLY</text>
+  </g>
+
+  <!-- stairs down (left edge) -->
+  <g filter="url(#upWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 470 V964" stroke-width="4.4"/>
+    <path d="M96 470 V940" stroke-width="3" opacity="0.7"/>
+    <path d="M60 520 H160 M60 586 H184 M60 652 H208 M60 718 H232 M60 784 H256 M60 850 H280 M60 916 H280" stroke-width="4"/>
+    <path d="M160 520 L184 586 L208 652 L232 718 L256 784 L280 850" stroke-width="2.4" opacity="0.6"/>
+    <!-- handrail -->
+    <path d="M84 440 Q90 300 110 250" stroke-width="4"/>
+    <path d="M84 440 H160 M110 250 H176" stroke-width="3" opacity="0.6"/>
+    <!-- BULLPEN sign -->
+    <rect x="62" y="404" width="128" height="58" rx="4" stroke-width="3.2" fill="#2e3a52" fill-opacity="0.85"/>
+    <text x="126" y="432" font-family="Caveat, cursive" font-size="30" fill="#e8b24a" stroke="none" text-anchor="middle">BULLPEN</text>
+    <text x="126" y="456" font-family="Caveat, cursive" font-size="26" fill="#e8b24a" stroke="none" text-anchor="middle">&#8595; down</text>
+  </g>
+
+  <!-- canteen long table + benches -->
+  <g filter="url(#upWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M244 640 Q470 626 700 640 L712 700 Q470 716 232 700 Z" fill="#5e4632" fill-opacity="0.5" stroke-width="4"/>
+    <path d="M268 700 V900 M676 706 V900" stroke-width="4"/>
+    <!-- bench behind -->
+    <path d="M300 566 H640 M320 566 V612 M600 566 V612" stroke-width="3.6"/>
+    <!-- teapot + mugs -->
+    <path d="M330 596 Q368 578 406 596 L398 626 Q368 636 338 626 Z" fill="#3a3f52" fill-opacity="0.7" stroke-width="3"/>
+    <path d="M406 600 Q428 602 424 622" stroke-width="2.6"/>
+    <path d="M366 578 V562 M362 562 H372" stroke-width="2.6"/>
+    <path d="M446 608 H472 V630 H446 Z" fill="#e8b24a" fill-opacity="0.6" stroke-width="2.6"/>
+    <path d="M490 606 H516 V628 H490 Z" fill="#e8b24a" fill-opacity="0.6" stroke-width="2.6"/>
+    <!-- sandwich plate + clipboard (Cray's) -->
+    <ellipse cx="560" cy="622" rx="42" ry="12" stroke-width="2.8" fill="#f4ecdb" fill-opacity="0.8"/>
+    <path d="M530 614 Q546 600 562 612 Q578 602 594 614" stroke-width="2.6" fill="#c9a25e" fill-opacity="0.4"/>
+    <rect x="612" y="588" width="64" height="40" rx="4" stroke-width="2.8" fill="#f4ecdb" fill-opacity="0.85" transform="rotate(-4 644 608)"/>
+    <path d="M620 598 H660 M622 608 H656" stroke-width="1.8" opacity="0.6" transform="rotate(-4 644 608)"/>
+  </g>
+
+  <!-- Quill's counter + typewriter -->
+  <g filter="url(#upWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1214 672 Q1420 658 1656 672 L1660 736 Q1420 750 1210 736 Z" fill="#5e4632" fill-opacity="0.55" stroke-width="4"/>
+    <path d="M1240 736 V932 M1620 742 V932" stroke-width="4"/>
+    <!-- typewriter -->
+    <path d="M1300 636 Q1340 616 1380 636 L1372 668 Q1340 678 1308 668 Z" fill="#3a3f52" fill-opacity="0.85" stroke-width="3.2"/>
+    <path d="M1312 632 L1322 606 L1358 606 L1368 632" stroke-width="2.8"/>
+    <rect x="1326" y="580" width="30" height="28" stroke-width="2.6" fill="#f4ecdb" fill-opacity="0.9" transform="rotate(-3 1341 594)"/>
+    <path d="M1316 648 H1364" stroke-width="2.2" opacity="0.7"/>
+    <circle cx="1392" cy="650" r="9" stroke-width="2.4"/>
+    <!-- paper stacks -->
+    <path d="M1452 664 H1548 L1540 676 H1444 Z" stroke-width="2.8" fill="#f4ecdb" fill-opacity="0.9"/>
+    <path d="M1456 654 H1544 L1538 664 H1448 Z" stroke-width="2.4" fill="#f4ecdb" fill-opacity="0.85"/>
+    <path d="M1462 646 H1536 L1532 654 H1456 Z" stroke-width="2.2" fill="#f4ecdb" fill-opacity="0.8"/>
+    <!-- bell + stamp pad -->
+    <circle cx="1588" cy="660" r="10" stroke-width="2.6" fill="#c9a25e" fill-opacity="0.5"/>
+    <rect x="1604" y="654" width="34" height="14" rx="3" stroke-width="2.4" fill="#b4552d" fill-opacity="0.4"/>
+  </g>
+
+  <!-- Miss Quill (silhouette at her counter) -->
+  <g filter="url(#upWobble)" fill="#2e2a33" stroke="#2e2a33" stroke-linecap="round">
+    <path d="M1382 470 Q1372 500 1360 520 Q1344 546 1348 576 Q1352 600 1368 612 L1352 672 Q1370 680 1392 682 L1444 682 Q1466 678 1480 668 L1464 610 Q1480 596 1484 570 Q1488 540 1472 514 Q1458 492 1450 470 Q1440 440 1416 438 Q1392 440 1382 470" fill-opacity="0.88"/>
+    <!-- bun -->
+    <circle cx="1416" cy="428" r="34" fill-opacity="0.88"/>
+    <circle cx="1450" cy="416" r="18" fill-opacity="0.88"/>
+    <!-- glasses glint -->
+    <path d="M1392 486 Q1406 478 1420 486 M1428 486 Q1442 478 1456 486" stroke="#e8b24a" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- Dr. Cray (silhouette at the canteen table) -->
+  <g filter="url(#upWobble)" fill="#2e2a33" stroke="#2e2a33" stroke-linecap="round">
+    <path d="M368 520 Q356 548 366 576 Q374 596 392 604 Q378 632 382 664 Q386 700 410 716 L400 780 L560 780 L552 716 Q576 700 580 664 Q584 630 570 604 Q586 594 592 574 Q600 546 588 522 Q574 494 540 490 L536 512 Q478 500 420 512 L414 492 Q384 496 368 520" fill-opacity="0.88"/>
+    <!-- bald head shine -->
+    <path d="M420 508 Q470 496 530 508" stroke="#e8b24a" stroke-width="3" fill="none" opacity="0.7"/>
+    <!-- sandwich in hand -->
+    <path d="M462 640 L506 632 L510 656 L466 664 Z" fill="#c9a25e" fill-opacity="0.75" stroke-width="2.6"/>
+  </g>
+
+  <!-- coat pegs + plant by the stairs -->
+  <g filter="url(#upWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M330 480 H420" stroke-width="3.4"/>
+    <path d="M352 480 V460 M378 480 V458 M404 480 V461" stroke-width="2.6"/>
+    <path d="M352 480 Q344 520 356 552 L372 552 Q382 518 374 480" stroke-width="3" fill="#5e4632" fill-opacity="0.4"/>
+    <!-- potted plant -->
+    <path d="M364 620 Q344 590 356 566 M364 620 Q380 588 372 560 M364 620 Q364 590 364 566" stroke-width="2.8" stroke="#2c7a4b" fill="none"/>
+    <path d="M348 620 H382 L376 664 H354 Z" stroke-width="3" fill="#b4552d" fill-opacity="0.5"/>
+  </g>
+
+  <!-- framing (same double border as every scene) -->
+  <g filter="url(#upWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="14" y="14" width="1892" height="1052" stroke-width="3.6"/>
+    <rect x="24" y="24" width="1872" height="1032" stroke-width="1.8" opacity="0.7"/>
+  </g>
+</svg>
