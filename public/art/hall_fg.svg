@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="hfWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="47" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6"/>
+    </filter>
+    <filter id="hfSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="hfSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <!-- doorway post cast shadow -->
+  <g filter="url(#hfSoft2)">
+    <ellipse cx="2308" cy="460" rx="30" ry="460" fill="#3a3f52" opacity="0.12"/>
+  </g>
+
+  <!-- right-edge doorway post: viewer standing in the far doorway -->
+  <g filter="url(#hfWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="2324" y="0" width="74" height="900" fill="#8a6a4f" fill-opacity="0.55" stroke-width="5"/>
+    <path d="M2328 0 L2328 900" stroke="#e9dfc8" stroke-width="2" opacity="0.35"/>
+    <path d="M2340 0 L2340 900" stroke-width="2.4" opacity="0.5"/>
+    <path d="M2358 40 C 2362 160 2354 300 2360 440 C 2365 580 2356 720 2361 880" stroke-width="2" opacity="0.3"/>
+    <path d="M2382 20 C 2378 180 2386 340 2380 500 C 2375 660 2384 760 2380 890" stroke-width="2" opacity="0.3"/>
+  </g>
+
+  <!-- night vignette: bottom edge and top corners -->
+  <g filter="url(#hfSoft)">
+    <ellipse cx="480" cy="905" rx="760" ry="95" fill="#3a3f52" opacity="0.20"/>
+    <ellipse cx="1720" cy="900" rx="760" ry="88" fill="#3a3f52" opacity="0.20"/>
+    <ellipse cx="1160" cy="918" rx="520" ry="66" fill="#3a3f52" opacity="0.14"/>
+    <ellipse cx="70" cy="40" rx="350" ry="245" fill="#3a3f52" opacity="0.13"/>
+    <ellipse cx="2330" cy="55" rx="350" ry="245" fill="#3a3f52" opacity="0.13"/>
+  </g>
+
+  <!-- faint cobweb in the top-left corner -->
+  <g filter="url(#hfWobble)" stroke="#8fa3b0" fill="none" stroke-linecap="round" opacity="0.25" stroke-width="1.9">
+    <path d="M38 36 L310 56 M38 36 L258 156 M38 36 L170 256 M38 36 L62 304"/>
+    <path d="M138 50 Q133 66 124 84 M124 84 Q112 98 95 117 M95 117 Q79 122 58 132"/>
+    <path d="M206 64 Q198 92 184 124 M184 124 Q162 146 134 175 M134 175 Q104 184 70 199"/>
+    <path d="M276 76 Q248 112 214 158 M214 158 Q196 190 172 231 M172 231 Q132 246 84 267"/>
+    <path d="M58 132 Q50 162 57 186"/>
+    <circle cx="38" cy="36" r="2.5" fill="#8fa3b0" fill-opacity="0.35" stroke="none"/>
+  </g>
+
+  <!-- dust motes drifting mid-height -->
+  <g fill="#e8c97a" fill-opacity="0.16" stroke="none">
+    <circle cx="260" cy="320" r="3"/>
+    <circle cx="420" cy="480" r="2.5"/>
+    <circle cx="560" cy="260" r="3.5"/>
+    <circle cx="705" cy="560" r="2"/>
+    <circle cx="830" cy="380" r="4"/>
+    <circle cx="950" cy="300" r="2.5"/>
+    <circle cx="1040" cy="520" r="3"/>
+    <circle cx="1180" cy="240" r="3.5"/>
+    <circle cx="1260" cy="430" r="2"/>
+    <circle cx="1380" cy="350" r="4"/>
+    <circle cx="1490" cy="580" r="2.5"/>
+    <circle cx="1560" cy="280" r="3"/>
+    <circle cx="1650" cy="470" r="2"/>
+    <circle cx="1770" cy="360" r="3.5"/>
+    <circle cx="1880" cy="540" r="2.5"/>
+    <circle cx="1960" cy="300" r="3"/>
+    <circle cx="2080" cy="440" r="2.5"/>
+    <circle cx="2180" cy="560" r="3"/>
+  </g>
+</svg>

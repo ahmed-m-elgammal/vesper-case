@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="pfWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="53" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="pfSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="pfSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <!-- bottom vignette + top corners -->
+  <g filter="url(#pfSoft)">
+    <ellipse cx="1200" cy="912" rx="1350" ry="82" fill="#3a3f52" opacity="0.20"/>
+    <ellipse cx="300" cy="908" rx="520" ry="62" fill="#3a3f52" opacity="0.16"/>
+    <ellipse cx="60" cy="40" rx="330" ry="230" fill="#3a3f52" opacity="0.12"/>
+    <ellipse cx="2350" cy="50" rx="340" ry="240" fill="#3a3f52" opacity="0.12"/>
+  </g>
+
+  <!-- dust motes in the lamplight -->
+  <g fill="#e8c97a" opacity="0.15">
+    <circle cx="260" cy="430" r="4"/>
+    <circle cx="420" cy="520" r="3.5"/>
+    <circle cx="600" cy="380" r="5"/>
+    <circle cx="760" cy="470" r="3.5"/>
+    <circle cx="900" cy="560" r="4"/>
+    <circle cx="1040" cy="410" r="3.5"/>
+    <circle cx="1180" cy="500" r="5"/>
+    <circle cx="1320" cy="360" r="3.5"/>
+    <circle cx="1460" cy="450" r="4"/>
+    <circle cx="1600" cy="540" r="3.5"/>
+    <circle cx="1740" cy="400" r="5"/>
+    <circle cx="1880" cy="480" r="3.5"/>
+    <circle cx="2020" cy="430" r="4"/>
+    <circle cx="2140" cy="520" r="3.5"/>
+    <circle cx="1120" cy="600" r="4"/>
+  </g>
+
+  <!-- thin smoke wisp above the hearth -->
+  <g filter="url(#pfWobble)" stroke="#8fa3b0" fill="none" stroke-linecap="round">
+    <path d="M1300 278 Q1276 254 1298 232 Q1320 210 1300 188 Q1284 170 1304 152" stroke-width="4" opacity="0.2"/>
+    <path d="M1312 270 Q1294 250 1312 230 Q1328 210 1314 192" stroke-width="3" opacity="0.12"/>
+  </g>
+
+  <!-- near curtain edge: the viewer stands just past the window -->
+  <g filter="url(#pfWobble)" stroke-linecap="round">
+    <path d="M2350 0 Q2338 140 2354 280 Q2368 430 2348 580 Q2336 720 2354 900 L2400 900 L2400 0 Z" fill="#9aa88f" fill-opacity="0.5" stroke="none"/>
+    <path d="M2350 0 Q2338 140 2354 280 Q2368 430 2348 580 Q2336 720 2354 900" stroke="#2e2a33" stroke-width="3" fill="none" opacity="0.8"/>
+    <path d="M2374 0 Q2366 180 2376 360 Q2384 540 2372 720 Q2368 820 2378 900" stroke="#2e2a33" stroke-width="2.4" fill="none" opacity="0.35"/>
+    <path d="M2392 0 Q2386 200 2394 400 Q2400 600 2390 800 Q2388 860 2394 900" stroke="#2e2a33" stroke-width="2.4" fill="none" opacity="0.3"/>
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Clue",
+  "type": "object",
+  "required": ["id", "name", "room", "spot", "tool", "closeup", "note", "toast", "chains"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "room": { "type": ["string", "null"], "description": "Owning room id; null for nested clues opened via reveals" },
+    "spot": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "array", "items": { "type": "number" }, "minItems": 4, "maxItems": 4 }
+      ],
+      "description": "[x, y, w, h] world-space hotspot; null for nested clues"
+    },
+    "tool": {
+      "enum": ["magnifier", "uv", "tape", null],
+      "description": "Tool required before this hotspot may be examined"
+    },
+    "closeup": {
+      "type": "object",
+      "required": ["title", "svg"],
+      "properties": {
+        "svg": { "type": ["string", "null"], "description": "Path to the close-up SVG inset (inline-rendered)" },
+        "title": { "type": "string" },
+        "caption": { "type": "string" }
+      }
+    },
+    "note": { "type": "string", "description": "Notebook paragraph in the detective's voice" },
+    "toast": { "type": "string", "description": "One-line pickup toast" },
+    "chains": { "type": "array", "items": { "type": "string" } },
+    "timeline": { "type": "string", "description": "Timeline entry id revealed by this clue" },
+    "reveals": {
+      "type": "array",
+      "description": "Nested sub-clues inside the close-up (800x600 space)",
+      "items": {
+        "type": "object",
+        "required": ["spot", "label", "clue"],
+        "properties": {
+          "spot": { "type": "array", "items": { "type": "number" }, "minItems": 4, "maxItems": 4 },
+          "label": { "type": "string" },
+          "clue": { "type": "string" }
+        }
+      }
+    }
+  }
+}

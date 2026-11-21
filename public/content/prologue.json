@@ -1,0 +1,70 @@
+{
+  "prologue": [
+    {
+      "id": "cover",
+      "template": "cover",
+      "title": "Ink & Ashes"
+    },
+    {
+      "id": "summons",
+      "template": "letter",
+      "title": "The Summons",
+      "letter": {
+        "to": "To the bearer -- by hand, this Sunday morning",
+        "lines": [
+          "Mr. Vesper is dead at his own hearth, certified of his heart before the coroner could properly sit.",
+          "I will not trouble you with all my reasons -- the sealed letter he left for me is reason enough, and the telephone call before it.",
+          "The household is five guests and a housekeeper, and every one of them slept badly. Sergeant Hollis holds the door; I have paid for your eye.",
+          "Come before the will is read. Look closely. Tell me what the hall says, then the parlour. Begin at the beginning of the night."
+        ],
+        "sign": "-- A. Pell, solicitor, Hollow Lane"
+      }
+    },
+    {
+      "id": "victim",
+      "template": "victim",
+      "title": "The Victim"
+    },
+    {
+      "id": "house",
+      "template": "plan",
+      "title": "The House",
+      "body": [
+        "Three storeys over a cellar: entrance hall and parlour to the front, kitchen behind, study beside. Five beds above, a studio under the roof, and a cot below.",
+        "The storm took the power at 10:47. The hall clock keeps the hour of it still."
+      ]
+    },
+    {
+      "id": "story",
+      "template": "story",
+      "title": "What the Household Says"
+    },
+    {
+      "id": "suspects",
+      "template": "suspects",
+      "title": "Five Sleepless Guests"
+    },
+    {
+      "id": "kit",
+      "template": "kit",
+      "title": "Your Instruments",
+      "body": [
+        "A magnifier -- for films, prints, petals and other small refusals of the truth.",
+        "A sketchbook that fills itself: every clue you touch is drawn into it with my notes -- Clues, People, Timeline, Threads.",
+        "A Think button. It nudges, it presses, it nearly answers. No shame in it; the house is dark and the suspects are many.",
+        "A UV torch, packed away for a later act. The kitchen, stairs, bedrooms, attic and cellar likewise."
+      ],
+      "footnote": "Tap a room on the map to walk it. Drag the walls to look along them. Tap anything that draws your eye."
+    },
+    {
+      "id": "begin",
+      "template": "begin",
+      "title": "Take Up the Case",
+      "body": [
+        "Sergeant Hollis waits at the door with the storm at his back. He will say his piece, then the house is yours.",
+        "Read the hall first. The parlour stays sealed until you can tell him what the hall told you. Then the parlour -- and the night's whole arithmetic.",
+        "When you can name the poison, the vessel, the fire and the door, say so. That is Act I, done."
+      ]
+    }
+  ]
+}

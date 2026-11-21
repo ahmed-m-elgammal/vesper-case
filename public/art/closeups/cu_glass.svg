@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cpGlassWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="53" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6"/>
+    </filter>
+    <filter id="cpGlassSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="cpGlassSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="600" fill="#f4ecdb"/>
+
+  <!-- faint corner stains -->
+  <g filter="url(#cpGlassSoft)">
+    <ellipse cx="46" cy="40" rx="120" ry="78" fill="#c9a25e" opacity="0.12"/>
+    <ellipse cx="766" cy="562" rx="140" ry="92" fill="#b0705a" opacity="0.12"/>
+    <ellipse cx="762" cy="44" rx="96" ry="66" fill="#8fa3b0" opacity="0.10"/>
+    <ellipse cx="44" cy="556" rx="108" ry="76" fill="#3a3f52" opacity="0.10"/>
+  </g>
+
+  <!-- tabletop -->
+  <ellipse cx="400" cy="456" rx="160" ry="20" fill="#2e2a33" opacity="0.15" filter="url(#cpGlassSoft2)"/>
+  <g filter="url(#cpGlassWobble)" stroke-linecap="round">
+    <path d="M180 452 L620 448" stroke="#2e2a33" stroke-width="3" opacity="0.5" fill="none"/>
+    <path d="M210 470 L590 468" stroke="#2e2a33" stroke-width="1.6" opacity="0.25" fill="none"/>
+  </g>
+
+  <!-- glass body tint -->
+  <path d="M288 180 C290 278 302 356 324 410 L476 410 C498 356 510 278 512 180 A112 26 0 0 1 288 180 Z" fill="#8fa3b0" opacity="0.10"/>
+
+  <!-- whiskey, one third full -->
+  <path d="M310 338 A90 17 0 0 0 490 338 L478 408 Q400 436 322 408 Z" fill="#c9a25e" opacity="0.5"/>
+  <ellipse cx="400" cy="338" rx="90" ry="17" fill="#c9a25e" opacity="0.65"/>
+  <ellipse cx="400" cy="338" rx="90" ry="17" fill="none" stroke="#8a6a4f" stroke-width="2" opacity="0.4"/>
+
+  <!-- dull film ring just above the liquor line -->
+  <path d="M312 318 A90 17 0 0 0 488 318" fill="none" stroke="#c9a25e" stroke-width="3" opacity="0.8" stroke-linecap="round"/>
+  <path d="M318 323 A86 16 0 0 0 482 323" fill="none" stroke="#c9a25e" stroke-width="2" opacity="0.45" stroke-linecap="round"/>
+
+  <!-- faint lip-mark on the rim -->
+  <path d="M322 196 Q348 208 374 200" fill="none" stroke="#c9a25e" stroke-width="5" opacity="0.4" stroke-linecap="round"/>
+
+  <!-- tumbler line-work -->
+  <g filter="url(#cpGlassWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <ellipse cx="400" cy="178" rx="112" ry="26" stroke-width="4"/>
+    <ellipse cx="400" cy="178" rx="102" ry="21" stroke-width="2" opacity="0.55"/>
+    <path d="M288 180 C290 278 302 356 324 410" stroke-width="4"/>
+    <path d="M512 180 C510 278 498 356 476 410" stroke-width="4"/>
+    <path d="M318 410 Q400 434 482 410 L478 430 Q400 454 322 430 Z" fill="#8fa3b0" fill-opacity="0.3" stroke-width="3"/>
+    <ellipse cx="400" cy="430" rx="78" ry="14" stroke-width="2.5" opacity="0.8"/>
+  </g>
+
+  <!-- shine and cross-hatch -->
+  <path d="M318 214 Q314 300 336 384" stroke="#f4ecdb" stroke-width="5" opacity="0.5" fill="none" stroke-linecap="round"/>
+  <path d="M462 232 Q468 310 458 380" stroke="#f4ecdb" stroke-width="3" opacity="0.3" fill="none" stroke-linecap="round"/>
+  <g stroke="#6b6472" stroke-width="2" opacity="0.3" fill="none" stroke-linecap="round">
+    <path d="M436 366 L462 380 M432 384 L458 398 M428 402 L452 414"/>
+    <path d="M458 362 L436 378 M462 382 L440 396"/>
+  </g>
+
+  <!-- annotation with thin arrow to the film ring -->
+  <text x="520" y="222" font-family="Caveat, cursive" font-size="30" fill="#2e2a33">a dull film, like varnish</text>
+  <g stroke="#2e2a33" stroke-width="1.5" fill="none" opacity="0.7" stroke-linecap="round">
+    <path d="M548 238 Q510 270 490 306"/>
+    <path d="M490 306 l10 -3 M490 306 l3 10"/>
+  </g>
+
+  <!-- double ink border -->
+  <g filter="url(#cpGlassWobble)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="3"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6"/>
+  </g>
+</svg>

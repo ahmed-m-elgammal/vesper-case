@@ -1,0 +1,285 @@
+{
+  "clues": [
+    {
+      "id": "hall_clock",
+      "name": "The Stopped Clock",
+      "room": "hall",
+      "spot": [1280, 120, 220, 650],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_clock.svg",
+        "title": "The Grandfather Clock",
+        "caption": "It has not been wound since. The storm did this, not the household."
+      },
+      "note": "The hall clock stopped at 10:47 and never restarted while I watched. The storm cut the power at that moment -- my first fixed point of the night.",
+      "toast": "The Stopped Clock -- 10:47, when the power died.",
+      "chains": ["clockwork"],
+      "timeline": "t_blackout"
+    },
+    {
+      "id": "umbrella_stand",
+      "name": "The Dry Umbrella",
+      "room": "hall",
+      "spot": [545, 590, 120, 180],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_umbrella.svg",
+        "title": "The Umbrella Stand",
+        "caption": "It rained all night. Nothing here got wet after ten."
+      },
+      "note": "One umbrella, Julian Ashcombe's by its tag, dry as a bone. Whatever rain the stand has seen, it saw it before ten-fifteen.",
+      "toast": "The Dry Umbrella -- nobody came by the front door after ten.",
+      "chains": ["door"]
+    },
+    {
+      "id": "coat_peg_coats",
+      "name": "The Coat Pegs",
+      "room": "hall",
+      "spot": [340, 160, 240, 330],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_coats.svg",
+        "title": "Three Coats and an Empty Peg",
+        "caption": "Peggy's mac, Tobias's oilskin, Edmund's raincoat. The fourth peg holds only dust."
+      },
+      "note": "Three coats: Peggy's mac, Tobias's oilskin, Edmund's raincoat. No doctor's coat, no second umbrella. If Dr. Marsh came to this house, she came by another door.",
+      "toast": "The Coat Pegs -- no doctor's coat or umbrella in the house.",
+      "chains": ["door"]
+    },
+    {
+      "id": "doormat_prints",
+      "name": "Prints on the Mat",
+      "room": "hall",
+      "spot": [100, 770, 260, 75],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_doormat.svg",
+        "title": "The Door Mat",
+        "caption": "One pair of brogues, walking in, drying at the edges."
+      },
+      "note": "One tidy pair of brogue prints walking in, drying at the edges, then trampled by the morning's feet. Only one visitor used the front door -- and some time ago.",
+      "toast": "Prints on the Mat -- one visitor, some time ago.",
+      "chains": ["door"]
+    },
+    {
+      "id": "visitor_ledger",
+      "name": "The House Ledger",
+      "room": "hall",
+      "spot": [930, 480, 190, 70],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_ledger.svg",
+        "title": "Colette's Ledger",
+        "caption": "The most honest witness in the house keeps her own book."
+      },
+      "note": "Colette's ledger: 'Sat -- Mr. A. at nine, gone quarter past ten.' The front door's whole story of the night, in her hand.",
+      "toast": "The House Ledger -- Julian in at nine, gone a quarter past ten.",
+      "chains": ["clockwork"],
+      "timeline": "t_julian_leaves"
+    },
+    {
+      "id": "mail_letter",
+      "name": "The Sealed Letter",
+      "room": "hall",
+      "spot": [1140, 495, 95, 70],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_letter.svg",
+        "title": "In the Mail Tray",
+        "caption": "Addressed and sealed, waiting for the Monday post that never carried it."
+      },
+      "note": "Sealed for the morning post: 'new instructions for my will -- come Tuesday. E.V.' Whatever he meant to change, he never posted it.",
+      "toast": "The Sealed Letter -- 'new instructions for my will'.",
+      "chains": ["paper"]
+    },
+    {
+      "id": "stair_button",
+      "name": "A Horn Button",
+      "room": "hall",
+      "spot": [1648, 685, 64, 50],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_button.svg",
+        "title": "On the Stair Carpet",
+        "caption": "Small, old, and probably nothing at all."
+      },
+      "note": "A horn button off someone's coat, on the stair carpet. Small, old, and probably nothing at all -- but the notebook keeps it anyway.",
+      "toast": "A Horn Button -- a small thing, kept.",
+      "chains": ["small"]
+    },
+    {
+      "id": "memoir_desk",
+      "name": "The Confession Manuscript",
+      "room": "parlour",
+      "spot": [285, 395, 180, 80],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_memoir.svg",
+        "title": "A Confession of Sorts",
+        "caption": "Pages forty to forty-three, gone from the binding."
+      },
+      "note": "'A Confession of Sorts.' The preface is whiskey-stained and two whole signatures -- pages forty to forty-three -- are torn from the binding. Something was tucked at page thirty-nine.",
+      "toast": "The Confession -- pages 40 to 43 torn out.",
+      "chains": ["paper"],
+      "reveals": [
+        { "spot": [430, 380, 150, 90], "label": "The slip at page 39", "clue": "summons_slip" }
+      ]
+    },
+    {
+      "id": "summons_slip",
+      "name": "A Torn Slip",
+      "room": null,
+      "spot": null,
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_slip.svg",
+        "title": "Torn Slip, Page 39",
+        "caption": "'for H.M. -- before Monday. E.V.'"
+      },
+      "note": "'for H.M. -- before Monday. E.V.' He was sending pages to someone with those initials, and soon. H.M. who never came, or came quietly.",
+      "toast": "A Torn Slip -- 'for H.M. -- before Monday'.",
+      "chains": ["paper"]
+    },
+    {
+      "id": "body_chair",
+      "name": "Edmund Vesper",
+      "room": "parlour",
+      "spot": [540, 380, 340, 400],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_body.svg",
+        "title": "The Wing Chair",
+        "caption": "He died reading. The page wears his whiskey; the table keeps his spectacles."
+      },
+      "note": "He died reading: spectacles folded on the page, spine settled into the wing chair, one slipper off. No wound, no struggle. Whatever took him was already inside him -- and there is more on the side table than spectacles.",
+      "toast": "Edmund Vesper -- dead reading, no wound, no struggle.",
+      "chains": [],
+      "reveals": [
+        { "spot": [520, 300, 170, 140], "label": "Search the side table", "clue": "pill_bottle" }
+      ]
+    },
+    {
+      "id": "pill_bottle",
+      "name": "His Heart Drops",
+      "room": null,
+      "spot": null,
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_pills.svg",
+        "title": "Tincture of Digitalis",
+        "caption": "Dr. H. Marsh's label, five drops in water, half used."
+      },
+      "note": "His ordinary heart drops, Dr. H. Marsh's label, half used. If he had overdosed from his own bottle the timing would not fit -- and the bottle is nearly neat. The wrong bottle, the right name.",
+      "toast": "His Heart Drops -- the label names Dr. H. Marsh.",
+      "chains": ["small"]
+    },
+    {
+      "id": "whiskey_glass",
+      "name": "The Nightcap Glass",
+      "room": "parlour",
+      "spot": [945, 515, 70, 80],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_glass.svg",
+        "title": "The Tumbler",
+        "caption": "Two-thirds drunk -- and a film above the liquor line."
+      },
+      "note": "His nightcap, two-thirds drunk. Above the liquor line, inside the glass, a dull film -- like a varnish ring. Whatever made that film was carried in the drink itself.",
+      "toast": "The Nightcap Glass -- a dull film above the liquor line.",
+      "chains": ["glass"]
+    },
+    {
+      "id": "decanter",
+      "name": "The Whiskey Decanter",
+      "room": "parlour",
+      "spot": [1520, 495, 95, 155],
+      "tool": "magnifier",
+      "closeup": {
+        "svg": "/art/closeups/cu_decanter.svg",
+        "title": "The Decanter",
+        "caption": "Dosed before he poured. The stopper sits quiet on it still."
+      },
+      "note": "Film on the inner shoulder above the waterline, the same dull varnish as the glass. The decanter was dosed -- not his glass. The poison waited, patient, for his nightly pour.",
+      "toast": "The Decanter -- dosed before he poured.",
+      "chains": ["glass"]
+    },
+    {
+      "id": "hearth_ash",
+      "name": "Ash at the Ember Edge",
+      "room": "parlour",
+      "spot": [1290, 690, 100, 50],
+      "tool": "magnifier",
+      "closeup": {
+        "svg": "/art/closeups/cu_ash.svg",
+        "title": "What the Fire Missed",
+        "caption": "Purple petals and a leaf midrib -- foxglove, burned in a hurry."
+      },
+      "note": "Through the glass: a crushed leaf midrib, and two purple petals the fire missed. Foxglove. Someone burned the evidence in the ember edge, and the hearth kept a little of it.",
+      "toast": "Ash at the Ember Edge -- foxglove petals, burned.",
+      "chains": ["glass"]
+    },
+    {
+      "id": "mantel_clock",
+      "name": "The Fallen Mantel Clock",
+      "room": "parlour",
+      "spot": [1240, 755, 160, 85],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_mantel.svg",
+        "title": "Face-in, 11:38",
+        "caption": "It stopped when it fell; he staggered when it fell."
+      },
+      "note": "The mantel clock fell face-in and stopped at 11:38. He staggered at 11:38 -- and whatever was inside him had been working for some minutes before that.",
+      "toast": "The Mantel Clock -- down at 11:38, my second fixed point.",
+      "chains": ["clockwork"],
+      "timeline": "t_mantel"
+    },
+    {
+      "id": "hearth_rug_print",
+      "name": "A Ghost of a Print",
+      "room": "parlour",
+      "spot": [1470, 780, 120, 55],
+      "tool": "magnifier",
+      "closeup": {
+        "svg": "/art/closeups/cu_print.svg",
+        "title": "Diamond-Tread, Rain-Damp",
+        "caption": "Size seven or eight -- and none of the household's boots."
+      },
+      "note": "A diamond-tread boot print ghosting the rug by the fender -- rain-damp, size seven or eight. None of the household wears treads like that. The garden, then.",
+      "toast": "A Ghost of a Print -- diamond tread, size seven or eight.",
+      "chains": ["door"]
+    },
+    {
+      "id": "scissors_sideboard",
+      "name": "Sewing Scissors",
+      "room": "parlour",
+      "spot": [1880, 570, 85, 45],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_scissors.svg",
+        "title": "On the Sideboard",
+        "caption": "Ten paces from the door she says she never left."
+      },
+      "note": "Peggy's sewing scissors, ten paces from the door she says she never left. She was in this room after ten -- whatever her story is worth.",
+      "toast": "Sewing Scissors -- Peggy was here after ten.",
+      "chains": ["small"],
+      "timeline": "t_scissors"
+    },
+    {
+      "id": "garden_door_bolt",
+      "name": "The Garden Door Bolt",
+      "room": "parlour",
+      "spot": [2195, 375, 90, 90],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_gardendoor.svg",
+        "title": "Left Off the Bolt",
+        "caption": "Fresh scratches bright on the latch plate; the bolt never thrown."
+      },
+      "note": "The kitchen-garden door: bolt left off, fresh scratches bright on the latch plate. Someone came and went by the garden while the household sat in the dark.",
+      "toast": "The Garden Door -- bolt left off, scratches bright.",
+      "chains": ["door"],
+      "timeline": "t_door"
+    }
+  ]
+}

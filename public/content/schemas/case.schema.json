@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CaseMeta",
+  "type": "object",
+  "required": ["title", "subtitle", "build", "epigraph", "location", "dateLabel", "weather", "tod", "clueAccent", "victim", "officialStory", "playerBrief"],
+  "properties": {
+    "title": { "type": "string" },
+    "subtitle": { "type": "string" },
+    "build": { "type": "string" },
+    "epigraph": { "type": "string" },
+    "location": { "type": "string" },
+    "dateLabel": { "type": "string" },
+    "weather": { "type": "string" },
+    "tod": { "type": "string" },
+    "clueAccent": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+    "victim": {
+      "type": "object",
+      "required": ["name", "age", "found", "cause", "about"],
+      "properties": {
+        "name": { "type": "string" },
+        "age": { "type": "integer" },
+        "found": { "type": "string" },
+        "cause": { "type": "string" },
+        "about": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "officialStory": { "type": "array", "items": { "type": "string" } },
+    "playerBrief": { "type": "array", "items": { "type": "string" } }
+  }
+}

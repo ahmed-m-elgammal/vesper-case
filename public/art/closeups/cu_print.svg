@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cpPrintWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="97" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="cpPrintSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="cpPrintGhost" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.6"/>
+    </filter>
+    <filter id="cpPrintSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <pattern id="cpPrintTread" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M15 4 L26 15 L15 26 L4 15 Z" stroke="#2e2a33" stroke-width="1.6" fill="none" opacity="0.5"/>
+    </pattern>
+    <pattern id="cpPrintRug" width="92" height="92" patternUnits="userSpaceOnUse">
+      <path d="M46 22 L62 38 L46 54 L30 38 Z" stroke="#8fa3b0" stroke-width="1.6" fill="none" opacity="0.35"/>
+      <circle cx="46" cy="38" r="2.6" fill="#b0705a" opacity="0.4"/>
+      <circle cx="4" cy="4" r="2" fill="#9aa88f" opacity="0.35"/>
+      <circle cx="88" cy="88" r="2" fill="#9aa88f" opacity="0.35"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#f4ecdb"/>
+
+  <!-- faint corner stains -->
+  <g filter="url(#cpPrintSoft)">
+    <ellipse cx="46" cy="40" rx="120" ry="78" fill="#c9a25e" opacity="0.12"/>
+    <ellipse cx="766" cy="562" rx="140" ry="92" fill="#b0705a" opacity="0.12"/>
+    <ellipse cx="762" cy="44" rx="96" ry="66" fill="#8fa3b0" opacity="0.10"/>
+    <ellipse cx="44" cy="556" rx="108" ry="76" fill="#3a3f52" opacity="0.10"/>
+  </g>
+
+  <!-- patterned parlour rug -->
+  <rect x="64" y="92" width="672" height="436" rx="26" fill="#8fa3b0" opacity="0.14"/>
+  <rect x="64" y="92" width="672" height="436" rx="26" fill="url(#cpPrintRug)"/>
+  <g filter="url(#cpPrintWobble)" fill="none" stroke-linecap="round">
+    <rect x="84" y="112" width="632" height="396" rx="18" stroke="#b0705a" stroke-width="5" opacity="0.5"/>
+    <rect x="96" y="124" width="608" height="372" rx="14" stroke="#2e2a33" stroke-width="1.6" opacity="0.35"/>
+  </g>
+
+  <!-- rain-damp halo -->
+  <ellipse cx="402" cy="300" rx="185" ry="175" fill="#3a3f52" opacity="0.13" filter="url(#cpPrintSoft2)"/>
+
+  <!-- diamond-tread boot print ghost, edges blurring -->
+  <g filter="url(#cpPrintGhost)">
+    <path d="M352 158 C330 166 318 192 324 224 C330 254 344 272 348 300 C352 330 346 360 352 388 C358 424 386 446 420 442 C456 438 472 410 466 372 C460 336 452 310 458 278 C464 246 466 208 450 182 C436 160 380 148 352 158 Z" fill="#6b6472" opacity="0.28"/>
+    <path d="M352 158 C330 166 318 192 324 224 C330 254 344 272 348 300 C352 330 346 360 352 388 C358 424 386 446 420 442 C456 438 472 410 466 372 C460 336 452 310 458 278 C464 246 466 208 450 182 C436 160 380 148 352 158 Z" fill="url(#cpPrintTread)" opacity="0.6"/>
+    <path d="M352 158 C330 166 318 192 324 224 C330 254 344 272 348 300 C352 330 346 360 352 388 C358 424 386 446 420 442 C456 438 472 410 466 372 C460 336 452 310 458 278 C464 246 466 208 450 182 C436 160 380 148 352 158 Z" fill="none" stroke="#2e2a33" stroke-width="2" opacity="0.45"/>
+    <path d="M356 360 Q410 374 462 358" fill="none" stroke="#2e2a33" stroke-width="2" opacity="0.45"/>
+  </g>
+
+  <!-- measuring line -->
+  <g stroke="#2e2a33" stroke-width="2" stroke-linecap="round">
+    <path d="M300 504 H500"/>
+    <path d="M300 496 V512 M500 496 V512"/>
+    <path d="M400 500 V508" opacity="0.6"/>
+  </g>
+  <text x="400" y="540" font-family="Caveat, cursive" font-size="26" fill="#2e2a33" text-anchor="middle">seven — eight</text>
+
+  <!-- annotation -->
+  <text x="60" y="78" font-family="Caveat, cursive" font-size="28" fill="#2e2a33">not one of the household's boots</text>
+
+  <!-- double ink border -->
+  <g filter="url(#cpPrintWobble)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="3"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6"/>
+  </g>
+</svg>

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cpSketchWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="83" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6"/>
+    </filter>
+    <filter id="cpSketchSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="cpSketchSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="600" fill="#f4ecdb"/>
+
+  <!-- faint corner stains -->
+  <g filter="url(#cpSketchSoft)">
+    <ellipse cx="46" cy="40" rx="120" ry="78" fill="#c9a25e" opacity="0.12"/>
+    <ellipse cx="766" cy="562" rx="140" ry="92" fill="#b0705a" opacity="0.12"/>
+    <ellipse cx="762" cy="44" rx="96" ry="66" fill="#8fa3b0" opacity="0.10"/>
+    <ellipse cx="44" cy="556" rx="108" ry="76" fill="#3a3f52" opacity="0.10"/>
+  </g>
+
+  <!-- drawer interior -->
+  <g filter="url(#cpSketchWobble)" stroke-linecap="round">
+    <rect x="56" y="86" width="688" height="452" fill="#8a6a4f" fill-opacity="0.30" stroke="#2e2a33" stroke-width="4"/>
+    <rect x="92" y="118" width="616" height="388" fill="#f7f1e2" stroke="#2e2a33" stroke-width="2.5"/>
+    <path d="M66 110 L66 514 M734 110 L734 514 M100 100 L700 100" stroke="#2e2a33" stroke-width="1.4" opacity="0.3" fill="none"/>
+    <g stroke="#6b6472" stroke-width="1.6" opacity="0.25" fill="none">
+      <path d="M62 140 Q120 136 178 142 M622 470 Q680 464 738 470"/>
+    </g>
+  </g>
+
+  <!-- far study board: tea-aged paper, foxed spots, pencil foxes -->
+  <g transform="rotate(6 540 300)">
+    <rect x="410" y="140" width="268" height="330" fill="#2e2a33" opacity="0.10" filter="url(#cpSketchSoft2)" transform="translate(8 10)"/>
+    <g filter="url(#cpSketchWobble)" stroke-linecap="round">
+      <rect x="410" y="140" width="268" height="330" fill="#e9dfc8" stroke="#2e2a33" stroke-width="3"/>
+    </g>
+    <g fill="#8a6a4f">
+      <circle cx="440" cy="170" r="7" opacity="0.16"/><circle cx="470" cy="188" r="4" opacity="0.15"/>
+      <circle cx="640" cy="200" r="9" opacity="0.14"/><circle cx="612" cy="220" r="5" opacity="0.13"/>
+      <circle cx="446" cy="440" r="8" opacity="0.15"/><circle cx="480" cy="452" r="4" opacity="0.13"/>
+      <circle cx="650" cy="430" r="6" opacity="0.15"/><circle cx="560" cy="160" r="4" opacity="0.12"/>
+    </g>
+    <!-- sitting fox, pencil -->
+    <g stroke="#6b6472" fill="none" stroke-linecap="round">
+      <path d="M456 232 Q462 218 478 216 Q494 214 500 226" stroke-width="2.2"/>
+      <path d="M460 220 L452 200 L470 212" stroke-width="2.2"/>
+      <path d="M482 214 L486 194 L498 210" stroke-width="2.2"/>
+      <path d="M500 226 L516 232 L498 236" stroke-width="2.2"/>
+      <path d="M458 238 Q446 258 450 278 Q454 296 470 302" stroke-width="2.2"/>
+      <path d="M462 302 L460 322 M474 302 L474 322 M456 322 L466 322 M470 322 L480 322" stroke-width="2"/>
+      <path d="M470 302 Q500 320 528 306 Q546 296 540 278 Q530 262 512 268" stroke-width="2.4"/>
+      <path d="M516 284 L528 280 M512 296 L526 294" stroke-width="1.6"/>
+      <path d="M462 250 L474 258 M460 264 L474 272 M462 278 L476 286" stroke-width="1.4" opacity="0.7"/>
+    </g>
+    <!-- leaping fox, pencil -->
+    <g stroke="#6b6472" fill="none" stroke-linecap="round">
+      <path d="M560 350 Q584 330 612 342 Q636 352 648 372" stroke-width="2.4"/>
+      <path d="M648 372 L664 366 L650 380" stroke-width="2.2"/>
+      <path d="M652 366 L658 354 L664 364" stroke-width="1.8"/>
+      <path d="M612 342 L630 322 L640 306 M640 306 L648 312" stroke-width="2"/>
+      <path d="M596 344 L606 320 L612 308" stroke-width="2"/>
+      <path d="M560 350 L544 372 L534 390 M534 390 L542 392" stroke-width="2"/>
+      <path d="M576 356 L566 384 L560 400" stroke-width="2"/>
+      <path d="M560 350 Q536 340 512 348 Q500 352 494 362" stroke-width="2.4"/>
+      <path d="M580 340 L592 348 M588 334 L600 344 M600 344 L614 352" stroke-width="1.4" opacity="0.7"/>
+    </g>
+  </g>
+
+  <!-- nearest board, flipped to its verso -->
+  <g transform="rotate(-7 280 330)">
+    <rect x="128" y="172" width="320" height="340" fill="#2e2a33" opacity="0.12" filter="url(#cpSketchSoft2)" transform="translate(10 12)"/>
+    <g filter="url(#cpSketchWobble)" stroke-linecap="round">
+      <rect x="120" y="160" width="320" height="340" fill="#f2ead6" stroke="#2e2a33" stroke-width="3.5"/>
+      <path d="M140 178 L158 196 M420 178 L402 196 M140 482 L158 464 M420 482 L402 464" stroke="#2e2a33" stroke-width="1.4" opacity="0.35" fill="none"/>
+    </g>
+    <g fill="#2e2a33" opacity="0.4">
+      <circle cx="142" cy="182" r="2.4"/><circle cx="418" cy="184" r="2.4"/>
+    </g>
+    <g fill="#8a6a4f">
+      <circle cx="160" cy="440" r="6" opacity="0.12"/><circle cx="200" cy="452" r="4" opacity="0.11"/>
+      <circle cx="380" cy="210" r="7" opacity="0.12"/><circle cx="350" cy="228" r="4" opacity="0.10"/>
+    </g>
+    <path d="M150 380 Q200 360 260 372 Q320 384 380 366" fill="none" stroke="#6b6472" stroke-width="3" opacity="0.1"/>
+    <text x="150" y="250" font-family="Caveat, cursive" font-size="30" fill="#2e2a33">Sold by J.A. — forgery.</text>
+    <text x="150" y="292" font-family="Caveat, cursive" font-size="30" fill="#2e2a33">Return the money. E.V.</text>
+    <path d="M150 308 Q240 318 330 306" fill="none" stroke="#2e2a33" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- cross-hatch shading -->
+  <g stroke="#6b6472" stroke-width="2" opacity="0.3" fill="none" stroke-linecap="round">
+    <path d="M600 470 L628 484 M622 474 L650 488 M644 478 L672 492"/>
+    <path d="M110 200 L134 214 M106 226 L130 240 M102 252 L126 266"/>
+  </g>
+
+  <!-- annotation -->
+  <text x="76" y="72" font-family="Caveat, cursive" font-size="28" fill="#2e2a33">drawn by a younger hand</text>
+
+  <!-- double ink border -->
+  <g filter="url(#cpSketchWobble)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="3"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6"/>
+  </g>
+</svg>

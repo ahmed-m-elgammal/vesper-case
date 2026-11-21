@@ -1,0 +1,69 @@
+{
+  "suspects": [
+    {
+      "id": "peggy",
+      "name": "Margaret 'Peggy' Vesper-Croft",
+      "shortName": "Peggy",
+      "age": 38,
+      "role": "The niece -- keeper of the house and of its worries",
+      "initial": "P",
+      "tint": "#8fa3b0",
+      "statement": "In my room from half past eight with a novel and my sewing. Asleep before eleven -- I heard him wind the hall clock before bed, as he always does.",
+      "secret": "IOUs and a final notice from a lending office; the Tuesday letter terrified her. She never came down again until morning.",
+      "lie": "She heard him winding the hall clock -- a clock that had been stopped since the blackout.",
+      "redHerring": "Her debts make inheritance look like motive; her scissors in the parlour look worse than it is."
+    },
+    {
+      "id": "julian",
+      "name": "Julian Ashcombe",
+      "shortName": "Julian",
+      "age": 45,
+      "role": "The literary agent -- seller of things not entirely his to sell",
+      "initial": "J",
+      "tint": "#b0705a",
+      "statement": "I left at ten sharp. We spoke of sales and nothing else -- I never heard of any memoir, and I never saw one.",
+      "secret": "He sold two of Tobias's copies as restored Vesper originals; Edmund caught him and demanded the money back by Christmas.",
+      "lie": "'I never heard of any memoir' -- his pencil note will sit impressed on the study blotter (Act 3).",
+      "redHerring": "His visit and the forgeries give him guilt, not the poison."
+    },
+    {
+      "id": "marsh",
+      "name": "Dr. Helena Marsh",
+      "shortName": "Dr. Marsh",
+      "age": 51,
+      "role": "The family physician -- keeper of hearts, including her own",
+      "initial": "H",
+      "tint": "#9aa88f",
+      "statement": "I was at my surgery all evening. He rang at half ten about his drops; I told him to come Monday. I never left the house I was in.",
+      "secret": "She came at his summons at 10:56 by the garden door, read pages 40 to 43, and dosed the decanter when he turned to pour. Ruth Marsh was her sister.",
+      "lie": "Never left the surgery -- the tread prints, the bolt and the hay-and-honey smell of the ash will say otherwise.",
+      "redHerring": "Her prescription is the poison's easiest source -- and the cheapest misdirection."
+    },
+    {
+      "id": "tobias",
+      "name": "Tobias Grimm",
+      "shortName": "Tobias",
+      "age": 29,
+      "role": "The apprentice -- the pencil behind the published line",
+      "initial": "T",
+      "tint": "#c9a25e",
+      "statement": "Inking in the attic from half seven to midnight, then my cot in the basement. I heard thunder, and a clatter like a clock falling, a few minutes after half eleven. Nothing else.",
+      "secret": "He ghost-drew the last two Hollow books at Edmund's direction, and his copies were the forgeries Julian sold.",
+      "lie": "None that matters -- his half-finished sketch is the truth-teller: the line stops where the power died.",
+      "redHerring": "The horn button on the stairs is off his coat -- lost days before, swept along."
+    },
+    {
+      "id": "colette",
+      "name": "Colette Beaumont",
+      "shortName": "Colette",
+      "age": 34,
+      "role": "The housekeeper -- baker of bread, keeper of the one honest ledger",
+      "initial": "C",
+      "tint": "#c9a25e",
+      "statement": "Kitchen from half six. After the dark I baked through till the lights came. I found the garden door off the bolt at half eleven and bolted it -- thought I'd left it so.",
+      "secret": "She has been skimming the housekeeping tin for her sister's debts -- she hid the page, and shame keeps her stories tidy.",
+      "lie": "None about the night; her ledger is the most honest witness in the house.",
+      "redHerring": "The burnt loaf -- she blames the blackout; the pantry lantern proves her out."
+    }
+  ]
+}

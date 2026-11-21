@@ -1,0 +1,56 @@
+{
+  "dialogue": [
+    {
+      "id": "hollis_intro",
+      "speaker": "Sergeant Hollis",
+      "initial": "H",
+      "lines": [
+        "Fair morning -- such as it is. Sergeant Hollis. The storm took our lights twice last night and took Mr. Vesper once, all told.",
+        "The coroner's man wrote 'heart.' Mr. Pell pays better than grief, and he says your eyes are for hire. So: look.",
+        "The household's five guests are still under this roof, dry and quiet and telling tidy stories. I've written their stories into your case file."
+      ],
+      "choices": [
+        { "text": "What do the household say?", "next": "hollis_statements" },
+        { "text": "Where do I begin?", "next": "hollis_begin" }
+      ]
+    },
+    {
+      "id": "hollis_statements",
+      "speaker": "Sergeant Hollis",
+      "initial": "H",
+      "lines": [
+        "Five of them slept here: the niece Peggy, the agent Ashcombe, the doctor Marsh, the apprentice Grimm, and Colette, who cooks and keeps the ledger.",
+        "Their stories are tidy. Tidy is what I'd watch, if I were you. The notebook has them all -- People tab."
+      ],
+      "next": "hollis_close"
+    },
+    {
+      "id": "hollis_begin",
+      "speaker": "Sergeant Hollis",
+      "initial": "H",
+      "lines": [
+        "Start in the hall. It keeps the night's clockwork: who came, who went, and what stopped when the storm did.",
+        "When the hall has told you its story, say it to the parlour door. That door opens for arithmetic, not for keys."
+      ],
+      "next": "hollis_close"
+    },
+    {
+      "id": "hollis_close",
+      "speaker": "Sergeant Hollis",
+      "initial": "H",
+      "lines": [
+        "The house is yours, detective. Mind the rug in the parlour -- it remembers feet."
+      ],
+      "flag": "met_hollis"
+    },
+    {
+      "id": "hollis_parlour_open",
+      "speaker": "Sergeant Hollis",
+      "initial": "H",
+      "lines": [
+        "Fair enough -- that's the hall read like a hall. I've pulled the tape off the parlour door.",
+        "Mind the rug. It remembers feet."
+      ]
+    }
+  ]
+}

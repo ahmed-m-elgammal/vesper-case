@@ -1,0 +1,71 @@
+{
+  "gates": [
+    {
+      "id": "gate-parlour",
+      "title": "What the Hall Told You",
+      "prompt": "Sergeant Hollis will not unseal the parlour for keys -- only for arithmetic. Say what the hall established, and he will take the police tape down himself.",
+      "requiresClues": ["hall_clock", "umbrella_stand", "doormat_prints", "visitor_ledger"],
+      "slots": [
+        {
+          "before": "The only visitor who used the front door was",
+          "after": "-- the ledger has him, and the mat agrees.",
+          "answer": "Julian Ashcombe",
+          "chips": ["Julian Ashcombe", "Dr. Helena Marsh", "Tobias Grimm", "Colette Beaumont"]
+        },
+        {
+          "before": "and he left at",
+          "after": "before the storm cut the power.",
+          "answer": "a quarter past ten",
+          "chips": ["a quarter past ten", "half past ten", "ten past eleven", "a quarter to midnight"]
+        },
+        {
+          "before": "The power failed at",
+          "after": "-- the hall clock's hands froze there, and the house went dark.",
+          "answer": "10:47",
+          "chips": ["10:47", "11:21", "11:38", "7:05"]
+        }
+      ],
+      "onSolve": {
+        "flags": ["parlour_open"],
+        "unlockRooms": ["parlour"],
+        "dialogue": "hollis_parlour_open"
+      }
+    },
+    {
+      "id": "gate-act1",
+      "title": "What Killed Edmund Vesper",
+      "prompt": "Sergeant Hollis is waiting in the hall with his notebook square. Name the poison, the vessel, the fire and the door -- each one backed by something you can put a pencil on.",
+      "requiresClues": ["hearth_ash", "decanter", "whiskey_glass", "garden_door_bolt", "hearth_rug_print"],
+      "slots": [
+        {
+          "before": "Edmund Vesper did not simply fail. He was poisoned with",
+          "after": "-- crushed leaf, burned stem, missed petals.",
+          "answer": "foxglove",
+          "chips": ["foxglove", "laudanum", "hemlock", "his own heart drops"]
+        },
+        {
+          "before": "measured into",
+          "after": "-- dosed before he ever poured his nightly glass.",
+          "answer": "the whiskey decanter",
+          "chips": ["the whiskey decanter", "his heart-drop bottle", "the supper plate", "the teapot"]
+        },
+        {
+          "before": "The killer burned the leaf stems in the",
+          "after": "-- and the ash kept two petals and a midrib.",
+          "answer": "parlour hearth",
+          "chips": ["parlour hearth", "kitchen stove", "study fire", "attic grate"]
+        },
+        {
+          "before": "and came and went by the",
+          "after": "while the house sat dark and the front door slept.",
+          "answer": "kitchen garden door",
+          "chips": ["kitchen garden door", "front door", "coal hatch", "scullery window"]
+        }
+      ],
+      "onSolve": {
+        "flags": ["act1_clear", "tool_uv_granted"],
+        "endCard": "end-of-build-one"
+      }
+    }
+  ]
+}

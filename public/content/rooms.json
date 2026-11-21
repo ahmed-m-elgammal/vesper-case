@@ -1,0 +1,221 @@
+{
+  "rooms": [
+    {
+      "id": "hall",
+      "title": "Entrance Hall",
+      "act": 1,
+      "width": 2400,
+      "height": 900,
+      "layers": [
+        { "key": "hall_bg", "src": "/art/hall_bg.svg", "scrollFactor": 0.82, "depth": 0 },
+        { "key": "hall_mid", "src": "/art/hall_mid.svg", "scrollFactor": 1, "depth": 10 },
+        { "key": "hall_fg", "src": "/art/hall_fg.svg", "scrollFactor": 1.18, "depth": 20 }
+      ],
+      "doors": [
+        {
+          "to": "parlour",
+          "spot": [700, 240, 180, 520],
+          "label": "The parlour",
+          "lockedByGate": "gate-parlour",
+          "lockedLine": "Sealed by the Sergeant: tell him what the hall told you first, and the parlour opens."
+        },
+        {
+          "to": "kitchen",
+          "spot": [2286, 470, 108, 286],
+          "label": "Kitchen passage",
+          "lockedAct": "2",
+          "lockedLine": "The kitchen and the ground hallway open with Act 2 -- next build."
+        },
+        {
+          "to": "landing",
+          "spot": [1560, 140, 760, 600],
+          "label": "The stairs",
+          "lockedAct": "2",
+          "lockedLine": "The stairs open with Act 2 -- next build. The bedrooms follow in Act 3."
+        }
+      ],
+      "hubPlate": [760, 440, 380, 200],
+      "hubLabel": "Entrance Hall",
+      "hubAct": 1,
+      "hints": {
+        "tier1": "Something in this hall keeps time. What stopped when the storm struck, and what does the open book by the door have to say about visitors?",
+        "tier2": "The grandfather clock died at 10:47 when the power failed. Set that against the ledger: one visitor, gone by a quarter past ten. Then check the umbrella he left behind -- dry, in the stand.",
+        "tier3": "The hall says: only Julian used the front door, and he left at a quarter past ten. The clock fixes the blackout at 10:47. The mat and the dry umbrella agree. Say it to the parlour door."
+      }
+    },
+    {
+      "id": "parlour",
+      "title": "The Parlour",
+      "act": 1,
+      "width": 2400,
+      "height": 900,
+      "layers": [
+        { "key": "parlour_bg", "src": "/art/parlour_bg.svg", "scrollFactor": 0.82, "depth": 0 },
+        { "key": "parlour_mid", "src": "/art/parlour_mid.svg", "scrollFactor": 1, "depth": 10 },
+        { "key": "parlour_fg", "src": "/art/parlour_fg.svg", "scrollFactor": 1.18, "depth": 20 }
+      ],
+      "doors": [
+        {
+          "to": "hall",
+          "spot": [0, 240, 90, 500],
+          "label": "Back to the hall"
+        }
+      ],
+      "hubPlate": [380, 440, 360, 200],
+      "hubLabel": "Parlour",
+      "hubAct": 1,
+      "hints": {
+        "tier1": "He was reading when it took him. What was he reading, what is missing from it -- and what does a dull film inside a glass mean?",
+        "tier2": "Take the magnifier to the glass, the decanter and the ember's edge. Read the garden door's bolt. Mind the rug by the fender: rain-damp feet, and nobody in the house wears treads like those.",
+        "tier3": "Foxglove in the decanter -- not his glass. Burned stems in the hearth, two petals missed. A diamond-tread print, size seven to eight, by the fender. The garden door stood off its bolt all through the dark. Say it to the hall."
+      }
+    },
+    {
+      "id": "kitchen",
+      "title": "The Kitchen",
+      "act": 2,
+      "width": 2400,
+      "height": 900,
+      "layers": [],
+      "doors": [
+        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Back to the hall" }
+      ],
+      "hubPlate": [1160, 440, 360, 200],
+      "hubLabel": "Kitchen",
+      "hubAct": 2,
+      "hints": {
+        "tier1": "The kitchen bakes its own alibi: the loaf, the radio, the lantern.",
+        "tier2": "Coming in Act 2.",
+        "tier3": "Coming in Act 2."
+      }
+    },
+    {
+      "id": "study",
+      "title": "The Study",
+      "act": 3,
+      "width": 2400,
+      "height": 900,
+      "layers": [],
+      "doors": [
+        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Back to the hall" }
+      ],
+      "hubPlate": [1540, 440, 340, 200],
+      "hubLabel": "Study",
+      "hubAct": 3,
+      "hints": {
+        "tier1": "The study keeps the blotter's secrets.",
+        "tier2": "Coming in Act 3.",
+        "tier3": "Coming in Act 3."
+      }
+    },
+    {
+      "id": "landing",
+      "title": "Upper Landing",
+      "act": 2,
+      "width": 2400,
+      "height": 900,
+      "layers": [],
+      "doors": [
+        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Down to the hall" }
+      ],
+      "hubPlate": [1540, 230, 340, 180],
+      "hubLabel": "Landing",
+      "hubAct": 2,
+      "hints": {
+        "tier1": "The landing hears everything and says little.",
+        "tier2": "Coming in Act 2.",
+        "tier3": "Coming in Act 2."
+      }
+    },
+    {
+      "id": "peggy",
+      "title": "Peggy's Room",
+      "act": 3,
+      "width": 2400,
+      "height": 900,
+      "layers": [],
+      "doors": [
+        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Down to the hall" }
+      ],
+      "hubPlate": [380, 230, 360, 180],
+      "hubLabel": "Peggy's Room",
+      "hubAct": 3,
+      "hints": { "tier1": "A novel, a candle, and a burn that stops at eleven.", "tier2": "Coming in Act 3.", "tier3": "Coming in Act 3." }
+    },
+    {
+      "id": "edmund",
+      "title": "Edmund's Room",
+      "act": 3,
+      "width": 2400,
+      "height": 900,
+      "layers": [],
+      "doors": [
+        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Down to the hall" }
+      ],
+      "hubPlate": [760, 230, 380, 180],
+      "hubLabel": "Edmund's Room",
+      "hubAct": 3,
+      "hints": { "tier1": "He kept the past in this room, folded.", "tier2": "Coming in Act 3.", "tier3": "Coming in Act 3." }
+    },
+    {
+      "id": "bath",
+      "title": "Bathroom",
+      "act": 3,
+      "width": 2400,
+      "height": 900,
+      "layers": [],
+      "doors": [
+        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Down to the hall" }
+      ],
+      "hubPlate": [1160, 230, 360, 180],
+      "hubLabel": "Bathroom",
+      "hubAct": 3,
+      "hints": { "tier1": "Medicine shelves remember prescriptions.", "tier2": "Coming in Act 3.", "tier3": "Coming in Act 3." }
+    },
+    {
+      "id": "attic",
+      "title": "Attic Studio",
+      "act": 4,
+      "width": 2400,
+      "height": 900,
+      "layers": [],
+      "doors": [
+        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Down the stairs" }
+      ],
+      "hubPlate": [760, 50, 780, 160],
+      "hubLabel": "Attic Studio",
+      "hubAct": 4,
+      "hints": { "tier1": "Ruth's pencil still lives up here.", "tier2": "Coming in Act 4.", "tier3": "Coming in Act 4." }
+    },
+    {
+      "id": "cellar",
+      "title": "Cellar",
+      "act": 4,
+      "width": 2400,
+      "height": 900,
+      "layers": [],
+      "doors": [
+        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Up to the hall" }
+      ],
+      "hubPlate": [380, 660, 360, 220],
+      "hubLabel": "Cellar",
+      "hubAct": 4,
+      "hints": { "tier1": "Coal, preserves, and the hatch nobody uses.", "tier2": "Coming in Act 4.", "tier3": "Coming in Act 4." }
+    },
+    {
+      "id": "laundry",
+      "title": "Laundry & Cot",
+      "act": 4,
+      "width": 2400,
+      "height": 900,
+      "layers": [],
+      "doors": [
+        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Up to the hall" }
+      ],
+      "hubPlate": [760, 660, 380, 220],
+      "hubLabel": "Laundry",
+      "hubAct": 4,
+      "hints": { "tier1": "Tobias sleeps where the work is.", "tier2": "Coming in Act 4.", "tier3": "Coming in Act 4." }
+    }
+  ]
+}

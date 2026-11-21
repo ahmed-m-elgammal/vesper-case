@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TimelineEntry",
+  "type": "object",
+  "required": ["id", "time", "text", "revealedBy"],
+  "properties": {
+    "id": { "type": "string" },
+    "time": { "type": "string", "description": "Display label, e.g. '10:47 pm'" },
+    "text": { "type": "string" },
+    "revealedBy": {
+      "type": "string",
+      "pattern": "^(file|locked|clue:[a-z_]+|flag:[a-z_]+)$",
+      "description": "'file' = known from the case file; 'locked' = future build; clue:/flag: = revealed by evidence id"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Ink & Ashes",
+  "subtitle": "The Vesper Case",
+  "build": "Build One -- Prologue & Act I",
+  "epigraph": "Seven rooms, five sleepless guests, one storm -- and a confession that will not stay shut.",
+  "location": "7 Hollow Lane",
+  "dateLabel": "the night of Saturday the 14th of October",
+  "weather": "rain, lightning, a transformer down the lane",
+  "tod": "about 11:40 pm, Saturday 14 October",
+  "clueAccent": "#b4552d",
+  "victim": {
+    "name": "Edmund Vesper",
+    "age": 62,
+    "found": "7:05 am Sunday, by Colette Beaumont",
+    "cause": "heart failure (certified by Dr. H. Marsh)",
+    "about": [
+      "Edmund Vesper, sixty-two, drew and wrote the Hollow books: the fox, the lane, the lantern -- half a childhood's worth of England. He worked alone in the attic studio of the house on Hollow Lane and quarrelled, lately, with nearly everyone who loved him.",
+      "His heart had been failing for years; Dr. Helena Marsh kept it beating with tincture of digitalis, five drops in water, obedient as a clock. The house clock, at least, obeyed to the minute."
+    ]
+  },
+  "officialStory": [
+    "The house agrees on the shape of the evening. Julian Ashcombe came at nine and left at a quarter past ten. The storm cut the lights at 10:47 and gave them back near half eleven; candles were fetched, bread went on in the kitchen, the attic lamp died mid-line and came back to finish it.",
+    "Peggy read upstairs and slept. Tobias inked and heard nothing but thunder and, 'a few minutes after half eleven,' a clatter like a clock falling. Colette baked and bolted the garden door at half eleven, finding it -- she thought -- left open by herself.",
+    "At 7:05 the tea tray went in and the tray came out broken. Edmund sat cold in the wing chair, spectacles folded on his reading, the fire long dead. The coroner's man said his heart. Sergeant Hollis wrote it down, because it was easier than not."
+  ],
+  "playerBrief": [
+    "You are an enquiry agent, engaged by the family solicitor before the will is read.",
+    "Read the hall. Then the parlour. Then say it plain: what killed him, and how, and why."
+  ]
+}

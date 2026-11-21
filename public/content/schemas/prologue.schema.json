@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProloguePage",
+  "type": "object",
+  "required": ["id", "template"],
+  "properties": {
+    "id": { "type": "string" },
+    "template": {
+      "enum": ["cover", "letter", "victim", "plan", "story", "suspects", "kit", "begin"]
+    },
+    "title": { "type": "string" },
+    "body": { "type": "array", "items": { "type": "string" } },
+    "letter": {
+      "type": "object",
+      "required": ["to", "lines", "sign"],
+      "properties": {
+        "to": { "type": "string" },
+        "lines": { "type": "array", "items": { "type": "string" } },
+        "sign": { "type": "string" }
+      }
+    },
+    "footnote": { "type": "string" }
+  }
+}

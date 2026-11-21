@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Suspect",
+  "type": "object",
+  "required": ["id", "name", "shortName", "age", "role", "initial", "tint", "statement", "secret", "lie", "redHerring"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "shortName": { "type": "string" },
+    "age": { "type": "integer" },
+    "role": { "type": "string" },
+    "initial": { "type": "string", "maxLength": 2 },
+    "tint": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+    "statement": { "type": "string", "description": "Public alibi taken the morning after (shown from the prologue)" },
+    "secret": { "type": "string", "description": "Hidden truth -- data present but never shown before Act 5" },
+    "lie": { "type": "string", "description": "The statement's catchable lie and its disproof" },
+    "redHerring": { "type": "string", "description": "The misdirection this suspect carries and how it resolves" }
+  }
+}

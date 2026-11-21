@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cpPillsWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="41" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6"/>
+    </filter>
+    <filter id="cpPillsSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="cpPillsSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <clipPath id="cpPillsClip">
+      <path d="M376 236 L376 198 L424 198 L424 236 Q468 250 478 302 L482 418 Q484 450 452 450 L348 450 Q316 450 318 418 L322 302 Q332 250 376 236 Z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="800" height="600" fill="#f4ecdb"/>
+
+  <!-- faint corner stains -->
+  <g filter="url(#cpPillsSoft)">
+    <ellipse cx="46" cy="40" rx="120" ry="78" fill="#c9a25e" opacity="0.12"/>
+    <ellipse cx="766" cy="562" rx="140" ry="92" fill="#b0705a" opacity="0.12"/>
+    <ellipse cx="762" cy="44" rx="96" ry="66" fill="#8fa3b0" opacity="0.10"/>
+    <ellipse cx="44" cy="556" rx="108" ry="76" fill="#3a3f52" opacity="0.10"/>
+  </g>
+
+  <!-- side-table top -->
+  <g filter="url(#cpPillsWobble)" stroke-linecap="round">
+    <rect x="150" y="444" width="500" height="36" fill="#8a6a4f" fill-opacity="0.28" stroke="#2e2a33" stroke-width="3"/>
+    <path d="M170 462 L630 460" stroke="#2e2a33" stroke-width="1.6" opacity="0.3" fill="none"/>
+  </g>
+  <ellipse cx="400" cy="452" rx="120" ry="16" fill="#2e2a33" opacity="0.15" filter="url(#cpPillsSoft2)"/>
+
+  <!-- amber glass heart-drop bottle, half full -->
+  <g filter="url(#cpPillsWobble)" stroke-linecap="round">
+    <path d="M376 236 L376 198 L424 198 L424 236 Q468 250 478 302 L482 418 Q484 450 452 450 L348 450 Q316 450 318 418 L322 302 Q332 250 376 236 Z" fill="#c9a25e" fill-opacity="0.16" stroke="#2e2a33" stroke-width="4"/>
+  </g>
+  <g clip-path="url(#cpPillsClip)">
+    <rect x="316" y="344" width="168" height="108" fill="#c9a25e" opacity="0.5"/>
+    <ellipse cx="400" cy="344" rx="82" ry="11" fill="#c9a25e" opacity="0.6"/>
+    <ellipse cx="400" cy="344" rx="82" ry="11" fill="none" stroke="#8a6a4f" stroke-width="2" opacity="0.4"/>
+  </g>
+
+  <!-- pipette within the glass -->
+  <g stroke-linecap="round">
+    <path d="M400 202 L400 378" stroke="#3a3f52" stroke-width="3" opacity="0.55" fill="none"/>
+    <path d="M396 378 L404 378 L400 392 Z" fill="#3a3f52" opacity="0.55"/>
+  </g>
+
+  <!-- dropper cap: bulb and brass collar -->
+  <g filter="url(#cpPillsWobble)" stroke-linecap="round">
+    <ellipse cx="400" cy="168" rx="28" ry="25" fill="#3a3f52" fill-opacity="0.85" stroke="#2e2a33" stroke-width="3"/>
+    <path d="M384 158 Q392 150 404 152" fill="none" stroke="#8fa3b0" stroke-width="3" opacity="0.6"/>
+    <rect x="372" y="190" width="56" height="22" rx="4" fill="#c9a25e" fill-opacity="0.8" stroke="#2e2a33" stroke-width="3"/>
+    <path d="M380 192 V210 M390 192 V210 M400 192 V210 M410 192 V210 M420 192 V210" stroke="#2e2a33" stroke-width="1.2" opacity="0.5" fill="none"/>
+  </g>
+
+  <!-- glass highlight + pencil hatch on the dark side -->
+  <path d="M340 268 Q334 330 342 402" stroke="#f4ecdb" stroke-width="5" opacity="0.55" fill="none" stroke-linecap="round"/>
+  <g stroke="#6b6472" stroke-width="2" opacity="0.3" fill="none" stroke-linecap="round">
+    <path d="M452 264 L472 276 M450 290 L472 302 M450 316 L474 328 M452 342 L474 354 M452 368 L474 380 M452 394 L474 406"/>
+    <path d="M470 262 L452 276 M472 288 L452 302"/>
+  </g>
+
+  <!-- paper label, neat medical hand -->
+  <g transform="rotate(-1.5 400 352)">
+    <rect x="330" y="284" width="140" height="152" fill="#f7f1e2" stroke="#2e2a33" stroke-width="2.5"/>
+    <text x="400" y="314" font-family="Caveat, cursive" font-size="28" fill="#2e2a33" text-anchor="middle">Tinct.</text>
+    <text x="400" y="342" font-family="Caveat, cursive" font-size="28" fill="#2e2a33" text-anchor="middle">Digitalis</text>
+    <path d="M348 354 H452" stroke="#6b6472" stroke-width="1.5" opacity="0.7"/>
+    <text x="400" y="378" font-family="Caveat, cursive" font-size="26" fill="#2e2a33" text-anchor="middle">five drops</text>
+    <text x="400" y="402" font-family="Caveat, cursive" font-size="26" fill="#2e2a33" text-anchor="middle">in water</text>
+    <path d="M348 410 H452" stroke="#6b6472" stroke-width="1.5" opacity="0.7"/>
+    <text x="400" y="430" font-family="Caveat, cursive" font-size="28" fill="#2e2a33" text-anchor="middle">Dr. H. Marsh</text>
+  </g>
+
+  <!-- annotation -->
+  <text x="400" y="82" font-family="Caveat, cursive" font-size="30" fill="#2e2a33" text-anchor="middle">his ordinary drops — half used</text>
+
+  <!-- double ink border -->
+  <g filter="url(#cpPillsWobble)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="3"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6"/>
+  </g>
+</svg>

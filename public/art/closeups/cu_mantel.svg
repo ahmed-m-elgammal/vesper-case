@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cpMantelWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="71" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="cpMantelSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="cpMantelSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <pattern id="cpMantelWeave" width="26" height="26" patternUnits="userSpaceOnUse">
+      <path d="M2 7 H24 M2 19 H24" stroke="#3a3f52" stroke-width="1.8" opacity="0.12" fill="none"/>
+      <path d="M7 2 V24 M19 2 V24" stroke="#3a3f52" stroke-width="1.4" opacity="0.08" fill="none"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#f4ecdb"/>
+
+  <!-- faint corner stains -->
+  <g filter="url(#cpMantelSoft)">
+    <ellipse cx="46" cy="40" rx="120" ry="78" fill="#c9a25e" opacity="0.12"/>
+    <ellipse cx="766" cy="562" rx="140" ry="92" fill="#b0705a" opacity="0.12"/>
+    <ellipse cx="762" cy="44" rx="96" ry="66" fill="#8fa3b0" opacity="0.10"/>
+    <ellipse cx="44" cy="556" rx="108" ry="76" fill="#3a3f52" opacity="0.10"/>
+  </g>
+
+  <!-- hearth rug with visible weave -->
+  <rect x="76" y="112" width="648" height="440" rx="28" fill="#b0705a" opacity="0.16"/>
+  <rect x="76" y="112" width="648" height="440" rx="28" fill="url(#cpMantelWeave)"/>
+  <g filter="url(#cpMantelWobble)" fill="none" stroke-linecap="round">
+    <rect x="94" y="130" width="612" height="404" rx="18" stroke="#b0705a" stroke-width="6" opacity="0.5"/>
+    <rect x="104" y="140" width="592" height="384" rx="14" stroke="#2e2a33" stroke-width="1.6" opacity="0.35"/>
+    <path d="M110 150 L134 174 M690 150 L666 174 M110 514 L134 490 M690 514 L666 490" stroke="#b0705a" stroke-width="3" opacity="0.5"/>
+  </g>
+
+  <!-- clock shadow -->
+  <ellipse cx="398" cy="342" rx="140" ry="115" fill="#2e2a33" opacity="0.15" filter="url(#cpMantelSoft2)" transform="rotate(-22 398 342)"/>
+
+  <!-- tambour mantel clock, tipped on the rug -->
+  <g transform="rotate(-22 400 330)">
+    <g filter="url(#cpMantelWobble)" stroke="#2e2a33" stroke-linecap="round">
+      <rect x="312" y="428" width="176" height="42" rx="8" fill="#8a6a4f" fill-opacity="0.5" stroke-width="3.5"/>
+      <rect x="320" y="296" width="160" height="136" fill="#8a6a4f" fill-opacity="0.42" stroke-width="3.5"/>
+      <path d="M320 296 L320 250 Q320 196 400 196 Q480 196 480 250 L480 296 Z" fill="#8a6a4f" fill-opacity="0.42" stroke-width="3.5"/>
+      <path d="M340 320 V420 M460 320 V420" stroke-width="1.6" opacity="0.25" fill="none"/>
+      <!-- face -->
+      <circle cx="400" cy="252" r="54" fill="#f7f1e2" stroke-width="4"/>
+      <circle cx="400" cy="252" r="44" fill="none" stroke-width="1.8" opacity="0.8"/>
+      <path d="M400 208 V218 M442 252 H432 M400 296 V286 M358 252 H368" stroke-width="3"/>
+      <g fill="#2e2a33" stroke="none" opacity="0.6">
+        <circle cx="420" cy="217" r="2"/><circle cx="435" cy="226" r="2"/><circle cx="435" cy="278" r="2"/>
+        <circle cx="420" cy="287" r="2"/><circle cx="380" cy="287" r="2"/><circle cx="365" cy="278" r="2"/>
+        <circle cx="365" cy="226" r="2"/><circle cx="380" cy="217" r="2"/>
+      </g>
+      <!-- hands at 11:38 -->
+      <path d="M400 252 L394 222" stroke-width="5"/>
+      <path d="M400 252 L370 279" stroke-width="4"/>
+      <circle cx="400" cy="252" r="4.5" fill="#c9a25e" stroke-width="2"/>
+      <!-- hairline crack across the crystal -->
+      <path d="M352 232 L374 246 L368 258 L400 268 L428 262" stroke-width="1.4" opacity="0.85" fill="none"/>
+      <path d="M374 246 L382 238" stroke-width="1.2" opacity="0.7" fill="none"/>
+      <!-- pendulum aperture, rod bent outward -->
+      <rect x="372" y="308" width="56" height="84" rx="10" fill="#3a3f52" fill-opacity="0.25" stroke-width="2.5"/>
+      <path d="M400 310 Q404 340 416 368" stroke-width="3.5" fill="none"/>
+      <circle cx="420" cy="380" r="14" fill="#c9a25e" fill-opacity="0.8" stroke-width="2.5"/>
+    </g>
+  </g>
+
+  <!-- cross-hatch shading -->
+  <g stroke="#6b6472" stroke-width="2" opacity="0.3" fill="none" stroke-linecap="round">
+    <path d="M560 300 L588 316 M566 326 L594 342 M570 352 L598 368 M564 378 L592 394"/>
+    <path d="M210 220 L238 236 M204 246 L232 262 M200 272 L228 288"/>
+  </g>
+
+  <!-- annotation -->
+  <text x="520" y="100" font-family="Caveat, cursive" font-size="28" fill="#2e2a33">it stopped when it fell</text>
+
+  <!-- double ink border -->
+  <g filter="url(#cpMantelWobble)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="3"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6"/>
+  </g>
+</svg>

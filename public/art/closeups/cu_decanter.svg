@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cpDecWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="61" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="cpDecSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="cpDecSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <clipPath id="cpDecClip">
+      <path d="M366 126 L366 166 Q328 180 304 214 Q282 246 282 300 L282 418 Q282 450 314 450 L446 450 Q478 450 478 418 L478 300 Q478 246 456 214 Q432 180 394 166 L394 126 Z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="800" height="600" fill="#f4ecdb"/>
+
+  <!-- faint corner stains -->
+  <g filter="url(#cpDecSoft)">
+    <ellipse cx="46" cy="40" rx="120" ry="78" fill="#c9a25e" opacity="0.12"/>
+    <ellipse cx="766" cy="562" rx="140" ry="92" fill="#b0705a" opacity="0.12"/>
+    <ellipse cx="762" cy="44" rx="96" ry="66" fill="#8fa3b0" opacity="0.10"/>
+    <ellipse cx="44" cy="556" rx="108" ry="76" fill="#3a3f52" opacity="0.10"/>
+  </g>
+
+  <!-- tray shadow beneath -->
+  <ellipse cx="380" cy="494" rx="205" ry="26" fill="#3a3f52" opacity="0.2" filter="url(#cpDecSoft)"/>
+  <g filter="url(#cpDecWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M190 478 Q380 520 570 478" stroke-width="2.5" opacity="0.4"/>
+    <path d="M210 470 Q380 506 550 470" stroke-width="2" opacity="0.3"/>
+  </g>
+
+  <!-- cut-glass decanter body -->
+  <g filter="url(#cpDecWobble)" stroke-linecap="round">
+    <path d="M366 126 L366 166 Q328 180 304 214 Q282 246 282 300 L282 418 Q282 450 314 450 L446 450 Q478 450 478 418 L478 300 Q478 246 456 214 Q432 180 394 166 L394 126 Z" fill="#8fa3b0" fill-opacity="0.14" stroke="#2e2a33" stroke-width="4"/>
+    <rect x="306" y="450" width="148" height="18" rx="6" fill="#8fa3b0" fill-opacity="0.3" stroke="#2e2a33" stroke-width="3"/>
+  </g>
+
+  <!-- whiskey, waterline about sixty percent -->
+  <g clip-path="url(#cpDecClip)">
+    <rect x="282" y="322" width="196" height="130" fill="#c9a25e" opacity="0.5"/>
+    <ellipse cx="380" cy="322" rx="97" ry="13" fill="#c9a25e" opacity="0.6"/>
+    <ellipse cx="380" cy="322" rx="97" ry="13" fill="none" stroke="#8a6a4f" stroke-width="2" opacity="0.4"/>
+    <!-- cut facets -->
+    <g stroke="#2e2a33" fill="none" stroke-linecap="round">
+      <g stroke-width="2" opacity="0.3">
+        <path d="M286 254 Q380 262 474 254 M286 296 Q380 304 474 296 M286 338 Q380 346 474 338 M286 380 Q380 388 474 380"/>
+        <path d="M320 236 Q312 340 322 444 M380 234 L380 446 M440 236 Q448 340 438 444"/>
+      </g>
+      <g stroke-width="1.6" opacity="0.18">
+        <path d="M296 246 L460 436 M330 236 L474 396 M296 320 L430 446"/>
+        <path d="M464 246 L300 436 M430 236 L286 396 M464 320 L330 446"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- fine dusty pale band on the inner shoulder, above the waterline -->
+  <g filter="url(#cpDecSoft2)" fill="none" stroke-linecap="round">
+    <path d="M296 252 A86 13 0 0 0 464 252" stroke="#e8c97a" stroke-width="8" opacity="0.35"/>
+    <path d="M300 246 A82 11 0 0 0 460 246" stroke="#e8c97a" stroke-width="4" opacity="0.25"/>
+  </g>
+
+  <!-- tiny leaf fleck caught near the neck -->
+  <g stroke-linecap="round">
+    <path d="M378 154 Q384 144 394 148 Q390 158 378 154 Z" fill="#9aa88f" opacity="0.95"/>
+    <path d="M380 153 Q386 149 392 150" stroke="#6b6472" stroke-width="1" opacity="0.7" fill="none"/>
+  </g>
+
+  <!-- stopper, seated -->
+  <g filter="url(#cpDecWobble)" stroke-linecap="round">
+    <rect x="368" y="104" width="24" height="44" fill="#8fa3b0" fill-opacity="0.3" stroke="#2e2a33" stroke-width="3"/>
+    <ellipse cx="380" cy="88" rx="32" ry="22" fill="#8fa3b0" fill-opacity="0.3" stroke="#2e2a33" stroke-width="3.5"/>
+    <path d="M356 82 L380 92 M380 92 L404 82 M366 98 L380 104 M380 104 L394 98" stroke="#2e2a33" stroke-width="1.6" opacity="0.6" fill="none"/>
+  </g>
+
+  <!-- highlight -->
+  <path d="M320 240 Q314 330 322 428" stroke="#f4ecdb" stroke-width="5" opacity="0.5" fill="none" stroke-linecap="round"/>
+
+  <!-- annotation with thin arrow to the dusty band -->
+  <text x="530" y="148" font-family="Caveat, cursive" font-size="30" fill="#2e2a33">dosed before he poured</text>
+  <g stroke="#2e2a33" stroke-width="1.5" fill="none" opacity="0.7" stroke-linecap="round">
+    <path d="M556 164 Q512 200 470 244"/>
+    <path d="M470 244 l10 -4 M470 244 l1 10"/>
+  </g>
+
+  <!-- double ink border -->
+  <g filter="url(#cpDecWobble)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="3"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6"/>
+  </g>
+</svg>

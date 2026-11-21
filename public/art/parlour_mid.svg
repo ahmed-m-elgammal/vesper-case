@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="pmWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="37" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="pmSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="pmSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="pmGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <clipPath id="pmKneeClip">
+      <path d="M702 638 Q744 620 790 634 Q830 646 838 676 Q846 708 840 736 Q838 748 822 748 L722 744 Q704 742 702 726 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- patterned rug -->
+  <g filter="url(#pmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M436 752 L2084 752 Q2096 752 2096 764 L2096 872 Q2096 884 2084 884 L436 884 Q424 884 424 872 L424 764 Q424 752 436 752 Z" fill="#b0705a" fill-opacity="0.16" stroke="#9aa88f" stroke-width="4.5" stroke-opacity="0.65"/>
+    <rect x="448" y="768" width="1624" height="100" rx="8" stroke="#b0705a" stroke-width="3" stroke-opacity="0.5"/>
+    <g stroke="#c9a25e">
+      <path d="M700 790 L730 818 L700 846 L670 818 Z" fill="#c9a25e" fill-opacity="0.10" stroke-width="3" stroke-opacity="0.6"/>
+      <circle cx="700" cy="818" r="6" fill="#c9a25e" fill-opacity="0.4" stroke="none"/>
+      <path d="M1060 790 L1090 818 L1060 846 L1030 818 Z" fill="#c9a25e" fill-opacity="0.10" stroke-width="3" stroke-opacity="0.6"/>
+      <circle cx="1060" cy="818" r="6" fill="#c9a25e" fill-opacity="0.4" stroke="none"/>
+      <path d="M1420 790 L1450 818 L1420 846 L1390 818 Z" fill="#c9a25e" fill-opacity="0.10" stroke-width="3" stroke-opacity="0.6"/>
+      <circle cx="1420" cy="818" r="6" fill="#c9a25e" fill-opacity="0.4" stroke="none"/>
+      <path d="M1780 790 L1810 818 L1780 846 L1750 818 Z" fill="#c9a25e" fill-opacity="0.10" stroke-width="3" stroke-opacity="0.6"/>
+      <circle cx="1780" cy="818" r="6" fill="#c9a25e" fill-opacity="0.4" stroke="none"/>
+      <path d="M500 806 L514 818 L500 830 L486 818 Z" fill="none" stroke-width="2.4" stroke-opacity="0.5"/>
+      <path d="M2020 806 L2034 818 L2020 830 L2006 818 Z" fill="none" stroke-width="2.4" stroke-opacity="0.5"/>
+      <path d="M452 800 Q452 782 470 782 M2050 800 Q2050 782 2032 782 M452 836 Q452 854 470 854 M2050 836 Q2050 854 2032 854" fill="none" stroke-width="2.4" stroke-opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- diamond-tread boot print ghost near the fender -->
+  <g filter="url(#pmWobble)" stroke="#6b6472" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1484 802 Q1484 786 1500 786 L1546 786 Q1562 786 1562 802 L1562 820 Q1562 832 1550 832 L1496 832 Q1484 832 1484 820 Z" fill="#6b6472" fill-opacity="0.12" stroke-width="2.4" stroke-opacity="0.45"/>
+    <path d="M1490 810 L1556 810" stroke-width="1.8" stroke-opacity="0.3"/>
+    <g stroke-width="1.8" stroke-opacity="0.45">
+      <path d="M1502 794 L1508 800 L1502 806 L1496 800 Z"/>
+      <path d="M1524 794 L1530 800 L1524 806 L1518 800 Z"/>
+      <path d="M1546 794 L1552 800 L1546 806 L1540 800 Z"/>
+      <path d="M1502 813 L1508 819 L1502 825 L1496 819 Z"/>
+      <path d="M1524 813 L1530 819 L1524 825 L1518 819 Z"/>
+      <path d="M1546 813 L1552 819 L1546 825 L1540 819 Z"/>
+    </g>
+  </g>
+
+  <!-- writing desk against the wall -->
+  <g filter="url(#pmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="104" y="430" width="392" height="10" fill="#8a6a4f" fill-opacity="0.3" stroke-width="2.4"/>
+    <rect x="100" y="438" width="400" height="20" fill="#8a6a4f" fill-opacity="0.55" stroke-width="4"/>
+    <rect x="112" y="456" width="376" height="298" fill="#8a6a4f" fill-opacity="0.38" stroke-width="5"/>
+    <g stroke-width="2" opacity="0.28">
+      <path d="M228 460 V752 M312 460 V752 M396 460 V752 M112 560 H488"/>
+    </g>
+    <rect x="118" y="754" width="22" height="16" fill="#8a6a4f" fill-opacity="0.5" stroke-width="2.4"/>
+    <rect x="460" y="754" width="22" height="16" fill="#8a6a4f" fill-opacity="0.5" stroke-width="2.4"/>
+    <!-- open drawer with tea-aged sketch boards -->
+    <rect x="225" y="630" width="150" height="85" fill="#8a6a4f" fill-opacity="0.55" stroke-width="4"/>
+    <rect x="237" y="640" width="126" height="63" fill="#3a3f52" fill-opacity="0.3" stroke-width="2.4"/>
+    <path d="M250 640 L254 594 L272 596 L269 642 Z" fill="#f4ecdb" fill-opacity="0.78" stroke-width="2.4"/>
+    <path d="M284 640 L290 586 L305 590 L301 644 Z" fill="#f4ecdb" fill-opacity="0.7" stroke-width="2.4"/>
+    <path d="M256 618 Q263 606 271 609 M262 612 L259 604 L267 610" stroke-width="1.8" opacity="0.3"/>
+    <path d="M291 616 Q298 604 304 608" stroke-width="1.8" opacity="0.3"/>
+    <circle cx="300" cy="706" r="8" fill="#c9a25e" fill-opacity="0.85" stroke-width="2.4"/>
+    <!-- banker's lamp -->
+    <path d="M130 352 Q195 254 260 352 Q195 330 130 352 Z" fill="#9aa88f" fill-opacity="0.6" stroke-width="3.4"/>
+    <path d="M130 352 Q195 330 260 352" stroke="#c9a25e" stroke-width="3" stroke-opacity="0.85"/>
+    <path d="M195 350 L195 430" stroke="#c9a25e" stroke-width="3.4"/>
+    <ellipse cx="195" cy="433" rx="36" ry="7" fill="#c9a25e" fill-opacity="0.5" stroke-width="3"/>
+    <path d="M231 355 L237 372" stroke="#c9a25e" stroke-width="2" stroke-opacity="0.7"/>
+    <circle cx="238" cy="375" r="2.6" fill="#c9a25e" fill-opacity="0.8" stroke="none"/>
+    <!-- manuscript stack -->
+    <path d="M292 462 L295 442 L452 438 L449 462 Z" fill="#f4ecdb" fill-opacity="0.9" stroke-width="2.4"/>
+    <path d="M300 444 L304 422 L458 418 L454 442 Z" fill="#f4ecdb" fill-opacity="0.88" stroke-width="2.4"/>
+    <path d="M296 424 L301 400 L460 396 L455 422 Z" fill="#f4ecdb" fill-opacity="0.92" stroke-width="2.4"/>
+    <g stroke="#8fa3b0" stroke-width="1.8" opacity="0.32">
+      <path d="M314 408 L422 405 M314 414 L438 411 M314 419 L404 417 M320 428 L426 425 M320 434 L444 431 M310 448 L418 445 M310 454 L436 451"/>
+    </g>
+    <!-- folded spectacles on the top page -->
+    <ellipse cx="356" cy="402" rx="15" ry="12" stroke-width="3"/>
+    <ellipse cx="380" cy="406" rx="15" ry="12" stroke-width="3"/>
+    <path d="M369 398 L371 405" stroke-width="2.4"/>
+    <path d="M394 400 Q410 395 413 406" stroke-width="2.4" opacity="0.85"/>
+    <path d="M353 412 Q341 419 336 410" stroke-width="2.4" opacity="0.85"/>
+    <!-- inkwell -->
+    <rect x="462" y="440" width="30" height="20" fill="#3a3f52" fill-opacity="0.3" stroke-width="2.4"/>
+    <rect x="470" y="432" width="14" height="8" fill="#8a6a4f" fill-opacity="0.3" stroke-width="2.4"/>
+    <ellipse cx="477" cy="433" rx="6" ry="2.5" fill="#2e2a33" fill-opacity="0.8" stroke="none"/>
+  </g>
+  <g filter="url(#pmGlow)">
+    <ellipse cx="195" cy="380" rx="42" ry="16" fill="#e8c97a" opacity="0.3"/>
+    <ellipse cx="208" cy="452" rx="118" ry="20" fill="#e8c97a" opacity="0.3"/>
+  </g>
+
+  <!-- wing chair with Edmund slumped, seen from behind-left -->
+  <g filter="url(#pmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M566 764 L566 482 Q566 404 642 396 Q714 388 766 400 Q832 412 836 488 L836 764 Z" fill="#9aa88f" fill-opacity="0.45" stroke-width="5"/>
+    <path d="M590 480 Q590 420 650 414 Q712 408 756 418 Q810 430 812 492" stroke-width="2" opacity="0.3"/>
+    <path d="M566 454 Q550 462 549 504 Q548 544 564 562 L566 560 Z" fill="#9aa88f" fill-opacity="0.5" stroke-width="4"/>
+    <path d="M836 454 Q852 462 853 504 Q854 544 838 562 L836 560 Z" fill="#9aa88f" fill-opacity="0.5" stroke-width="4"/>
+    <path d="M560 614 Q550 578 568 560 Q584 546 610 548 L650 554 Q672 560 670 582 Q668 604 644 608 L578 614 Q566 616 560 614 Z" fill="#9aa88f" fill-opacity="0.5" stroke-width="4"/>
+    <path d="M842 614 Q852 578 834 560 Q818 546 792 548 L752 554 Q730 560 732 582 Q734 604 758 608 L824 614 Q836 616 842 614 Z" fill="#9aa88f" fill-opacity="0.5" stroke-width="4"/>
+    <path d="M604 618 L800 618 Q812 620 810 638 L806 662 L606 662 Q598 640 604 618 Z" fill="#9aa88f" fill-opacity="0.62" stroke-width="3.4"/>
+    <path d="M570 746 L832 746" stroke-width="3" opacity="0.4"/>
+    <rect x="578" y="744" width="14" height="36" fill="#8a6a4f" fill-opacity="0.55" stroke-width="2.4"/>
+    <rect x="810" y="744" width="14" height="36" fill="#8a6a4f" fill-opacity="0.55" stroke-width="2.4"/>
+    <!-- collapsed torso, head bowed to chest (hair only) -->
+    <path d="M650 660 Q644 596 668 566 Q688 540 716 546 Q748 554 756 596 Q761 630 758 660 Z" fill="#2e2a33" fill-opacity="0.5" stroke-width="4"/>
+    <ellipse cx="710" cy="534" rx="25" ry="21" fill="#2e2a33" fill-opacity="0.75" stroke-width="3.4"/>
+    <path d="M694 524 Q708 514 724 524" stroke="#8fa3b0" stroke-width="2" stroke-opacity="0.45"/>
+    <path d="M690 532 Q704 522 718 530" stroke="#8fa3b0" stroke-width="1.8" stroke-opacity="0.35"/>
+    <!-- tartan knee-rug -->
+    <path d="M702 638 Q744 620 790 634 Q830 646 838 676 Q846 708 840 736 Q838 748 822 748 L722 744 Q704 742 702 726 Z" fill="#b0705a" fill-opacity="0.4" stroke-width="4"/>
+    <g clip-path="url(#pmKneeClip)" stroke="#9aa88f" fill="none">
+      <path d="M720 610 V760 M760 610 V760 M800 610 V760" stroke-width="4.5" stroke-opacity="0.55"/>
+      <path d="M690 664 L850 664 M690 694 L850 694 M690 724 L850 724" stroke-width="4.5" stroke-opacity="0.55"/>
+      <path d="M740 610 V760 M780 610 V760" stroke="#c9a25e" stroke-width="2" stroke-opacity="0.5"/>
+      <path d="M690 679 L850 679 M690 709 L850 709" stroke="#c9a25e" stroke-width="2" stroke-opacity="0.5"/>
+    </g>
+    <!-- hanging arm with shirt cuff -->
+    <path d="M742 572 Q738 560 748 556 Q760 552 764 564 Q772 604 771 652 Q770 684 768 706 L753 706 Q750 670 746 632 Q741 598 742 572 Z" fill="#2e2a33" fill-opacity="0.5" stroke-width="3.4"/>
+    <rect x="753" y="704" width="15" height="16" fill="#f4ecdb" fill-opacity="0.92" stroke-width="2.4"/>
+    <ellipse cx="761" cy="728" rx="9" ry="12" fill="#f4ecdb" fill-opacity="0.82" stroke-width="2.4"/>
+    <!-- slipper tipped on the rug -->
+    <path d="M816 742 Q813 727 826 722 Q842 717 850 726 Q857 735 850 743 Q843 749 831 749 L822 749 Q816 749 816 742 Z" fill="#b0705a" fill-opacity="0.55" stroke-width="3"/>
+    <path d="M822 725 Q832 719 844 725" stroke-width="2" opacity="0.5"/>
+  </g>
+
+  <!-- round side table -->
+  <g filter="url(#pmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="1000" cy="588" rx="96" ry="24" fill="#8a6a4f" fill-opacity="0.5" stroke-width="4"/>
+    <ellipse cx="1000" cy="588" rx="82" ry="17" stroke-width="1.8" opacity="0.3"/>
+    <path d="M924 608 Q1000 634 1076 608" stroke-width="2.4" opacity="0.4"/>
+    <path d="M988 616 L983 714 L1017 714 L1012 616 Z" fill="#8a6a4f" fill-opacity="0.5" stroke-width="3.4"/>
+    <path d="M956 714 Q944 726 950 736 M1044 714 Q1056 726 1050 736 M1000 716 L1000 730" stroke-width="3.4"/>
+    <ellipse cx="1000" cy="738" rx="58" ry="13" fill="#8a6a4f" fill-opacity="0.5" stroke-width="3.4"/>
+    <!-- whiskey tumbler, one third full, dull film ring -->
+    <path d="M950 520 L953 588 L1007 588 L1010 520 Z" fill="#8fa3b0" fill-opacity="0.15" stroke-width="3"/>
+    <ellipse cx="980" cy="520" rx="30" ry="7" stroke-width="2.4" opacity="0.75"/>
+    <path d="M954 566 Q980 573 1006 566 L1005 585 L955 585 Z" fill="#c9a25e" fill-opacity="0.75" stroke="none"/>
+    <ellipse cx="980" cy="566" rx="26" ry="6" fill="#c9a25e" fill-opacity="0.85" stroke="none"/>
+    <path d="M957 556 Q980 550 1003 556" stroke="#c9a25e" stroke-width="2.2" stroke-opacity="0.85"/>
+    <path d="M958 551 Q980 546 1002 551" stroke="#c9a25e" stroke-width="1.8" stroke-opacity="0.4"/>
+    <path d="M961 528 L962 560" stroke="#f4ecdb" stroke-width="2" stroke-opacity="0.5"/>
+    <!-- folded newspaper -->
+    <path d="M1020 598 L1026 576 L1092 572 L1090 600 Z" fill="#f4ecdb" fill-opacity="0.85" stroke-width="2.4"/>
+    <path d="M1023 586 L1088 584" stroke-width="1.8" opacity="0.4"/>
+    <g stroke="#8fa3b0" stroke-width="1.8" opacity="0.3">
+      <path d="M1034 583 L1050 582 M1056 581 L1074 580 M1032 592 L1054 591 M1060 590 L1080 589"/>
+    </g>
+  </g>
+
+  <!-- brass fender before the hearth -->
+  <g filter="url(#pmWobble)" stroke-linecap="round">
+    <path d="M1122 768 Q1280 748 1438 768 L1438 776 Q1280 758 1122 776 Z" fill="#c9a25e" fill-opacity="0.25" stroke="none"/>
+    <path d="M1122 768 Q1280 748 1438 768" stroke="#c9a25e" stroke-width="5" fill="none"/>
+    <path d="M1122 776 Q1280 758 1438 776" stroke="#c9a25e" stroke-width="2.4" fill="none" stroke-opacity="0.6"/>
+    <path d="M1152 772 L1152 780 M1280 754 L1280 760 M1408 772 L1408 780" stroke="#c9a25e" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- fallen tambour mantel clock, face showing 11:38 -->
+  <g filter="url(#pmWobble)" transform="rotate(-14 1318 796)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1258 822 L1258 794 Q1258 770 1282 770 L1354 770 Q1378 770 1378 794 L1378 822 Z" fill="#8a6a4f" fill-opacity="0.5" stroke-width="4"/>
+    <circle cx="1318" cy="792" r="21" fill="#f4ecdb" fill-opacity="0.9" stroke-width="3"/>
+    <path d="M1318 774 L1318 780 M1318 804 L1318 810 M1301 792 L1307 792 M1329 792 L1335 792" stroke-width="1.8" opacity="0.5"/>
+    <path d="M1318 792 L1315 779" stroke-width="3"/>
+    <path d="M1318 792 L1307 803" stroke-width="2.4"/>
+    <circle cx="1318" cy="792" r="2.6" fill="#2e2a33" fill-opacity="0.9" stroke="none"/>
+    <path d="M1307 781 L1317 795 L1313 803" stroke-width="1.8" opacity="0.7"/>
+  </g>
+  <g filter="url(#pmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M1300 818 L1294 828 L1302 833" stroke-width="2.4"/>
+    <circle cx="1302" cy="834" r="4.5" fill="#c9a25e" fill-opacity="0.5" stroke-width="2.4"/>
+  </g>
+
+  <!-- drinks tray with cut-glass decanter -->
+  <g filter="url(#pmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1462" y="656" width="196" height="18" fill="#8a6a4f" fill-opacity="0.5" stroke-width="4"/>
+    <rect x="1470" y="674" width="12" height="84" fill="#8a6a4f" fill-opacity="0.5" stroke-width="2.4"/>
+    <rect x="1638" y="674" width="12" height="84" fill="#8a6a4f" fill-opacity="0.5" stroke-width="2.4"/>
+    <path d="M1478 724 L1642 724" stroke-width="3" opacity="0.5"/>
+    <rect x="1466" y="630" width="188" height="26" fill="#8a6a4f" fill-opacity="0.42" stroke-width="3.4"/>
+    <rect x="1466" y="630" width="188" height="26" stroke="#c9a25e" stroke-width="3" stroke-opacity="0.8"/>
+    <circle cx="1474" cy="643" r="3" fill="#c9a25e" fill-opacity="0.8" stroke="none"/>
+    <circle cx="1646" cy="643" r="3" fill="#c9a25e" fill-opacity="0.8" stroke="none"/>
+    <!-- decanter: whiskey, 60% waterline, dusty film, seated stopper -->
+    <path d="M1534 650 Q1526 612 1532 580 Q1537 552 1556 538 L1556 512 L1578 512 L1578 538 Q1597 552 1602 580 Q1608 612 1600 650 Z" fill="#8fa3b0" fill-opacity="0.15" stroke-width="3"/>
+    <path d="M1535 583 Q1567 592 1599 583 L1599 640 Q1599 648 1589 648 L1545 648 Q1535 648 1535 640 Z" fill="#c9a25e" fill-opacity="0.75" stroke="none"/>
+    <ellipse cx="1567" cy="585" rx="32" ry="7" fill="#c9a25e" fill-opacity="0.85" stroke="none"/>
+    <path d="M1541 556 Q1567 546 1593 556" stroke="#f4ecdb" stroke-width="5" stroke-opacity="0.5"/>
+    <path d="M1543 566 Q1567 558 1591 566" stroke="#f4ecdb" stroke-width="3.5" stroke-opacity="0.35"/>
+    <g stroke-width="2" opacity="0.25">
+      <path d="M1550 596 L1550 640 M1567 592 L1567 642 M1584 596 L1584 640 M1546 552 L1556 570 M1588 552 L1578 570"/>
+    </g>
+    <path d="M1538 560 Q1535 600 1540 634" stroke="#f4ecdb" stroke-width="2" stroke-opacity="0.45"/>
+    <ellipse cx="1567" cy="505" rx="16" ry="10" fill="#8fa3b0" fill-opacity="0.3" stroke-width="3"/>
+    <path d="M1558 514 L1576 514" stroke-width="2.4" opacity="0.7"/>
+    <!-- inverted clean tumbler -->
+    <path d="M1620 648 L1624 612 L1644 612 L1648 648 Z" fill="#8fa3b0" fill-opacity="0.15" stroke-width="3"/>
+    <path d="M1627 620 L1641 620" stroke-width="2" opacity="0.5"/>
+  </g>
+
+  <!-- sideboard under the window -->
+  <g filter="url(#pmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1702" y="584" width="316" height="18" fill="#8a6a4f" fill-opacity="0.55" stroke-width="4"/>
+    <rect x="1706" y="602" width="308" height="152" fill="#8a6a4f" fill-opacity="0.42" stroke-width="5"/>
+    <path d="M1860 602 L1860 754" stroke-width="2.4" opacity="0.5"/>
+    <path d="M1706 652 L2014 652 M1706 704 L2014 704" stroke-width="2" opacity="0.35"/>
+    <circle cx="1782" cy="627" r="5" fill="#c9a25e" fill-opacity="0.8" stroke-width="2"/>
+    <circle cx="1942" cy="627" r="5" fill="#c9a25e" fill-opacity="0.8" stroke-width="2"/>
+    <circle cx="1782" cy="678" r="5" fill="#c9a25e" fill-opacity="0.8" stroke-width="2"/>
+    <circle cx="1942" cy="678" r="5" fill="#c9a25e" fill-opacity="0.8" stroke-width="2"/>
+    <rect x="1712" y="754" width="16" height="14" fill="#8a6a4f" fill-opacity="0.5" stroke-width="2.4"/>
+    <rect x="1992" y="754" width="16" height="14" fill="#8a6a4f" fill-opacity="0.5" stroke-width="2.4"/>
+    <!-- pincushion -->
+    <ellipse cx="1852" cy="592" rx="15" ry="10" fill="#b0705a" fill-opacity="0.5" stroke-width="2.4"/>
+    <path d="M1846 584 L1842 577 M1858 583 L1862 577" stroke-width="1.8"/>
+    <circle cx="1841" cy="576" r="2" fill="#c9a25e" fill-opacity="0.8" stroke="none"/>
+    <circle cx="1863" cy="576" r="2" fill="#c9a25e" fill-opacity="0.8" stroke="none"/>
+    <!-- sewing scissors, brass bows -->
+    <circle cx="1890" cy="589" r="7.5" stroke="#c9a25e" stroke-width="3"/>
+    <circle cx="1892" cy="606" r="7" stroke="#c9a25e" stroke-width="3"/>
+    <path d="M1896 592 L1922 598 M1898 604 L1922 600" stroke="#c9a25e" stroke-width="2.4"/>
+    <circle cx="1926" cy="599" r="3" fill="#2e2a33" fill-opacity="0.9" stroke="none"/>
+    <path d="M1926 599 L1962 585 M1926 599 L1959 613" stroke-width="2.6"/>
+  </g>
+
+  <!-- garden door bolt plate, handle OPEN, fresh scratches -->
+  <g filter="url(#pmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2200" y="380" width="80" height="80" fill="#3a3f52" fill-opacity="0.35" stroke-width="3.4"/>
+    <g fill="#2e2a33" fill-opacity="0.7" stroke="none">
+      <circle cx="2208" cy="388" r="2.5"/>
+      <circle cx="2272" cy="388" r="2.5"/>
+      <circle cx="2208" cy="452" r="2.5"/>
+      <circle cx="2272" cy="452" r="2.5"/>
+    </g>
+    <path d="M2240 390 L2240 458" stroke-width="2.4" opacity="0.6"/>
+    <path d="M2240 396 L2240 430" stroke-width="4" opacity="0.85"/>
+    <circle cx="2240" cy="396" r="9" fill="#2e2a33" fill-opacity="0.7" stroke-width="2.4"/>
+    <rect x="2230" y="452" width="20" height="12" stroke-width="2.4" opacity="0.7"/>
+    <path d="M2262 420 L2270 458 M2274 416 L2282 456" stroke="#b4552d" stroke-width="2" stroke-opacity="0.8"/>
+  </g>
+
+  <!-- lamplight pool and ember reflection -->
+  <g filter="url(#pmSoft)">
+    <ellipse cx="500" cy="560" rx="450" ry="250" fill="#e8c97a" opacity="0.22"/>
+  </g>
+  <g filter="url(#pmGlow)">
+    <ellipse cx="1280" cy="764" rx="130" ry="15" fill="#e8c97a" opacity="0.28"/>
+    <ellipse cx="1280" cy="766" rx="90" ry="10" fill="#b0705a" opacity="0.25"/>
+  </g>
+</svg>

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DialogueNode",
+  "type": "object",
+  "required": ["id", "speaker", "initial", "lines"],
+  "properties": {
+    "id": { "type": "string" },
+    "speaker": { "type": "string" },
+    "initial": { "type": "string", "maxLength": 2, "description": "Portrait letter" },
+    "lines": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "choices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "next"],
+        "properties": {
+          "text": { "type": "string" },
+          "next": { "type": "string", "description": "Dialogue node id" }
+        }
+      }
+    },
+    "next": { "type": "string", "description": "Auto-advance target node id" },
+    "flag": { "type": "string", "description": "GameState flag set when this node is entered/finished" }
+  }
+}

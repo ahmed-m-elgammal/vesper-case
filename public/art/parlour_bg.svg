@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="pbWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="19" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="pbSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="pbSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="pbGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <pattern id="pbWallpaper" width="116" height="116" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="30" r="3.4" fill="#3a3f52" opacity="0.14"/>
+      <circle cx="88" cy="88" r="3.4" fill="#3a3f52" opacity="0.14"/>
+      <circle cx="88" cy="30" r="1.8" fill="#3a3f52" opacity="0.12"/>
+      <circle cx="30" cy="88" r="1.8" fill="#3a3f52" opacity="0.12"/>
+      <path d="M59 54 L67 66 L59 78 L51 66 Z" fill="none" stroke="#3a3f52" stroke-width="1.8" opacity="0.13"/>
+    </pattern>
+  </defs>
+
+  <!-- paper base -->
+  <rect width="2400" height="900" fill="#f4ecdb"/>
+
+  <!-- ambient washes -->
+  <g filter="url(#pbSoft)">
+    <ellipse cx="340" cy="250" rx="560" ry="280" fill="#8fa3b0" opacity="0.16"/>
+    <ellipse cx="1200" cy="840" rx="1260" ry="130" fill="#c9a25e" opacity="0.20"/>
+    <ellipse cx="300" cy="820" rx="520" ry="150" fill="#9aa88f" opacity="0.14"/>
+  </g>
+
+  <!-- wallpaper (floral dots) -->
+  <rect x="0" y="104" width="2400" height="436" fill="url(#pbWallpaper)"/>
+
+  <!-- ceiling beam -->
+  <g filter="url(#pbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 58 L2400 50" stroke-width="4"/>
+    <path d="M0 96 L2400 88" stroke-width="3" opacity="0.5"/>
+    <path d="M320 58 L320 96 M960 54 L960 92 M1600 54 L1600 92 M2240 52 L2240 90" stroke-width="3" opacity="0.6"/>
+  </g>
+
+  <!-- picture rail + tall wainscot -->
+  <g filter="url(#pbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 540 L2400 538" stroke-width="5"/>
+    <path d="M0 533 L2400 531" stroke-width="2" opacity="0.4"/>
+    <rect x="0" y="560" width="2400" height="200" fill="#8a6a4f" fill-opacity="0.16"/>
+    <path d="M0 560 L2400 558" stroke-width="4"/>
+    <path d="M0 758 L2400 756" stroke-width="6"/>
+    <path d="M0 726 L2400 724" stroke-width="2.4" opacity="0.35"/>
+    <g stroke-width="2.2" opacity="0.5">
+      <path d="M100 570 V750 M260 570 V750 M420 570 V750 M580 570 V750 M740 570 V750 M900 570 V750 M1060 570 V750 M1480 570 V750 M1640 570 V750 M1800 570 V750 M1960 570 V750 M2360 570 V750"/>
+    </g>
+  </g>
+
+  <!-- floor boards -->
+  <g filter="url(#pbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M0 842 L2400 838" stroke-width="2.6" opacity="0.45"/>
+    <path d="M0 796 L2400 794" stroke-width="1.8" opacity="0.25"/>
+    <g stroke-width="2.2" opacity="0.32">
+      <path d="M100 762 L84 898 M220 762 L204 898 M340 762 L324 898 M460 762 L444 898 M580 762 L564 898 M700 762 L684 898 M820 762 L804 898 M940 762 L924 898 M1060 762 L1044 898 M1180 762 L1164 898 M1300 762 L1284 898 M1420 762 L1404 898 M1540 762 L1524 898 M1660 762 L1644 898 M1780 762 L1764 898 M1900 762 L1884 898 M2020 762 L2004 898 M2140 762 L2124 898 M2260 762 L2244 898 M2380 762 L2364 898"/>
+    </g>
+  </g>
+
+  <!-- framed fox engraving (sitting pose) above the desk -->
+  <g filter="url(#pbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="130" y="170" width="250" height="190" fill="#f4ecdb" stroke-width="6"/>
+    <rect x="148" y="188" width="214" height="154" fill="#c9a25e" fill-opacity="0.18" stroke-width="3"/>
+    <path d="M218 240 L212 218 L230 236" stroke-width="3.4"/>
+    <path d="M236 236 L246 216 L252 240" stroke-width="3.4"/>
+    <path d="M212 240 Q206 254 216 262 Q228 268 240 262 Q236 282 244 300 L246 326" stroke-width="3.4"/>
+    <path d="M238 328 L256 328" stroke-width="2.4"/>
+    <path d="M240 262 Q276 266 296 288 Q314 308 312 328" stroke-width="3.4"/>
+    <path d="M312 328 Q344 334 348 312 Q350 296 334 294" stroke-width="3.4"/>
+    <path d="M340 302 Q344 310 338 316" stroke-width="2" opacity="0.4"/>
+    <path d="M298 334 L318 334" stroke-width="2.4"/>
+    <path d="M300 296 Q308 308 306 320" stroke-width="2" opacity="0.35"/>
+    <path d="M166 336 Q256 348 346 332" stroke-width="2.4" opacity="0.6"/>
+  </g>
+
+  <!-- hearth: chimney breast, mantel shelf, stone surround, firebox -->
+  <g filter="url(#pbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1120" y="200" width="300" height="92" fill="#8fa3b0" fill-opacity="0.26" stroke-width="4"/>
+    <path d="M1120 246 L1420 244" stroke-width="2" opacity="0.3"/>
+    <path d="M1244 240 L1244 292 M1300 236 L1300 292" stroke-width="3" opacity="0.15"/>
+    <rect x="1100" y="292" width="340" height="24" fill="#8a6a4f" fill-opacity="0.5" stroke-width="4"/>
+    <path d="M1128 316 L1128 334 M1412 316 L1412 334" stroke-width="3"/>
+    <rect x="1120" y="316" width="300" height="464" fill="#8fa3b0" fill-opacity="0.30" stroke-width="5"/>
+    <g stroke-width="2" opacity="0.35">
+      <path d="M1120 372 L1420 370 M1200 318 L1200 432 M1300 318 L1300 432"/>
+      <path d="M1120 500 L1180 500 M1120 580 L1180 580 M1120 660 L1180 660 M1120 724 L1180 724"/>
+      <path d="M1360 500 L1420 500 M1360 580 L1420 580 M1360 660 L1420 660 M1360 724 L1420 724"/>
+    </g>
+    <!-- chamfered firebox opening -->
+    <path d="M1180 760 L1180 466 L1206 432 L1334 432 L1360 466 L1360 760 Z" fill="#3a3f52" fill-opacity="0.35" stroke-width="4"/>
+  </g>
+
+  <!-- ash bed, ember line, burn patch -->
+  <g filter="url(#pbGlow)">
+    <ellipse cx="1270" cy="736" rx="86" ry="24" fill="#8fa3b0" opacity="0.30"/>
+    <ellipse cx="1262" cy="740" rx="78" ry="15" fill="#b0705a" opacity="0.5"/>
+    <ellipse cx="1256" cy="737" rx="52" ry="9" fill="#e8c97a" opacity="0.35"/>
+    <ellipse cx="1326" cy="714" rx="44" ry="23" fill="#2e2a33" opacity="0.45"/>
+    <ellipse cx="1372" cy="714" rx="20" ry="22" fill="#2e2a33" opacity="0.15"/>
+  </g>
+  <g filter="url(#pbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M1316 728 L1330 716 M1326 732 L1342 722" stroke-width="1.8" opacity="0.4"/>
+  </g>
+
+  <!-- smoke staining above mantel -->
+  <g filter="url(#pbSoft2)">
+    <ellipse cx="1270" cy="250" rx="92" ry="52" fill="#3a3f52" opacity="0.16"/>
+    <ellipse cx="1272" cy="288" rx="64" ry="20" fill="#3a3f52" opacity="0.14"/>
+  </g>
+
+  <!-- iron fire tools hanging on the stone -->
+  <g filter="url(#pbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1372" y="470" width="36" height="8" fill="#3a3f52" fill-opacity="0.3" stroke-width="2.4"/>
+    <circle cx="1380" cy="486" r="5" stroke-width="2.4"/>
+    <circle cx="1400" cy="486" r="5" stroke-width="2.4"/>
+    <path d="M1380 491 L1380 688 Q1380 700 1372 700" stroke-width="3.4"/>
+    <path d="M1400 491 L1400 660" stroke-width="3.4"/>
+    <path d="M1394 660 Q1394 686 1401 688 Q1408 686 1408 660 Z" fill="#3a3f52" fill-opacity="0.4" stroke-width="3"/>
+  </g>
+
+  <!-- lightning glow in upper window corner -->
+  <g filter="url(#pbSoft)">
+    <ellipse cx="1930" cy="215" rx="110" ry="80" fill="#e8c97a" opacity="0.18"/>
+  </g>
+
+  <!-- sash window with night glass and rain -->
+  <g filter="url(#pbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1700" y="160" width="320" height="380" stroke-width="6"/>
+    <rect x="1716" y="176" width="288" height="348" fill="#3a3f52" fill-opacity="0.45" stroke-width="3"/>
+    <path d="M1700 348 L2020 346" stroke-width="4"/>
+    <path d="M1860 176 L1860 524" stroke-width="3.4"/>
+    <g stroke="#8fa3b0" stroke-width="2" opacity="0.5">
+      <path d="M1726 200 L1744 262"/>
+      <path d="M1758 288 L1772 338"/>
+      <path d="M1796 196 L1816 268"/>
+      <path d="M1826 340 L1840 390"/>
+      <path d="M1856 186 L1878 262"/>
+      <path d="M1882 430 L1896 478"/>
+      <path d="M1912 240 L1930 306"/>
+      <path d="M1944 352 L1956 396"/>
+      <path d="M1976 208 L1994 274"/>
+      <path d="M1990 440 L2002 482"/>
+      <path d="M1736 430 L1750 478"/>
+      <path d="M1866 470 L1880 514"/>
+      <path d="M1930 460 L1942 500"/>
+    </g>
+    <rect x="1692" y="540" width="336" height="16" fill="#8fa3b0" fill-opacity="0.3" stroke-width="3"/>
+    <!-- curtain rod -->
+    <path d="M1632 156 L2040 154" stroke-width="4"/>
+    <circle cx="1632" cy="156" r="6" fill="#c9a25e" fill-opacity="0.7" stroke-width="2.4"/>
+    <circle cx="2040" cy="154" r="6" fill="#c9a25e" fill-opacity="0.7" stroke-width="2.4"/>
+  </g>
+
+  <!-- heavy curtains, gathered ties -->
+  <g filter="url(#pbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1640 160 Q1650 244 1642 336 Q1636 428 1648 508 Q1652 534 1650 546 L1654 548 L1654 616 L1686 616 L1686 548 L1688 546 Q1694 458 1688 368 Q1682 258 1692 160 Z" fill="#9aa88f" fill-opacity="0.45" stroke-width="4"/>
+    <path d="M1658 176 Q1662 300 1656 420 Q1653 480 1658 540" stroke-width="2.2" opacity="0.3"/>
+    <path d="M1676 172 Q1672 300 1678 430 Q1680 490 1676 538" stroke-width="2.2" opacity="0.3"/>
+    <path d="M1648 540 Q1668 552 1688 540 L1688 548 Q1668 560 1648 548 Z" fill="#c9a25e" fill-opacity="0.5" stroke-width="2.4"/>
+    <circle cx="1668" cy="554" r="4.5" fill="#c9a25e" fill-opacity="0.7" stroke-width="2"/>
+    <path d="M2042 160 Q2032 244 2040 336 Q2046 428 2034 508 Q2030 534 2032 546 L2028 548 L2028 616 L1996 616 L1996 548 L1994 546 Q1990 458 1996 368 Q2002 258 1992 160 Z" fill="#9aa88f" fill-opacity="0.45" stroke-width="4"/>
+    <path d="M2024 176 Q2020 300 2026 420 Q2029 480 2024 540" stroke-width="2.2" opacity="0.3"/>
+    <path d="M2006 172 Q2010 300 2004 430 Q2002 490 2006 538" stroke-width="2.2" opacity="0.3"/>
+    <path d="M1994 540 Q2014 552 2034 540 L2034 548 Q2014 560 1994 548 Z" fill="#c9a25e" fill-opacity="0.5" stroke-width="2.4"/>
+    <circle cx="2014" cy="554" r="4.5" fill="#c9a25e" fill-opacity="0.7" stroke-width="2"/>
+  </g>
+
+  <!-- garden door with paneled leaf, glass pane, frame and step -->
+  <g filter="url(#pbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2046" y="268" width="308" height="492" fill="#8a6a4f" fill-opacity="0.2" stroke-width="5"/>
+    <rect x="2060" y="280" width="280" height="480" fill="#8a6a4f" fill-opacity="0.42" stroke-width="5"/>
+    <rect x="2158" y="320" width="84" height="80" fill="#3a3f52" fill-opacity="0.4" stroke-width="3.4"/>
+    <g stroke="#8fa3b0" stroke-width="2" opacity="0.55">
+      <path d="M2172 332 L2180 360 M2196 326 L2204 356 M2218 340 L2226 368"/>
+    </g>
+    <rect x="2092" y="452" width="216" height="128" fill="#3a3f52" fill-opacity="0.10" stroke-width="3"/>
+    <rect x="2092" y="606" width="216" height="128" fill="#3a3f52" fill-opacity="0.10" stroke-width="3"/>
+    <circle cx="2104" cy="524" r="11" fill="#c9a25e" fill-opacity="0.85" stroke-width="3"/>
+    <rect x="2098" y="548" width="12" height="20" stroke-width="2.4" opacity="0.6"/>
+    <path d="M2040 762 L2360 760" stroke-width="6"/>
+    <path d="M2048 762 L2048 786 L2352 784 L2352 760 Z" fill="#8fa3b0" fill-opacity="0.28" stroke-width="3"/>
+  </g>
+  <g filter="url(#pbSoft2)">
+    <ellipse cx="2078" cy="520" rx="46" ry="210" fill="#3a3f52" opacity="0.22"/>
+  </g>
+
+  <!-- closing atmosphere: cold right, warm left -->
+  <g filter="url(#pbSoft)">
+    <ellipse cx="1840" cy="430" rx="900" ry="480" fill="#3a3f52" opacity="0.14"/>
+    <ellipse cx="480" cy="520" rx="540" ry="370" fill="#e8c97a" opacity="0.16"/>
+  </g>
+</svg>

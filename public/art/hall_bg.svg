@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="bgWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="11" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="bgSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="bgSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <pattern id="bgDamask" width="120" height="120" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="30" r="3.2" fill="#5c5568" opacity="0.16"/>
+      <circle cx="90" cy="90" r="3.2" fill="#5c5568" opacity="0.16"/>
+      <path d="M60 8 Q74 30 60 52 Q46 30 60 8 Z" fill="none" stroke="#5c5568" stroke-width="1.6" opacity="0.13"/>
+      <path d="M60 68 Q74 90 60 112 Q46 90 60 68 Z" fill="none" stroke="#5c5568" stroke-width="1.6" opacity="0.13"/>
+    </pattern>
+  </defs>
+
+  <!-- paper base -->
+  <rect width="2400" height="900" fill="#f4ecdb"/>
+
+  <!-- watercolor washes: cold night wall, warm floor -->
+  <g filter="url(#bgSoft)">
+    <ellipse cx="500" cy="300" rx="620" ry="330" fill="#8fa3b0" opacity="0.20"/>
+    <ellipse cx="1900" cy="260" rx="700" ry="320" fill="#3a3f52" opacity="0.16"/>
+    <ellipse cx="1200" cy="820" rx="1300" ry="200" fill="#c9a25e" opacity="0.22"/>
+    <ellipse cx="300" cy="820" rx="500" ry="160" fill="#9aa88f" opacity="0.15"/>
+  </g>
+
+  <!-- wallpaper -->
+  <g>
+    <rect x="0" y="0" width="2400" height="560" fill="url(#bgDamask)"/>
+  </g>
+
+  <!-- picture rail + wainscot -->
+  <g filter="url(#bgWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M0 542 L2400 538" stroke-width="5"/>
+    <rect x="0" y="560" width="2400" height="200" fill="#d9c8a6" opacity="0.5"/>
+    <path d="M0 560 L2400 556" stroke-width="4"/>
+    <path d="M0 758 L2400 756" stroke-width="6"/>
+    <!-- wainscot panel lines -->
+    <path d="M60 600 V740 M300 596 V744 M560 600 V740 M940 596 V744 M1180 600 V740" stroke-width="2.4" opacity="0.55"/>
+  </g>
+
+  <!-- ceiling beam -->
+  <g filter="url(#bgWobble)" stroke="#2e2a33" fill="none">
+    <path d="M0 60 L2400 52" stroke-width="4"/>
+    <path d="M0 96 L2400 88" stroke-width="3" opacity="0.5"/>
+    <path d="M360 60 L360 96 M1140 54 L1140 90 M1980 52 L1980 88" stroke-width="3" opacity="0.6"/>
+  </g>
+
+  <!-- front door + transom -->
+  <g filter="url(#bgWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="84" y="244" width="236" height="512" fill="#8a6a4f" fill-opacity="0.42" stroke-width="6"/>
+    <rect x="104" y="264" width="196" height="150" fill="#3a3f52" fill-opacity="0.30" stroke-width="4"/>
+    <path d="M120 300 H284 M120 345 H284 M120 390 H284" stroke-width="2.2" opacity="0.5"/>
+    <rect x="104" y="446" width="196" height="286" fill="#3a3f52" fill-opacity="0.16" stroke-width="4"/>
+    <circle cx="262" cy="560" r="13" fill="#c9a25e" fill-opacity="0.85" stroke-width="4"/>
+    <path d="M64 756 L340 756" stroke-width="6"/>
+    <!-- transom -->
+    <path d="M84 226 Q202 132 320 226" stroke-width="5"/>
+    <path d="M110 216 Q202 148 294 216" stroke-width="2.4" opacity="0.6"/>
+    <path d="M202 150 L202 214 M142 180 L262 180" stroke-width="2" opacity="0.5"/>
+  </g>
+
+  <!-- parlour door -->
+  <g filter="url(#bgWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="706" y="244" width="170" height="512" fill="#8a6a4f" fill-opacity="0.36" stroke-width="6"/>
+    <rect x="726" y="270" width="130" height="210" fill="#3a3f52" fill-opacity="0.22" stroke-width="3.4"/>
+    <rect x="726" y="506" width="130" height="220" fill="#3a3f52" fill-opacity="0.22" stroke-width="3.4"/>
+    <circle cx="838" cy="500" r="11" fill="#c9a25e" fill-opacity="0.85" stroke-width="3.4"/>
+    <path d="M690 756 L890 756" stroke-width="6"/>
+  </g>
+
+  <!-- fox engraving frame on wall -->
+  <g filter="url(#bgWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="952" y="262" width="220" height="168" fill="#e9dfc8" stroke-width="6"/>
+    <rect x="972" y="282" width="180" height="128" fill="#c9a25e" fill-opacity="0.20" stroke-width="3"/>
+    <path d="M992 372 Q1014 330 1046 344 Q1074 356 1096 334 Q1118 314 1140 330" stroke-width="3.4"/>
+    <path d="M1030 344 L1030 322 M1030 322 L1052 334" stroke-width="3"/>
+    <path d="M1000 392 Q1060 402 1120 390" stroke-width="2.4" opacity="0.6"/>
+  </g>
+
+  <!-- staircase -->
+  <g filter="url(#bgWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <!-- string and steps: rises from floor at x1560 up to right edge -->
+    <path d="M1548 756 L1656 756 L1656 712 L1740 712 L1740 668 L1824 668 L1824 624 L1908 624 L1908 580 L1992 580 L1992 536 L2076 536 L2076 492 L2160 492 L2160 448 L2244 448 L2244 404 L2328 404 L2328 360 L2400 360" fill="#8a6a4f" fill-opacity="0.30" stroke-width="5"/>
+    <!-- risers shading -->
+    <g stroke-width="2" opacity="0.4">
+      <path d="M1656 712 L1740 712 M1740 668 L1824 668 M1824 624 L1908 624 M1908 580 L1992 580 M1992 536 L2076 536 M2076 492 L2160 492 M2160 448 L2244 448 M2244 404 L2328 404"/>
+    </g>
+    <!-- banister rail -->
+    <path d="M1572 640 Q1660 600 1740 560 Q1900 486 2060 412 Q2230 332 2400 252" stroke-width="8"/>
+    <!-- newel post -->
+    <rect x="1560" y="620" width="26" height="136" fill="#8a6a4f" fill-opacity="0.5" stroke-width="4"/>
+    <circle cx="1573" cy="606" r="17" fill="#c9a25e" fill-opacity="0.7" stroke-width="4"/>
+    <!-- balusters -->
+    <g stroke-width="2.6" opacity="0.75">
+      <path d="M1700 690 V584 M1790 646 V540 M1880 602 V498 M1970 558 V452 M2060 514 V408 M2150 470 V364 M2240 426 V318 M2330 384 V276"/>
+    </g>
+    <!-- stair runner edge -->
+    <path d="M1656 726 L2400 398" stroke="#b0705a" stroke-width="10" opacity="0.35"/>
+    <path d="M1656 740 L2400 412" stroke="#b0705a" stroke-width="10" opacity="0.22"/>
+  </g>
+
+  <!-- under-stair corridor door (to kitchen passage) -->
+  <g filter="url(#bgWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="2286" y="470" width="108" height="286" fill="#3a3f52" fill-opacity="0.38" stroke-width="5"/>
+    <path d="M2286 470 Q2340 440 2394 470" stroke-width="4"/>
+    <circle cx="2306" cy="612" r="8" fill="#c9a25e" fill-opacity="0.8" stroke-width="3"/>
+    <path d="M2270 756 L2400 756" stroke-width="5"/>
+  </g>
+
+  <!-- floor boards -->
+  <g filter="url(#bgWobble)" stroke="#2e2a33" fill="none">
+    <path d="M0 838 L2400 834" stroke-width="2.6" opacity="0.5"/>
+    <g stroke-width="2.2" opacity="0.38">
+      <path d="M120 760 L96 900 M420 760 L404 900 M720 760 L712 900 M1020 760 L1018 900 M1320 760 L1324 900 M1620 760 L1630 900 M1920 760 L1938 900 M2220 760 L2244 900"/>
+    </g>
+    <path d="M60 790 Q1200 780 2340 788" stroke-width="1.8" opacity="0.3"/>
+  </g>
+
+  <!-- shadow vignette -->
+  <g filter="url(#bgSoft2)">
+    <ellipse cx="60" cy="80" rx="300" ry="220" fill="#3a3f52" opacity="0.14"/>
+    <ellipse cx="2340" cy="90" rx="320" ry="230" fill="#3a3f52" opacity="0.16"/>
+    <ellipse cx="1200" cy="880" rx="1500" ry="120" fill="#3a3f52" opacity="0.18"/>
+  </g>
+</svg>

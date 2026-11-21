@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cpBodyWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="37" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="cpBodySoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="cpBodySoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <clipPath id="cpBodyRugClip">
+      <path d="M212 400 Q300 386 400 388 Q480 390 492 402 L488 470 Q400 486 300 484 L216 468 Z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="800" height="600" fill="#f4ecdb"/>
+
+  <!-- faint corner stains -->
+  <g filter="url(#cpBodySoft)">
+    <ellipse cx="46" cy="40" rx="120" ry="78" fill="#c9a25e" opacity="0.12"/>
+    <ellipse cx="766" cy="562" rx="140" ry="92" fill="#b0705a" opacity="0.12"/>
+    <ellipse cx="762" cy="44" rx="96" ry="66" fill="#8fa3b0" opacity="0.10"/>
+    <ellipse cx="44" cy="556" rx="108" ry="76" fill="#3a3f52" opacity="0.10"/>
+  </g>
+
+  <!-- floor shadows -->
+  <g filter="url(#cpBodySoft2)">
+    <ellipse cx="356" cy="528" rx="235" ry="28" fill="#2e2a33" opacity="0.14"/>
+    <ellipse cx="660" cy="512" rx="112" ry="18" fill="#2e2a33" opacity="0.13"/>
+  </g>
+
+  <!-- wing chair, seen from behind -->
+  <g filter="url(#cpBodyWobble)" stroke-linecap="round">
+    <rect x="210" y="100" width="290" height="272" rx="46" fill="#9aa88f" fill-opacity="0.35" stroke="#2e2a33" stroke-width="4"/>
+    <path d="M210 162 Q152 184 150 262 Q150 318 174 350 L210 356 Z" fill="#9aa88f" fill-opacity="0.30" stroke="#2e2a33" stroke-width="3.5"/>
+    <path d="M500 162 Q558 184 560 262 Q560 318 536 350 L500 356 Z" fill="#9aa88f" fill-opacity="0.30" stroke="#2e2a33" stroke-width="3.5"/>
+    <!-- legs and casters -->
+    <path d="M232 410 L232 470 L246 470 L246 410 Z" fill="#8a6a4f" fill-opacity="0.5" stroke="#2e2a33" stroke-width="2.5"/>
+    <path d="M462 410 L462 470 L476 470 L476 410 Z" fill="#8a6a4f" fill-opacity="0.5" stroke="#2e2a33" stroke-width="2.5"/>
+    <circle cx="239" cy="478" r="7" fill="#2e2a33" fill-opacity="0.7" stroke="#2e2a33" stroke-width="2"/>
+    <circle cx="469" cy="478" r="7" fill="#2e2a33" fill-opacity="0.7" stroke="#2e2a33" stroke-width="2"/>
+  </g>
+
+  <!-- slumped figure: coat back, collapsed shoulders, bowed head (hair only) -->
+  <g filter="url(#cpBodyWobble)" stroke-linecap="round">
+    <path d="M266 194 Q356 232 448 200 Q456 250 444 302 Q382 324 318 320 Q270 312 264 258 Z" fill="#8fa3b0" fill-opacity="0.25" stroke="#2e2a33" stroke-width="3"/>
+    <path d="M262 192 Q306 168 344 164" fill="none" stroke="#2e2a33" stroke-width="4"/>
+    <path d="M452 198 Q414 172 382 166" fill="none" stroke="#2e2a33" stroke-width="4"/>
+    <path d="M320 112 Q318 80 348 68 Q388 56 414 78 Q434 96 428 122 Q420 148 388 152 Q348 156 332 138 Q324 126 320 112 Z" fill="#2e2a33" fill-opacity="0.9" stroke="#2e2a33" stroke-width="2"/>
+    <g stroke="#f4ecdb" stroke-width="2.5" fill="none" opacity="0.22">
+      <path d="M338 84 Q364 70 396 76"/>
+      <path d="M332 102 Q362 88 404 94"/>
+      <path d="M330 122 Q366 108 414 116"/>
+    </g>
+    <!-- hanging arm -->
+    <path d="M442 198 C468 240 480 300 476 356 C474 384 468 400 452 408 C440 412 432 404 434 388 C440 336 438 262 424 212 Z" fill="#8fa3b0" fill-opacity="0.35" stroke="#2e2a33" stroke-width="3"/>
+    <path d="M436 380 L474 374 L472 396 L438 400 Z" fill="#f7f1e2" stroke="#2e2a33" stroke-width="2.5"/>
+  </g>
+
+  <!-- tartan knee-rug over the knees -->
+  <g filter="url(#cpBodyWobble)" stroke-linecap="round">
+    <path d="M212 400 Q300 386 400 388 Q480 390 492 402 L488 470 Q400 486 300 484 L216 468 Z" fill="#b0705a" fill-opacity="0.42" stroke="#2e2a33" stroke-width="3"/>
+  </g>
+  <g clip-path="url(#cpBodyRugClip)">
+    <rect x="250" y="388" width="26" height="98" fill="#3a3f52" opacity="0.38"/>
+    <rect x="338" y="386" width="26" height="100" fill="#3a3f52" opacity="0.38"/>
+    <rect x="424" y="388" width="26" height="98" fill="#3a3f52" opacity="0.38"/>
+    <rect x="212" y="414" width="280" height="22" fill="#3a3f52" opacity="0.38"/>
+    <g stroke="#9aa88f" stroke-width="4" opacity="0.6">
+      <path d="M212 404 H492 M212 444 H492"/>
+      <path d="M300 388 V486 M386 386 V486"/>
+    </g>
+    <g stroke="#2e2a33" stroke-width="1.6" fill="none" opacity="0.3">
+      <path d="M232 430 Q320 418 420 426"/>
+      <path d="M250 458 Q340 448 460 456"/>
+    </g>
+  </g>
+  <g stroke="#b0705a" stroke-width="2.4" opacity="0.75" stroke-linecap="round">
+    <path d="M240 486 l4 12 M268 488 l4 12 M296 490 l4 12 M324 491 l4 12 M352 492 l4 12 M380 492 l4 12 M408 490 l4 12 M436 488 l4 12 M464 484 l4 12"/>
+  </g>
+
+  <!-- slack hand resting at rug edge -->
+  <g stroke="#2e2a33" stroke-width="2" fill="none" opacity="0.9" stroke-linecap="round">
+    <path d="M446 404 Q444 418 450 426"/>
+    <path d="M456 402 Q456 418 452 426"/>
+    <path d="M466 400 Q470 414 464 420"/>
+  </g>
+
+  <!-- one slipper tipped on its side -->
+  <g filter="url(#cpBodyWobble)" stroke-linecap="round">
+    <path d="M240 528 Q238 512 254 508 Q272 504 292 508 Q312 512 318 524 Q322 534 308 538 L252 538 Q240 536 240 528 Z" fill="#3a3f52" fill-opacity="0.75" stroke="#2e2a33" stroke-width="2.5"/>
+    <ellipse cx="254" cy="522" rx="11" ry="7" fill="#f4ecdb" fill-opacity="0.3" stroke="#2e2a33" stroke-width="1.6"/>
+  </g>
+
+  <!-- side table -->
+  <g filter="url(#cpBodyWobble)" stroke-linecap="round">
+    <rect x="580" y="348" width="170" height="22" rx="6" fill="#8a6a4f" fill-opacity="0.45" stroke="#2e2a33" stroke-width="3"/>
+    <path d="M584 374 L746 372" stroke="#2e2a33" stroke-width="2" opacity="0.6"/>
+    <rect x="648" y="374" width="16" height="128" fill="#8a6a4f" fill-opacity="0.5" stroke="#2e2a33" stroke-width="2.5"/>
+  </g>
+
+  <!-- typed page on the table with whiskey stain at its corner -->
+  <g filter="url(#cpBodyWobble)" stroke-linecap="round">
+    <path d="M590 322 L712 312 L720 350 L598 362 Z" fill="#f7f1e2" stroke="#2e2a33" stroke-width="2.2"/>
+    <g stroke="#6b6472" stroke-width="1.8" opacity="0.75" fill="none">
+      <path d="M604 332 L708 324 M606 340 L704 333 M608 348 L700 342"/>
+    </g>
+  </g>
+  <g filter="url(#cpBodySoft2)">
+    <circle cx="708" cy="350" r="14" fill="#8a6a4f" opacity="0.3"/>
+    <circle cx="708" cy="350" r="18" fill="none" stroke="#8a6a4f" stroke-width="2.5" opacity="0.45"/>
+    <circle cx="716" cy="364" r="4" fill="#8a6a4f" opacity="0.3"/>
+  </g>
+
+  <!-- folded spectacles resting on the page -->
+  <g filter="url(#cpBodyWobble)" stroke-linecap="round">
+    <circle cx="640" cy="336" r="15" fill="#8fa3b0" fill-opacity="0.12" stroke="#2e2a33" stroke-width="3"/>
+    <circle cx="672" cy="332" r="15" fill="#8fa3b0" fill-opacity="0.12" stroke="#2e2a33" stroke-width="3"/>
+    <path d="M653 333 Q657 327 661 330" fill="none" stroke="#2e2a33" stroke-width="2.5"/>
+    <path d="M672 328 Q650 316 630 326 Q620 332 628 340" fill="none" stroke="#2e2a33" stroke-width="2.5"/>
+    <circle cx="654" cy="331" r="2.6" fill="#c9a25e" stroke="#2e2a33" stroke-width="1"/>
+  </g>
+
+  <!-- cross-hatch shading -->
+  <g stroke="#6b6472" stroke-width="2" opacity="0.3" fill="none" stroke-linecap="round">
+    <path d="M430 132 L468 152 M438 158 L476 178 M446 184 L482 204 M440 210 L474 228 M434 236 L468 254"/>
+    <path d="M592 386 L620 398 M612 390 L640 402 M632 394 L660 406"/>
+  </g>
+
+  <!-- annotation -->
+  <text x="56" y="88" font-family="Caveat, cursive" font-size="30" fill="#2e2a33">he was reading when it took him</text>
+
+  <!-- double ink border -->
+  <g filter="url(#cpBodyWobble)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="3"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6"/>
+  </g>
+</svg>

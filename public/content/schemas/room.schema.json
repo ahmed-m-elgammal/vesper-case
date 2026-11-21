@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Room",
+  "type": "object",
+  "required": ["id", "title", "act", "width", "height", "layers", "doors", "hubPlate", "hubLabel", "hubAct", "hints"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "act": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "width": { "type": "number" },
+    "height": { "type": "number" },
+    "layers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "src", "scrollFactor", "depth"],
+        "properties": {
+          "key": { "type": "string" },
+          "src": { "type": "string", "format": "uri-reference" },
+          "scrollFactor": { "type": "number" },
+          "depth": { "type": "number" }
+        }
+      }
+    },
+    "doors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["to", "spot", "label"],
+        "properties": {
+          "to": { "type": "string" },
+          "spot": { "$ref": "#/$defs/rect" },
+          "label": { "type": "string" },
+          "lockedByGate": { "type": "string" },
+          "lockedAct": { "type": "string" },
+          "lockedLine": { "type": "string" }
+        }
+      }
+    },
+    "hubPlate": { "$ref": "#/$defs/rect" },
+    "hubLabel": { "type": "string" },
+    "hubAct": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "hints": {
+      "type": "object",
+      "required": ["tier1", "tier2", "tier3"],
+      "properties": {
+        "tier1": { "type": "string", "description": "Gentle nudge" },
+        "tier2": { "type": "string", "description": "Stronger nudge" },
+        "tier3": { "type": "string", "description": "Near-answer" }
+      }
+    }
+  },
+  "$defs": {
+    "rect": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "[x, y, w, h] in world (or 800x600 close-up) space"
+    }
+  }
+}

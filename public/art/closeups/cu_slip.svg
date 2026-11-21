@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cpSlipWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="23" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6"/>
+    </filter>
+    <filter id="cpSlipSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <filter id="cpSlipSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="600" fill="#f4ecdb"/>
+
+  <!-- faint corner stains -->
+  <g filter="url(#cpSlipSoft)">
+    <ellipse cx="48" cy="42" rx="118" ry="76" fill="#c9a25e" opacity="0.12"/>
+    <ellipse cx="764" cy="560" rx="138" ry="90" fill="#b0705a" opacity="0.12"/>
+    <ellipse cx="760" cy="46" rx="94" ry="64" fill="#8fa3b0" opacity="0.10"/>
+    <ellipse cx="46" cy="554" rx="106" ry="74" fill="#3a3f52" opacity="0.10"/>
+  </g>
+
+  <!-- slip drop shadow -->
+  <g transform="rotate(-7 400 300)">
+    <rect x="216" y="142" width="392" height="318" fill="#2e2a33" opacity="0.12" filter="url(#cpSlipSoft2)"/>
+  </g>
+
+  <!-- torn paper slip, big in frame -->
+  <g transform="rotate(-7 400 300)">
+    <g filter="url(#cpSlipWobble)">
+      <path d="M205 118 L262 116 L318 122 L372 114 L430 121 L488 115 L544 123 L598 132
+               L604 170 L596 208 L606 248 L598 290 L608 332 L600 374 L610 414 L600 452 L592 472
+               L540 466 L486 474 L432 464 L378 472 L324 462 L270 470 L216 460 L192 448
+               L186 408 L196 366 L184 324 L196 282 L186 240 L198 198 L188 158 Z"
+            fill="#f7f1e2" stroke="#2e2a33" stroke-width="3" stroke-linejoin="round"/>
+      <!-- fold crease + wear -->
+      <path d="M206 300 L598 310" stroke="#2e2a33" stroke-width="1.6" opacity="0.14" fill="none"/>
+      <path d="M210 388 Q400 376 590 392" stroke="#2e2a33" stroke-width="1.4" opacity="0.10" fill="none"/>
+      <!-- torn fibre ticks at jagged edges -->
+      <g stroke="#6b6472" stroke-width="1.6" fill="none" opacity="0.6">
+        <path d="M318 122 l-3 -8 M488 115 l2 -9 M596 208 l9 2 M600 374 l9 -2 M432 464 l-2 9 M270 470 l-4 9 M196 282 l-9 2 M188 158 l-8 -4"/>
+      </g>
+      <!-- fox-ear doodle, pencil -->
+      <g stroke="#6b6472" stroke-width="3" fill="none" stroke-linecap="round">
+        <path d="M540 176 L556 140 L574 170"/>
+        <path d="M578 172 L598 136 L616 166"/>
+        <path d="M549 168 L557 148 L566 164"/>
+        <path d="M587 164 L597 146 L606 158"/>
+        <path d="M538 178 Q578 196 614 172"/>
+      </g>
+      <!-- age spots -->
+      <g fill="#8a6a4f">
+        <circle cx="256" cy="356" r="7" opacity="0.13"/>
+        <circle cx="300" cy="342" r="4" opacity="0.12"/>
+        <circle cx="540" cy="238" r="8" opacity="0.11"/>
+        <circle cx="520" cy="256" r="4" opacity="0.10"/>
+        <circle cx="228" cy="196" r="5" opacity="0.12"/>
+      </g>
+    </g>
+    <g>
+      <text x="240" y="248" font-family="Caveat, cursive" font-size="36" fill="#2e2a33">for H.M. — before Monday.</text>
+      <text x="498" y="418" font-family="Caveat, cursive" font-size="38" fill="#2e2a33">E.V.</text>
+      <path d="M242 262 Q380 274 528 258" fill="none" stroke="#2e2a33" stroke-width="2" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- double ink border -->
+  <g filter="url(#cpSlipWobble)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="3"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6"/>
+  </g>
+</svg>

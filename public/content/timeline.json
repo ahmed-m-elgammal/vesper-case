@@ -1,0 +1,76 @@
+{
+  "timeline": [
+    {
+      "id": "t_supper",
+      "time": "6:30 pm",
+      "text": "Supper in the parlour; Colette serves and clears.",
+      "revealedBy": "file"
+    },
+    {
+      "id": "t_arrival",
+      "time": "9:00 pm",
+      "text": "Julian Ashcombe arrives and repairs with Edmund to the study.",
+      "revealedBy": "file"
+    },
+    {
+      "id": "t_argue",
+      "time": "9:05 pm",
+      "text": "Raised voices behind the study door -- the argument over the sold sketches.",
+      "revealedBy": "locked"
+    },
+    {
+      "id": "t_julian_leaves",
+      "time": "10:15 pm",
+      "text": "Julian leaves by the front door. The ledger has it: 'gone quarter past ten.'",
+      "revealedBy": "clue:visitor_ledger"
+    },
+    {
+      "id": "t_call",
+      "time": "10:30 pm",
+      "text": "Edmund telephones someone for a few minutes. 'Come tonight. Bring nothing.'",
+      "revealedBy": "locked"
+    },
+    {
+      "id": "t_scissors",
+      "time": "10:40 pm",
+      "text": "Peggy comes down for her sewing scissors -- she was in the parlour after ten.",
+      "revealedBy": "clue:scissors_sideboard"
+    },
+    {
+      "id": "t_blackout",
+      "time": "10:47 pm",
+      "text": "Lightning cuts the power; the hall clock stops. The house scatters for candles.",
+      "revealedBy": "clue:hall_clock"
+    },
+    {
+      "id": "t_return",
+      "time": "11:21 pm",
+      "text": "Power returns; the hall clock restarts, twenty-one minutes blind.",
+      "revealedBy": "locked"
+    },
+    {
+      "id": "t_door",
+      "time": "11:30 pm",
+      "text": "The kitchen-garden door stands off its bolt. Someone used it in the dark.",
+      "revealedBy": "clue:garden_door_bolt"
+    },
+    {
+      "id": "t_mantel",
+      "time": "11:38 pm",
+      "text": "The mantel clock falls and stops. Edmund staggers.",
+      "revealedBy": "clue:mantel_clock"
+    },
+    {
+      "id": "t_death",
+      "time": "11:40 pm",
+      "text": "Edmund Vesper dies in the wing chair.",
+      "revealedBy": "file"
+    },
+    {
+      "id": "t_found",
+      "time": "7:05 am",
+      "text": "Colette brings the tea tray and finds him cold.",
+      "revealedBy": "file"
+    }
+  ]
+}
