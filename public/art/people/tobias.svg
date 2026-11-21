@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="pplToW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="47" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="pplToS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#pplToS)">
+    <ellipse cx="660" cy="500" rx="180" ry="70" fill="#c9a25e" opacity="0.14"/>
+    <ellipse cx="120" cy="110" rx="120" ry="60" fill="#8fa3b0" opacity="0.12"/>
+    <ellipse cx="400" cy="300" rx="240" ry="200" fill="#c9a25e" opacity="0.10"/>
+  </g>
+  <g filter="url(#pplToW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+  <g filter="url(#pplToW)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- shoulders, high collar, waistcoat -->
+    <path d="M176 588 Q196 470 302 432 Q400 404 498 432 Q604 470 624 588 Z" fill="#5d5a6b" fill-opacity="0.5" stroke-width="5"/>
+    <path d="M310 430 L400 470 L490 430" stroke-width="3"/>
+    <path d="M366 446 Q400 466 434 446 L434 588 L366 588 Z" fill="#c9a25e" fill-opacity="0.4" stroke-width="3"/>
+    <path d="M382 470 L400 500 L418 470" stroke-width="2.4"/>
+    <!-- neck -->
+    <path d="M360 330 L360 424 Q400 446 440 424 L440 330" fill="#e8d9bd" fill-opacity="0.55" stroke-width="4"/>
+    <!-- head: longer, younger -->
+    <ellipse cx="400" cy="236" rx="106" ry="136" fill="#e8d9bd" fill-opacity="0.55" stroke-width="5"/>
+    <!-- tousled hair -->
+    <path d="M292 216 Q288 108 400 92 Q512 108 508 216 Q504 160 470 138 Q488 128 470 116 Q446 102 430 112 Q420 96 396 104 Q376 92 360 110 Q338 104 328 124 Q306 130 310 152 Q294 172 292 216 Z" fill="#463c30" fill-opacity="0.65" stroke-width="4"/>
+    <path d="M310 150 Q340 118 388 108 M420 106 Q464 116 486 148" stroke-width="2.2" opacity="0.55"/>
+    <!-- pencil behind ear -->
+    <path d="M496 260 L540 200 M540 200 L552 186" stroke-width="5"/>
+    <!-- face -->
+    <path d="M334 206 Q356 196 378 204" stroke-width="3.4"/>
+    <path d="M422 204 Q444 196 466 206" stroke-width="3.4"/>
+    <circle cx="354" cy="230" r="4.5" fill="#2e2a33" fill-opacity="0.85" stroke-width="2"/>
+    <circle cx="446" cy="230" r="4.5" fill="#2e2a33" fill-opacity="0.85" stroke-width="2"/>
+    <path d="M400 230 Q392 268 402 286" stroke-width="3"/>
+    <path d="M368 314 Q400 326 432 312" stroke-width="3.4"/>
+    <!-- ink stains on the hand at the bottom edge -->
+    <path d="M236 566 q18 -6 30 4 q16 -10 30 0 M506 570 q18 -8 32 2" stroke-width="3" opacity="0.7"/>
+  </g>
+  <g filter="url(#pplToW)" fill="#3a3f52" opacity="0.5" stroke="none">
+    <ellipse cx="252" cy="562" rx="26" ry="9"/>
+    <ellipse cx="282" cy="570" rx="18" ry="7"/>
+    <ellipse cx="524" cy="568" rx="24" ry="8"/>
+  </g>
+</svg>

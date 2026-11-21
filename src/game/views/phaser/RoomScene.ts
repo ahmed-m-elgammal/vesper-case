@@ -11,6 +11,7 @@ import type { RoomSceneData, SceneCtx } from './SceneCtx';
 import type { Hotspot } from '../../viewmodels/RoomVM';
 
 const ACCENT = 0xb4552d;
+const INK = 0x2e2a33;
 
 interface ZoneVis {
   zone: Phaser.GameObjects.Zone;
@@ -130,8 +131,10 @@ export class RoomScene extends Phaser.Scene {
     zone.setName(spot.id);
     const outline = this.add.graphics();
 
+    if (spot.kind === 'person') this.drawPersonFigure(spot);
+
     zone.on('pointerover', () => {
-      if (this.roomVM.hotspots$.value.find((s) => s.id === spot.id)?.kind === 'clue') {
+      if (this.roomVM.hotspots$.value.find((s) => s.id === spot.id)?.kind !== 'door') {
         this.drawOutline(outline, spot, 0.95);
       }
     });
@@ -145,6 +148,33 @@ export class RoomScene extends Phaser.Scene {
     });
 
     this.zoneVis.set(spot.id, { zone, outline });
+  }
+
+  /**
+   * A pencil-sketch figure for a talkable person -- data-driven position,
+   * tinted with the suspect's palette colour so each reads differently.
+   */
+  private drawPersonFigure(spot: Hotspot): void {
+    const suspect = this.ctx.vm.repo.suspect(spot.personId ?? '');
+    const tint = suspect?.tint ?? '#9aa88f';
+    const [x, y, w, h] = spot.spot;
+    const g = this.add.graphics();
+    const cx = x + w / 2;
+    const headR = Math.max(16, Math.min(26, w * 0.22));
+    const headY = y + headR + 6;
+    const bodyCy = y + h * 0.62;
+    const bodyRx = w * 0.42;
+    const bodyRy = h * 0.36;
+    const fill = Phaser.Display.Color.HexStringToColor(tint).color;
+    g.fillStyle(fill, 0.32);
+    g.fillCircle(cx, headY, headR);
+    g.fillEllipse(cx, bodyCy, bodyRx * 2, bodyRy * 2);
+    g.lineStyle(3, INK, 0.85);
+    g.strokeCircle(cx, headY, headR);
+    g.strokeEllipse(cx, bodyCy, bodyRx * 2, bodyRy * 2);
+    // sketchy shoulder strokes
+    g.lineBetween(cx - bodyRx * 0.7, bodyCy - bodyRy * 0.4, cx - bodyRx * 0.5, bodyCy + bodyRy * 0.6);
+    g.lineBetween(cx + bodyRx * 0.7, bodyCy - bodyRy * 0.4, cx + bodyRx * 0.5, bodyCy + bodyRy * 0.6);
   }
 
   private removeZone(id: string): void {
@@ -183,7 +213,7 @@ export class RoomScene extends Phaser.Scene {
       if (!vis) continue;
       vis.shimmer?.remove();
       vis.shimmer = undefined;
-      if (highlights && !spot.found && spot.kind === 'clue') {
+      if (highlights && !spot.found && (spot.kind === 'clue' || spot.kind === 'person')) {
         vis.shimmer = this.tweens.add({
           targets: vis.outline,
           alpha: { from: 0.28, to: 0.62 },
@@ -206,6 +236,13 @@ export class RoomScene extends Phaser.Scene {
         return;
       }
       this.ctx.hooks.openClue(res.clue.id);
+    } else if (spot.kind === 'person') {
+      const res = this.roomVM.tapPerson(spot);
+      if (!res.ok) {
+        this.ctx.hooks.toast(res.reason, 'warn');
+        return;
+      }
+      this.ctx.hooks.openDialogue(res.suspectId);
     } else {
       const res = this.roomVM.tapDoor(spot);
       if (res.action === 'enter') {

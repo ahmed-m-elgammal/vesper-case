@@ -1,5 +1,5 @@
 {
-  "dialogue": [
+  "nodes": [
     {
       "id": "hollis_intro",
       "speaker": "Sergeant Hollis",
@@ -39,7 +39,7 @@
       "speaker": "Sergeant Hollis",
       "initial": "H",
       "lines": [
-        "The house is yours, detective. Mind the rug in the parlour -- it remembers feet."
+        "The house is yours, detective. Mind the rug in the parlour -- it remembers feet. And talk to the household: they stand about all day waiting to be asked."
       ],
       "flag": "met_hollis"
     },
@@ -52,5 +52,414 @@
         "Mind the rug. It remembers feet."
       ]
     }
-  ]
+  ],
+  "graphs": {
+    "colette": {
+      "id": "colette",
+      "suspect": "colette",
+      "speaker": "@dlg.name.colette",
+      "start": "root",
+      "presents": { "miss": "present_miss", "again": "present_again" },
+      "reactions": {
+        "visitor_ledger": { "next": "r_ledger", "once": "asked:colette:pr-ledger" },
+        "coat_peg_coats": { "next": "r_coats", "once": "asked:colette:pr-coats" },
+        "stair_button": { "next": "r_button", "once": "asked:colette:pr-button" },
+        "garden_door_bolt": { "next": "r_gbolt", "once": "asked:colette:pr-gbolt" },
+        "scissors_sideboard": { "next": "r_scissors", "once": "asked:colette:pr-scissors" },
+        "whiskey_glass": { "next": "r_glass", "once": "asked:colette:pr-glass" },
+        "decanter": { "next": "r_decanter", "once": "asked:colette:pr-decanter" },
+        "hearth_ash": { "next": "r_ash", "once": "asked:colette:pr-ash" },
+        "hall_clock": { "next": "r_clock", "once": "asked:colette:pr-clock" },
+        "pill_bottle": { "next": "r_pills", "once": "asked:colette:pr-pills" },
+        "memoir_desk": { "next": "r_memoir", "once": "asked:colette:pr-memoir" },
+        "body_chair": { "next": "r_body", "once": "asked:colette:pr-body" }
+      },
+      "nodes": {
+        "root": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.colette.root.1" },
+            { "sp": "npc", "t": "@dlg.colette.root.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.colette.root.c1", "next": "evening" },
+            { "text": "@dlg.colette.root.c2", "next": "comings" },
+            { "text": "@dlg.colette.root.c3", "next": "garden", "cond": { "clue": "garden_door_bolt" } },
+            { "text": "@dlg.colette.root.c4", "next": "dark" },
+            { "text": "@dlg.ui.present", "present": { "miss": "present_miss" } },
+            { "text": "@dlg.ui.leave", "next": "bye" }
+          ]
+        },
+        "evening": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.colette.evening.1" },
+            { "sp": "npc", "t": "@dlg.colette.evening.2" },
+            { "sp": "npc", "t": "@dlg.colette.evening.3" }
+          ],
+          "effects": { "setFlags": ["talked:colette:evening"] },
+          "next": "root"
+        },
+        "comings": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.colette.comings.1" },
+            { "sp": "npc", "t": "@dlg.colette.comings.2" }
+          ],
+          "effects": { "setFlags": ["talked:colette:comings"] },
+          "next": "root"
+        },
+        "garden": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.colette.garden.1" },
+            { "sp": "npc", "t": "@dlg.colette.garden.2" },
+            { "sp": "npc", "t": "@dlg.colette.garden.3" }
+          ],
+          "effects": {
+            "setFlags": ["talked:colette:garden"],
+            "addClues": ["colette_garden_bolt"],
+            "setVars": { "trust:colette": 1 }
+          },
+          "next": "root"
+        },
+        "dark": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.colette.dark.1" },
+            { "sp": "npc", "t": "@dlg.colette.dark.2" },
+            { "sp": "npc", "t": "@dlg.colette.dark.3" }
+          ],
+          "effects": { "setFlags": ["talked:colette:dark"] },
+          "next": "root"
+        },
+        "present_miss": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.present_miss.1" }],
+          "next": "root"
+        },
+        "present_again": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.present_again.1" }],
+          "next": "root"
+        },
+        "bye": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.bye.1" }],
+          "end": true
+        },
+        "r_ledger": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_ledger.1" }],
+          "next": "root"
+        },
+        "r_coats": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_coats.1" }],
+          "effects": { "setFlags": ["talked:colette:pr-coats"] },
+          "next": "root"
+        },
+        "r_button": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_button.1" }],
+          "next": "root"
+        },
+        "r_gbolt": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_gbolt.1" }],
+          "next": "root"
+        },
+        "r_scissors": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_scissors.1" }],
+          "next": "root"
+        },
+        "r_glass": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_glass.1" }],
+          "next": "root"
+        },
+        "r_decanter": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_decanter.1" }],
+          "next": "root"
+        },
+        "r_ash": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_ash.1" }],
+          "next": "root"
+        },
+        "r_clock": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_clock.1" }],
+          "next": "root"
+        },
+        "r_pills": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_pills.1" }],
+          "next": "root"
+        },
+        "r_memoir": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_memoir.1" }],
+          "next": "root"
+        },
+        "r_body": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_body.1" }],
+          "next": "root"
+        }
+      }
+    },
+    "tobias": {
+      "id": "tobias",
+      "suspect": "tobias",
+      "speaker": "@dlg.name.tobias",
+      "start": "root",
+      "presents": { "miss": "present_miss", "again": "present_again" },
+      "reactions": {
+        "mantel_clock": { "next": "r_mantel", "once": "asked:tobias:pr-mantel" },
+        "stair_button": { "next": "r_button", "once": "asked:tobias:pr-button" },
+        "hall_clock": { "next": "r_clock", "once": "asked:tobias:pr-clock" },
+        "whiskey_glass": { "next": "r_glass", "once": "asked:tobias:pr-glass" },
+        "summons_slip": { "next": "r_slip", "once": "asked:tobias:pr-slip" },
+        "memoir_desk": { "next": "r_memoir", "once": "asked:tobias:pr-memoir" },
+        "decanter": { "next": "r_decanter", "once": "asked:tobias:pr-decanter" },
+        "body_chair": { "next": "r_body", "once": "asked:tobias:pr-body" },
+        "hearth_ash": { "next": "r_ash", "once": "asked:tobias:pr-ash" }
+      },
+      "nodes": {
+        "root": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.tobias.root.1" },
+            { "sp": "npc", "t": "@dlg.tobias.root.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.tobias.root.c1", "next": "attic" },
+            { "text": "@dlg.tobias.root.c2", "next": "heard" },
+            { "text": "@dlg.tobias.root.c3", "next": "clockfell", "cond": { "clue": "mantel_clock" } },
+            { "text": "@dlg.tobias.root.c4", "next": "master" },
+            { "text": "@dlg.ui.present", "present": { "miss": "present_miss" } },
+            { "text": "@dlg.ui.leave", "next": "bye" }
+          ]
+        },
+        "attic": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.tobias.attic.1" },
+            { "sp": "npc", "t": "@dlg.tobias.attic.2" },
+            { "sp": "npc", "t": "@dlg.tobias.attic.3" }
+          ],
+          "effects": { "setFlags": ["talked:tobias:attic"] },
+          "next": "root"
+        },
+        "heard": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.tobias.heard.1" },
+            { "sp": "npc", "t": "@dlg.tobias.heard.2" }
+          ],
+          "effects": {
+            "setFlags": ["talked:tobias:heard"],
+            "addClues": ["tobias_clatter"],
+            "setVars": { "trust:tobias": 1 }
+          },
+          "next": "root"
+        },
+        "clockfell": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.tobias.clockfell.1" },
+            { "sp": "npc", "t": "@dlg.tobias.clockfell.2" }
+          ],
+          "effects": { "setFlags": ["talked:tobias:clockfell"] },
+          "next": "root"
+        },
+        "master": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.tobias.master.1" },
+            { "sp": "npc", "t": "@dlg.tobias.master.2" }
+          ],
+          "effects": { "setFlags": ["talked:tobias:master"] },
+          "next": "root"
+        },
+        "present_miss": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.present_miss.1" }],
+          "next": "root"
+        },
+        "present_again": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.present_again.1" }],
+          "next": "root"
+        },
+        "bye": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.bye.1" }],
+          "end": true
+        },
+        "r_mantel": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_mantel.1" }],
+          "effects": { "setVars": { "trust:tobias": 1 } },
+          "next": "root"
+        },
+        "r_button": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_button.1" }],
+          "effects": { "setFlags": ["talked:tobias:pr-button"] },
+          "next": "root"
+        },
+        "r_clock": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_clock.1" }],
+          "next": "root"
+        },
+        "r_glass": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_glass.1" }],
+          "next": "root"
+        },
+        "r_slip": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_slip.1" }],
+          "effects": { "setFlags": ["talked:tobias:pr-slip"] },
+          "next": "root"
+        },
+        "r_memoir": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_memoir.1" }],
+          "next": "root"
+        },
+        "r_decanter": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_decanter.1" }],
+          "next": "root"
+        },
+        "r_body": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_body.1" }],
+          "next": "root"
+        },
+        "r_ash": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_ash.1" }],
+          "next": "root"
+        }
+      }
+    },
+    "peggy": {
+      "id": "peggy",
+      "suspect": "peggy",
+      "speaker": "@dlg.name.peggy",
+      "start": "root",
+      "presents": { "miss": "present_miss", "again": "present_again" },
+      "reactions": {
+        "hall_clock": { "next": "r_clock", "once": "asked:peggy:pr-clock" },
+        "scissors_sideboard": { "next": "r_scissors", "once": "asked:peggy:pr-scissors" },
+        "pill_bottle": { "next": "r_pills", "once": "asked:peggy:pr-pills" },
+        "summons_slip": { "next": "r_slip", "once": "asked:peggy:pr-slip" },
+        "memoir_desk": { "next": "r_memoir", "once": "asked:peggy:pr-memoir" },
+        "whiskey_glass": { "next": "r_glass", "once": "asked:peggy:pr-glass" },
+        "hearth_ash": { "next": "r_ash", "once": "asked:peggy:pr-ash" },
+        "body_chair": { "next": "r_body", "once": "asked:peggy:pr-body" },
+        "coat_peg_coats": { "next": "r_coats", "once": "asked:peggy:pr-coats" },
+        "stair_button": { "next": "r_button", "once": "asked:peggy:pr-button" },
+        "visitor_ledger": { "next": "r_ledger", "once": "asked:peggy:pr-ledger" }
+      },
+      "nodes": {
+        "root": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.peggy.root.1" },
+            { "sp": "npc", "t": "@dlg.peggy.root.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.peggy.root.c1", "next": "evening" },
+            { "text": "@dlg.peggy.root.c2", "next": "uncle" },
+            { "text": "@dlg.peggy.root.c3", "next": "letter", "cond": { "clue": "mail_letter" } },
+            { "text": "@dlg.peggy.root.c4", "next": "scissors", "cond": { "clue": "scissors_sideboard" } },
+            { "text": "@dlg.peggy.root.c5", "next": "money", "cond": { "trust": "trust:peggy", "gte": 1 } },
+            { "text": "@dlg.ui.present", "present": { "miss": "present_miss" } },
+            { "text": "@dlg.ui.leave", "next": "bye" }
+          ]
+        },
+        "evening": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.peggy.evening.1" },
+            { "sp": "npc", "t": "@dlg.peggy.evening.2" }
+          ],
+          "effects": { "setFlags": ["talked:peggy:evening"] },
+          "next": "root"
+        },
+        "uncle": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.peggy.uncle.1" },
+            { "sp": "npc", "t": "@dlg.peggy.uncle.2" }
+          ],
+          "effects": { "setFlags": ["talked:peggy:uncle"] },
+          "next": "root"
+        },
+        "letter": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.peggy.letter.1" },
+            { "sp": "npc", "t": "@dlg.peggy.letter.2" }
+          ],
+          "effects": { "setFlags": ["talked:peggy:letter"] },
+          "next": "root"
+        },
+        "scissors": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.peggy.scissors.1" },
+            { "sp": "npc", "t": "@dlg.peggy.scissors.2" },
+            { "sp": "npc", "t": "@dlg.peggy.scissors.3" }
+          ],
+          "effects": {
+            "setFlags": ["talked:peggy:scissors"],
+            "addClues": ["peggy_scissors_ownup"],
+            "setVars": { "trust:peggy": 1 }
+          },
+          "next": "root"
+        },
+        "money": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.peggy.money.1" },
+            { "sp": "npc", "t": "@dlg.peggy.money.2" }
+          ],
+          "effects": { "setFlags": ["talked:peggy:money"] },
+          "next": "root"
+        },
+        "present_miss": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.present_miss.1" }],
+          "next": "root"
+        },
+        "present_again": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.present_again.1" }],
+          "next": "root"
+        },
+        "bye": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.bye.1" }],
+          "end": true
+        },
+        "r_clock": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.peggy.r_clock.1" },
+            { "sp": "npc", "t": "@dlg.peggy.r_clock.2" }
+          ],
+          "effects": { "setFlags": ["peggy_lie_caught"], "setVars": { "trust:peggy": -1 } },
+          "next": "root"
+        },
+        "r_scissors": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_scissors.1" }],
+          "effects": {
+            "addClues": ["peggy_scissors_ownup"],
+            "setVars": { "trust:peggy": 1 }
+          },
+          "next": "root"
+        },
+        "r_pills": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_pills.1" }],
+          "next": "root"
+        },
+        "r_slip": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_slip.1" }],
+          "effects": { "setFlags": ["talked:peggy:pr-slip"] },
+          "next": "root"
+        },
+        "r_memoir": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_memoir.1" }],
+          "effects": { "setFlags": ["talked:peggy:pr-memoir"] },
+          "next": "root"
+        },
+        "r_glass": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_glass.1" }],
+          "next": "root"
+        },
+        "r_ash": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_ash.1" }],
+          "next": "root"
+        },
+        "r_body": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_body.1" }],
+          "next": "root"
+        },
+        "r_coats": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_coats.1" }],
+          "next": "root"
+        },
+        "r_button": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_button.1" }],
+          "next": "root"
+        },
+        "r_ledger": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_ledger.1" }],
+          "next": "root"
+        }
+      }
+    }
+  }
 }

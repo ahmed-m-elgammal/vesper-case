@@ -41,6 +41,18 @@ Pencil-inset style: paper card frame, wobble ink, cross-hatch, Caveat annotation
 | `public/art/closeups/cu_print.svg` | A Ghost of a Print (diamond tread, 7–8) |
 | `public/art/closeups/cu_scissors.svg` | Sewing Scissors |
 
+## 2b. People portraits (conversation + notebook)
+
+All 800x600 inline SVGs (paper, wobble filter, washes), shown cropped in the conversation sheet and the notebook People tab:
+
+| File | Subject |
+|---|---|
+| `public/art/people/colette.svg` | Colette Beaumont -- housekeeper (bun, apron, flour dust) |
+| `public/art/people/tobias.svg` | Tobias Grimm -- apprentice (tousled hair, pencil behind ear, ink stains) |
+| `public/art/people/peggy.svg` | Margaret 'Peggy' Vesper-Croft -- the niece (pinned hair, pearls, mourning dress) |
+
+Room-scene people figures are engine-drawn (pencil silhouette tinted with the suspect's palette colour) at the `rooms.json` `people[].spot` rects.
+
 ## 3. UI chrome
 
 - **Fonts** (bundled via `@fontsource`, OFL): `Caveat 500/700` (handwriting), `Special Elite 400` (typewriter/case file), `Crimson Pro 400/400i/600/700` (body serif).

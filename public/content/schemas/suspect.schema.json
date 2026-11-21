@@ -11,6 +11,8 @@
     "role": { "type": "string" },
     "initial": { "type": "string", "maxLength": 2 },
     "tint": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+    "portrait": { "type": "string", "description": "Hand-drawn bust SVG shown in conversations and the notebook" },
+    "where": { "type": "string", "description": "Where this person stands during Act 1 (notebook flavour)" },
     "statement": { "type": "string", "description": "Public alibi taken the morning after (shown from the prologue)" },
     "secret": { "type": "string", "description": "Hidden truth -- data present but never shown before Act 5" },
     "lie": { "type": "string", "description": "The statement's catchable lie and its disproof" },

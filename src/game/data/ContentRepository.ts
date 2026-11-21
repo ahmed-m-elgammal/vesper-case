@@ -6,7 +6,8 @@
  */
 
 import { asBundle, validateBundle } from './validate';
-import type { Clue, ContentBundle, Gate, Room, Suspect } from './types';
+import { setLocaleTable } from '../dialogue/loc';
+import type { Clue, ContentBundle, DialogueGraph, Gate, Room, Suspect } from './types';
 
 const FILES = {
   case: '/content/case.json',
@@ -17,6 +18,7 @@ const FILES = {
   timeline: '/content/timeline.json',
   prologue: '/content/prologue.json',
   dialogue: '/content/dialogue.json',
+  locale: '/content/locales/en.json',
   chains: '/content/chains.json',
 } as const;
 
@@ -32,6 +34,7 @@ export class ContentRepository {
   private cluesById = new Map<string, Clue>();
   private suspectsById = new Map<string, Suspect>();
   private gatesById = new Map<string, Gate>();
+  private graphsById = new Map<string, DialogueGraph>();
   private svgCache = new Map<string, string>();
 
   private constructor(bundle: ContentBundle) {
@@ -40,6 +43,8 @@ export class ContentRepository {
     for (const c of bundle.clues) this.cluesById.set(c.id, c);
     for (const s of bundle.suspects) this.suspectsById.set(s.id, s);
     for (const g of bundle.gates) this.gatesById.set(g.id, g);
+    for (const [id, g] of Object.entries(bundle.graphs ?? {})) this.graphsById.set(id, g);
+    setLocaleTable(bundle.locale ?? {});
   }
 
   static async load(): Promise<ContentRepository> {
@@ -59,6 +64,20 @@ export class ContentRepository {
         raw[key] = (v as Record<string, unknown>)[key];
       }
     }
+    /*
+     * dialogue.json may be a legacy flat array (build one) or the v2 shape
+     * { nodes: [...], graphs: {...} }. Normalize into bundle.dialogue (array)
+     * + bundle.graphs (record) + bundle.locale (the en table).
+     */
+    const d = raw.dialogue;
+    if (d && !Array.isArray(d)) {
+      const obj = d as Record<string, unknown>;
+      raw.dialogue = Array.isArray(obj.nodes) ? obj.nodes : [];
+      raw.graphs = obj.graphs ?? {};
+    } else {
+      raw.graphs = {};
+    }
+    raw.locale = (raw.locale ?? {}) as Record<string, string>;
     const problems = validateBundle(raw);
     if (problems.length > 0) throw new ContentError(problems);
     return new ContentRepository(asBundle(raw));
@@ -94,6 +113,11 @@ export class ContentRepository {
 
   dialogueNode(id: string) {
     return this.bundle.dialogue.find((n) => n.id === id);
+  }
+
+  /** Conversation graph by id (Act-1 people use their suspect id). */
+  dialogueGraph(id: string): DialogueGraph | undefined {
+    return this.graphsById.get(id);
   }
 
   /** Fetch (and cache) a close-up SVG as text for inline DOM injection. */

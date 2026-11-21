@@ -34,6 +34,10 @@
           "lockedLine": "The stairs open with Act 2 -- next build. The bedrooms follow in Act 3."
         }
       ],
+      "people": [
+        { "suspect": "colette", "spot": [2120, 470, 120, 300], "label": "Colette" },
+        { "suspect": "tobias", "spot": [1420, 555, 130, 265], "label": "Tobias" }
+      ],
       "hubPlate": [760, 440, 380, 200],
       "hubLabel": "Entrance Hall",
       "hubAct": 1,
@@ -60,6 +64,9 @@
           "spot": [0, 240, 90, 500],
           "label": "Back to the hall"
         }
+      ],
+      "people": [
+        { "suspect": "peggy", "spot": [2010, 480, 140, 300], "label": "Peggy" }
       ],
       "hubPlate": [380, 440, 360, 200],
       "hubLabel": "Parlour",

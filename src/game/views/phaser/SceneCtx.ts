@@ -10,6 +10,8 @@ import type { RoomVM } from '../../viewmodels/RoomVM';
 export interface SceneHooks {
   openClue(clueId: string): void;
   openGate(gateId: string): void;
+  /** Open a conversation with a suspect (room people hotspots). */
+  openDialogue(suspectId: string): void;
   toast(text: string, kind: 'clue' | 'info' | 'warn'): void;
   /** Play the sketch-wipe and swap scenes at midpoint. */
   wipe(mid: () => void): void;

@@ -4,6 +4,7 @@
  */
 
 import { el, bindList } from '../../core/dom';
+import { resolveText } from '../../dialogue/loc';
 import type { GameVM } from '../../viewmodels/GameVM';
 import type { NotebookVM, NotebookTab } from '../../viewmodels/NotebookVM';
 import type { NotebookClueCard, ThreadRow, TimelineRow } from '../../viewmodels/NotebookVM';
@@ -76,8 +77,17 @@ export class NotebookView {
 
   open(tab?: NotebookTab): void {
     if (tab) this.nb.setTab(tab);
+    this.syncTabButtons();
     this.node.classList.remove('hidden');
     void this.renderTab();
+  }
+
+  /** Keep the tab highlight in sync when open() sets a tab programmatically. */
+  private syncTabButtons(): void {
+    const current = this.nb.tab$.value;
+    this.node.querySelectorAll('.notebook-tab').forEach((b, i) => {
+      b.classList.toggle('on', TABS[i]?.id === current);
+    });
   }
 
   close(): void {
@@ -140,11 +150,44 @@ export class NotebookView {
   }
 
   private personCard(s: Suspect): HTMLElement {
+    const talked = this.vm.hasTalkedTo(s.id);
+    const bearing = resolveText(this.vm.bearingKey(s.id));
+    const initialWrap = el('div', {
+      class: 'person-initial',
+      style: `background:${s.tint}33;border-color:${s.tint}`,
+    });
+    if (s.portrait && this.clueThumbCache.has(s.portrait)) {
+      initialWrap.classList.add('has-svg');
+      initialWrap.innerHTML = this.clueThumbCache.get(s.portrait) ?? '';
+    } else if (s.portrait) {
+      initialWrap.textContent = s.initial;
+      void this.vm.repo
+        .closeupSvg(s.portrait)
+        .then((svg) => {
+          this.clueThumbCache.set(s.portrait as string, svg);
+          if (initialWrap.isConnected) {
+            initialWrap.classList.add('has-svg');
+            initialWrap.innerHTML = svg;
+          }
+        })
+        .catch(() => undefined);
+    } else {
+      initialWrap.textContent = s.initial;
+    }
     return el('div', { class: 'person-card' }, [
-      el('div', { class: 'person-initial', style: `background:${s.tint}33;border-color:${s.tint}`, text: s.initial }),
+      initialWrap,
       el('div', { class: 'person-body' }, [
-        el('div', { class: 'person-name', text: s.name }),
+        el('div', { class: 'person-name-row' }, [
+          el('div', { class: 'person-name', text: s.name }),
+          el('div', {
+            class: `person-spoken${talked ? ' yes' : ''}`,
+            text: talked
+              ? `${resolveText('@nb.ui.bearing')}: ${bearing}`
+              : resolveText('@nb.ui.notspoken'),
+          }),
+        ]),
         el('div', { class: 'person-role', text: `${s.age} -- ${s.role}` }),
+        s.where ? el('div', { class: 'person-where', text: s.where }) : null,
         el('div', { class: 'person-statement', text: `\u201C${s.statement}\u201D` }),
       ]),
     ]);

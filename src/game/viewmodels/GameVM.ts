@@ -9,7 +9,8 @@ import { Computed, Observable } from '../core/Observable';
 import { EventBus } from '../core/EventBus';
 import type { ContentRepository } from '../data/ContentRepository';
 import type { Clue, GameState, Room, Settings } from '../data/types';
-import { freshState } from '../data/types';
+import { freshState, migrateState } from '../data/types';
+import type { DialogueContext, DialogueEffects } from '../dialogue/types';
 import { SaveSystem } from '../save/SaveSystem';
 
 export interface Toast {
@@ -18,7 +19,7 @@ export interface Toast {
   kind: 'clue' | 'info' | 'warn';
 }
 
-export class GameVM {
+export class GameVM implements DialogueContext {
   readonly bus = new EventBus();
   readonly save: SaveSystem;
 
@@ -26,6 +27,7 @@ export class GameVM {
   readonly roomId$: Observable<string | null>;
   readonly clues$: Observable<Record<string, { at: number }>>;
   readonly flags$: Observable<Record<string, boolean>>;
+  readonly vars$: Observable<Record<string, number>>;
   readonly gates$: Observable<Record<string, boolean>>;
   readonly settings$: Observable<Settings>;
   readonly toasts$: Observable<Toast[]>;
@@ -46,6 +48,7 @@ export class GameVM {
     this.roomId$ = new Observable<string | null>(null);
     this.clues$ = new Observable<Record<string, { at: number }>>({});
     this.flags$ = new Observable<Record<string, boolean>>({});
+    this.vars$ = new Observable<Record<string, number>>({});
     this.gates$ = new Observable<Record<string, boolean>>({});
     this.settings$ = new Observable<Settings>(this.state.settings);
     this.toasts$ = new Observable<Toast[]>([]);
@@ -87,8 +90,8 @@ export class GameVM {
   async boot(): Promise<'fresh' | 'resumed'> {
     await this.save.init();
     const loaded = await this.save.load();
-    if (loaded && loaded.v === 1 && Object.keys(loaded.clues ?? {}).length + (loaded.prologueDone ? 1 : 0) > 0) {
-      this.state = { ...freshState(), ...loaded, settings: { ...freshState().settings, ...loaded.settings } };
+    if (loaded) {
+      this.state = migrateState(loaded);
       return 'resumed';
     }
     return 'fresh';
@@ -100,6 +103,7 @@ export class GameVM {
     this.roomId$.value = this.state.roomId;
     this.clues$.value = { ...this.state.clues };
     this.flags$.value = { ...this.state.flags };
+    this.vars$.value = { ...this.state.vars };
     this.gates$.value = { ...this.state.gates };
     this.settings$.value = { ...this.state.settings };
     this.applySettings();
@@ -176,6 +180,51 @@ export class GameVM {
 
   flag(flag: string): boolean {
     return Boolean(this.state.flags[flag]);
+  }
+
+  /* ------------------------------------------ dialogue context (DialogueContext) */
+
+  hasFlag(id: string): boolean {
+    return this.flag(id);
+  }
+
+  getVar(id: string): number {
+    return this.state.vars[id] ?? 0;
+  }
+
+  /** Additive variable update (trust shifts etc.). */
+  addVar(id: string, delta: number): void {
+    const next = this.getVar(id) + delta;
+    if (next === this.getVar(id)) return;
+    this.state.vars[id] = next;
+    this.vars$.value = { ...this.state.vars };
+    this.commit();
+  }
+
+  foundClueIds(): string[] {
+    return Object.keys(this.state.clues);
+  }
+
+  /** Apply a dialogue effect block through the real progression intents. */
+  applyEffects(effects: DialogueEffects): void {
+    for (const f of effects.setFlags ?? []) this.setFlag(f);
+    for (const [id, delta] of Object.entries(effects.setVars ?? {})) this.addVar(id, delta);
+    for (const id of effects.addClues ?? []) this.collectClue(id);
+  }
+
+  /** Bearing label key for a suspect's trust variable (0 default). */
+  bearingKey(suspectId: string): string {
+    const v = this.getVar(`trust:${suspectId}`);
+    if (v <= -1) return '@dlg.bearing.icy';
+    if (v >= 2) return '@dlg.bearing.open';
+    if (v >= 1) return '@dlg.bearing.warming';
+    return '@dlg.bearing.guarded';
+  }
+
+  /** True when any conversation with this suspect has happened (talked:* flags). */
+  hasTalkedTo(suspectId: string): boolean {
+    const prefix = `talked:${suspectId}:`;
+    return Object.keys(this.state.flags).some((f) => f.startsWith(prefix));
   }
 
   solveGate(gateId: string): void {

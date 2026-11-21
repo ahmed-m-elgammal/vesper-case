@@ -7,6 +7,7 @@
  *   between devices. Format: "IA1|<base64url(json)>|<fnv1a>".
  */
 
+import { migrateState } from '../data/types';
 import type { GameState } from '../data/types';
 
 const DB_NAME = 'ink-and-ashes';
@@ -43,7 +44,9 @@ export class SaveSystem {
       if (!raw) return null;
       try {
         const state = typeof raw === 'string' ? (JSON.parse(raw) as GameState) : (raw as GameState);
-        if (state && state.v === 1) return state;
+        // v1 (build one) and v2 (dialogue variables) both migrate forward.
+        const v = (state as { v?: number }).v;
+        if (state && (v === 1 || v === 2)) return migrateState(state);
         return null;
       } catch {
         return null;
@@ -143,8 +146,9 @@ export class SaveSystem {
       const json = decodeURIComponent(escape(atob(b64)));
       if (SaveSystem.fnv1a(json) !== parts[2]) return null;
       const state = JSON.parse(json) as GameState;
-      if (state.v !== 1) return null;
-      return state;
+      const v = (state as { v?: number }).v;
+      if (v !== 1 && v !== 2) return null;
+      return migrateState(state);
     } catch {
       return null;
     }

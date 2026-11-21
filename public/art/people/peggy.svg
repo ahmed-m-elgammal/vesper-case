@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="pplPeW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="59" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="pplPeS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#pplPeS)">
+    <ellipse cx="140" cy="500" rx="180" ry="70" fill="#8fa3b0" opacity="0.16"/>
+    <ellipse cx="680" cy="130" rx="120" ry="60" fill="#c9a25e" opacity="0.12"/>
+    <ellipse cx="400" cy="300" rx="240" ry="200" fill="#8fa3b0" opacity="0.10"/>
+  </g>
+  <g filter="url(#pplPeW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+  <g filter="url(#pplPeW)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- shoulders, dark mourning dress -->
+    <path d="M180 588 Q198 466 304 428 Q400 400 496 428 Q602 466 620 588 Z" fill="#3d3a47" fill-opacity="0.6" stroke-width="5"/>
+    <path d="M296 442 Q400 492 504 442" stroke-width="2.6" opacity="0.7"/>
+    <!-- pearls -->
+    <path d="M338 452 Q400 486 462 452" stroke-width="2.4"/>
+    <g fill="#f4ecdb" fill-opacity="0.9" stroke-width="2.4">
+      <circle cx="344" cy="456" r="6"/><circle cx="362" cy="464" r="6"/><circle cx="381" cy="470" r="6"/>
+      <circle cx="400" cy="473" r="6"/><circle cx="419" cy="470" r="6"/><circle cx="438" cy="464" r="6"/><circle cx="456" cy="456" r="6"/>
+    </g>
+    <!-- neck -->
+    <path d="M358 330 L358 422 Q400 444 442 422 L442 330" fill="#e8d9bd" fill-opacity="0.55" stroke-width="4"/>
+    <!-- head -->
+    <ellipse cx="400" cy="238" rx="112" ry="138" fill="#e8d9bd" fill-opacity="0.55" stroke-width="5"/>
+    <!-- soft waved hair, pinned up -->
+    <path d="M286 244 Q280 100 400 88 Q520 100 514 244 Q518 152 464 124 Q430 106 400 110 Q370 106 336 124 Q282 152 286 244 Z" fill="#6e543c" fill-opacity="0.6" stroke-width="4"/>
+    <path d="M292 190 Q318 140 368 122 M434 120 Q486 140 508 190" stroke-width="2.4" opacity="0.55"/>
+    <path d="M298 250 Q284 306 300 352 L318 344 Q306 300 310 252 Z" fill="#6e543c" fill-opacity="0.6" stroke-width="3.4"/>
+    <path d="M502 250 Q516 306 500 352 L482 344 Q494 300 490 252 Z" fill="#6e543c" fill-opacity="0.6" stroke-width="3.4"/>
+    <!-- face -->
+    <path d="M332 212 Q354 200 376 210" stroke-width="3.4"/>
+    <path d="M424 210 Q446 200 468 212" stroke-width="3.4"/>
+    <circle cx="354" cy="236" r="4.5" fill="#2e2a33" fill-opacity="0.85" stroke-width="2"/>
+    <circle cx="446" cy="236" r="4.5" fill="#2e2a33" fill-opacity="0.85" stroke-width="2"/>
+    <path d="M400 236 Q394 274 402 290 Q398 298 390 300" stroke-width="3"/>
+    <!-- a brave, tired little smile -->
+    <path d="M370 318 Q400 330 430 316" stroke-width="3.4"/>
+    <path d="M314 258 Q308 292 320 314" stroke-width="2.6" opacity="0.55"/>
+    <path d="M486 258 Q492 292 480 314" stroke-width="2.6" opacity="0.55"/>
+  </g>
+</svg>

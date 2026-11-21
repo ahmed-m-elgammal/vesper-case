@@ -10,6 +10,8 @@ import type {
   Chain,
   Clue,
   ContentBundle,
+  DialogueCondition,
+  DialogueGraph,
   DialogueNode,
   Gate,
   ProloguePage,
@@ -34,6 +36,34 @@ function assert(condition: unknown, message: string, errors: string[]): void {
 
 function obj(v: unknown): Record<string, unknown> {
   return (v ?? {}) as Record<string, unknown>;
+}
+
+/** Recursively check a condition AST; clue references must exist. */
+function checkCondition(
+  cond: DialogueCondition,
+  where: string,
+  clueIds: Set<string>,
+  errors: string[]
+): void {
+  if (!cond || typeof cond !== 'object') return;
+  if ('all' in cond) {
+    cond.all.forEach((c, i) => checkCondition(c, `${where}.all[${i}]`, clueIds, errors));
+    return;
+  }
+  if ('any' in cond) {
+    cond.any.forEach((c, i) => checkCondition(c, `${where}.any[${i}]`, clueIds, errors));
+    return;
+  }
+  if ('not' in cond) {
+    checkCondition(cond.not, `${where}.not`, clueIds, errors);
+    return;
+  }
+  if ('clue' in cond) {
+    assert(clueIds.has(cond.clue), `${where} -> unknown clue "${cond.clue}"`, errors);
+  }
+  if ('noClue' in cond) {
+    assert(clueIds.has(cond.noClue), `${where} -> unknown clue "${cond.noClue}"`, errors);
+  }
 }
 
 export function validateBundle(raw: Record<string, unknown>): string[] {
@@ -61,7 +91,8 @@ export function validateBundle(raw: Record<string, unknown>): string[] {
     );
   });
 
-  /* rooms */
+  /* rooms (clue ids collected early -- people presence conditions reference them) */
+  const clueIds = new Set<string>();
   const roomIds = new Set<string>();
   const rooms = req(raw.rooms, 'rooms');
   rooms.forEach((r, i) => {
@@ -75,13 +106,22 @@ export function validateBundle(raw: Record<string, unknown>): string[] {
       assert(isStr(lo.key) && isStr(lo.src), `rooms[${i}].layers[${j}] key/src missing`, errors);
     });
     assert(isRect(ro.hubPlate), `rooms[${i}].hubPlate missing`, errors);
+    (Array.isArray(ro.people) ? ro.people : []).forEach((p, j) => {
+      const po = obj(p);
+      assert(isRect(po.spot), `rooms[${i}].people[${j}].spot missing`, errors);
+      if (isStr(po.suspect)) {
+        assert(suspectIds.has(po.suspect), `rooms[${i}].people[${j}] unknown suspect "${po.suspect}"`, errors);
+      } else {
+        errors.push(`rooms[${i}].people[${j}].suspect missing`);
+      }
+      if (po.cond) checkCondition(po.cond as DialogueCondition, `rooms[${i}].people[${j}].cond`, clueIds, errors);
+    });
     ['tier1', 'tier2', 'tier3'].forEach((k) =>
       assert(isStr(obj(ro.hints)[k]), `rooms[${i}].hints.${k} missing`, errors)
     );
   });
 
   /* clues */
-  const clueIds = new Set<string>();
   const clues = req(raw.clues, 'clues');
   clues.forEach((cl, i) => {
     const clo = obj(cl);
@@ -170,7 +210,7 @@ export function validateBundle(raw: Record<string, unknown>): string[] {
     assert(isStr(po.id) && isStr(po.template), `prologue[${i}] id/template missing`, errors);
   });
 
-  /* dialogue */
+  /* dialogue -- legacy flat nodes AND/OR v2 conversation graphs */
   const nodeIds = new Set<string>();
   req(raw.dialogue, 'dialogue').forEach((n, i) => {
     const no = obj(n);
@@ -190,6 +230,70 @@ export function validateBundle(raw: Record<string, unknown>): string[] {
       assert(nodeIds.has(no.next), `dialogue[${i}].next -> unknown node "${no.next}"`, errors);
     }
   });
+
+  /* dialogue v2 graphs */
+  const graphs = (raw.graphs ?? {}) as Record<string, DialogueGraph>;
+  const localeKeys = new Set(Object.keys(obj(raw.locale)));
+  const usedKeys = new Set<string>();
+  const noteKey = (text: unknown, where: string) => {
+    if (typeof text === 'string' && text.startsWith('@')) {
+      const key = text.slice(1);
+      usedKeys.add(key);
+      void where;
+    }
+  };
+  for (const [gid, g] of Object.entries(graphs)) {
+    const go = obj(g);
+    assert(isStr(go.speaker), `graphs.${gid}.speaker missing`, errors);
+    assert(isStr(go.start) && Boolean(obj(go.nodes)[go.start]), `graphs.${gid}.start "${go.start}" is not a node`, errors);
+    noteKey(go.speaker, `graphs.${gid}.speaker`);
+    const nodeIdsG = new Set(Object.keys(obj(go.nodes)));
+    for (const [nid, n] of Object.entries(obj(go.nodes))) {
+      const no = obj(n);
+      const hasBeats = Array.isArray(no.beats);
+      assert(hasBeats || Array.isArray(no.choices) || isStr(no.next) || no.end === true, `graphs.${gid}.${nid} is empty`, errors);
+      (Array.isArray(no.beats) ? no.beats : []).forEach((b, bi) => {
+        const bo = obj(b);
+        assert(typeof bo.t === 'string' && bo.t.length > 0, `graphs.${gid}.${nid}.beats[${bi}].t missing`, errors);
+        noteKey(bo.t, `graphs.${gid}.${nid}.beats[${bi}]`);
+      });
+      (Array.isArray(no.choices) ? no.choices : []).forEach((ch, ci) => {
+        const co = obj(ch);
+        assert(typeof co.text === 'string', `graphs.${gid}.${nid}.choices[${ci}].text missing`, errors);
+        noteKey(co.text, `graphs.${gid}.${nid}.choices[${ci}]`);
+        if (isStr(co.next)) assert(nodeIdsG.has(co.next), `graphs.${gid}.${nid}.choices[${ci}] -> unknown node "${co.next}"`, errors);
+        if (co.cond) checkCondition(co.cond as DialogueCondition, `graphs.${gid}.${nid}.choices[${ci}].cond`, clueIds, errors);
+        if (co.present) assert(isStr(obj(co.present).miss) && nodeIdsG.has(String(obj(co.present).miss)), `graphs.${gid}.${nid}.choices[${ci}].present.miss unknown`, errors);
+        assert(Boolean(co.next) || co.close === true || co.present, `graphs.${gid}.${nid}.choices[${ci}] needs next/close/present`, errors);
+      });
+      if (isStr(no.next)) assert(nodeIdsG.has(no.next), `graphs.${gid}.${nid}.next -> unknown node "${no.next}"`, errors);
+      const eff = obj(no.effects);
+      (Array.isArray(eff.setFlags) ? eff.setFlags : []).forEach((f) => assert(typeof f === 'string', `graphs.${gid}.${nid}.effects.setFlags invalid`, errors));
+      (Array.isArray(eff.addClues) ? eff.addClues : []).forEach((cid) => assert(clueIds.has(String(cid)), `graphs.${gid}.${nid}.effects.addClues unknown clue "${cid}"`, errors));
+      if (no.effects && typeof eff.setVars === 'object' && eff.setVars !== null) {
+        for (const [vid, delta] of Object.entries(eff.setVars as Record<string, number>)) {
+          assert(typeof delta === 'number', `graphs.${gid}.${nid}.effects.setVars.${vid} must be a number`, errors);
+        }
+      }
+      if (Array.isArray(no.choices)) {
+        no.choices.forEach((ch, ci) => {
+          const effC = obj(obj(ch).effects);
+          (Array.isArray(effC.addClues) ? effC.addClues : []).forEach((cid) => assert(clueIds.has(String(cid)), `graphs.${gid}.${nid}.choices[${ci}].effects.addClues unknown clue "${cid}"`, errors));
+        });
+      }
+    }
+    for (const [cid, reaction] of Object.entries(obj(g.reactions))) {
+      assert(clueIds.has(cid), `graphs.${gid}.reactions unknown clue "${cid}"`, errors);
+      const ro = obj(reaction);
+      assert(nodeIdsG.has(String(ro.next)), `graphs.${gid}.reactions.${cid}.next unknown node "${ro.next}"`, errors);
+    }
+    const presents = obj(g.presents);
+    if (isStr(presents.miss)) assert(nodeIdsG.has(presents.miss), `graphs.${gid}.presents.miss unknown node`, errors);
+    if (isStr(presents.again)) assert(nodeIdsG.has(presents.again), `graphs.${gid}.presents.again unknown node`, errors);
+  }
+  for (const key of usedKeys) {
+    assert(localeKeys.has(key), `locale key "${key}" is used by dialogue but missing from locales/en.json`, errors);
+  }
 
   /* chains */
   req(raw.chains, 'chains').forEach((ch, i) => {

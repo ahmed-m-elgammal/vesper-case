@@ -146,6 +146,7 @@ export class GameRoot {
           void this.closeup.open(clueId);
         },
         openGate: (gateId) => this.gate.open(gateId),
+        openDialogue: (suspectId) => this.dvm.openGraph(suspectId),
         toast: (text, kind) => this.vm.toast(text, kind),
         wipe: (mid) => this.wipe.play(mid),
       },
@@ -177,10 +178,12 @@ export class GameRoot {
       this.vm.bus.on('notebook:open', ({ tab }) => this.notebook.open(tab as NotebookTab))
     );
 
-    // Escape closes the topmost overlay
+    // Escape closes the topmost overlay (evidence picker -> dialogue -> ...)
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return;
-      if (!this.menu.node.classList.contains('hidden')) this.menu.close();
+      if (this.dvm.presenting$.value) this.dvm.cancelPresent();
+      else if (this.dvm.active$.value) this.dvm.close();
+      else if (!this.menu.node.classList.contains('hidden')) this.menu.close();
       else if (!this.notebook.node.classList.contains('hidden')) this.notebook.close();
       else if (!this.closeup.node.classList.contains('hidden')) this.closeup.close();
       else if (!this.gate.node.classList.contains('hidden')) {
@@ -215,7 +218,7 @@ export class GameRoot {
 
   /** DialogueView is built lazily so the VM subscription order stays simple. */
   private buildDialogue(): HTMLElement {
-    const dv = new DialogueView(this.dvm);
+    const dv = new DialogueView(this.dvm, this.nb, this.vm);
     return dv.node;
   }
 
@@ -262,6 +265,7 @@ export class GameRoot {
           void this.closeup.open(clueId);
         },
         openGate: (gateId) => this.gate.open(gateId),
+        openDialogue: (suspectId) => this.dvm.openGraph(suspectId),
         toast: (text, kind) => this.vm.toast(text, kind),
         wipe: (mid) => this.wipe.play(mid),
       },

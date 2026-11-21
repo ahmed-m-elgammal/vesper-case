@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="pplCoW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="31" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="pplCoS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#pplCoS)">
+    <ellipse cx="120" cy="520" rx="180" ry="70" fill="#c9a25e" opacity="0.14"/>
+    <ellipse cx="690" cy="120" rx="120" ry="60" fill="#9aa88f" opacity="0.12"/>
+    <ellipse cx="400" cy="300" rx="240" ry="200" fill="#c9a25e" opacity="0.10"/>
+  </g>
+  <g filter="url(#pplCoW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+  <g filter="url(#pplCoW)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- shoulders and collar -->
+    <path d="M170 588 Q190 460 300 424 Q400 396 500 424 Q610 460 630 588 Z" fill="#8a6a4f" fill-opacity="0.45" stroke-width="5"/>
+    <path d="M300 424 Q400 470 500 424" stroke-width="3" opacity="0.8"/>
+    <path d="M340 448 L340 588 M460 448 L460 588" stroke-width="2" opacity="0.5"/>
+    <circle cx="400" cy="500" r="5" stroke-width="2.4"/>
+    <circle cx="400" cy="540" r="5" stroke-width="2.4"/>
+    <!-- neck -->
+    <path d="M356 336 L356 430 Q400 452 444 430 L444 336" fill="#e8d9bd" fill-opacity="0.55" stroke-width="4"/>
+    <!-- head -->
+    <ellipse cx="400" cy="240" rx="118" ry="140" fill="#e8d9bd" fill-opacity="0.55" stroke-width="5"/>
+    <!-- hair: centre parting, side sweeps, bun -->
+    <path d="M282 240 Q278 96 400 84 Q522 96 518 240 Q520 150 470 128 Q430 112 400 116 Q370 112 330 128 Q280 150 282 240 Z" fill="#5a4636" fill-opacity="0.6" stroke-width="4"/>
+    <path d="M282 240 Q270 300 286 344 L302 338 Q290 296 296 244 Z" fill="#5a4636" fill-opacity="0.6" stroke-width="3.4"/>
+    <path d="M518 240 Q530 300 514 344 L498 338 Q510 296 504 244 Z" fill="#5a4636" fill-opacity="0.6" stroke-width="3.4"/>
+    <circle cx="540" cy="330" r="40" fill="#5a4636" fill-opacity="0.6" stroke-width="4"/>
+    <path d="M330 130 Q400 100 470 130" stroke-width="2" opacity="0.5"/>
+    <!-- face -->
+    <path d="M330 214 Q352 202 374 212" stroke-width="3.4"/>
+    <path d="M426 212 Q448 202 470 214" stroke-width="3.4"/>
+    <circle cx="352" cy="238" r="4.5" fill="#2e2a33" fill-opacity="0.85" stroke-width="2"/>
+    <circle cx="448" cy="238" r="4.5" fill="#2e2a33" fill-opacity="0.85" stroke-width="2"/>
+    <path d="M400 238 Q394 276 402 292 Q398 300 392 302" stroke-width="3"/>
+    <path d="M366 322 Q400 336 434 320" stroke-width="3.4"/>
+    <path d="M312 258 Q306 292 318 316" stroke-width="2.6" opacity="0.55"/>
+    <path d="M488 258 Q494 292 482 316" stroke-width="2.6" opacity="0.55"/>
+    <!-- apron straps -->
+    <path d="M330 430 Q400 500 470 430" stroke-width="2.6" opacity="0.65"/>
+  </g>
+  <g filter="url(#pplCoW)" stroke="#2e2a33" opacity="0.35">
+    <path d="M250 480 l6 -8 M262 486 l5 -9 M520 470 l6 -8 M536 478 l5 -9 M300 540 l6 -8 M490 545 l5 -9" stroke-width="2.2"/>
+  </g>
+</svg>

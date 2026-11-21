@@ -1,25 +1,151 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "DialogueNode",
+  "title": "DialogueContent",
+  "description": "dialogue.json: legacy flat briefing nodes (build one) plus v2 conversation graphs. Text fields accept raw strings or '@locale.key' indirection into locales/en.json.",
   "type": "object",
-  "required": ["id", "speaker", "initial", "lines"],
+  "required": ["nodes"],
   "properties": {
-    "id": { "type": "string" },
-    "speaker": { "type": "string" },
-    "initial": { "type": "string", "maxLength": 2, "description": "Portrait letter" },
-    "lines": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
-    "choices": {
+    "nodes": {
       "type": "array",
+      "description": "Legacy flat nodes (prologue / gate briefings).",
       "items": {
         "type": "object",
-        "required": ["text", "next"],
+        "required": ["id", "speaker", "initial", "lines"],
         "properties": {
-          "text": { "type": "string" },
-          "next": { "type": "string", "description": "Dialogue node id" }
+          "id": { "type": "string" },
+          "speaker": { "type": "string" },
+          "initial": { "type": "string", "maxLength": 2 },
+          "lines": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "choices": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["text", "next"],
+              "properties": {
+                "text": { "type": "string" },
+                "next": { "type": "string" }
+              }
+            }
+          },
+          "next": { "type": "string" },
+          "flag": { "type": "string" }
         }
       }
     },
-    "next": { "type": "string", "description": "Auto-advance target node id" },
-    "flag": { "type": "string", "description": "GameState flag set when this node is entered/finished" }
+    "graphs": {
+      "type": "object",
+      "description": "Conversation graphs keyed by id (Act-1 people use their suspect id).",
+      "additionalProperties": { "$ref": "#/$defs/graph" }
+    }
+  },
+  "$defs": {
+    "graph": {
+      "type": "object",
+      "required": ["id", "speaker", "start", "nodes"],
+      "properties": {
+        "id": { "type": "string" },
+        "suspect": { "type": "string", "description": "suspects.json id for portrait/bearing linkage" },
+        "speaker": { "type": "string", "description": "Display name; raw or '@key'" },
+        "start": { "type": "string" },
+        "presents": {
+          "type": "object",
+          "properties": {
+            "miss": { "type": "string", "description": "Node for evidence with no reaction" },
+            "again": { "type": "string", "description": "Node for evidence already presented once" }
+          }
+        },
+        "reactions": {
+          "type": "object",
+          "description": "clue id -> reaction node",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["next"],
+            "properties": {
+              "next": { "type": "string" },
+              "once": { "type": "string", "description": "Flag set when the reaction fires; repeat presents go to presents.again" }
+            }
+          }
+        },
+        "nodes": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/node" }
+        }
+      }
+    },
+    "node": {
+      "type": "object",
+      "properties": {
+        "beats": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["t"],
+            "properties": {
+              "sp": { "enum": ["you", "npc", "narrator"] },
+              "t": { "type": "string" }
+            }
+          }
+        },
+        "choices": { "type": "array", "items": { "$ref": "#/$defs/choice" } },
+        "next": { "type": "string" },
+        "end": { "type": "boolean" },
+        "effects": { "$ref": "#/$defs/effects" }
+      }
+    },
+    "choice": {
+      "type": "object",
+      "required": ["text"],
+      "anyOf": [
+        { "required": ["next"] },
+        { "required": ["present"] },
+        { "properties": { "close": { "const": true } } }
+      ],
+      "properties": {
+        "text": { "type": "string" },
+        "next": { "type": "string" },
+        "cond": { "$ref": "#/$defs/condition" },
+        "present": {
+          "type": "object",
+          "required": ["miss"],
+          "properties": { "miss": { "type": "string" } }
+        },
+        "close": { "type": "boolean" },
+        "effects": { "$ref": "#/$defs/effects" }
+      }
+    },
+    "effects": {
+      "type": "object",
+      "properties": {
+        "setFlags": { "type": "array", "items": { "type": "string" } },
+        "setVars": {
+          "type": "object",
+          "description": "Additive variable deltas, e.g. { \"trust:peggy\": 1 }",
+          "additionalProperties": { "type": "number" }
+        },
+        "addClues": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "condition": {
+      "type": "object",
+      "description": "Condition AST; clue references must exist in clues.json (validated at boot).",
+      "oneOf": [
+        { "properties": { "clue": { "type": "string" } }, "required": ["clue"] },
+        { "properties": { "noClue": { "type": "string" } }, "required": ["noClue"] },
+        { "properties": { "flag": { "type": "string" } }, "required": ["flag"] },
+        { "properties": { "noFlag": { "type": "string" } }, "required": ["noFlag"] },
+        { "properties": { "asked": { "type": "string" } }, "required": ["asked"] },
+        {
+          "properties": {
+            "trust": { "type": "string" },
+            "gte": { "type": "number" },
+            "lte": { "type": "number" }
+          },
+          "required": ["trust"]
+        },
+        { "properties": { "all": { "type": "array", "items": { "$ref": "#/$defs/condition" } } }, "required": ["all"] },
+        { "properties": { "any": { "type": "array", "items": { "$ref": "#/$defs/condition" } } }, "required": ["any"] },
+        { "properties": { "not": { "$ref": "#/$defs/condition" } }, "required": ["not"] }
+      ]
+    }
   }
 }

@@ -117,11 +117,13 @@
 
 | Chain | Clues | State |
 |---|---|---|
-| The Night's Clockwork | `hall_clock`, `mantel_clock`, `visitor_ledger` | complete in Act 1 |
+| The Night's Clockwork | `hall_clock`, `mantel_clock`, `visitor_ledger`, `tobias_clatter` (testimony) | complete in Act 1 |
 | What Went in the Glass | `whiskey_glass`, `decanter`, `hearth_ash` | complete in Act 1 |
-| A Door Off the Bolt | `garden_door_bolt`, `hearth_rug_print`, `coat_peg_coats`, `umbrella_stand` | complete in Act 1 |
+| A Door Off the Bolt | `garden_door_bolt`, `hearth_rug_print`, `coat_peg_coats`, `umbrella_stand`, `colette_garden_bolt` (testimony) | complete in Act 1 |
 | Paper & Money | `mail_letter`, `memoir_desk`, `summons_slip` | grows in Act 3 (blotter) |
-| Small Things & False Trails | `stair_button`, `scissors_sideboard`, `pill_bottle` | resolves Act 3 |
+| Small Things & False Trails | `stair_button`, `scissors_sideboard`, `pill_bottle`, `peggy_scissors_ownup` (testimony) | resolves Act 3 |
+
+*Testimony clues* (`spot: null`, text-only close-ups) are granted through conversations, not scenes: `colette_garden_bolt` (Colette's 11:30 round), `tobias_clatter` (the clatter + the quiet), `peggy_scissors_ownup` (Edmund alive, humming, carrying the memoir at 10:40).
 
 ### Coming (Acts 2–5, planned IDs)
 
@@ -182,8 +184,25 @@ Total target: ~8–9 hours via revisits (tools re-light rooms; statements re-pri
 
 ---
 
-## 8. Content pipeline notes
+## 8. Act 1 interrogations (conversation content, shipped in build two)
+
+Three members of the household stand where Act 1 happens and can be
+questioned (graphs in `dialogue.json`, strings in `locales/en.json`, spec in
+`docs/DIALOGUE.md`). Everything they say must stay consistent with §1:
+
+- **Colette Beaumont** — entrance hall, by the kitchen passage. Truth-teller.
+  Topics: the kitchen evening, the doors (ledger), the dark half hour. *Testimony clue*: `colette_garden_bolt` (found the door off its bolt at 11:30). Reactions reinforce the ledger, the coat pegs, the hearth's hay-and-honey smell (her word: "not a cooking smell").
+- **Tobias Grimm** — entrance hall, at the stair foot. Truth-teller, nervous.
+  Topics: the attic (sketch stops at 10:47, resumes 11:21), what he heard. *Testimony clue*: `tobias_clatter` ("a clatter like a clock falling, a few minutes after half eleven — then quiet"). Presenting `mantel_clock` upgrades his testimony to the 11:38 anchor. His ghost-drawing secret stays hidden (Act 4/5).
+- **Margaret "Peggy" Vesper-Croft** — the parlour, by the sideboard. Has a lie.
+  Topics: her evening (plants the lie: "I heard him wind the hall clock before bed"), her uncle, the will letter (deflects), the scissors (**confession** → testimony clue `peggy_scissors_ownup`: Edmund alive and humming with the memoir folder at 10:40). **Catchable lie**: present `hall_clock` to break "heard the winding" (`peggy_lie_caught`, bearing turns icy). Trust-gated topic reveals her debts are hers alone.
+- Julian and Dr. Marsh are not present (he left at 10:15; she "was never here") — their absences are themselves clues and they are questioned in later acts.
+
+Trust variables: `trust:colette`, `trust:tobias`, `trust:peggy` (bearing: icy / guarded / warming / open). Conversations must never reveal the culprit; they widen the hour-by-hour picture and soften red herrings.
+
+## 9. Content pipeline notes
 
 - All case facts live in `public/content/*.json` (validated at boot by `src/game/data/validate.ts`; machine-readable schemas in `public/content/schemas/`).
 - Suspect `secret`/`lie`/`redHerring` fields ship in the data from day one but are surfaced only by Act 5 systems.
-- New acts = new rooms in `rooms.json`, clues in `clues.json`, gates in `gates.json`, dialogue nodes in `dialogue.json` — **no engine changes required**. This is the core benefit of the data-driven MVVM split: content authors never touch TypeScript.
+- Conversations live in `dialogue.json` (`graphs`) + `locales/en.json` (`@key` indirection), with an engine-neutral runner in `src/game/dialogue/` — see `docs/DIALOGUE.md`.
+- New acts = new rooms in `rooms.json` (plus `people`), clues in `clues.json`, gates in `gates.json`, graphs in `dialogue.json` — **no engine changes required**. This is the core benefit of the data-driven MVVM split: content authors never touch TypeScript.

@@ -37,6 +37,23 @@
         }
       }
     },
+    "people": {
+      "type": "array",
+      "description": "Talkable people standing in this room (hotspots wired to dialogue graphs).",
+      "items": {
+        "type": "object",
+        "required": ["suspect", "spot"],
+        "properties": {
+          "suspect": { "type": "string", "description": "suspects.json id; the graph with the same id opens on tap" },
+          "spot": { "$ref": "#/$defs/rect" },
+          "label": { "type": "string" },
+          "cond": {
+            "type": "object",
+            "description": "Presence condition (same AST as dialogue conditions)"
+          }
+        }
+      }
+    },
     "hubPlate": { "$ref": "#/$defs/rect" },
     "hubLabel": { "type": "string" },
     "hubAct": { "type": "integer", "minimum": 1, "maximum": 5 },

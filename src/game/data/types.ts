@@ -4,6 +4,20 @@
  * reads these shapes, never hard-codes case facts.
  */
 
+import type { DialogueCondition } from '../dialogue/types';
+
+export type { DialogueCondition } from '../dialogue/types';
+export type {
+  DialogueGraph,
+  DialogueBeat,
+  DialogueBeatSpeaker,
+  DialogueChoice,
+  DialogueNodeV2,
+  DialogueEffects,
+  DialogueContext,
+  LegacyDialogueNode,
+} from '../dialogue/types';
+
 export type Rect = [x: number, y: number, w: number, h: number];
 export type ToolId = 'magnifier' | 'uv' | 'tape' | null;
 
@@ -36,6 +50,10 @@ export interface Suspect {
   role: string;
   initial: string;
   tint: string;
+  /** Hand-drawn bust SVG for the conversation sheet (optional). */
+  portrait?: string;
+  /** Where this person stands during Act 1 ("talk to people" hotspots). */
+  where?: string;
   /** Statement taken by Sergeant Hollis the morning after (public info). */
   statement: string;
   /** Hidden until Act 5 -- present in data, never shown early. */
@@ -97,6 +115,18 @@ export interface Door {
   lockedLine?: string;
 }
 
+/** A talkable person standing in a room (hotspot wired to a dialogue graph). */
+export interface RoomPerson {
+  /** suspects.json id -- the dialogue graph with the same id is opened. */
+  suspect: string;
+  /** World-space hotspot rect. */
+  spot: Rect;
+  /** Optional display label (defaults to the suspect's shortName). */
+  label?: string;
+  /** Presence condition -- person only stands here when it passes. */
+  cond?: DialogueCondition;
+}
+
 export interface Room {
   id: string;
   title: string;
@@ -105,6 +135,7 @@ export interface Room {
   height: number;
   layers: RoomLayer[];
   doors: Door[];
+  people?: RoomPerson[];
   /** Hub cutaway placement (1920x1000 space). */
   hubPlate: Rect;
   hubLabel: string;
@@ -168,7 +199,7 @@ export interface ProloguePage {
   footnote?: string;
 }
 
-export interface DialogueChoice {
+export interface LegacyDialogueChoice {
   text: string;
   next: string;
 }
@@ -178,7 +209,7 @@ export interface DialogueNode {
   speaker: string;
   initial: string;
   lines: string[];
-  choices?: DialogueChoice[];
+  choices?: LegacyDialogueChoice[];
   next?: string;
   flag?: string;
 }
@@ -197,7 +228,12 @@ export interface ContentBundle {
   gates: Gate[];
   timeline: TimelineEntry[];
   prologue: ProloguePage[];
+  /** Legacy flat briefing nodes (build one). */
   dialogue: DialogueNode[];
+  /** Conversation graphs keyed by id (v2 dialogue system). */
+  graphs: Record<string, import('../dialogue/types').DialogueGraph>;
+  /** Locale table (en) for "@key" text indirection. */
+  locale: Record<string, string>;
   chains: Chain[];
 }
 
@@ -213,12 +249,14 @@ export interface Settings {
 }
 
 export interface GameState {
-  v: 1;
+  v: 2;
   phase: 'prologue' | 'hub' | 'room';
   roomId: string | null;
   prologuePage: number;
   prologueDone: boolean;
   flags: Record<string, boolean>;
+  /** Numeric dialogue variables ("trust:peggy" etc.). */
+  vars: Record<string, number>;
   clues: Record<string, { at: number }>;
   gates: Record<string, boolean>;
   hintsUsed: Record<string, number>;
@@ -228,16 +266,25 @@ export interface GameState {
 
 export function freshState(): GameState {
   return {
-    v: 1,
+    v: 2,
     phase: 'prologue',
     roomId: null,
     prologuePage: 0,
     prologueDone: false,
     flags: {},
+    vars: {},
     clues: {},
     gates: {},
     hintsUsed: {},
     settings: { textSize: 1, highlights: true, accent: 'rust', subtitles: true },
     updatedAt: 0,
   };
+}
+
+/** Bring an older persisted state (v1 or partial v2) up to the current shape. */
+export function migrateState(loaded: Partial<GameState> | null | undefined): GameState {
+  const state = { ...freshState(), ...(loaded ?? {}), settings: { ...freshState().settings, ...(loaded?.settings ?? {}) } };
+  state.v = 2;
+  state.vars = { ...(loaded?.vars ?? {}) };
+  return state;
 }

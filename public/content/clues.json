@@ -280,6 +280,51 @@
       "toast": "The Garden Door -- bolt left off, scratches bright.",
       "chains": ["door"],
       "timeline": "t_door"
+    },
+    {
+      "id": "colette_garden_bolt",
+      "name": "Colette's Round",
+      "room": null,
+      "spot": null,
+      "tool": null,
+      "closeup": {
+        "svg": null,
+        "title": "Her Midnight Patrol",
+        "caption": "Found off the bolt at half eleven; bolted on the spot."
+      },
+      "note": "Colette, fetching the milk at half eleven: the garden door stood off its bolt, and she bolted it. The scratches were bright. In thirty-one years she has never once left it so -- so the door was used in the dark, and more than once.",
+      "toast": "Colette's Round -- the door found off the bolt at half eleven.",
+      "chains": ["door"]
+    },
+    {
+      "id": "tobias_clatter",
+      "name": "The Clatter From Above",
+      "room": null,
+      "spot": null,
+      "tool": null,
+      "closeup": {
+        "svg": null,
+        "title": "Two Floors Up",
+        "caption": "A clatter like a clock falling -- then quiet."
+      },
+      "note": "Tobias, inking in the attic: 'a clatter like a clock falling, a few minutes after half eleven -- then quiet.' The quiet, he says, was worse. The mantel clock fell at 11:38; his ears fix the death within minutes of it.",
+      "toast": "The Clatter -- heard some minutes after half eleven.",
+      "chains": ["clockwork"]
+    },
+    {
+      "id": "peggy_scissors_ownup",
+      "name": "Peggy's Own Admission",
+      "room": null,
+      "spot": null,
+      "tool": null,
+      "closeup": {
+        "svg": null,
+        "title": "Twenty to Eleven",
+        "caption": "Her uncle alive and humming, a folder under his arm."
+      },
+      "note": "Peggy says it plainly: she came down at twenty to eleven for her scissors, found her uncle crossing the hall humming with a folder of pages under his arm, and went back up to sew. Alive, cheerful, carrying the memoir -- at twenty to eleven.",
+      "toast": "Peggy's Admission -- her uncle alive and humming at twenty to eleven.",
+      "chains": ["small"]
     }
   ]
 }

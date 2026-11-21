@@ -5,16 +5,19 @@
  */
 
 import { Computed, Observable } from '../core/Observable';
-import type { Clue, Door, Rect, Room } from '../data/types';
+import { evalCondition } from '../dialogue/conditions';
+import type { Clue, Door, Rect, Room, RoomPerson } from '../data/types';
 import type { GameVM } from './GameVM';
 
 export interface Hotspot {
-  kind: 'clue' | 'door';
+  kind: 'clue' | 'door' | 'person';
   id: string;
   spot: Rect;
   label: string;
   clue?: Clue;
   door?: Door;
+  /** For kind 'person': the suspects.json id to talk to. */
+  personId?: string;
   found: boolean;
   needsTool: 'magnifier' | 'uv' | 'tape' | null;
 }
@@ -56,10 +59,26 @@ export class RoomVM {
           found: false,
           needsTool: null,
         }));
+        // Talkable people -- presence is a data-driven condition over game state.
+        const people = room.people ?? [];
+        const personSpots: Hotspot[] = people
+          .filter((p: RoomPerson) => evalCondition(p.cond, game))
+          .map((p) => {
+            const suspect = game.repo.suspect(p.suspect);
+            return {
+              kind: 'person' as const,
+              id: `person:${p.suspect}`,
+              spot: p.spot,
+              label: p.label ?? suspect?.shortName ?? 'Someone',
+              personId: p.suspect,
+              found: false,
+              needsTool: null,
+            };
+          });
         void flags;
-        return [...clueSpots, ...doorSpots];
+        return [...clueSpots, ...doorSpots, ...personSpots];
       },
-      [game.clues$, game.flags$]
+      [game.clues$, game.flags$, game.vars$]
     );
   }
 
@@ -109,6 +128,12 @@ export class RoomVM {
       return { action: 'gate', gateId: 'gate-act1' };
     }
     return { action: 'enter' };
+  }
+
+  /** Intent: player tapped a person. Talking is always allowed. */
+  tapPerson(hotspot: Hotspot): { ok: true; suspectId: string } | { ok: false; reason: string } {
+    if (!hotspot.personId) return { ok: false, reason: 'Nobody is there.' };
+    return { ok: true, suspectId: hotspot.personId };
   }
 
   hintContext(): string {

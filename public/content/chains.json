@@ -4,31 +4,55 @@
       "id": "clockwork",
       "name": "The Night's Clockwork",
       "blurb": "The blackout and the fall -- the night's two fixed points, plus the ledger that orders them.",
-      "clueIds": ["hall_clock", "mantel_clock", "visitor_ledger"]
+      "clueIds": [
+        "hall_clock",
+        "mantel_clock",
+        "visitor_ledger",
+        "tobias_clatter"
+      ]
     },
     {
       "id": "glass",
       "name": "What Went in the Glass",
       "blurb": "A film above the liquor line, a film at the shoulder, petals the fire missed.",
-      "clueIds": ["whiskey_glass", "decanter", "hearth_ash"]
+      "clueIds": [
+        "whiskey_glass",
+        "decanter",
+        "hearth_ash"
+      ]
     },
     {
       "id": "door",
       "name": "A Door Off the Bolt",
       "blurb": "Someone crossed the garden in the dark and left prints nobody in the house can own.",
-      "clueIds": ["garden_door_bolt", "hearth_rug_print", "coat_peg_coats", "umbrella_stand"]
+      "clueIds": [
+        "garden_door_bolt",
+        "hearth_rug_print",
+        "coat_peg_coats",
+        "umbrella_stand",
+        "colette_garden_bolt"
+      ]
     },
     {
       "id": "paper",
       "name": "Paper & Money",
       "blurb": "A will reworded, a confession torn, forgeries sold -- the paper trail of three quiet greeds.",
-      "clueIds": ["mail_letter", "memoir_desk", "summons_slip"]
+      "clueIds": [
+        "mail_letter",
+        "memoir_desk",
+        "summons_slip"
+      ]
     },
     {
       "id": "small",
       "name": "Small Things & False Trails",
       "blurb": "Buttons, scissors and bottles -- the house's little red herrings.",
-      "clueIds": ["stair_button", "scissors_sideboard", "pill_bottle"]
+      "clueIds": [
+        "stair_button",
+        "scissors_sideboard",
+        "pill_bottle",
+        "peggy_scissors_ownup"
+      ]
     }
   ]
 }
