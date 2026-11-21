@@ -36,7 +36,7 @@ sleep 0.5
 shot 06-hub
 
 # 5. install canvas tap helper and enter the hall
-$AB eval "window.__cam = (sc) => window.__game.game.scene.getScene(sc).cameras.main; window.__tapAt = (sc, wx, wy) => { const cam = window.__cam(sc); const canvas = document.querySelector('canvas'); const r = canvas.getBoundingClientRect(); const x = r.left + (wx - cam.scrollX) * cam.zoom * (r.width / 1280); const y = r.top + (wy - cam.scrollY) * cam.zoom * (r.height / 720); const o = { bubbles: true, clientX: x, clientY: y, pointerId: 7, isPrimary: true, button: 0 }; canvas.dispatchEvent(new PointerEvent('pointerdown', o)); setTimeout(() => canvas.dispatchEvent(new PointerEvent('pointerup', o)), 50); return [Math.round(x), Math.round(y)]; }; 'helpers ok'"
+$AB eval "window.__cam = (sc) => window.__game.game.scene.getScene(sc).cameras.cameras[0]; window.__tapAt = (sc, wx, wy) => { const cam = window.__cam(sc); const wv = cam.worldView; const canvas = document.querySelector('canvas'); const r = canvas.getBoundingClientRect(); const x = r.left + ((wx - wv.x) / wv.width) * r.width; const y = r.top + ((wy - wv.y) / wv.height) * r.height; const o = { bubbles: true, clientX: x, clientY: y, pointerId: 7, isPrimary: true, button: 0 }; canvas.dispatchEvent(new PointerEvent('pointerdown', o)); setTimeout(() => canvas.dispatchEvent(new PointerEvent('pointerup', o)), 50); return [Math.round(x), Math.round(y)]; }; 'helpers ok'"
 $AB eval "window.__tapAt('hub', 950, 540)" >/dev/null; sleep 1.6
 shot 07-hall
 

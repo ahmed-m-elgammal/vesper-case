@@ -44,9 +44,9 @@ export class SaveSystem {
       if (!raw) return null;
       try {
         const state = typeof raw === 'string' ? (JSON.parse(raw) as GameState) : (raw as GameState);
-        // v1 (build one) and v2 (dialogue variables) both migrate forward.
+        // v1 (build one), v2 (dialogue variables) and v3 (the precinct) migrate forward.
         const v = (state as { v?: number }).v;
-        if (state && (v === 1 || v === 2)) return migrateState(state);
+        if (state && (v === 1 || v === 2 || v === 3)) return migrateState(state);
         return null;
       } catch {
         return null;
@@ -147,7 +147,7 @@ export class SaveSystem {
       if (SaveSystem.fnv1a(json) !== parts[2]) return null;
       const state = JSON.parse(json) as GameState;
       const v = (state as { v?: number }).v;
-      if (v !== 1 && v !== 2) return null;
+      if (v !== 1 && v !== 2 && v !== 3) return null;
       return migrateState(state);
     } catch {
       return null;

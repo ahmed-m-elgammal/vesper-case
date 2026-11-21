@@ -18,7 +18,7 @@ export class PrologueView {
   constructor(vm: GameVM, private onTakeCase: () => void) {
     this.vm = vm;
     this.pages = vm.repo.bundle.prologue;
-    this.idx = Math.min(vm.state.prologuePage, this.pages.length - 1);
+    this.idx = Math.min(vm.cp.prologuePage, this.pages.length - 1);
 
     this.node = el('div', { class: 'overlay prologue-overlay' });
     const book = el('div', { class: 'prologue-book' });

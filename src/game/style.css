@@ -873,3 +873,93 @@ html[data-accent='forest'] { --accent: #2c7a4b; }
 @media (orientation: portrait) and (max-height: 500px) {
   /* no-op reserved: hint overlay handled by JS toast */
 }
+
+/* ------------------------------------------------ precinct: case files desk */
+
+.casefiles-overlay { z-index: 42; background: rgba(30, 32, 44, 0.78); }
+.casefiles-card {
+  width: min(1060px, 94vw);
+  height: min(720px, 92vh);
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 22px 30px 20px 34px / 30px 20px 34px 22px;
+  box-shadow: 10px 14px 0 rgba(20, 21, 28, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem 1.4rem;
+}
+.casefiles-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; border-bottom: 2px dashed rgba(46, 42, 51, 0.4); padding-bottom: 0.8rem; }
+.casefiles-kicker { font-family: var(--type); font-size: 0.68rem; letter-spacing: 0.22em; color: var(--accent); }
+.casefiles-title { font-family: var(--type); font-size: 1.5rem; margin: 0.1rem 0; }
+.casefiles-detective { font-family: var(--hand); font-size: 1.2rem; opacity: 0.7; }
+.casefiles-body { flex: 1; display: grid; grid-template-columns: minmax(240px, 340px) 1fr; gap: 1.2rem; padding-top: 1rem; min-height: 0; }
+.casefiles-list { overflow-y: auto; display: flex; flex-direction: column; gap: 0.7rem; padding-right: 0.3rem; }
+.case-folder {
+  position: relative;
+  background: #e8d9b5;
+  border: 2.5px solid var(--ink);
+  border-radius: 10px 14px 8px 12px / 12px 8px 14px 10px;
+  padding: 0.7rem 0.9rem 0.7rem 1rem;
+  cursor: pointer;
+  box-shadow: 4px 5px 0 rgba(20, 21, 28, 0.28);
+  border-left: 7px solid var(--folder-accent, var(--accent));
+  transition: transform 0.12s ease;
+}
+.case-folder:hover { transform: translateX(4px); }
+.case-folder.on { background: var(--paper-2); transform: translateX(6px); box-shadow: 6px 7px 0 rgba(20, 21, 28, 0.36); }
+.case-folder-tab {
+  position: absolute; top: -12px; left: 14px;
+  font-family: var(--type); font-size: 0.62rem; letter-spacing: 0.12em;
+  background: var(--folder-accent, var(--accent)); color: #fdf8ec;
+  border: 2px solid var(--ink); border-radius: 6px 6px 0 0 / 6px 6px 0 0;
+  padding: 0.05rem 0.5rem;
+}
+.case-folder-title { font-family: var(--type); font-size: 1.02rem; }
+.case-folder-sub { font-size: 0.8rem; opacity: 0.72; margin-top: 0.1rem; }
+.case-stamp {
+  position: absolute; top: 10px; right: 10px;
+  font-family: var(--type); font-size: 0.62rem; letter-spacing: 0.14em;
+  border: 2px solid currentColor; border-radius: 6px; padding: 0.1rem 0.4rem;
+  transform: rotate(6deg); opacity: 0.85;
+}
+.stamp-NEW { color: #2c7a4b; }
+.stamp-IN_PROGRESS { color: #1f5fd0; }
+.stamp-SOLVED { color: #55684a; }
+.stamp-SEALED { color: #8a4a20; background: rgba(138, 74, 32, 0.08); }
+.casefiles-detail { overflow-y: auto; min-height: 0; }
+.casefile-pane { border: 2.5px solid var(--ink); border-radius: 14px 18px 12px 16px / 16px 12px 18px 14px; background: var(--paper-2); padding: 1.1rem 1.3rem; border-top: 7px solid var(--folder-accent, var(--accent)); }
+.casefile-title { font-family: var(--type); font-size: 1.6rem; margin: 0; }
+.casefile-sub { font-family: var(--hand); font-size: 1.25rem; color: var(--accent); margin-bottom: 0.7rem; }
+.casefile-meta { display: grid; gap: 0.15rem; margin: 0.6rem 0; }
+.casefile-row { display: flex; gap: 0.6rem; font-size: 0.85rem; }
+.casefile-k { font-family: var(--type); font-size: 0.62rem; letter-spacing: 0.14em; opacity: 0.6; min-width: 72px; padding-top: 0.25rem; }
+.casefile-v { opacity: 0.85; }
+.casefile-pitch { font-style: italic; opacity: 0.85; line-height: 1.5; }
+.casefile-memo { background: #fdf8ec; border: 2px solid rgba(46, 42, 51, 0.55); border-radius: 10px; padding: 0.9rem 1.1rem; margin: 0.8rem 0; box-shadow: inset 0 0 24px rgba(201, 162, 94, 0.14); }
+.casefile-memo-head { font-family: var(--type); font-size: 0.62rem; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 0.5rem; }
+.casefile-memo-line { line-height: 1.55; margin: 0.35rem 0; }
+.casefile-note { font-family: var(--hand); font-size: 1.15rem; opacity: 0.65; margin: 0.5rem 0 0.9rem; }
+.casefile-cta { font-size: 1rem; }
+
+/* ------------------------------------------------ precinct: intro beats */
+
+.intro-overlay { z-index: 50; background: rgba(24, 25, 34, 0.85); }
+.intro-card {
+  width: min(640px, 92vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 20px 30px 18px 34px / 30px 18px 34px 20px;
+  box-shadow: 8px 12px 0 rgba(20, 21, 28, 0.5);
+  padding: 1.8rem 2rem 1.3rem;
+  cursor: pointer;
+}
+.intro-kicker { font-family: var(--type); font-size: 0.7rem; letter-spacing: 0.24em; color: var(--accent); }
+.intro-tagline { font-family: var(--hand); font-size: 1.3rem; opacity: 0.7; margin: 0.2rem 0 1rem; border-bottom: 2px dashed rgba(46, 42, 51, 0.35); padding-bottom: 0.8rem; }
+.intro-lines { min-height: 180px; }
+.intro-line { line-height: 1.55; margin: 0.5rem 0; opacity: 0.55; font-style: italic; }
+.intro-line.last { opacity: 1; font-style: normal; }
+.intro-foot { text-align: right; padding-top: 0.6rem; }
+.intro-next { font-family: var(--type); font-size: 0.66rem; letter-spacing: 0.18em; opacity: 0.55; animation: intropulse 1.6s ease-in-out infinite; }
+@keyframes intropulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 0.85; } }

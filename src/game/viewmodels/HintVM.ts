@@ -27,7 +27,7 @@ export class HintVM {
       this.game.toast('Think when you have a room or a deduction open.', 'info');
       return;
     }
-    const used = this.game.state.hintsUsed[context] ?? 0;
+    const used = this.game.cp.hintsUsed[context] ?? 0;
     this.set$.value = hints;
     this.context$.value = context;
     this.tier$.value = Math.min(3, Math.max(1, used + 1)) as 1 | 2 | 3;

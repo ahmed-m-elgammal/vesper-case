@@ -1,0 +1,307 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <filter id="inWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="23" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="inSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="inSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="11"/>
+    </filter>
+    <pattern id="inFloor" width="120" height="70" patternUnits="userSpaceOnUse">
+      <path d="M0 1 H120 M0 36 H120" stroke="#6b5233" stroke-width="2.4" opacity="0.35" fill="none"/>
+      <path d="M34 1 V36 M86 1 V36 M12 36 V70 M62 36 V70 M108 36 V70" stroke="#6b5233" stroke-width="2.4" opacity="0.35" fill="none"/>
+    </pattern>
+  </defs>
+
+  <!-- paper base -->
+  <rect width="1920" height="1080" fill="#f4ecdb"/>
+
+  <!-- warm interior washes -->
+  <g filter="url(#inSoft)">
+    <ellipse cx="960" cy="220" rx="880" ry="220" fill="#c9a25e" opacity="0.30"/>
+    <ellipse cx="420" cy="520" rx="420" ry="320" fill="#c9a25e" opacity="0.16"/>
+    <ellipse cx="1560" cy="420" rx="420" ry="300" fill="#9aa88f" opacity="0.14"/>
+    <ellipse cx="980" cy="880" rx="760" ry="240" fill="#6b5233" opacity="0.18"/>
+    <ellipse cx="380" cy="880" rx="380" ry="180" fill="#3a3f52" opacity="0.16"/>
+  </g>
+
+  <!-- ceiling + hanging lamps -->
+  <g filter="url(#inWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M-10 96 Q480 40 960 82 T1930 70" stroke-width="4"/>
+    <path d="M300 84 V210 M960 78 V186 M1620 70 V216" stroke-width="3"/>
+    <path d="M258 210 H342 L326 250 H274 Z" fill="#e8b24a" fill-opacity="0.8" stroke-width="4"/>
+    <path d="M918 186 H1002 L986 226 H934 Z" fill="#e8b24a" fill-opacity="0.8" stroke-width="4"/>
+    <path d="M1578 216 H1662 L1646 256 H1594 Z" fill="#e8b24a" fill-opacity="0.8" stroke-width="4"/>
+  </g>
+  <g filter="url(#inSoft2)" fill="#e8b24a" opacity="0.22">
+    <ellipse cx="300" cy="260" rx="120" ry="60"/>
+    <ellipse cx="960" cy="240" rx="120" ry="60"/>
+    <ellipse cx="1620" cy="266" rx="120" ry="60"/>
+  </g>
+
+  <!-- ============ back wall paneling ============ -->
+  <g filter="url(#inWobble)">
+    <rect x="-10" y="120" width="1940" height="640" fill="#e3d5b8" opacity="0.5"/>
+    <path d="M-10 700 H1940" stroke="#2e2a33" stroke-width="4"/>
+    <path d="M-10 660 H1940" stroke="#2e2a33" stroke-width="2.4" opacity="0.5"/>
+    <!-- wainscot verticals -->
+    <g stroke="#2e2a33" stroke-width="2.4" opacity="0.5">
+      <path d="M240 660 V700 M300 660 V700 M500 660 V700 M560 660 V700 M1060 660 V700 M1120 660 V700"/>
+    </g>
+  </g>
+
+  <!-- ============ captain's office (108-552 x 180-780) ============ -->
+  <g filter="url(#inWobble)">
+    <!-- glass partition -->
+    <rect x="108" y="180" width="406" height="600" fill="#8fa3b0" opacity="0.28" stroke="#2e2a33" stroke-width="5"/>
+    <path d="M108 380 H514 M108 580 H514" stroke="#2e2a33" stroke-width="3"/>
+    <path d="M311 180 V780" stroke="#2e2a33" stroke-width="3"/>
+    <!-- glass sheen -->
+    <g stroke="#f4ecdb" stroke-width="10" opacity="0.35">
+      <path d="M140 210 L360 520"/>
+      <path d="M210 196 L430 500"/>
+    </g>
+    <!-- office door (ajar) -->
+    <rect x="470" y="240" width="96" height="540" fill="#5e4632" stroke="#2e2a33" stroke-width="5"/>
+    <rect x="486" y="264" width="64" height="120" rx="6" fill="#8fa3b0" fill-opacity="0.4" stroke="#2e2a33" stroke-width="3"/>
+    <circle cx="498" cy="520" r="7" fill="#c9a25e" stroke="#2e2a33" stroke-width="2.4"/>
+    <!-- nameplate on glass -->
+    <rect x="150" y="300" width="230" height="52" rx="6" fill="#f4ecdb" stroke="#2e2a33" stroke-width="3"/>
+    <text x="265" y="334" text-anchor="middle" font-family="Georgia, serif" font-size="24" letter-spacing="3" fill="#2e2a33" opacity="0.85">CAPT. BRECHE</text>
+    <!-- inside: desk + captain silhouette -->
+    <rect x="150" y="560" width="250" height="26" fill="#5e4632" stroke="#2e2a33" stroke-width="4"/>
+    <rect x="170" y="586" width="20" height="120" fill="#5e4632" stroke="#2e2a33" stroke-width="3"/>
+    <rect x="360" y="586" width="20" height="120" fill="#5e4632" stroke="#2e2a33" stroke-width="3"/>
+    <!-- seated figure -->
+    <g fill="#2e2a33" opacity="0.82">
+      <circle cx="272" cy="470" r="34"/>
+      <path d="M258 440 Q272 414 292 436 Q300 444 296 456 Z"/>
+      <ellipse cx="296" cy="432" rx="26" ry="14" transform="rotate(-18 296 432)"/>
+      <path d="M240 560 Q246 506 272 504 Q304 506 310 560 Z"/>
+      <path d="M238 560 Q220 600 236 640 L262 640 Q252 600 262 560 Z"/>
+    </g>
+    <rect x="150" y="534" width="70" height="26" fill="#ede3cd" stroke="#2e2a33" stroke-width="2.6"/>
+    <path d="M162 547 H206" stroke="#6b6472" stroke-width="2.4"/>
+  </g>
+
+  <!-- ============ rain window (618-1002 x 208-504) ============ -->
+  <g filter="url(#inWobble)">
+    <rect x="618" y="208" width="384" height="296" fill="#3a3f52" opacity="0.55" stroke="#2e2a33" stroke-width="5"/>
+    <g stroke="#2e2a33" stroke-width="3">
+      <path d="M810 208 V504 M618 356 H1002"/>
+    </g>
+    <!-- rain threads outside -->
+    <g stroke="#8fa3b0" stroke-width="2.2" opacity="0.65" stroke-linecap="round">
+      <path d="M640 220 L630 290"/><path d="M700 240 L690 320"/><path d="M760 210 L750 280"/>
+      <path d="M860 260 L850 340"/><path d="M920 220 L910 300"/><path d="M960 300 L950 380"/>
+      <path d="M680 380 L670 450"/><path d="M880 400 L870 470"/><path d="M930 420 L922 490"/>
+    </g>
+    <!-- distant house + tram wire silhouettes -->
+    <g stroke="#f4ecdb" stroke-width="3" fill="none" opacity="0.5">
+      <path d="M630 470 H780 L780 430 L705 400 L630 430 Z" fill="#2e3244" opacity="0.5"/>
+      <path d="M840 470 H990 V420 L915 396 L840 420 Z" fill="#2e3244" opacity="0.4"/>
+      <path d="M620 350 Q810 320 1000 344" opacity="0.6"/>
+    </g>
+    <rect x="604" y="504" width="412" height="18" fill="#e3d5b8" stroke="#2e2a33" stroke-width="3.4"/>
+    <!-- radiator -->
+    <g stroke="#2e2a33" stroke-width="3">
+      <rect x="640" y="530" width="340" height="120" rx="8" fill="#e8b24a" fill-opacity="0.4"/>
+      <path d="M676 530 V650 M716 530 V650 M756 530 V650 M796 530 V650 M836 530 V650 M876 530 V650 M916 530 V650 M956 530 V650" fill="none" stroke-width="2.6"/>
+    </g>
+  </g>
+
+  <!-- ============ evidence cabinet (1038-1246 x 322-584) ============ -->
+  <g filter="url(#inWobble)">
+    <rect x="1038" y="322" width="208" height="262" fill="#5e4632" opacity="0.9" stroke="#2e2a33" stroke-width="5"/>
+    <path d="M1038 410 H1246 M1038 498 H1246" stroke="#2e2a33" stroke-width="3"/>
+    <rect x="1122" y="486" width="40" height="24" rx="4" fill="#c9a25e" stroke="#2e2a33" stroke-width="2.6"/>
+    <path d="M1130 486 V470 A12 12 0 0 1 1154 470 V486" fill="none" stroke="#2e2a33" stroke-width="3"/>
+    <text x="1142" y="366" text-anchor="middle" font-family="Georgia, serif" font-size="26" letter-spacing="4" fill="#f4ecdb" opacity="0.9">EVIDENCE</text>
+    <path d="M1058 352 H1226" stroke="#f4ecdb" stroke-width="2" opacity="0.5"/>
+    <!-- grey 1931 box peeks on top -->
+    <rect x="1078" y="282" width="96" height="40" fill="#6b6472" stroke="#2e2a33" stroke-width="3.4"/>
+    <path d="M1078 296 H1174" stroke="#2e2a33" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- ============ duty board (1316-1786 x 196-512) ============ -->
+  <g filter="url(#inWobble)">
+    <rect x="1316" y="196" width="470" height="316" rx="10" fill="#6b5233" opacity="0.85" stroke="#2e2a33" stroke-width="6"/>
+    <rect x="1334" y="214" width="434" height="280" fill="#c9a25e" opacity="0.35"/>
+    <!-- pinned cards -->
+    <g>
+      <rect x="1352" y="234" width="120" height="80" fill="#f4ecdb" stroke="#2e2a33" stroke-width="2.4" transform="rotate(-2 1412 274)"/>
+      <path d="M1364 254 H1460 M1364 272 H1440 M1364 290 H1452" stroke="#6b6472" stroke-width="2.2" opacity="0.85"/>
+      <circle cx="1412" cy="240" r="5" fill="#b4552d"/>
+      <rect x="1496" y="230" width="120" height="80" fill="#ede3cd" stroke="#2e2a33" stroke-width="2.4" transform="rotate(2 1556 270)"/>
+      <path d="M1508 250 H1604 M1508 268 H1580 M1508 286 H1596" stroke="#6b6472" stroke-width="2.2" opacity="0.85"/>
+      <circle cx="1556" cy="236" r="5" fill="#2c7a4b"/>
+      <rect x="1640" y="238" width="104" height="76" fill="#f4ecdb" stroke="#2e2a33" stroke-width="2.4" transform="rotate(-3 1692 276)"/>
+      <path d="M1652 258 H1730 M1652 276 H1712 M1652 292 H1724" stroke="#6b6472" stroke-width="2.2" opacity="0.85"/>
+      <circle cx="1692" cy="244" r="5" fill="#b4552d"/>
+    </g>
+    <!-- chalk roster -->
+    <rect x="1352" y="338" width="392" height="132" rx="6" fill="#2e3244" stroke="#2e2a33" stroke-width="3.4"/>
+    <g font-family="Georgia, serif" fill="#f4ecdb" opacity="0.92">
+      <text x="1372" y="372" font-size="24" letter-spacing="2">DUTY -- MONDAY</text>
+      <text x="1372" y="404" font-size="19">Dewi: pawnshop detail</text>
+      <text x="1372" y="430" font-size="19">Ffion + Marsh: court</text>
+      <text x="1372" y="456" font-size="20" letter-spacing="1">YOUR CASE: Byrne -- VESPER. IT MOVES OR YOU DO.</text>
+    </g>
+    <path d="M1352 440 H1744" stroke="#f4ecdb" stroke-width="1.6" opacity="0.35"/>
+  </g>
+
+  <!-- ============ stairs (1686-1882 x 236-856) ============ -->
+  <g filter="url(#inWobble)">
+    <path d="M1882 236 H1758 L1758 856 H1882" fill="#e3d5b8" opacity="0.4" stroke="#2e2a33" stroke-width="4"/>
+    <g stroke="#2e2a33" stroke-width="4" fill="#c9a25e" fill-opacity="0.5">
+      <path d="M1758 856 H1870 V820 H1790 Z"/>
+      <path d="M1790 820 H1870 V784 H1822 Z"/>
+      <path d="M1822 784 H1870 V748 H1854 Z"/>
+    </g>
+    <path d="M1758 856 L1854 748" stroke="#2e2a33" stroke-width="5" fill="none"/>
+    <path d="M1790 820 L1868 726" stroke="#2e2a33" stroke-width="3" fill="none" opacity="0.7"/>
+    <!-- arch + sign -->
+    <path d="M1686 236 Q1782 150 1882 220" fill="none" stroke="#2e2a33" stroke-width="5"/>
+    <rect x="1706" y="252" width="150" height="44" rx="6" fill="#2e3244" stroke="#2e2a33" stroke-width="3.4"/>
+    <text x="1781" y="282" text-anchor="middle" font-family="Georgia, serif" font-size="22" letter-spacing="3" fill="#e8b24a">ARCHIVE</text>
+    <path d="M1770 296 V330 M1762 322 L1770 334 L1778 322" stroke="#e8b24a" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- ============ water cooler (1556-1708 x 556-806) ============ -->
+  <g filter="url(#inWobble)">
+    <path d="M1584 556 H1680 L1668 640 H1596 Z" fill="#8fa3b0" fill-opacity="0.5" stroke="#2e2a33" stroke-width="4"/>
+    <rect x="1592" y="640" width="96" height="120" fill="#f4ecdb" stroke="#2e2a33" stroke-width="4"/>
+    <rect x="1604" y="676" width="72" height="30" rx="4" fill="#8fa3b0" fill-opacity="0.5" stroke="#2e2a33" stroke-width="2.6"/>
+    <path d="M1592 760 H1684" stroke="#2e2a33" stroke-width="3"/>
+    <circle cx="1632" cy="706" r="10" fill="#e8b24a" fill-opacity="0.6" stroke="#2e2a33" stroke-width="2.4"/>
+  </g>
+
+  <!-- ============ Sgt. Hollis desk (1120-1560 x 498-688) ============ -->
+  <g filter="url(#inWobble)">
+    <!-- seated Hollis: flat cap + mustache, facing his desk -->
+    <g fill="#2e2a33" opacity="0.88">
+      <circle cx="1330" cy="470" r="40"/>
+      <path d="M1288 452 Q1330 414 1374 452 L1374 462 Q1330 442 1288 462 Z"/>
+      <ellipse cx="1330" cy="442" rx="52" ry="14"/>
+      <path d="M1300 478 Q1330 500 1360 478 Q1348 508 1330 508 Q1312 508 1300 478 Z"/>
+      <rect x="1298" y="500" width="64" height="14" rx="6"/>
+      <path d="M1290 560 Q1298 516 1330 514 Q1364 516 1372 560 Z"/>
+    </g>
+    <!-- mustache highlight -->
+    <path d="M1312 480 Q1330 474 1348 480" stroke="#f4ecdb" stroke-width="3" fill="none" opacity="0.8"/>
+    <!-- desk -->
+    <rect x="1120" y="560" width="440" height="30" fill="#5e4632" stroke="#2e2a33" stroke-width="4.5"/>
+    <rect x="1140" y="590" width="26" height="98" fill="#5e4632" stroke="#2e2a33" stroke-width="3.4"/>
+    <rect x="1514" y="590" width="26" height="98" fill="#5e4632" stroke="#2e2a33" stroke-width="3.4"/>
+    <rect x="1200" y="600" width="120" height="88" fill="#5e4632" opacity="0.85" stroke="#2e2a33" stroke-width="3"/>
+    <!-- phone + papers -->
+    <rect x="1440" y="540" width="70" height="24" rx="8" fill="#2e3244" stroke="#2e2a33" stroke-width="3"/>
+    <path d="M1450 540 Q1462 516 1490 522" stroke="#2e2a33" stroke-width="4" fill="none"/>
+    <rect x="1368" y="544" width="58" height="18" fill="#f4ecdb" stroke="#6b6472" stroke-width="2"/>
+    <path d="M1374 550 H1420" stroke="#6b6472" stroke-width="1.8"/>
+  </g>
+
+  <!-- ============ exit door (206-392 x 656-992) ============ -->
+  <g filter="url(#inWobble)">
+    <rect x="206" y="656" width="186" height="336" fill="#5e4632" stroke="#2e2a33" stroke-width="5"/>
+    <rect x="222" y="674" width="154" height="130" rx="4" fill="#8fa3b0" fill-opacity="0.45" stroke="#2e2a33" stroke-width="3"/>
+    <path d="M232 690 L368 780" stroke="#f4ecdb" stroke-width="8" opacity="0.3"/>
+    <circle cx="330" cy="830" r="8" fill="#c9a25e" stroke="#2e2a33" stroke-width="2.6"/>
+    <rect x="196" y="992" width="206" height="16" fill="#e3d5b8" stroke="#2e2a33" stroke-width="3"/>
+    <rect x="238" y="1008" width="120" height="22" rx="4" fill="#2e3244" stroke="#2e2a33" stroke-width="2.6"/>
+    <text x="298" y="1025" text-anchor="middle" font-family="Georgia, serif" font-size="15" letter-spacing="4" fill="#f4ecdb">OUT</text>
+    <!-- coat rack beside -->
+    <path d="M150 992 V560 M150 560 L120 520 M150 560 L184 522 M150 560 L150 516" stroke="#2e2a33" stroke-width="5" fill="none"/>
+    <path d="M118 552 Q140 590 172 560 L182 640 Q150 664 112 636 Z" fill="#6b6472" opacity="0.75" stroke="#2e2a33" stroke-width="3"/>
+    <ellipse cx="150" cy="668" rx="34" ry="8" fill="#2e2a33" opacity="0.2"/>
+  </g>
+
+  <!-- ============ YOUR desk 14 (706-1286 x 640-1020) ============ -->
+  <g filter="url(#inWobble)">
+    <!-- nameplate -->
+    <rect x="920" y="622" width="180" height="40" rx="6" fill="#c9a25e" stroke="#2e2a33" stroke-width="3.4"/>
+    <text x="1010" y="650" text-anchor="middle" font-family="Georgia, serif" font-size="21" letter-spacing="2" fill="#2e2a33">DESK 14 - BYRNE</text>
+    <!-- desktop -->
+    <rect x="706" y="672" width="580" height="42" fill="#5e4632" stroke="#2e2a33" stroke-width="5"/>
+    <path d="M706 693 H1286" stroke="#2e2a33" stroke-width="2" opacity="0.4"/>
+    <!-- legs + drawers -->
+    <rect x="726" y="714" width="30" height="290" fill="#5e4632" stroke="#2e2a33" stroke-width="4"/>
+    <rect x="1236" y="714" width="30" height="290" fill="#5e4632" stroke="#2e2a33" stroke-width="4"/>
+    <rect x="780" y="714" width="200" height="270" fill="#5e4632" opacity="0.9" stroke="#2e2a33" stroke-width="4"/>
+    <path d="M780 804 H980 M780 894 H980" stroke="#2e2a33" stroke-width="3"/>
+    <rect x="866" y="750" width="28" height="10" rx="4" fill="#c9a25e" stroke="#2e2a33" stroke-width="2"/>
+    <rect x="866" y="842" width="28" height="10" rx="4" fill="#c9a25e" stroke="#2e2a33" stroke-width="2"/>
+    <rect x="866" y="930" width="28" height="10" rx="4" fill="#c9a25e" stroke="#2e2a33" stroke-width="2"/>
+    <rect x="1010" y="714" width="200" height="270" fill="#5e4632" opacity="0.9" stroke="#2e2a33" stroke-width="4"/>
+    <path d="M1010 804 H1210 M1010 894 H1210" stroke="#2e2a33" stroke-width="3"/>
+    <rect x="1096" y="750" width="28" height="10" rx="4" fill="#c9a25e" stroke="#2e2a33" stroke-width="2"/>
+    <rect x="1096" y="842" width="28" height="10" rx="4" fill="#c9a25e" stroke="#2e2a33" stroke-width="2"/>
+    <rect x="1096" y="930" width="28" height="10" rx="4" fill="#c9a25e" stroke="#2e2a33" stroke-width="2"/>
+
+    <!-- banker's lamp -->
+    <path d="M780 672 V610" stroke="#2e2a33" stroke-width="5" fill="none"/>
+    <path d="M742 610 Q780 560 826 606 L820 622 Q782 584 750 620 Z" fill="#2c7a4b" fill-opacity="0.85" stroke="#2e2a33" stroke-width="4"/>
+    <ellipse cx="784" cy="624" rx="42" ry="16" fill="#e8b24a" fill-opacity="0.85" stroke="#2e2a33" stroke-width="3"/>
+    <circle cx="780" cy="672" r="9" fill="#c9a25e" stroke="#2e2a33" stroke-width="2.6"/>
+    <g filter="url(#inSoft2)">
+      <ellipse cx="800" cy="620" rx="90" ry="60" fill="#e8b24a" opacity="0.3"/>
+    </g>
+
+    <!-- folders: the case files -->
+    <g stroke="#2e2a33" stroke-width="3">
+      <g transform="rotate(-4 1060 660)">
+        <rect x="990" y="636" width="140" height="38" fill="#c9a25e"/>
+        <rect x="990" y="636" width="56" height="14" fill="#b0705a"/>
+        <path d="M1002 654 H1118" stroke-width="2"/>
+      </g>
+      <g transform="rotate(3 1180 664)">
+        <rect x="1120" y="646" width="132" height="36" fill="#e3d5b8"/>
+        <rect x="1120" y="646" width="52" height="13" fill="#8fa3b0"/>
+        <path d="M1130 662 H1224" stroke-width="2"/>
+      </g>
+      <g transform="rotate(-2 900 660)">
+        <rect x="836" y="642" width="128" height="34" fill="#b0705a" fill-opacity="0.85"/>
+        <rect x="836" y="642" width="50" height="12" fill="#2e3244"/>
+        <path d="M848 658 H952" stroke-width="2"/>
+      </g>
+    </g>
+
+    <!-- typewriter -->
+    <rect x="1160" y="620" width="104" height="52" rx="8" fill="#2e3244" stroke="#2e2a33" stroke-width="3.6"/>
+    <rect x="1172" y="596" width="80" height="28" rx="4" fill="#f4ecdb" stroke="#2e2a33" stroke-width="2.6"/>
+    <path d="M1178 606 H1246 M1178 614 H1240" stroke="#6b6472" stroke-width="1.8"/>
+    <circle cx="1268" cy="646" r="9" fill="#2e2a33"/>
+
+    <!-- mug + magnifier -->
+    <rect x="864" y="636" width="40" height="36" rx="6" fill="#f4ecdb" stroke="#2e2a33" stroke-width="3"/>
+    <path d="M904 646 Q920 652 904 662" stroke="#2e2a33" stroke-width="3" fill="none"/>
+    <g transform="rotate(-18 948 650)">
+      <circle cx="948" cy="644" r="16" fill="#8fa3b0" fill-opacity="0.5" stroke="#2e2a33" stroke-width="3"/>
+      <path d="M958 656 L974 678" stroke="#2e2a33" stroke-width="4"/>
+    </g>
+
+    <!-- bench chair behind -->
+    <rect x="880" y="980" width="320" height="34" rx="10" fill="#6b5233" opacity="0.5" stroke="#2e2a33" stroke-width="4"/>
+    <ellipse cx="1040" cy="1022" rx="180" ry="16" fill="#2e2a33" opacity="0.16"/>
+  </g>
+
+  <!-- floor -->
+  <g filter="url(#inWobble)">
+    <path d="M-10 760 H1940" stroke="#2e2a33" stroke-width="5"/>
+    <rect x="-10" y="760" width="1940" height="330" fill="#c9a25e" opacity="0.28"/>
+    <rect x="-10" y="760" width="1940" height="330" fill="url(#inFloor)" opacity="0.6"/>
+    <!-- perspective boards -->
+    <g stroke="#2e2a33" stroke-width="2" opacity="0.3">
+      <path d="M330 760 L120 1080 M700 760 L560 1080 M1100 760 L1240 1080 M1560 760 L1780 1080"/>
+    </g>
+  </g>
+
+  <!-- ink frame -->
+  <g filter="url(#inWobble)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="1892" height="1052" stroke-width="3.2"/>
+    <rect x="22" y="22" width="1876" height="1036" stroke-width="1.6" opacity="0.75"/>
+  </g>
+</svg>

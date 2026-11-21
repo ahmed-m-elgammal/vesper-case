@@ -102,28 +102,36 @@ export class DialogueView {
   }
 
   private async updatePortrait(suspectId: string | null): Promise<void> {
+    // Case suspects come from the active bundle; station staff from the world.
     const suspect = suspectId ? this.vm.repo.suspect(suspectId) : undefined;
-    const url = suspect?.portrait ?? null;
+    const person = suspectId ? this.vm.world.person(suspectId) : undefined;
+    const url = suspect?.portrait ?? person?.portrait ?? null;
+    const initial = suspect?.initial ?? person?.initial ?? '?';
+    const tint = suspect?.tint ?? person?.tint ?? null;
     this.portraitUrl = url;
     if (!url) {
       this.portraitEl.className = 'dialogue-portrait';
-      const initial = suspect?.initial ?? '?';
       this.portraitEl.innerHTML = '';
       this.portraitEl.append(el('span', { text: initial }));
-      this.portraitEl.style.borderColor = suspect ? `${suspect.tint}` : 'var(--ink)';
+      this.portraitEl.style.borderColor = tint ?? 'var(--ink)';
       return;
     }
     try {
-      const svg = await this.vm.repo.closeupSvg(url);
+      const svg = await this.fetchSvg(url);
       if (this.portraitUrl !== url) return; // stale response
       this.portraitEl.className = 'dialogue-portrait has-svg';
-      this.portraitEl.style.borderColor = suspect?.tint ?? 'var(--ink)';
+      this.portraitEl.style.borderColor = tint ?? 'var(--ink)';
       this.portraitEl.innerHTML = svg;
     } catch {
       this.portraitEl.className = 'dialogue-portrait';
       this.portraitEl.innerHTML = '';
-      this.portraitEl.append(el('span', { text: suspect?.initial ?? '?' }));
+      this.portraitEl.append(el('span', { text: initial }));
     }
+  }
+
+  /** Case close-ups and world portraits both resolve through whichever repo owns them. */
+  private fetchSvg(url: string): Promise<string> {
+    return this.vm.repo.closeupSvg(url).catch(() => this.vm.world.closeupSvg(url));
   }
 
   private renderPresentGrid(): void {

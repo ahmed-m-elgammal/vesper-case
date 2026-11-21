@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <filter id="exWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="11" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="exSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="exSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <pattern id="exBrick" width="88" height="52" patternUnits="userSpaceOnUse">
+      <path d="M0 1 H88 M0 27 H88" stroke="#8a5343" stroke-width="2.5" opacity="0.35" fill="none"/>
+      <path d="M23 1 V27 M67 1 V27 M1 27 V51 M45 27 V51 M89 27 V51" stroke="#8a5343" stroke-width="2.5" opacity="0.35" fill="none"/>
+    </pattern>
+    <pattern id="exPaving" width="150" height="90" patternUnits="userSpaceOnUse">
+      <path d="M0 1 H150 M0 46 H150" stroke="#5e5a66" stroke-width="2.4" opacity="0.4" fill="none"/>
+      <path d="M40 1 V46 M110 1 V46 M4 46 V90 M75 46 V90 M146 46 V90" stroke="#5e5a66" stroke-width="2.4" opacity="0.4" fill="none"/>
+    </pattern>
+  </defs>
+
+  <!-- paper base -->
+  <rect width="1920" height="1080" fill="#f4ecdb"/>
+
+  <!-- night sky washes -->
+  <g filter="url(#exSoft)">
+    <ellipse cx="500" cy="160" rx="640" ry="230" fill="#3a3f52" opacity="0.42"/>
+    <ellipse cx="1500" cy="130" rx="600" ry="220" fill="#3a3f52" opacity="0.45"/>
+    <ellipse cx="960" cy="80" rx="900" ry="160" fill="#2e3244" opacity="0.5"/>
+    <ellipse cx="300" cy="480" rx="380" ry="260" fill="#5e6c7a" opacity="0.2"/>
+    <ellipse cx="1700" cy="520" rx="320" ry="240" fill="#5e6c7a" opacity="0.18"/>
+  </g>
+  <!-- storm clouds ink -->
+  <g filter="url(#exWobble)" fill="none" stroke="#3a3f52" stroke-linecap="round">
+    <path d="M-20 130 Q200 60 420 110 Q560 60 760 105" stroke-width="4" opacity="0.5"/>
+    <path d="M1100 90 Q1300 30 1520 84 Q1700 40 1940 96" stroke-width="4" opacity="0.5"/>
+    <path d="M60 210 Q240 160 430 205" stroke-width="3" opacity="0.35"/>
+  </g>
+
+  <!-- ============ precinct building ============ -->
+  <g filter="url(#exWobble)">
+    <!-- main block -->
+    <rect x="240" y="150" width="1440" height="770" fill="#c9a25e" opacity="0.55"/>
+    <rect x="240" y="150" width="1440" height="770" fill="url(#exBrick)"/>
+    <!-- brick tone panels -->
+    <rect x="240" y="150" width="1440" height="770" fill="#b0705a" opacity="0.30"/>
+    <!-- outline -->
+    <rect x="240" y="150" width="1440" height="770" fill="none" stroke="#2e2a33" stroke-width="5"/>
+    <!-- cornice -->
+    <rect x="222" y="196" width="1476" height="26" fill="#e3d5b8" stroke="#2e2a33" stroke-width="4"/>
+    <path d="M222 222 H1698" stroke="#2e2a33" stroke-width="3" opacity="0.7"/>
+    <!-- parapet -->
+    <path d="M240 150 L240 118 L1698 118 L1680 150" fill="none" stroke="#2e2a33" stroke-width="4"/>
+    <rect x="260" y="104" width="1418" height="18" fill="#e3d5b8" stroke="#2e2a33" stroke-width="4"/>
+    <!-- chimney + smoke -->
+    <rect x="1460" y="52" width="54" height="66" fill="#b0705a" opacity="0.75" stroke="#2e2a33" stroke-width="4"/>
+    <rect x="1450" y="44" width="74" height="14" fill="#e3d5b8" stroke="#2e2a33" stroke-width="3"/>
+    <g fill="none" stroke="#6b6472" stroke-linecap="round" opacity="0.6">
+      <path d="M1487 44 Q1478 20 1496 8 Q1514 -2 1510 -22" stroke-width="4"/>
+      <path d="M1512 40 Q1524 24 1544 20" stroke-width="3"/>
+    </g>
+    <!-- slate roof ridge behind parapet -->
+    <path d="M180 132 L960 58 L1740 132" fill="none" stroke="#2e2a33" stroke-width="4" opacity="0.65"/>
+  </g>
+
+  <!-- ============ second-floor windows (y 236-446) ============ -->
+  <g filter="url(#exWobble)">
+    <!-- window frames x: 330-510, 570-750, 860-1060(over door, taller arch), 1150-1330, 1390-1570 -->
+    <g stroke="#2e2a33" stroke-width="4.5" fill="#e8b24a">
+      <rect x="330" y="250" width="180" height="180" rx="8" fill-opacity="0.5"/>
+      <rect x="570" y="250" width="180" height="180" rx="8" fill-opacity="0.42"/>
+      <rect x="1150" y="250" width="180" height="180" rx="8" fill-opacity="0.5"/>
+      <rect x="1390" y="250" width="180" height="180" rx="8" fill-opacity="0.46"/>
+      <path d="M878 430 V300 Q960 240 1042 300 V430 Z" fill-opacity="0.5"/>
+    </g>
+    <!-- glows -->
+    <g filter="url(#exSoft2)">
+      <rect x="330" y="250" width="180" height="180" fill="#e8b24a" opacity="0.4"/>
+      <rect x="570" y="250" width="180" height="180" fill="#e8b24a" opacity="0.34"/>
+      <rect x="1150" y="250" width="180" height="180" fill="#e8b24a" opacity="0.4"/>
+      <rect x="1390" y="250" width="180" height="180" fill="#e8b24a" opacity="0.36"/>
+      <path d="M878 430 V300 Q960 240 1042 300 V430 Z" fill="#e8b24a" opacity="0.4"/>
+    </g>
+    <!-- muntins + curtains -->
+    <g stroke="#2e2a33" stroke-width="2.6" fill="none" opacity="0.9">
+      <path d="M420 250 V430 M330 340 H510"/>
+      <path d="M660 250 V430 M570 340 H750"/>
+      <path d="M960 262 V430 M878 340 H1042"/>
+      <path d="M1240 250 V430 M1150 340 H1330"/>
+      <path d="M1480 250 V430 M1390 340 H1570"/>
+    </g>
+    <g stroke="#8a5343" stroke-width="3" fill="none" opacity="0.8">
+      <path d="M340 268 Q370 300 348 356 Q336 396 356 428"/>
+      <path d="M896 296 Q926 330 906 388"/>
+      <path d="M1410 268 Q1440 304 1420 362 Q1410 396 1430 428"/>
+    </g>
+    <!-- sills -->
+    <g stroke="#2e2a33" stroke-width="3.4" fill="#e3d5b8">
+      <rect x="318" y="430" width="204" height="16"/>
+      <rect x="558" y="430" width="204" height="16"/>
+      <rect x="1138" y="430" width="204" height="16"/>
+      <rect x="1378" y="430" width="204" height="16"/>
+    </g>
+  </g>
+
+  <!-- ============ hanging sign (748-1172 x 352-482) ============ -->
+  <g filter="url(#exWobble)">
+    <path d="M748 366 V300 M1172 366 V300" stroke="#2e2a33" stroke-width="6" fill="none"/>
+    <path d="M742 300 H1178" stroke="#2e2a33" stroke-width="7" fill="none"/>
+    <path d="M860 366 V392 M1060 366 V392" stroke="#2e2a33" stroke-width="4"/>
+    <rect x="748" y="392" width="424" height="90" rx="10" fill="#2e3244" stroke="#2e2a33" stroke-width="5"/>
+    <rect x="764" y="406" width="392" height="62" rx="6" fill="none" stroke="#c9a25e" stroke-width="2.6" opacity="0.9"/>
+    <text x="960" y="448" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="40" letter-spacing="6" fill="#e8b24a" opacity="0.95">OLD TOWN</text>
+    <text x="960" y="478" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="0" fill="#e8b24a"> </text>
+  </g>
+  <text x="960" y="530" text-anchor="middle" filter="url(#exWobble)" font-family="Georgia, 'Times New Roman', serif" font-size="26" letter-spacing="10" fill="#e8b24a" opacity="0.85">PRECINCT</text>
+
+  <!-- ============ ground floor ============ -->
+  <g filter="url(#exWobble)">
+    <!-- pilasters -->
+    <g fill="#e3d5b8" stroke="#2e2a33" stroke-width="4">
+      <rect x="252" y="470" width="44" height="450"/>
+      <rect x="600" y="470" width="40" height="450"/>
+      <rect x="1280" y="470" width="40" height="450"/>
+      <rect x="1624" y="470" width="44" height="450"/>
+    </g>
+    <!-- barred windows left + right -->
+    <g stroke="#2e2a33" stroke-width="4.5">
+      <rect x="340" y="560" width="220" height="240" fill="#8fa3b0" fill-opacity="0.4"/>
+      <rect x="1360" y="560" width="220" height="240" fill="#8fa3b0" fill-opacity="0.34"/>
+      <path d="M395 560 V800 M450 560 V800 M505 560 V800 M340 640 H560 M340 720 H560" fill="none" stroke-width="3"/>
+      <path d="M1415 560 V800 M1470 560 V800 M1525 560 V800 M1360 640 H1580 M1360 720 H1580" fill="none" stroke-width="3"/>
+    </g>
+    <!-- window glints -->
+    <g filter="url(#exSoft2)" fill="#3a3f52" opacity="0.35">
+      <rect x="340" y="560" width="220" height="240"/>
+      <rect x="1360" y="560" width="220" height="240"/>
+    </g>
+    <g stroke="#2e2a33" stroke-width="3.4" fill="#e3d5b8">
+      <rect x="326" y="800" width="248" height="18"/>
+      <rect x="1346" y="800" width="248" height="18"/>
+    </g>
+  </g>
+
+  <!-- ============ entrance door (858-1062 x 548-904) ============ -->
+  <g filter="url(#exWobble)">
+    <!-- arch frame -->
+    <path d="M830 904 V640 Q960 520 1090 640 V904 Z" fill="#8a5343" opacity="0.45"/>
+    <path d="M830 904 V640 Q960 520 1090 640 V904 Z" fill="none" stroke="#2e2a33" stroke-width="6"/>
+    <!-- doors -->
+    <rect x="862" y="600" width="196" height="304" fill="#5e4632" stroke="#2e2a33" stroke-width="5"/>
+    <path d="M960 600 V904" stroke="#2e2a33" stroke-width="4"/>
+    <g fill="none" stroke="#2e2a33" stroke-width="3" opacity="0.9">
+      <rect x="876" y="620" width="70" height="110" rx="4"/>
+      <rect x="974" y="620" width="70" height="110" rx="4"/>
+      <rect x="876" y="756" width="70" height="130" rx="4"/>
+      <rect x="974" y="756" width="70" height="130" rx="4"/>
+    </g>
+    <!-- fanlight -->
+    <path d="M866 596 Q960 536 1054 596 Z" fill="#e8b24a" fill-opacity="0.55" stroke="#2e2a33" stroke-width="4"/>
+    <path d="M960 542 V596 M912 560 L930 596 M1008 560 L990 596" stroke="#2e2a33" stroke-width="2.4" fill="none"/>
+    <!-- handles + plate -->
+    <circle cx="946" cy="768" r="6" fill="#c9a25e" stroke="#2e2a33" stroke-width="2.4"/>
+    <circle cx="974" cy="768" r="6" fill="#c9a25e" stroke="#2e2a33" stroke-width="2.4"/>
+    <rect x="906" y="700" width="108" height="26" rx="4" fill="#c9a25e" stroke="#2e2a33" stroke-width="2.6"/>
+    <!-- door lantern -->
+    <path d="M1108 560 V612" stroke="#2e2a33" stroke-width="5" fill="none"/>
+    <rect x="1094" y="612" width="28" height="40" rx="6" fill="#e8b24a" fill-opacity="0.85" stroke="#2e2a33" stroke-width="4"/>
+    <path d="M1094 652 L1088 664 H1128 L1122 652" fill="#2e2a33" opacity="0.8"/>
+    <circle cx="1108" cy="632" r="30" fill="#e8b24a" opacity="0.3" filter="url(#exSoft2)"/>
+  </g>
+
+  <!-- notice board (1108-1276 x 570-828) -->
+  <g filter="url(#exWobble)">
+    <rect x="1108" y="570" width="168" height="258" rx="8" fill="#2e3244" stroke="#2e2a33" stroke-width="5"/>
+    <rect x="1122" y="584" width="140" height="212" rx="4" fill="#f4ecdb" stroke="#2e2a33" stroke-width="2.6"/>
+    <g stroke="#6b6472" stroke-width="2" opacity="0.85">
+      <path d="M1134 610 H1348" transform="translate(-6,0)"/>
+    </g>
+    <rect x="1134" y="598" width="96" height="60" fill="#ede3cd" stroke="#6b6472" stroke-width="2"/>
+    <path d="M1142 614 H1218 M1142 628 H1206 M1142 642 H1216" stroke="#6b6472" stroke-width="2" opacity="0.8"/>
+    <rect x="1240" y="598" width="26" height="26" fill="#b4552d" opacity="0.75"/>
+    <rect x="1134" y="672" width="132" height="46" fill="#ede3cd" stroke="#6b6472" stroke-width="2"/>
+    <path d="M1144 688 H1254 M1144 702 H1230" stroke="#6b6472" stroke-width="2" opacity="0.8"/>
+    <rect x="1134" y="730" width="110" height="54" fill="#ede3cd" stroke="#6b6472" stroke-width="2"/>
+    <path d="M1144 748 H1230 M1144 762 H1214" stroke="#6b6472" stroke-width="2" opacity="0.8"/>
+    <path d="M1188 598 L1196 586 L1204 598" fill="#b4552d" opacity="0.8"/>
+  </g>
+
+  <!-- steps (820-1100, y 900-980) -->
+  <g filter="url(#exWobble)" stroke="#2e2a33" fill="#e3d5b8" stroke-width="3.6">
+    <rect x="830" y="904" width="260" height="26"/>
+    <rect x="818" y="930" width="284" height="26"/>
+    <rect x="806" y="956" width="308" height="26"/>
+  </g>
+
+  <!-- street lamp (1568-1808 x 448-918) -->
+  <g filter="url(#exWobble)">
+    <ellipse cx="1690" cy="540" rx="86" ry="96" fill="#e8b24a" opacity="0.28" filter="url(#exSoft2)"/>
+    <path d="M1680 560 L1700 560 L1700 470 L1728 470" fill="none" stroke="#2e2a33" stroke-width="6"/>
+    <path d="M1682 918 H1698" stroke="#2e2a33" stroke-width="8"/>
+    <path d="M1684 904 H1696 V560" stroke="#2e2a33" stroke-width="7" fill="none"/>
+    <path d="M1686 904 Q1668 880 1686 862" stroke="#2e2a33" stroke-width="3" fill="none" opacity="0.6"/>
+    <path d="M1660 470 H1796 L1776 430 H1680 Z" fill="#2e3244" stroke="#2e2a33" stroke-width="5"/>
+    <rect x="1698" y="442" width="60" height="46" rx="8" fill="#e8b24a" fill-opacity="0.85" stroke="#2e2a33" stroke-width="4"/>
+    <path d="M1652 430 L1744 386 L1836 430" fill="none" stroke="#2e2a33" stroke-width="5"/>
+    <circle cx="1744" cy="382" r="7" fill="#2e2a33"/>
+    <path d="M1670 904 H1818" stroke="#2e2a33" stroke-width="4" opacity="0.5"/>
+    <ellipse cx="1744" cy="906" rx="64" ry="10" fill="#2e2a33" opacity="0.22"/>
+  </g>
+
+  <!-- ============ street ============ -->
+  <g filter="url(#exWobble)">
+    <rect x="-10" y="982" width="1940" height="110" fill="#9aa88f" opacity="0.35"/>
+    <rect x="-10" y="982" width="1940" height="110" fill="url(#exPaving)" opacity="0.55"/>
+    <path d="M-10 982 H1940" stroke="#2e2a33" stroke-width="5"/>
+    <path d="M-10 996 Q400 972 900 992 T1940 984" stroke="#2e2a33" stroke-width="2.6" opacity="0.4" fill="none"/>
+    <!-- puddle with lamp reflection -->
+    <ellipse cx="1180" cy="1024" rx="200" ry="22" fill="#8fa3b0" opacity="0.4"/>
+    <ellipse cx="1740" cy="1030" rx="150" ry="18" fill="#e8b24a" opacity="0.22"/>
+    <path d="M1060 1024 Q1180 1006 1330 1026" stroke="#5e6c7a" stroke-width="2.4" fill="none" opacity="0.5"/>
+    <!-- hydrant-ish bollard left -->
+    <rect x="120" y="880" width="30" height="102" rx="8" fill="#2e3244" stroke="#2e2a33" stroke-width="4"/>
+    <circle cx="135" cy="872" r="16" fill="#2e3244" stroke="#2e2a33" stroke-width="4"/>
+    <!-- a soaked newspaper -->
+    <path d="M1420 1000 Q1450 988 1484 1000 L1478 1016 Q1450 1026 1426 1014 Z" fill="#ede3cd" stroke="#6b6472" stroke-width="2.4"/>
+    <path d="M1432 1002 H1470 M1434 1010 H1464" stroke="#6b6472" stroke-width="1.8" opacity="0.7"/>
+  </g>
+
+  <!-- static rain streaks (motion added by the engine) -->
+  <g stroke="#8fa3b0" stroke-width="2" opacity="0.3" stroke-linecap="round">
+    <path d="M120 180 L106 260"/><path d="M420 120 L404 220"/><path d="M760 90 L746 190"/>
+    <path d="M1180 130 L1164 230"/><path d="M1520 170 L1506 260"/><path d="M300 420 L286 500"/>
+    <path d="M1660 260 L1646 350"/><path d="M900 560 L888 640"/><path d="M600 620 L588 700"/>
+    <path d="M1760 620 L1748 700"/><path d="M260 640 L248 720"/><path d="M1080 380 L1066 460"/>
+  </g>
+
+  <!-- ink frame -->
+  <g filter="url(#exWobble)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="1892" height="1052" stroke-width="3.2"/>
+    <rect x="22" y="22" width="1876" height="1036" stroke-width="1.6" opacity="0.75"/>
+  </g>
+</svg>

@@ -1,25 +1,38 @@
 /**
- * ContentRepository -- loads every case JSON from /public/content, validates
- * it against the runtime checks, caches close-up SVG text for the DOM
- * overlays, and exposes typed accessors + index maps. The engine never
- * hard-codes case facts; it only reads this repository.
+ * ContentRepository -- loads case JSON bundles from /public/content/cases/<id>/,
+ * validates them against the runtime checks, caches close-up SVG text for the
+ * DOM overlays, and exposes typed accessors + index maps. The engine never
+ * hard-codes case facts; it only reads repositories.
+ *
+ * WorldRepository loads the precinct world (world.json + cases.json + the
+ * global locale) -- the station that hosts every case and lets the world
+ * expand case by case.
  */
 
-import { asBundle, validateBundle } from './validate';
+import { asBundle, asCaseRegistry, asWorld, validateBundle, validateCaseRegistry, validateWorld } from './validate';
 import { setLocaleTable } from '../dialogue/loc';
-import type { Clue, ContentBundle, DialogueGraph, Gate, Room, Suspect } from './types';
+import type {
+  CaseFileMeta,
+  Clue,
+  ContentBundle,
+  DialogueGraph,
+  DialogueNode,
+  Gate,
+  Room,
+  Suspect,
+  WorldContent,
+} from './types';
 
-const FILES = {
-  case: '/content/case.json',
-  suspects: '/content/suspects.json',
-  rooms: '/content/rooms.json',
-  clues: '/content/clues.json',
-  gates: '/content/gates.json',
-  timeline: '/content/timeline.json',
-  prologue: '/content/prologue.json',
-  dialogue: '/content/dialogue.json',
-  locale: '/content/locales/en.json',
-  chains: '/content/chains.json',
+const CASE_FILES = {
+  case: 'case.json',
+  suspects: 'suspects.json',
+  rooms: 'rooms.json',
+  clues: 'clues.json',
+  gates: 'gates.json',
+  timeline: 'timeline.json',
+  prologue: 'prologue.json',
+  dialogue: 'dialogue.json',
+  chains: 'chains.json',
 } as const;
 
 export class ContentError extends Error {
@@ -28,7 +41,77 @@ export class ContentError extends Error {
   }
 }
 
+async function fetchJson(url: string, cache: RequestCache = 'no-cache'): Promise<unknown> {
+  const res = await fetch(url, { cache });
+  if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
+  return res.json();
+}
+
+/* ------------------------------------------------------------------ */
+/* World (precinct) repository                                         */
+/* ------------------------------------------------------------------ */
+
+export class WorldRepository {
+  readonly world: WorldContent;
+  readonly caseList: CaseFileMeta[];
+  readonly locale: Record<string, string>;
+  private graphsById = new Map<string, DialogueGraph>();
+  private svgCache = new Map<string, string>();
+
+  private constructor(world: WorldContent, caseList: CaseFileMeta[], locale: Record<string, string>) {
+    this.world = world;
+    this.caseList = caseList;
+    this.locale = locale;
+    for (const [id, g] of Object.entries(world.graphs ?? {})) this.graphsById.set(id, g);
+    // The global locale table is the base layer; case bundles merge on top.
+    setLocaleTable(locale);
+  }
+
+  static async load(): Promise<WorldRepository> {
+    const [rawWorld, rawRegistry, locale] = await Promise.all([
+      fetchJson('/content/world.json'),
+      fetchJson('/content/cases.json'),
+      fetchJson('/content/locales/en.json') as Promise<Record<string, string>>,
+    ]);
+    // Give the world validator the global locale so "@key" lines can be checked.
+    const worldRaw = { ...(rawWorld as Record<string, unknown>), locale };
+    const problems = [...validateWorld(worldRaw), ...validateCaseRegistry(rawRegistry as Record<string, unknown>)];
+    if (problems.length > 0) throw new ContentError(problems);
+    return new WorldRepository(asWorld(worldRaw), asCaseRegistry(rawRegistry as Record<string, unknown>), locale ?? {});
+  }
+
+  case(id: string): CaseFileMeta | undefined {
+    return this.caseList.find((c) => c.id === id);
+  }
+
+  /** Station conversation graph by id (captain, sergeant, ...). */
+  dialogueGraph(id: string): DialogueGraph | undefined {
+    return this.graphsById.get(id);
+  }
+
+  person(id: string) {
+    return this.world.people[id];
+  }
+
+  /** Fetch (and cache) an SVG as text for inline DOM injection. */
+  async closeupSvg(url: string): Promise<string> {
+    if (!url) return '';
+    const hit = this.svgCache.get(url);
+    if (hit) return hit;
+    const res = await fetch(url, { cache: 'force-cache' });
+    if (!res.ok) throw new Error(`Failed to load svg ${url}`);
+    const text = await res.text();
+    this.svgCache.set(url, text);
+    return text;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Case bundle repository                                              */
+/* ------------------------------------------------------------------ */
+
 export class ContentRepository {
+  readonly caseId: string;
   readonly bundle: ContentBundle;
   private roomsById = new Map<string, Room>();
   private cluesById = new Map<string, Clue>();
@@ -37,7 +120,8 @@ export class ContentRepository {
   private graphsById = new Map<string, DialogueGraph>();
   private svgCache = new Map<string, string>();
 
-  private constructor(bundle: ContentBundle) {
+  private constructor(caseId: string, bundle: ContentBundle) {
+    this.caseId = caseId;
     this.bundle = bundle;
     for (const r of bundle.rooms) this.roomsById.set(r.id, r);
     for (const c of bundle.clues) this.cluesById.set(c.id, c);
@@ -47,12 +131,12 @@ export class ContentRepository {
     setLocaleTable(bundle.locale ?? {});
   }
 
-  static async load(): Promise<ContentRepository> {
+  /** Load + validate one case bundle from /content/cases/<caseId>/. */
+  static async loadCase(caseId: string, globalLocale: Record<string, string> = {}): Promise<ContentRepository> {
     const entries = await Promise.all(
-      Object.entries(FILES).map(async ([key, url]) => {
-        const res = await fetch(url, { cache: 'no-cache' });
-        if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
-        return [key, await res.json()] as const;
+      Object.entries(CASE_FILES).map(async ([key, file]) => {
+        const data = await fetchJson(`/content/cases/${caseId}/${file}`);
+        return [key, data] as const;
       })
     );
     const raw = Object.fromEntries(entries) as Record<string, unknown>;
@@ -67,7 +151,7 @@ export class ContentRepository {
     /*
      * dialogue.json may be a legacy flat array (build one) or the v2 shape
      * { nodes: [...], graphs: {...} }. Normalize into bundle.dialogue (array)
-     * + bundle.graphs (record) + bundle.locale (the en table).
+     * + bundle.graphs (record).
      */
     const d = raw.dialogue;
     if (d && !Array.isArray(d)) {
@@ -77,10 +161,20 @@ export class ContentRepository {
     } else {
       raw.graphs = {};
     }
-    raw.locale = (raw.locale ?? {}) as Record<string, string>;
+
+    // Locale: global table first, then an optional per-case locale.json on top.
+    let locale: Record<string, string> = { ...globalLocale };
+    try {
+      const caseLocale = (await fetchJson(`/content/cases/${caseId}/locale.json`, 'force-cache')) as Record<string, string>;
+      locale = { ...locale, ...caseLocale };
+    } catch {
+      /* no per-case locale -- global table covers it */
+    }
+    raw.locale = locale;
+
     const problems = validateBundle(raw);
     if (problems.length > 0) throw new ContentError(problems);
-    return new ContentRepository(asBundle(raw));
+    return new ContentRepository(caseId, asBundle(raw));
   }
 
   get roomList(): Room[] {
@@ -111,11 +205,11 @@ export class ContentRepository {
     return this.bundle.gates;
   }
 
-  dialogueNode(id: string) {
+  dialogueNode(id: string): DialogueNode | undefined {
     return this.bundle.dialogue.find((n) => n.id === id);
   }
 
-  /** Conversation graph by id (Act-1 people use their suspect id). */
+  /** Conversation graph by id (case people use their suspect id). */
   dialogueGraph(id: string): DialogueGraph | undefined {
     return this.graphsById.get(id);
   }

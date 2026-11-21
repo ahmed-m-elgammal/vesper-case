@@ -11,6 +11,7 @@ export interface GameEventMap {
   'room:doorLocked': { to: string; line: string };
   'notify:toast': { text: string; kind: 'clue' | 'info' | 'warn' };
   'dialogue:play': { dialogueId: string };
+  'case:loaded': { caseId: string };
   'closeup:open': { clueId: string };
   'notebook:open': { tab?: string };
   'gate:open': { gateId: string };

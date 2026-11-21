@@ -4,7 +4,7 @@
  */
 
 import { el, bindText, bindVisible } from '../../core/dom';
-import { Observable } from '../../core/Observable';
+import { Observable, Computed } from '../../core/Observable';
 import type { GameVM } from '../../viewmodels/GameVM';
 import type { HintVM } from '../../viewmodels/HintVM';
 import type { RoomVM } from '../../viewmodels/RoomVM';
@@ -21,7 +21,7 @@ export class HudView {
   constructor(
     private vm: GameVM,
     hintVM: HintVM,
-    hooks: { openNotebook(): void; openMenu(): void; gotoHub(): void }
+    hooks: { openNotebook(): void; openMenu(): void; gotoHub(): void; gotoStation(): void }
   ) {
     this.node = el('div', { class: 'hud hidden' });
 
@@ -45,9 +45,13 @@ export class HudView {
       this.thinkBtn,
       el('button', { class: 'hud-btn', text: 'Notebook', onclick: () => hooks.openNotebook() }),
       el('button', { class: 'hud-btn', text: 'Map', onclick: () => hooks.gotoHub() }),
+      el('button', { class: 'hud-btn', text: 'Precinct', onclick: () => hooks.gotoStation() }),
       el('button', { class: 'hud-btn', text: 'Menu', onclick: () => hooks.openMenu() })
     );
     this.node.append(topRight);
+    // Leaving the house is only sensible from the dollhouse map.
+    const precinctBtn = topRight.children[3] as HTMLElement;
+    bindVisible(precinctBtn, new Computed<boolean>(() => vm.phase$.value === 'hub', [vm.phase$]));
 
     // bottom-left tool dock
     const dock = el('div', { class: 'hud-dock' });

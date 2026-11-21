@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="pplHlW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="pplHlS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#pplHlS)">
+    <ellipse cx="660" cy="520" rx="200" ry="80" fill="#55684a" opacity="0.16"/>
+    <ellipse cx="180" cy="160" rx="150" ry="70" fill="#c9a25e" opacity="0.13"/>
+    <ellipse cx="400" cy="300" rx="260" ry="220" fill="#55684a" opacity="0.10"/>
+    <rect x="470" y="330" width="260" height="180" fill="#5e4632" opacity="0.14"/>
+  </g>
+  <g filter="url(#pplHlW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+  <!-- desk backdrop: phone, papers, kettle steam -->
+  <g filter="url(#pplHlW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M470 430 H740" stroke-width="3.6" opacity="0.7"/>
+    <rect x="600" y="380" width="80" height="50" rx="10" stroke-width="3.2" opacity="0.7"/>
+    <path d="M612 380 Q626 352 656 358" stroke-width="3.4" opacity="0.7"/>
+    <rect x="500" y="392" width="84" height="38" stroke-width="2.4" opacity="0.55"/>
+    <path d="M512 406 H572 M512 418 H560" stroke-width="2" opacity="0.5"/>
+    <g stroke-width="2.6" opacity="0.5">
+      <path d="M700 350 Q690 330 704 312 Q718 296 708 278"/>
+      <path d="M730 356 Q722 340 732 324"/>
+    </g>
+  </g>
+  <g filter="url(#pplHlW)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- shoulders: sergeant tunic -->
+    <path d="M188 588 Q206 466 300 426 Q348 408 400 408 Q452 408 500 426 Q594 466 612 588" fill="#3c4a38" fill-opacity="0.88" stroke-width="4"/>
+    <!-- collar + tie -->
+    <path d="M344 422 L400 468 L456 422" stroke-width="3.4"/>
+    <path d="M400 468 L400 588" stroke-width="3" opacity="0.7"/>
+    <!-- sergeant stripes -->
+    <g stroke="#c9a25e" stroke-width="3" opacity="0.95">
+      <path d="M246 470 L296 452 M250 490 L300 472 M254 510 L304 492"/>
+      <path d="M554 470 L504 452 M550 490 L500 472 M546 510 L496 492"/>
+    </g>
+    <!-- neck -->
+    <path d="M368 378 V426 M432 378 V426" stroke-width="3.4"/>
+    <!-- head -->
+    <path d="M400 152 Q466 152 482 220 Q496 288 468 342 Q444 384 400 386 Q356 384 332 342 Q304 288 318 220 Q334 152 400 152" fill="#f4ecdb" stroke-width="4"/>
+    <!-- flat cap -->
+    <path d="M318 176 Q330 118 400 108 Q470 118 482 176 Q400 148 318 176" fill="#2e3244" fill-opacity="0.9" stroke-width="3.8"/>
+    <path d="M300 180 Q400 132 500 180 Q472 196 400 190 Q328 196 300 180" fill="#2e3244" fill-opacity="0.9" stroke-width="3.6"/>
+    <!-- kind eyes + bushy mustache -->
+    <path d="M344 238 Q366 228 390 236" stroke-width="3.6"/>
+    <path d="M410 236 Q434 228 456 238" stroke-width="3.6"/>
+    <circle cx="366" cy="252" r="4.4" fill="#2e2a33" stroke-width="2"/>
+    <circle cx="434" cy="252" r="4.4" fill="#2e2a33" stroke-width="2"/>
+    <path d="M352 240 Q366 236 380 240" stroke-width="2" opacity="0.7"/>
+    <path d="M420 240 Q434 236 448 240" stroke-width="2" opacity="0.7"/>
+    <!-- the mustache -->
+    <path d="M356 300 Q400 286 444 300 Q448 312 436 318 Q400 306 364 318 Q352 312 356 300" fill="#6b6472" fill-opacity="0.9" stroke-width="3"/>
+    <path d="M376 330 Q400 338 424 330" stroke-width="3"/>
+    <!-- smile crinkles -->
+    <path d="M336 272 Q330 282 336 292 M464 272 Q470 282 464 292" stroke-width="2" opacity="0.6"/>
+  </g>
+  <!-- coffee steam by the tie -->
+  <g filter="url(#pplHlW)" stroke="#6b6472" stroke-width="2.4" opacity="0.5" fill="none">
+    <path d="M336 520 Q326 500 338 484 Q350 468 342 452"/>
+  </g>
+</svg>

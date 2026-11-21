@@ -232,9 +232,83 @@ export interface ContentBundle {
   dialogue: DialogueNode[];
   /** Conversation graphs keyed by id (v2 dialogue system). */
   graphs: Record<string, import('../dialogue/types').DialogueGraph>;
-  /** Locale table (en) for "@key" text indirection. */
+  /** Locale table for "@key" text indirection (global + case-merged). */
   locale: Record<string, string>;
   chains: Chain[];
+}
+
+/* ------------------------------------------------------------------ */
+/* World content (the precinct that hosts every case)                  */
+/* ------------------------------------------------------------------ */
+
+/** A station staff member talkable through a dialogue graph. */
+export interface WorldPerson {
+  name: string;
+  shortName: string;
+  initial: string;
+  tint: string;
+  portrait?: string;
+}
+
+export type StationHotspotKind = 'door' | 'files' | 'dialogue' | 'flavor' | 'locked';
+
+export interface StationHotspot {
+  id: string;
+  /** World-space rect on the 1920x1080 scene art. */
+  spot: Rect;
+  label: string;
+  kind: StationHotspotKind;
+  /** door: which station level to enter. */
+  to?: 'exterior' | 'interior';
+  /** dialogue: graph id in world.graphs. */
+  dialogue?: string;
+  /** flavor/locked: toast line. */
+  line?: string;
+}
+
+export interface StationSceneData {
+  art: string;
+  title: string;
+  ambientCaption: string;
+  hotspots: StationHotspot[];
+}
+
+export interface DetectiveLore {
+  name: string;
+  rank: string;
+  badge: string;
+  desk: number;
+  station: string;
+  tagline: string;
+  backstory: string[];
+}
+
+export interface WorldContent {
+  detective: DetectiveLore;
+  intro: { when: 'first-station-entry'; lines: string[] };
+  exterior: StationSceneData;
+  interior: StationSceneData;
+  people: Record<string, WorldPerson>;
+  /** Station staff conversation graphs (same shape as case graphs). */
+  graphs: Record<string, import('../dialogue/types').DialogueGraph>;
+}
+
+/** One folder on the desk. `id` maps to /content/cases/<id>/ for its bundle. */
+export interface CaseFileMeta {
+  id: string;
+  code: string;
+  title: string;
+  subtitle: string;
+  status: 'available' | 'sealed' | 'cold' | 'soon';
+  slot: number;
+  accent: string;
+  difficulty: string;
+  location: string;
+  victim: string;
+  pitch: string;
+  memo: string[];
+  firstCase?: boolean;
+  rankRequired?: string;
 }
 
 /* ------------------------------------------------------------------ */
@@ -248,8 +322,10 @@ export interface Settings {
   subtitles: boolean;
 }
 
-export interface GameState {
-  v: 2;
+/** Per-case progression -- everything below lives inside one case. */
+export interface CaseProgress {
+  openedAt: number;
+  solved: boolean;
   phase: 'prologue' | 'hub' | 'room';
   roomId: string | null;
   prologuePage: number;
@@ -260,13 +336,12 @@ export interface GameState {
   clues: Record<string, { at: number }>;
   gates: Record<string, boolean>;
   hintsUsed: Record<string, number>;
-  settings: Settings;
-  updatedAt: number;
 }
 
-export function freshState(): GameState {
+export function freshCaseProgress(): CaseProgress {
   return {
-    v: 2,
+    openedAt: Date.now(),
+    solved: false,
     phase: 'prologue',
     roomId: null,
     prologuePage: 0,
@@ -276,15 +351,113 @@ export function freshState(): GameState {
     clues: {},
     gates: {},
     hintsUsed: {},
+  };
+}
+
+export interface GameState {
+  v: 3;
+  /** 'station' = precinct world (case selection); the rest live inside a case. */
+  phase: 'station' | 'prologue' | 'hub' | 'room';
+  /** Which precinct view is showing while phase === 'station'. */
+  stationLevel: 'exterior' | 'interior';
+  /** Precinct intro card has been shown (once, ever). */
+  introSeen: boolean;
+  /** The folder being worked, or null when no case is taken yet. */
+  activeCaseId: string | null;
+  /** Live mirror of cases[activeCaseId].roomId for routing (persisted in cp too). */
+  roomId: string | null;
+  /** Everything case-specific, keyed by case id -- this is what makes the world expandable. */
+  cases: Record<string, CaseProgress>;
+  /** World-scope progression: precinct NPC memory (talked:* etc.), case-independent. */
+  station: { flags: Record<string, boolean>; vars: Record<string, number> };
+  settings: Settings;
+  updatedAt: number;
+}
+
+export function freshState(): GameState {
+  return {
+    v: 3,
+    phase: 'station',
+    stationLevel: 'exterior',
+    introSeen: false,
+    activeCaseId: null,
+    roomId: null,
+    cases: {},
+    station: { flags: {}, vars: {} },
     settings: { textSize: 1, highlights: true, accent: 'rust', subtitles: true },
     updatedAt: 0,
   };
 }
 
-/** Bring an older persisted state (v1 or partial v2) up to the current shape. */
+/** The flat v1/v2 save shape (one case, all progress at the top level). */
+interface LegacyState {
+  v?: number;
+  phase?: string;
+  roomId?: string | null;
+  prologuePage?: number;
+  prologueDone?: boolean;
+  flags?: Record<string, boolean>;
+  vars?: Record<string, number>;
+  clues?: Record<string, { at: number }>;
+  gates?: Record<string, boolean>;
+  hintsUsed?: Record<string, number>;
+  settings?: Partial<Settings>;
+  station?: { flags?: Record<string, boolean>; vars?: Record<string, number> };
+  cases?: Record<string, CaseProgress>;
+  activeCaseId?: string | null;
+  stationLevel?: 'exterior' | 'interior';
+  introSeen?: boolean;
+}
+
+/**
+ * Bring an older persisted state up to the current shape.
+ * v1/v2 stored one case's progress flat -- wrap it into cases['vesper']
+ * (the only case that existed) so old saves keep working in the precinct.
+ */
 export function migrateState(loaded: Partial<GameState> | null | undefined): GameState {
-  const state = { ...freshState(), ...(loaded ?? {}), settings: { ...freshState().settings, ...(loaded?.settings ?? {}) } };
-  state.v = 2;
-  state.vars = { ...(loaded?.vars ?? {}) };
+  const old = (loaded ?? {}) as LegacyState;
+  const state: GameState = { ...freshState(), ...(old as Partial<GameState>) } as GameState;
+  state.settings = { ...freshState().settings, ...(old.settings ?? {}) };
+
+  const version = old.v ?? 1;
+  if (version < 3) {
+    // Flat v1/v2 shape: clues/flags/vars/gates lived at the top level.
+    const legacy: CaseProgress = {
+      ...freshCaseProgress(),
+      phase: (old.phase === 'station' ? 'prologue' : (old.phase as CaseProgress['phase'])) ?? 'prologue',
+      roomId: old.roomId ?? null,
+      prologuePage: old.prologuePage ?? 0,
+      prologueDone: old.prologueDone ?? false,
+      flags: { ...(old.flags ?? {}) },
+      vars: { ...(old.vars ?? {}) },
+      clues: { ...(old.clues ?? {}) },
+      gates: { ...(old.gates ?? {}) },
+      hintsUsed: { ...(old.hintsUsed ?? {}) },
+    };
+    const hadProgress =
+      Object.keys(legacy.clues).length > 0 ||
+      Object.keys(legacy.flags).length > 0 ||
+      Object.keys(legacy.gates).length > 0 ||
+      legacy.prologueDone;
+    state.cases = { vesper: legacy };
+    state.activeCaseId = 'vesper';
+    state.phase = legacy.phase;
+    state.roomId = legacy.roomId;
+    // Untouched old saves restart from the station; mid-case ones resume.
+    if (!hadProgress) {
+      state.phase = 'station';
+      state.stationLevel = 'exterior';
+      state.introSeen = false;
+    }
+  }
+
+  state.stationLevel = state.stationLevel === 'interior' ? 'interior' : 'exterior';
+  state.cases = state.cases ?? {};
+  state.station = { flags: { ...(old.station?.flags ?? {}) }, vars: { ...(old.station?.vars ?? {}) } };
+  if (state.activeCaseId && !state.cases[state.activeCaseId]) {
+    state.cases[state.activeCaseId] = freshCaseProgress();
+  }
+  if (state.activeCaseId) state.roomId = state.cases[state.activeCaseId].roomId ?? null;
+  state.v = 3;
   return state;
 }

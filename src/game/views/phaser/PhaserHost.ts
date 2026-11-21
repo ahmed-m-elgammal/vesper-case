@@ -1,11 +1,14 @@
 /**
  * PhaserHost -- owns the Phaser.Game instance and the scene switching API.
- * The DOM overlay layer sits above the canvas; scenes only draw rooms/hub.
+ * The DOM overlay layer sits above the canvas; scenes draw the precinct and
+ * case rooms.
  */
 
 import * as Phaser from 'phaser';
 import { HubScene } from './HubScene';
 import { RoomScene } from './RoomScene';
+import { StationExtScene } from './StationExtScene';
+import { StationIntScene } from './StationIntScene';
 import { DESIGN_H, DESIGN_W, setSceneCtx, type SceneCtx, type RoomSceneData } from './SceneCtx';
 
 export class PhaserHost {
@@ -30,7 +33,7 @@ export class PhaserHost {
       },
       audio: { noAudio: true },
       input: { windowEvents: false },
-      scene: [HubScene, RoomScene],
+      scene: [StationExtScene, StationIntScene, HubScene, RoomScene],
     });
   }
 
@@ -41,15 +44,32 @@ export class PhaserHost {
     });
   }
 
+  showStation(level: 'exterior' | 'interior'): void {
+    const s = this.game.scene;
+    if (s.isActive('room')) s.stop('room');
+    if (s.isActive('hub')) s.stop('hub');
+    if (level === 'exterior') {
+      if (s.isActive('station-int')) s.stop('station-int');
+      if (!s.isActive('station-ext')) s.start('station-ext');
+    } else {
+      if (s.isActive('station-ext')) s.stop('station-ext');
+      if (!s.isActive('station-int')) s.start('station-int');
+    }
+  }
+
   showHub(): void {
     const s = this.game.scene;
     if (s.isActive('room')) s.stop('room');
+    if (s.isActive('station-ext')) s.stop('station-ext');
+    if (s.isActive('station-int')) s.stop('station-int');
     if (!s.isActive('hub')) s.start('hub');
   }
 
   showRoom(data: RoomSceneData): void {
     const s = this.game.scene;
     if (s.isActive('hub')) s.stop('hub');
+    if (s.isActive('station-ext')) s.stop('station-ext');
+    if (s.isActive('station-int')) s.stop('station-int');
     s.start('room', data);
   }
 

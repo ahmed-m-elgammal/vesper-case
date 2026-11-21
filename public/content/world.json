@@ -1,0 +1,207 @@
+{
+  "$schema": "./schemas/world.schema.json",
+  "detective": {
+    "name": "Elias Byrne",
+    "rank": "Detective Grade I",
+    "badge": "4613",
+    "desk": 14,
+    "station": "Old Town Precinct",
+    "tagline": "Six weeks out of the records room. First case.",
+    "backstory": [
+      "Elias Byrne spent three years in the Old Town records room, shelving other people's cases -- and reading every one of them on the night shift. He passed the detective exam in spring, top of his intake, and the exam board said what exam boards always say: the boy reads too much.",
+      "What actually got him the desk was a misfiled letter. An old arson file crossed his shelf twice under two names, and he wrote a one-page note about it that ended up on Captain Breche's desk with 'promote this one' scrawled across it in red.",
+      "The arson case was the Lantern Alley Fire. Six dead, no arrest, 1931. It still sits in a grey box in the evidence room, and it is not his to open yet. He keeps the misfiled letter's carbon copy folded in his warrant card.",
+      "Sergeant Hollis, who took his statement exam and drank his terrible coffee, calls him 'the squint' -- he reads rooms the way he read shelves: slowly, twice, and out of order."
+    ]
+  },
+  "intro": {
+    "when": "first-station-entry",
+    "lines": [
+      "OLD TOWN PRECINCT -- Monday, 8:41 in the morning. Rain since Friday, and the gutters have opinions.",
+      "Six weeks ago your name went up on the exam board. Six weeks in the records room, shelving other people's cases.",
+      "Today there is a desk with your name-plate on it. Desk 14, by the radiator. The chair still remembers the last man.",
+      "You are Detective Elias Byrne. Grade I. Badge 4613. The ink on the warrant card is barely dry.",
+      "Somewhere on that desk is a folder with your first case in it. Go and take it."
+    ]
+  },
+  "exterior": {
+    "art": "/art/station_ext.svg",
+    "title": "Old Town Precinct -- the street",
+    "ambientCaption": "[rain on the pavement, a tram two streets over]",
+    "hotspots": [
+      { "id": "door", "spot": [858, 548, 204, 356], "label": "Precinct door", "kind": "door", "to": "interior" },
+      { "id": "sign", "spot": [748, 352, 424, 130], "label": "The precinct sign", "kind": "flavor", "line": "OLD TOWN PRECINCT. The gold paint is older than you; the door hinge is younger than both of you." },
+      { "id": "windows", "spot": [330, 236, 1260, 210], "label": "Lit windows", "kind": "flavor", "line": "Every window is lit. Night shift hates weather; paperwork does not wait for sunshine." },
+      { "id": "notice", "spot": [1108, 570, 168, 258], "label": "Notices board", "kind": "flavor", "line": "Notices behind rain-warp glass: a curfew reminder, a lost dog named Busker, and a small neat card -- DETECTIVE EXAM RESULTS, APRIL. Your name is second on it." },
+      { "id": "lamp", "spot": [1568, 448, 240, 470], "label": "Street lamp", "kind": "flavor", "line": "The lamp buzzes like it is thinking. Moths have made it a career." }
+    ]
+  },
+  "interior": {
+    "art": "/art/station_int.svg",
+    "title": "Old Town Precinct -- the bullpen",
+    "ambientCaption": "[typewriters, a kettle somewhere, rain against the glass]",
+    "hotspots": [
+      { "id": "desk", "spot": [706, 640, 580, 380], "label": "Your desk -- case files", "kind": "files" },
+      { "id": "captain", "spot": [108, 180, 444, 600], "label": "Captain Breche's office", "kind": "dialogue", "dialogue": "captain" },
+      { "id": "hollis", "spot": [1120, 498, 440, 190], "label": "Sergeant Hollis", "kind": "dialogue", "dialogue": "hollis_station" },
+      { "id": "board", "spot": [1316, 196, 470, 316], "label": "Duty board", "kind": "flavor", "line": "The duty board in chalk: two constables out with flu, a pawnshop detail, and under YOUR CASE, in Breche's hand: BYRNE -- VESPER. IT MOVES OR YOU DO." },
+      { "id": "evidence", "spot": [1038, 322, 208, 262], "label": "Evidence room", "kind": "locked", "line": "The evidence room door has a brass lock older than the walls and a sign: SIGNED KEYS ONLY. The grey box from 1931 is in there, and it is not yours yet." },
+      { "id": "stairs", "spot": [1686, 236, 196, 620], "label": "Upstairs archive", "kind": "locked", "line": "The stairs go up to the archive and the canteen. Nobody goes up before the second pot of coffee. Nobody." },
+      { "id": "exit", "spot": [206, 656, 186, 336], "label": "Out to the street", "kind": "door", "to": "exterior" },
+      { "id": "window", "spot": [618, 208, 384, 296], "label": "Rain window", "kind": "flavor", "line": "Rain crawls down the pane in threads. Somewhere out there is Hollow Lane, and a house that will not talk until you knock." },
+      { "id": "cooler", "spot": [1556, 556, 152, 250], "label": "Water cooler", "kind": "flavor", "line": "The cooler gargles. Constable Dewi swears it is the best interrogation tool in the building." }
+    ]
+  },
+  "people": {
+    "captain": {
+      "name": "Captain Rosalind Breche",
+      "shortName": "Cpt. Breche",
+      "initial": "B",
+      "tint": "#7d4a68",
+      "portrait": "/art/people/captain.svg"
+    },
+    "hollis": {
+      "name": "Sergeant Hollis",
+      "shortName": "Sgt. Hollis",
+      "initial": "H",
+      "tint": "#55684a",
+      "portrait": "/art/people/hollis.svg"
+    }
+  },
+  "graphs": {
+    "captain": {
+      "id": "captain",
+      "speaker": "@dlg.name.captain",
+      "start": "root",
+      "nodes": {
+        "root": {
+          "effects": { "setFlags": ["talked:captain:any"] },
+          "beats": [
+            { "sp": "npc", "t": "@dlg.captain.root.1" },
+            { "sp": "npc", "t": "@dlg.captain.root.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.captain.q.files", "next": "files" },
+            { "text": "@dlg.captain.q.precinct", "next": "precinct" },
+            { "text": "@dlg.captain.q.advice_first", "cond": { "noFlag": "case:taken" }, "next": "advice_first" },
+            { "text": "@dlg.captain.q.advice_case", "cond": { "flag": "case:taken" }, "next": "advice_case" },
+            { "text": "@dlg.captain.q.hollis", "next": "hollis_opinion" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "files": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.captain.files.1" },
+            { "sp": "npc", "t": "@dlg.captain.files.2" },
+            { "sp": "npc", "t": "@dlg.captain.files.3" }
+          ],
+          "choices": [
+            { "text": "@dlg.captain.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "precinct": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.captain.precinct.1" },
+            { "sp": "npc", "t": "@dlg.captain.precinct.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.captain.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "advice_first": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.captain.advice_first.1" },
+            { "sp": "npc", "t": "@dlg.captain.advice_first.2" },
+            { "sp": "npc", "t": "@dlg.captain.advice_first.3" }
+          ],
+          "choices": [
+            { "text": "@dlg.captain.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "advice_case": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.captain.advice_case.1" },
+            { "sp": "npc", "t": "@dlg.captain.advice_case.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.captain.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "hollis_opinion": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.captain.hollis.1" }
+          ],
+          "choices": [
+            { "text": "@dlg.captain.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        }
+      }
+    },
+    "hollis_station": {
+      "id": "hollis_station",
+      "suspect": "hollis",
+      "speaker": "@dlg.name.hollis",
+      "start": "root",
+      "nodes": {
+        "root": {
+          "effects": { "setFlags": ["talked:hollis:station"] },
+          "beats": [
+            { "sp": "npc", "t": "@dlg.hollis.root.1" }
+          ],
+          "choices": [
+            { "text": "@dlg.hollis.q.hollow", "cond": { "flag": "case:taken" }, "next": "hollow" },
+            { "text": "@dlg.hollis.q.before_case", "cond": { "noFlag": "case:taken" }, "next": "before_case" },
+            { "text": "@dlg.hollis.q.mentor", "next": "mentor" },
+            { "text": "@dlg.hollis.q.weather", "next": "weather" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "hollow": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.hollis.hollow.1" },
+            { "sp": "npc", "t": "@dlg.hollis.hollow.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.hollis.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "before_case": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.hollis.before_case.1" },
+            { "sp": "npc", "t": "@dlg.hollis.before_case.2" }
+          ],
+          "choices": [
+            { "text": "@dlg.hollis.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "mentor": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.hollis.mentor.1" },
+            { "sp": "you", "t": "@dlg.hollis.mentor.2" },
+            { "sp": "npc", "t": "@dlg.hollis.mentor.3" }
+          ],
+          "choices": [
+            { "text": "@dlg.hollis.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        },
+        "weather": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.hollis.weather.1" }
+          ],
+          "choices": [
+            { "text": "@dlg.hollis.q.back", "next": "root" },
+            { "text": "@dlg.ui.leave", "close": true }
+          ]
+        }
+      }
+    }
+  }
+}

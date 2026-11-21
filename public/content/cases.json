@@ -1,0 +1,76 @@
+{
+  "$schema": "./schemas/case-registry.schema.json",
+  "cases": [
+    {
+      "id": "vesper",
+      "code": "OT-8841",
+      "title": "Ink & Ashes",
+      "subtitle": "The Vesper Case",
+      "status": "available",
+      "firstCase": true,
+      "slot": 0,
+      "accent": "#b4552d",
+      "difficulty": "Your first case",
+      "location": "7 Hollow Lane",
+      "victim": "Edmund Vesper, 61 -- philanthropist",
+      "pitch": "A philanthropist found dead in his own parlour during a storm. Five guests in the house, one door bolted from the inside, and a poison nobody will name.",
+      "memo": [
+        "Byrne -- sit down. Yes, that chair is ugly; it came with the rank.",
+        "Here is how this works. A folder lands on your desk, you read it twice, and then you go and stand where it happened. The file in your hand is the Vesper case. Philanthropist, old money, found dead in his parlour Saturday night with five guests under his roof and a storm keeping everyone honest about nothing.",
+        "The surgeon says poison. The house says accident. The guests say a great many things that agree with each other a little too well. Somebody in that house is lying, and the lie has good posture.",
+        "Rules of the house: read everything, write everything, believe nothing twice without checking it once. Sergeant Hollis took the morning statements -- they are in the file. He will drive you out to Hollow Lane when you are ready to look at the rooms yourself.",
+        "The commissioner wants a name by Friday. I want the truth and I would not mind it before Friday. Take the folder, Detective. This one is yours. -- Capt. R. Breche"
+      ]
+    },
+    {
+      "id": "pier",
+      "code": "OT-8802",
+      "title": "The Hollow Pier Drowning",
+      "subtitle": "Salt in the wrong lungs",
+      "status": "sealed",
+      "slot": 1,
+      "accent": "#1f5fd0",
+      "difficulty": "Requires Detective Grade II",
+      "location": "Hollow Pier, east embankment",
+      "victim": "Pearl Adderley, 34 -- pier treasurer",
+      "pitch": "A treasurer washed in under the pier she kept the books for. Fresh water in her lungs and salt on her gloves.",
+      "memo": [
+        "Not yet, Detective. This one is Grade II work and you are a week into Grade I.",
+        "It will keep. The pier has kept worse secrets for longer. -- R.B."
+      ]
+    },
+    {
+      "id": "lantern",
+      "code": "COLD-0044",
+      "title": "The Lantern Alley Fire",
+      "subtitle": "Cold -- six doors, no arrest",
+      "status": "cold",
+      "slot": 2,
+      "accent": "#8a4a20",
+      "difficulty": "Cold case -- 1931",
+      "location": "Lantern Alley, off Cordwainer Street",
+      "victim": "Six residents of Lantern Alley",
+      "pitch": "The fire that made your career before you had one. Six dead in 1931, one misfiled letter, and a box in the evidence room that nobody has opened in years.",
+      "memo": [
+        "You will recognize the box, Byrne. It crossed your shelf twice under two names.",
+        "It is not yours yet. Finish the file on your desk first; a detective gets one first case, and the alley has waited this long. When you have earned it, the box is yours. -- R.B."
+      ]
+    },
+    {
+      "id": "ledger",
+      "code": "OT-9015",
+      "title": "The Buttonmaker Ledger",
+      "subtitle": "Being typed up",
+      "status": "soon",
+      "slot": 3,
+      "accent": "#2c7a4b",
+      "difficulty": "Under review",
+      "location": "Buttonmaker's Walk",
+      "victim": "Pending -- the surgeon is still writing",
+      "pitch": "A buttonmaker's ledger with a column of names that are not customers. The typing pool is three pages from the end.",
+      "memo": [
+        "Still being typed up. The typing pool types at the speed of gossip, so do not hold your breath. It will find your desk when it is ready. -- R.B."
+      ]
+    }
+  ]
+}

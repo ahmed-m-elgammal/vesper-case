@@ -17,9 +17,10 @@ export class EndCardView {
 
   show(): void {
     this.node.innerHTML = '';
-    const found = Object.keys(this.vm.state.clues).length;
-    const hints = Object.values(this.vm.state.hintsUsed).reduce((a, b) => a + b, 0);
-    const gates = Object.keys(this.vm.state.gates).length;
+    const cp = this.vm.cp;
+    const found = Object.keys(cp.clues).length;
+    const hints = Object.values(cp.hintsUsed).reduce((a, b) => a + b, 0);
+    const gates = Object.keys(cp.gates).length;
 
     const card = el('div', { class: 'endcard' });
     card.append(

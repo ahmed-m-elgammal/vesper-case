@@ -46,20 +46,40 @@ export class DialogueVM {
     game.bus.on('dialogue:play', ({ dialogueId }: { dialogueId: string }) => this.play(dialogueId));
   }
 
-  /** Open a conversation graph by id (Act-1 people use their suspect id). */
+  /** Open a conversation graph by id. Case people and station staff both work:
+   *  the graph is looked up in the case bundle first, then the world (precinct)
+   *  repository, and the dialogue scope follows so effects land correctly. */
   openGraph(graphId: string): void {
-    const graph = this.game.repo.dialogueGraph(graphId);
-    if (!graph) return; // authoring safety: no graph -> no conversation
-    this.start(graph);
+    const caseGraph = this.game.repo.dialogueGraph(graphId);
+    if (caseGraph) {
+      this.game.dialogueScope = 'case';
+      this.start(caseGraph);
+      return;
+    }
+    const worldGraph = this.game.world.dialogueGraph(graphId);
+    if (worldGraph) {
+      this.game.dialogueScope = 'world';
+      this.start(worldGraph);
+      return;
+    }
+    // authoring safety: no graph -> no conversation
   }
 
   /** Legacy entry point: a flat node id (prologue briefing, gate solves). */
   play(dialogueId: string, onDone?: () => void): void {
-    const graph = this.game.repo.dialogueGraph(dialogueId);
-    if (graph) {
-      this.start(graph, onDone);
+    const caseGraph = this.game.repo.dialogueGraph(dialogueId);
+    if (caseGraph) {
+      this.game.dialogueScope = 'case';
+      this.start(caseGraph, onDone);
       return;
     }
+    const worldGraph = this.game.world.dialogueGraph(dialogueId);
+    if (worldGraph) {
+      this.game.dialogueScope = 'world';
+      this.start(worldGraph, onDone);
+      return;
+    }
+    this.game.dialogueScope = 'case';
     const node = this.game.repo.dialogueNode(dialogueId);
     if (!node) {
       onDone?.();
@@ -80,6 +100,7 @@ export class DialogueVM {
     this.stopTyping();
     this.runner = null;
     this.graph = null;
+    this.game.dialogueScope = 'case';
     this.active$.value = false;
     this.presenting$.value = false;
     this.beat$.value = null;
