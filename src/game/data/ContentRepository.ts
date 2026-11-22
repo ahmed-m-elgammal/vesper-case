@@ -17,6 +17,7 @@ import type {
   ContentBundle,
   DialogueGraph,
   DialogueNode,
+  EndCardContent,
   Gate,
   Room,
   Suspect,
@@ -162,6 +163,18 @@ export class ContentRepository {
       raw.graphs = {};
     }
 
+    // endCards.json is optional (act closers + the finale card, selected by
+    // gate.onSolve.endCard). Accept a bare map or an { endCards: {...} } wrapper.
+    let endCards: Record<string, EndCardContent> = {};
+    try {
+      const ec = (await fetchJson(`/content/cases/${caseId}/endCards.json`, 'force-cache')) as Record<string, unknown>;
+      const wrapper = ec && typeof ec === 'object' ? (ec as Record<string, unknown>).endCards : undefined;
+      endCards = ((wrapper && typeof wrapper === 'object' ? wrapper : ec) ?? {}) as Record<string, EndCardContent>;
+    } catch {
+      /* no end cards authored -- gates must not reference one (validator checks) */
+    }
+    raw.endCards = endCards;
+
     // Locale: global table first, then an optional per-case locale.json on top.
     let locale: Record<string, string> = { ...globalLocale };
     try {
@@ -203,6 +216,11 @@ export class ContentRepository {
 
   gates(): Gate[] {
     return this.bundle.gates;
+  }
+
+  /** Authored act-closer / finale card by id (gate.onSolve.endCard). */
+  endCard(id: string): EndCardContent | undefined {
+    return this.bundle.endCards?.[id];
   }
 
   dialogueNode(id: string): DialogueNode | undefined {

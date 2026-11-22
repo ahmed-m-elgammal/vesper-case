@@ -101,6 +101,12 @@ export class RoomVM {
     const target = this.game.repo.room(door.to);
     if (!target) return { action: 'locked', line: 'Not part of this house.' };
 
+    // Exit-gate doors: while their evidence is complete and unsolved, leaving
+    // the room means facing the deduction (data-driven act closers).
+    if (door.gateOnExit && this.game.gateReady(door.gateOnExit)) {
+      return { action: 'gate', gateId: door.gateOnExit };
+    }
+
     // Not yet built (future acts)
     if (door.lockedAct && target.act > 1 && !this.game.unlockedRooms$.value.includes(door.to)) {
       return { action: 'locked', line: door.lockedLine ?? `That way opens later in the case.` };

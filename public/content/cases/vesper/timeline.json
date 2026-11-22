@@ -31,6 +31,12 @@
       "revealedBy": "locked"
     },
     {
+      "id": "t_bread",
+      "time": "10:35 pm",
+      "text": "Colette sets the morning's bread; kitchen door shut, wireless on.",
+      "revealedBy": "clue:burnt_loaf"
+    },
+    {
       "id": "t_scissors",
       "time": "10:40 pm",
       "text": "Peggy comes down for her sewing scissors -- she was in the parlour after ten.",
@@ -43,10 +49,16 @@
       "revealedBy": "clue:hall_clock"
     },
     {
+      "id": "t_lantern",
+      "time": "10:48 pm",
+      "text": "Colette lights the pantry lantern and bakes on in the dark; Peggy carries her candle up.",
+      "revealedBy": "clue:pantry_lantern"
+    },
+    {
       "id": "t_return",
       "time": "11:21 pm",
-      "text": "Power returns; the hall clock restarts, twenty-one minutes blind.",
-      "revealedBy": "locked"
+      "text": "Power returns; the hall clock restarts, twenty-one minutes blind. The kitchen wireless sings again to nobody.",
+      "revealedBy": "clue:kitchen_radio"
     },
     {
       "id": "t_door",

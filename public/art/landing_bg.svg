@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="lbWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="41" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="lbSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="lbSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <pattern id="lbDamask" width="120" height="120" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="30" r="3" fill="#5c5568" opacity="0.14"/>
+      <circle cx="90" cy="90" r="3" fill="#5c5568" opacity="0.14"/>
+      <path d="M60 8 Q74 30 60 52 Q46 30 60 8 Z" fill="none" stroke="#5c5568" stroke-width="1.5" opacity="0.12"/>
+      <path d="M60 68 Q74 90 60 112 Q46 90 60 68 Z" fill="none" stroke="#5c5568" stroke-width="1.5" opacity="0.12"/>
+    </pattern>
+  </defs>
+
+  <!-- paper base -->
+  <rect width="2400" height="900" fill="#f4ecdb"/>
+
+  <!-- watercolor washes: cold upper corridor, candle-warm floor -->
+  <g filter="url(#lbSoft)">
+    <ellipse cx="560" cy="280" rx="620" ry="320" fill="#8fa3b0" opacity="0.20"/>
+    <ellipse cx="2000" cy="260" rx="620" ry="300" fill="#3a3f52" opacity="0.18"/>
+    <ellipse cx="1200" cy="820" rx="1300" ry="200" fill="#c9a25e" opacity="0.20"/>
+    <ellipse cx="180" cy="560" rx="320" ry="420" fill="#2e2a33" opacity="0.10"/>
+    <ellipse cx="2300" cy="480" rx="260" ry="420" fill="#2e2a33" opacity="0.10"/>
+  </g>
+
+  <!-- wallpaper above the picture rail -->
+  <rect x="0" y="0" width="2400" height="520" fill="url(#lbDamask)"/>
+
+  <!-- picture rail + skirting -->
+  <g filter="url(#lbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M0 532 L2400 528" stroke-width="5"/>
+    <path d="M0 742 L2400 738" stroke-width="4"/>
+  </g>
+
+  <!-- the stair well: dark going down at the left -->
+  <g filter="url(#lbSoft2)">
+    <ellipse cx="140" cy="620" rx="260" ry="260" fill="#2e2a33" opacity="0.18"/>
+  </g>
+  <g filter="url(#lbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M370 756 L370 600 Q372 560 420 556" stroke-width="5" opacity="0.6"/>
+    <path d="M300 756 L300 640" stroke-width="3" opacity="0.4"/>
+  </g>
+
+  <!-- window and window seat alcove: rain on the upper panes -->
+  <g filter="url(#lbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="706" y="176" width="244" height="344" fill="#3a3f52" fill-opacity="0.32" stroke-width="6"/>
+    <path d="M828 176 V520 M706 348 H950" stroke-width="4"/>
+    <rect x="720" y="190" width="100" height="150" fill="#8fa3b0" fill-opacity="0.22" stroke-width="2.5"/>
+    <rect x="836" y="190" width="100" height="150" fill="#3a3f52" fill-opacity="0.16" stroke-width="2.5"/>
+    <rect x="720" y="358" width="100" height="148" fill="#3a3f52" fill-opacity="0.14" stroke-width="2.5"/>
+    <rect x="836" y="358" width="100" height="148" fill="#8fa3b0" fill-opacity="0.16" stroke-width="2.5"/>
+    <path d="M744 210 q6 58 -2 112 M782 224 q8 50 2 104 M862 208 q-6 62 0 112 M898 232 q6 46 -2 96 M752 374 q6 50 -2 106 M876 378 q8 46 0 100" stroke="#f4ecdb" stroke-width="2.4" opacity="0.5"/>
+    <path d="M700 520 H956" stroke-width="7"/>
+    <!-- rain streaking the wall below the sill -->
+    <path d="M712 530 q4 40 -2 84 M936 532 q4 36 -2 78" stroke-width="2.4" opacity="0.35"/>
+  </g>
+
+  <!-- the attic rise: shadow up to the right -->
+  <g filter="url(#lbSoft2)">
+    <ellipse cx="2260" cy="420" rx="300" ry="380" fill="#2e2a33" opacity="0.14"/>
+  </g>
+
+  <!-- floorboards -->
+  <g filter="url(#lbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="0" y="756" width="2400" height="144" fill="#b9a98d" fill-opacity="0.45" stroke-width="4"/>
+    <path d="M0 756 L2400 752" stroke-width="6"/>
+    <path d="M100 800 H620 M700 804 H1240 M1320 798 H1860 M1940 806 H2400" stroke-width="2.4" opacity="0.4"/>
+    <path d="M100 856 H580 M660 860 H1200 M1280 854 H1820 M1880 858 H2400" stroke-width="2.4" opacity="0.4"/>
+    <path d="M180 800 V856 M420 804 V860 M760 800 V856 M1060 804 V860 M1380 800 V856 M1680 804 V860 M2000 800 V856 M2260 804 V860" stroke-width="2" opacity="0.35"/>
+  </g>
+</svg>

@@ -91,16 +91,21 @@ export class GameVM implements DialogueContext {
     );
     this.unlockedRooms$ = new Computed<string[]>(
       () => {
-        // A room is unlocked when its act has shipped AND no unsolved gate
-        // lists it as a reward (data-driven lock, no hard-coded ids).
+        // A room is unlocked when its act has been swung open by a solved gate
+        // (act 1 is always open) AND no unsolved gate lists it as a reward
+        // -- data-driven locks, no hard-coded ids.
         const cp = this.cpOrNull();
         const gated = new Set<string>();
+        let maxAct = 1;
         for (const g of repo.gates()) {
+          if (cp?.gates[g.id]) {
+            for (const a of g.onSolve.openActs ?? []) maxAct = Math.max(maxAct, a);
+          }
           for (const rid of g.onSolve.unlockRooms ?? []) {
             if (!cp?.gates[g.id]) gated.add(rid);
           }
         }
-        return repo.roomList.filter((r) => r.act <= 1 && !gated.has(r.id)).map((r) => r.id);
+        return repo.roomList.filter((r) => r.act <= maxAct && !gated.has(r.id)).map((r) => r.id);
       },
       [this.gates$]
     );

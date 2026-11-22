@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="lmWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="43" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6.5"/>
+    </filter>
+    <filter id="lmSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="lmSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <!-- contact shadows -->
+  <g filter="url(#lmSoft)">
+    <ellipse cx="480" cy="782" rx="180" ry="26" fill="#3a3f52" opacity="0.16"/>
+    <ellipse cx="1090" cy="784" rx="180" ry="26" fill="#3a3f52" opacity="0.16"/>
+    <ellipse cx="1430" cy="782" rx="160" ry="24" fill="#3a3f52" opacity="0.15"/>
+    <ellipse cx="1800" cy="784" rx="180" ry="26" fill="#3a3f52" opacity="0.14"/>
+    <ellipse cx="828" cy="780" rx="180" ry="24" fill="#3a3f52" opacity="0.14"/>
+  </g>
+
+  <!-- the descending stair: four treads, worn runner, wax on the twelfth step -->
+  <g filter="url(#lmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 640 H370 V660 H40 Z" fill="#8a6a4f" fill-opacity="0.40" stroke-width="3.5"/>
+    <path d="M40 700 H350 V720 H40 Z" fill="#8a6a4f" fill-opacity="0.45" stroke-width="3.5"/>
+    <path d="M40 756 H330 V776 H40 Z" fill="#8a6a4f" fill-opacity="0.5" stroke-width="3.5"/>
+    <!-- risers -->
+    <path d="M40 660 H370 M40 720 H350 M40 776 H330" stroke-width="4" opacity="0.7"/>
+    <!-- the runner band down the treads -->
+    <path d="M110 640 H300 M100 700 H280 M96 756 H262" fill="#b4552d" fill-opacity="0.18" stroke-width="2.5"/>
+    <!-- worn pale lanes: stick on the right, trays against the wall -->
+    <path d="M270 642 Q278 700 258 758 M132 644 Q120 702 110 760" stroke="#c9a25e" stroke-width="7" opacity="0.5"/>
+    <path d="M276 644 Q286 702 264 760" stroke="#2e2a33" stroke-width="2.6" opacity="0.5"/>
+    <!-- three fresh wax drips on the twelfth step -->
+    <path d="M170 656 q-5 -10 4 -12 q9 2 4 12 q-2 8 -4 8 q-2 0 -4 -8 Z" fill="#e8c97a" fill-opacity="0.9" stroke-width="2.2"/>
+    <path d="M206 660 q-5 -10 4 -12 q9 2 4 12 q-2 8 -4 8 q-2 0 -4 -8 Z" fill="#e8c97a" fill-opacity="0.9" stroke-width="2.2"/>
+    <path d="M240 656 q-4 -8 4 -10 q8 2 4 10 q-2 7 -4 7 q-2 0 -4 -7 Z" fill="#e8c97a" fill-opacity="0.85" stroke-width="2.2"/>
+    <!-- the well rail above -->
+    <path d="M380 560 Q300 556 240 570 Q160 588 90 616" stroke-width="5" opacity="0.5"/>
+    <path d="M340 610 V570 M260 618 V578 M180 634 V596" stroke-width="3.5" opacity="0.5"/>
+  </g>
+
+  <!-- Peggy's door -->
+  <g filter="url(#lmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="404" y="244" width="162" height="512" fill="#8a6a4f" fill-opacity="0.40" stroke-width="6"/>
+    <rect x="424" y="268" width="122" height="200" fill="#3a3f52" fill-opacity="0.20" stroke-width="3.4"/>
+    <rect x="424" y="496" width="122" height="230" fill="#3a3f52" fill-opacity="0.20" stroke-width="3.4"/>
+    <circle cx="540" cy="500" r="10" fill="#c9a25e" fill-opacity="0.85" stroke-width="3"/>
+    <path d="M388 756 H582" stroke-width="6"/>
+    <path d="M398 740 H576" stroke-width="2.4" opacity="0.5"/>
+  </g>
+
+  <!-- the sill shelf: tonic bottle and rinsed glass, upside down -->
+  <g filter="url(#lmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M586 566 H694" stroke-width="6"/>
+    <path d="M598 566 V590 M682 566 V590" stroke-width="4"/>
+    <!-- bottle: amber, white label -->
+    <rect x="604" y="482" width="36" height="84" fill="#b4762d" fill-opacity="0.55" stroke-width="3"/>
+    <rect x="608" y="506" width="28" height="34" fill="#f4ecdb" fill-opacity="0.8" stroke-width="2"/>
+    <path d="M612 514 H632 M612 522 H630 M612 530 H628" stroke-width="1.6" opacity="0.6"/>
+    <rect x="612" y="470" width="20" height="12" fill="#8a6a4f" fill-opacity="0.6" stroke-width="2.5"/>
+    <!-- glass, rinsed and inverted -->
+    <path d="M650 560 H688 L682 522 H656 Z" fill="#d9e4e8" fill-opacity="0.4" stroke-width="3"/>
+    <path d="M658 522 q11 -8 22 0" stroke-width="2.4" opacity="0.6"/>
+    <!-- dry ring under the glass -->
+    <ellipse cx="669" cy="562" rx="24" ry="5" fill="none" stroke="#3a3f52" stroke-width="2" opacity="0.4"/>
+  </g>
+
+  <!-- window seat bench under the window -->
+  <g filter="url(#lmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M706 596 H952 L936 628 H722 Z" fill="#9aa88f" fill-opacity="0.45" stroke-width="4.5"/>
+    <path d="M736 628 V756 M920 628 V756 M736 690 H920" stroke-width="4"/>
+    <path d="M760 600 H900 Q916 600 912 618 Q908 632 890 630 H772 Q752 632 748 616 Q746 602 760 600 Z" fill="#8fa3b0" fill-opacity="0.4" stroke-width="3"/>
+  </g>
+
+  <!-- Edmund's door: heavier, darker -->
+  <g filter="url(#lmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1014" y="244" width="162" height="512" fill="#5c4a3d" fill-opacity="0.55" stroke-width="6"/>
+    <rect x="1034" y="266" width="122" height="180" fill="#2e2a33" fill-opacity="0.28" stroke-width="3.4"/>
+    <rect x="1034" y="470" width="122" height="180" fill="#2e2a33" fill-opacity="0.28" stroke-width="3.4"/>
+    <rect x="1034" y="672" width="122" height="66" fill="#2e2a33" fill-opacity="0.24" stroke-width="3.4"/>
+    <circle cx="1150" cy="520" r="11" fill="#c9a25e" fill-opacity="0.8" stroke-width="3"/>
+    <path d="M998 756 H1192" stroke-width="6"/>
+  </g>
+
+  <!-- bathroom door: painted white, porcelain knob -->
+  <g filter="url(#lmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1359" y="244" width="142" height="512" fill="#e9dfc8" fill-opacity="0.55" stroke-width="6"/>
+    <rect x="1377" y="266" width="106" height="220" fill="#8fa3b0" fill-opacity="0.18" stroke-width="3"/>
+    <rect x="1377" y="506" width="106" height="220" fill="#8fa3b0" fill-opacity="0.18" stroke-width="3"/>
+    <circle cx="1480" cy="500" r="10" fill="#f4ecdb" fill-opacity="0.9" stroke-width="3"/>
+    <path d="M1344 756 H1518" stroke-width="6"/>
+  </g>
+
+  <!-- linen cupboard with louvre slats -->
+  <g filter="url(#lmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1704" y="244" width="192" height="512" fill="#9aa88f" fill-opacity="0.35" stroke-width="5"/>
+    <path d="M1800 244 V756" stroke-width="3.4"/>
+    <path d="M1722 280 H1782 M1722 306 H1782 M1722 332 H1782 M1722 358 H1782 M1722 384 H1782 M1722 410 H1782 M1722 436 H1782 M1722 462 H1782 M1722 488 H1782 M1722 514 H1782 M1722 540 H1782 M1722 566 H1782 M1722 592 H1782 M1722 618 H1782" stroke-width="2" opacity="0.5"/>
+    <path d="M1818 280 H1878 M1818 306 H1878 M1818 332 H1878 M1818 358 H1878 M1818 384 H1878 M1818 410 H1878 M1818 436 H1878 M1818 462 H1878 M1818 488 H1878 M1818 514 H1878 M1818 540 H1878 M1818 566 H1878 M1818 592 H1878 M1818 618 H1878" stroke-width="2" opacity="0.5"/>
+    <circle cx="1786" cy="540" r="7" fill="#c9a25e" fill-opacity="0.8" stroke-width="2.5"/>
+    <circle cx="1814" cy="540" r="7" fill="#c9a25e" fill-opacity="0.8" stroke-width="2.5"/>
+    <path d="M1690 756 H1910" stroke-width="5"/>
+  </g>
+
+  <!-- the attic stair rising to the right, door taped at the top -->
+  <g filter="url(#lmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2060 756 L2136 660 L2148 660 L2080 756 Z" fill="#8a6a4f" fill-opacity="0.35" stroke-width="3"/>
+    <path d="M2148 660 L2216 572 L2230 572 L2162 660 Z" fill="#8a6a4f" fill-opacity="0.42" stroke-width="3"/>
+    <path d="M2230 572 L2292 496 L2306 496 L2244 572 Z" fill="#8a6a4f" fill-opacity="0.48" stroke-width="3"/>
+    <path d="M2306 496 L2360 432 L2376 432 L2320 496 Z" fill="#8a6a4f" fill-opacity="0.55" stroke-width="3"/>
+    <!-- runner band up the flight -->
+    <path d="M2096 742 L2160 656 M2184 652 L2246 568 M2262 564 L2320 492" stroke="#b4552d" stroke-width="10" opacity="0.22" stroke-linecap="round"/>
+    <!-- rail -->
+    <path d="M2074 668 L2150 574 Q2160 562 2174 560 L2340 452" stroke-width="5"/>
+    <path d="M2104 742 V704 M2186 652 V616 M2262 564 V530" stroke-width="3.5" opacity="0.7"/>
+    <!-- attic door under the slope, police tape across -->
+    <rect x="2084" y="196" width="182" height="424" fill="#3a3f52" fill-opacity="0.45" stroke-width="5"/>
+    <rect x="2102" y="216" width="146" height="180" fill="#2e3242" fill-opacity="0.4" stroke-width="3"/>
+    <rect x="2102" y="406" width="146" height="120" fill="#2e3242" fill-opacity="0.35" stroke-width="3"/>
+    <circle cx="2160" cy="420" r="9" fill="#c9a25e" fill-opacity="0.7" stroke-width="2.5"/>
+    <path d="M2060 300 L2352 386" stroke="#b4552d" stroke-width="14" opacity="0.5" stroke-linecap="round"/>
+    <path d="M2060 300 L2352 386" stroke="#2e2a33" stroke-width="2" opacity="0.5" stroke-dasharray="18 14"/>
+    <path d="M2076 756 H2340" stroke-width="5"/>
+  </g>
+</svg>

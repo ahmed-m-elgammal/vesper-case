@@ -1,46 +1,72 @@
-import { readFileSync } from 'fs';
-import { validateWorld, validateCaseRegistry } from '/home/z/my-project/src/game/data/validate';
+/**
+ * Content validation harness -- runs the engine's own runtime validators
+ * against the on-disk JSON, without a browser.
+ *
+ *   npx tsx scripts/validate-content.ts
+ */
 
-const world = JSON.parse(readFileSync('/home/z/my-project/public/content/world.json', 'utf8'));
-const registry = JSON.parse(readFileSync('/home/z/my-project/public/content/cases.json', 'utf8'));
-const locale = JSON.parse(readFileSync('/home/z/my-project/public/content/locales/en.json', 'utf8'));
+import { readFileSync, existsSync } from 'node:fs';
+import { validateBundle, validateWorld, validateCaseRegistry } from '../src/game/data/validate';
 
-const problems = [
-  ...validateWorld({ ...world, locale }),
-  ...validateCaseRegistry(registry),
-];
+function loadJson(path: string): Record<string, unknown> {
+  return JSON.parse(readFileSync(path, 'utf8')) as Record<string, unknown>;
+}
 
-// career + rankRequired cross-checks
-if (world.career) {
-  const titles = world.career.ranks.map((r: { title: string }) => r.title);
-  for (const c of registry.cases) {
-    if (c.rankRequired && !titles.includes(c.rankRequired)) problems.push(`cases: rankRequired "${c.rankRequired}" not a career rank`);
+const vesperDir = 'public/content/cases/vesper';
+const files = ['case', 'suspects', 'rooms', 'clues', 'gates', 'timeline', 'prologue', 'dialogue', 'chains'] as const;
+
+const raw: Record<string, unknown> = {};
+for (const f of files) {
+  raw[f] = loadJson(`${vesperDir}/${f}.json`);
+}
+
+// Accept both bare arrays and { key: [...] } wrapper shapes (as the engine does).
+const ARRAY_KEYS = ['suspects', 'rooms', 'clues', 'gates', 'timeline', 'prologue', 'dialogue', 'chains'] as const;
+for (const key of ARRAY_KEYS) {
+  const v = raw[key];
+  if (v && !Array.isArray(v) && Array.isArray((v as Record<string, unknown>)[key])) {
+    raw[key] = (v as Record<string, unknown>)[key];
   }
 }
 
-// world people -> portrait files exist
-import { existsSync } from 'fs';
-for (const [pid, p] of Object.entries(world.people) as [string, { portrait?: string }][]) {
-  if (p.portrait && !existsSync('public' + p.portrait)) problems.push(`people.${pid}: portrait missing ${p.portrait}`);
-}
-for (const scene of ['exterior', 'interior', 'upper'] as const) {
-  const art = (world as Record<string, { art?: string }>)[scene]?.art;
-  if (art && !existsSync('public' + art)) problems.push(`${scene}: art missing ${art}`);
-  // walking geometry -> sprite files must exist on disk
-  const nav = (world as Record<string, { nav?: { props?: { img: string }[] } }>)[scene]?.nav;
-  for (const prop of nav?.props ?? []) {
-    if (!existsSync('public' + prop.img)) problems.push(`${scene}: nav prop sprite missing ${prop.img}`);
-  }
-}
-// the walking detective's nine frames
-for (const frame of ['down-0', 'down-1', 'down-2', 'up-0', 'up-1', 'up-2', 'side-0', 'side-1', 'side-2']) {
-  if (!existsSync(`public/art/player/${frame}.svg`)) problems.push(`player frame missing ${frame}.svg`);
+// dialogue.json may be v2 shape { nodes, graphs }
+const d = raw.dialogue as Record<string, unknown>;
+if (d && !Array.isArray(d)) {
+  raw.dialogue = Array.isArray(d.nodes) ? d.nodes : [];
+  raw.graphs = d.graphs ?? {};
 }
 
-if (problems.length) {
-  console.log('PROBLEMS:\n- ' + problems.join('\n- '));
-  process.exit(1);
+// endCards (optional file, bare map or wrapper)
+let endCards: Record<string, unknown> = {};
+const ecPath = `${vesperDir}/endCards.json`;
+if (existsSync(ecPath)) {
+  const ec = loadJson(ecPath) as Record<string, unknown>;
+  endCards = ((ec.endCards && typeof ec.endCards === 'object' ? ec.endCards : ec) ?? {}) as Record<string, unknown>;
 }
-console.log('World + registry content OK. Ranks:', world.career.ranks.map((r: { title: string; after: number }) => `${r.title}@${r.after}`).join(', '));
-console.log('People:', Object.keys(world.people).join(', '));
-console.log('Graphs:', Object.keys(world.graphs).join(', '));
+raw.endCards = endCards;
+
+// locale: global table (+ optional per-case override)
+const locale = loadJson('public/content/locales/en.json') as Record<string, string>;
+raw.locale = locale;
+
+const problems = validateBundle(raw);
+if (problems.length > 0) {
+  console.error('BUNDLE ERRORS:');
+  for (const p of problems) console.error(' - ' + p);
+  process.exitCode = 1;
+} else {
+  console.log(`bundle OK: ${(raw.clues as unknown[]).length} clues, ${(raw.gates as unknown[]).length} gates, ${(raw.rooms as unknown[]).length} rooms, graphs=${Object.keys(raw.graphs ?? {}).length}, endCards=${Object.keys(endCards).length}`);
+}
+
+// world + registry too (they validate graphs against the global locale)
+const worldRaw = { ...loadJson('public/content/world.json'), locale };
+const worldProblems = [...validateWorld(worldRaw), ...validateCaseRegistry(loadJson('public/content/cases.json'))];
+if (worldProblems.length > 0) {
+  console.error('WORLD ERRORS:');
+  for (const p of worldProblems) console.error(' - ' + p);
+  process.exitCode = 1;
+} else {
+  console.log('world OK');
+}
+
+if (process.exitCode !== 1) console.log('ALL CONTENT VALID');

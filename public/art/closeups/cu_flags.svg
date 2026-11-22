@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cuFlW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="59" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="cuFlS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="cuFlS2" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#cuFlS)">
+    <ellipse cx="78" cy="76" rx="58" ry="38" fill="#8fa3b0" opacity="0.14"/>
+    <ellipse cx="736" cy="524" rx="66" ry="42" fill="#3a3f52" opacity="0.10"/>
+    <ellipse cx="706" cy="86" rx="46" ry="30" fill="#9aa88f" opacity="0.10"/>
+  </g>
+  <g filter="url(#cuFlW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+
+  <!-- stone flags in perspective -->
+  <g filter="url(#cuFlW)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M60 220 L740 240 L740 560 L60 560 Z" fill="#8fa3b0" fill-opacity="0.22" stroke-width="4"/>
+    <!-- joint lines going back -->
+    <path d="M60 300 L740 316 M60 380 L740 394 M60 464 L740 474" stroke-width="2.6" opacity="0.5"/>
+    <path d="M200 222 L216 560 M420 226 L428 560 M580 232 L600 560 M700 240 L716 560" stroke-width="2.4" opacity="0.45"/>
+    <!-- colder, damper sheen near the door -->
+    <ellipse cx="430" cy="480" rx="300" ry="90" fill="#3a3f52" opacity="0.10"/>
+  </g>
+
+  <!-- diamond-tread prints: in from the door, and out -->
+  <g filter="url(#cuFlW)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- print 1 (nearest, walking away toward the hall) -->
+    <path d="M300 500 q-10 -44 26 -48 q36 -4 34 30 q-2 34 -30 36 q-24 2 -30 -18 Z" fill="#3a3f52" fill-opacity="0.4" stroke-width="3.4"/>
+    <path d="M312 490 l20 -20 M306 502 l24 -24 M330 498 l18 -20 M344 484 l14 -16" stroke-width="2.4" opacity="0.7"/>
+    <!-- print 2 -->
+    <path d="M420 452 q-10 -42 24 -46 q34 -4 32 28 q-2 32 -28 34 q-22 2 -28 -16 Z" fill="#3a3f52" fill-opacity="0.4" stroke-width="3.4"/>
+    <path d="M432 442 l18 -18 M426 454 l22 -22 M448 450 l16 -18 M462 438 l12 -14" stroke-width="2.4" opacity="0.7"/>
+    <!-- print 3 (from the garden door, coming in) -->
+    <path d="M520 400 q-8 -38 22 -42 q32 -4 30 26 q-2 30 -26 32 q-20 2 -26 -16 Z" fill="#3a3f52" fill-opacity="0.35" stroke-width="3.2"/>
+    <path d="M532 390 l16 -16 M526 402 l20 -20 M546 398 l14 -16 M558 386 l12 -14" stroke-width="2.2" opacity="0.65"/>
+    <!-- print 4, fainter, older -->
+    <path d="M600 356 q-8 -34 20 -38 q28 -4 26 24 q-2 28 -24 30 q-18 2 -22 -16 Z" fill="#3a3f52" fill-opacity="0.25" stroke-width="3"/>
+    <path d="M610 348 l14 -14 M606 358 l18 -18 M624 354 l12 -14" stroke-width="2" opacity="0.5"/>
+    <!-- rain-wet sheen -->
+    <ellipse cx="470" cy="440" rx="210" ry="60" fill="#8fa3b0" opacity="0.12"/>
+    <!-- direction arrows, faint pencil -->
+    <path d="M180 520 q30 -16 60 -10 M186 514 l-8 8 M240 508 l-10 4" stroke-width="2.6" opacity="0.6"/>
+  </g>
+
+  <!-- rain still beating beyond the threshold -->
+  <g filter="url(#cuFlW)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M96 110 q8 44 -2 86 M150 96 q10 40 2 82 M210 118 q8 40 -2 80" stroke-width="2.6" opacity="0.35"/>
+    <path d="M96 220 H260" stroke-width="3" opacity="0.4"/>
+    <text x="102" y="96" font-family="Caveat, cursive" font-size="24" fill="#2e2a33" opacity="0.6">the garden door</text>
+  </g>
+
+  <text x="330" y="130" font-family="Caveat, cursive" font-size="30" fill="#2e2a33" text-anchor="start">in from the garden --</text>
+  <text x="350" y="166" font-family="Caveat, cursive" font-size="30" fill="#2e2a33" text-anchor="start">and out the same way.</text>
+  <text x="366" y="202" font-family="Caveat, cursive" font-size="30" fill="#2e2a33" text-anchor="start">size seven, diamond tread.</text>
+</svg>

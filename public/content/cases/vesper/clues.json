@@ -325,6 +325,114 @@
       "note": "Peggy says it plainly: she came down at twenty to eleven for her scissors, found her uncle crossing the hall humming with a folder of pages under his arm, and went back up to sew. Alive, cheerful, carrying the memoir -- at twenty to eleven.",
       "toast": "Peggy's Admission -- her uncle alive and humming at twenty to eleven.",
       "chains": ["small"]
+    },
+    {
+      "id": "burnt_loaf",
+      "name": "The Burnt Loaf",
+      "room": "kitchen",
+      "spot": [790, 385, 170, 120],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_loaf.svg",
+        "title": "Under a Blackened Crust",
+        "caption": "Burnt past saving -- not stopped half-baked."
+      },
+      "note": "The morning's loaf went in at 10:35 and the blackout killed the oven at 10:47. If the power had stayed off, the loaf would sit there half-baked. It is burnt black past saving: the oven came back at 11:21 and finished its work to cinders while Colette was elsewhere. The kitchen kept its own timetable of the dark.",
+      "toast": "The Burnt Loaf -- burnt, not raw: the oven came back without her.",
+      "chains": ["dark"],
+      "timeline": "t_bread"
+    },
+    {
+      "id": "pantry_lantern",
+      "name": "The Pantry Lantern",
+      "room": "kitchen",
+      "spot": [1695, 430, 115, 200],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_lantern.svg",
+        "title": "One Flame Through the Dark",
+        "caption": "Oil burned to the wick's mark -- half an hour of one small light."
+      },
+      "note": "Colette's hurricane lantern, hung back on its pantry hook with the oil burned down and a soot halo on the shelf. It lit one corner of one kitchen through the dark half hour -- and it was the only moving light downstairs. Whoever used the garden door crossed the house without a flame, and without one on the way out.",
+      "toast": "The Pantry Lantern -- one moving light downstairs, and it was hers.",
+      "chains": ["dark"],
+      "timeline": "t_lantern"
+    },
+    {
+      "id": "kitchen_radio",
+      "name": "The Wireless, Still On",
+      "room": "kitchen",
+      "spot": [1395, 320, 130, 110],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_radio.svg",
+        "title": "Singing to Nobody",
+        "caption": "Left switched on since the lights came back."
+      },
+      "note": "The kitchen wireless died mid-song at 10:47 with everything else -- and this morning it is playing again, switched on all night. Nobody turned it back on: the power returned at 11:21 and found the kitchen empty. Colette was out on her rounds, the bread burning behind her, and the wireless sang to nobody while a door stood off its bolt.",
+      "toast": "The Wireless -- singing to an empty kitchen at 11:21.",
+      "chains": ["dark"],
+      "timeline": "t_return"
+    },
+    {
+      "id": "wet_flag_prints",
+      "name": "Wet Prints on the Flags",
+      "room": "kitchen",
+      "spot": [1935, 745, 250, 90],
+      "tool": "magnifier",
+      "closeup": {
+        "svg": "/art/closeups/cu_flags.svg",
+        "title": "Diamond-Tread, Crossing In",
+        "caption": "Rain-wet, walking in from the garden door -- and out again."
+      },
+      "note": "Stone flags keep a wet story longer than a rug does: diamond-tread prints, rain-damp, size seven or eight, walking in from the garden door and out again -- toward the passage, the hall, the parlour. The same boots that ghosted the rug by the fender. Rain-wet, so they fell while the storm still beat: inside the dark half hour.",
+      "toast": "Wet Prints on the Flags -- the garden visitor crossed the kitchen twice.",
+      "chains": ["dark", "door"]
+    },
+    {
+      "id": "colette_ledger_page",
+      "name": "The Kitchen Rounds Book",
+      "room": "kitchen",
+      "spot": [320, 470, 140, 90],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_ledgerpage.svg",
+        "title": "Her Rounds, in Pencil",
+        "caption": "10:35 bread in. 11:21 lights back, kitchen empty. 11:30 the door, off its bolt."
+      },
+      "note": "A second book by the flour bin, pencil in a tidy hand: '10:35 -- bread in, wireless on. 10:47 -- dark; lantern lit. 11:21 -- lights back, wireless singing; I was in the scullery. 11:30 -- garden door OFF its bolt; bolted it. Never left it so.' The most honest witness in the house has said it all before -- and now she has written it too.",
+      "toast": "The Rounds Book -- 10:35 to half eleven, in her own hand.",
+      "chains": ["dark"]
+    },
+    {
+      "id": "stair_worn_runner",
+      "name": "The Worn Runner",
+      "room": "landing",
+      "spot": [110, 610, 260, 150],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_runner.svg",
+        "title": "Lanes Worn by Habit",
+        "caption": "Two pale lanes, a stick's dark line -- and fresh wax on the twelfth step."
+      },
+      "note": "Years of the same feet wear lanes into a stair carpet: Edmund's stick along the right, Colette's trays close against the wall, and the middle left for whoever else goes up. On the twelfth step, three fresh wax drips -- candle wax, carried DOWN, the way Tobias banks his light at midnight. Habit, written in carpet: last night everyone's road was the road they always take.",
+      "toast": "The Worn Runner -- habit's lanes, and a midnight candle's wax.",
+      "chains": ["household"]
+    },
+    {
+      "id": "peggy_tonic_glass",
+      "name": "The Tonic Glass",
+      "room": "landing",
+      "spot": [590, 500, 95, 95],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_tonic.svg",
+        "title": "Rinsed, and Left Upside Down",
+        "caption": "The doctor's tonic -- iron and quinine, one dose gone."
+      },
+      "note": "On the sill shelf outside Peggy's door: Dr. Marsh's tonic bottle -- iron and quinine, harmless, nearly full -- and a glass rinsed and left upside down to dry. She took her nightly tonic standing on the landing, at her leisure, then went in to sew. A woman settling for the night, not one dressing to go out.",
+      "toast": "The Tonic Glass -- Peggy settled for the night, unhurried.",
+      "chains": ["household"]
     }
   ]
 }

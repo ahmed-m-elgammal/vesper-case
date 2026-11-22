@@ -51,12 +51,12 @@ export class HubScene extends Phaser.Scene {
           this.ctx.hooks.toast('That room is still sealed. Follow the case.', 'warn');
         } else {
           const actNames: Record<number, string> = {
-            2: 'Act 2 -- kitchen, hallway and stairs.',
-            3: 'Act 3 -- bedrooms, bathroom and study.',
-            4: 'Act 4 -- attic and basement.',
-            5: 'Act 5 -- interrogations and the accusation.',
+            2: 'Act 2 -- the kitchen and the stairs. It opens when the parlour\'s account closes.',
+            3: 'Act 3 -- bedrooms, bathroom and study. Next build.',
+            4: 'Act 4 -- attic and basement. Next build.',
+            5: 'Act 5 -- interrogations and the accusation. Next build.',
           };
-          this.ctx.hooks.toast(`Next build: ${actNames[room.act] ?? 'a later act.'}`, 'info');
+          this.ctx.hooks.toast(actNames[room.act] ?? 'A later act. Next build.', 'info');
         }
       });
 

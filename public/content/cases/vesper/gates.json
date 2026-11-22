@@ -64,7 +64,44 @@
       ],
       "onSolve": {
         "flags": ["act1_clear", "tool_uv_granted"],
-        "endCard": "end-of-build-one"
+        "openActs": [2],
+        "endCard": "act-one-curtain"
+      }
+    },
+    {
+      "id": "gate-act2",
+      "title": "What the Dark Half Hour Proved",
+      "prompt": "Sergeant Hollis meets you at the stair foot with the notebook square again. The kitchen and the landing have their own arithmetic -- say it plainly, and Act II closes.",
+      "requiresClues": ["burnt_loaf", "pantry_lantern", "kitchen_radio", "wet_flag_prints", "colette_ledger_page"],
+      "slots": [
+        {
+          "before": "The garden visitor's whole visit fell inside",
+          "after": "-- twenty-one minutes when the house moved by lantern light.",
+          "answer": "the blackout",
+          "chips": ["the blackout", "supper", "Julian's visit", "the morning round"]
+        },
+        {
+          "before": "Wet diamond-tread prints cross the kitchen flags from the garden door toward",
+          "after": "-- in one way, out the same, past the parlour rug.",
+          "answer": "the hall",
+          "chips": ["the hall", "the cellar stair", "the front door", "the pantry"]
+        },
+        {
+          "before": "The wireless sang again to an empty kitchen when the power returned at",
+          "after": "-- the loaf already burning, the scullery door shut, nobody there.",
+          "answer": "11:21",
+          "chips": ["11:21", "10:47", "11:30", "11:38"]
+        },
+        {
+          "before": "and Colette's own rounds book has her bolting that door at",
+          "after": "-- found off its bolt, never once left so in thirty-one years.",
+          "answer": "half past eleven",
+          "chips": ["half past eleven", "a quarter past ten", "ten to eleven", "twenty to midnight"]
+        }
+      ],
+      "onSolve": {
+        "flags": ["act2_clear"],
+        "endCard": "act-two-curtain"
       }
     }
   ]

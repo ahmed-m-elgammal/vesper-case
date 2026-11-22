@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="kfWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="37" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6"/>
+    </filter>
+    <filter id="kfSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="kfSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <!-- left-edge passage shadow: the way back to the hall -->
+  <g filter="url(#kfSoft2)">
+    <ellipse cx="40" cy="480" rx="90" ry="460" fill="#3a3f52" opacity="0.14"/>
+    <ellipse cx="24" cy="480" rx="40" ry="460" fill="#2e2a33" opacity="0.12"/>
+  </g>
+
+  <!-- hanging herb strings in the foreground -->
+  <g filter="url(#kfWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 0 V170 M310 0 V140 M470 0 V190" stroke-width="2.6" opacity="0.8"/>
+    <path d="M150 170 q-16 22 0 44 q16 -22 0 -44 M150 214 q-14 20 0 40 q14 -20 0 -40 M150 254 q-12 18 0 36 q12 -18 0 -36" fill="#9aa88f" fill-opacity="0.5" stroke-width="2.4"/>
+    <path d="M310 140 q-16 22 0 44 q16 -22 0 -44 M310 184 q-14 20 0 40 q14 -20 0 -40" fill="#9aa88f" fill-opacity="0.45" stroke-width="2.4"/>
+    <path d="M470 190 q-16 22 0 44 q16 -22 0 -44 M470 234 q-14 20 0 40 q14 -20 0 -40 M470 274 q-12 18 0 36 q12 -18 0 -36" fill="#9aa88f" fill-opacity="0.5" stroke-width="2.4"/>
+    <!-- strings of onions by the dresser -->
+    <path d="M556 60 V150" stroke-width="2.4"/>
+    <path d="M556 150 q-20 14 -14 38 q22 10 34 -8 q8 -20 -20 -30 M556 188 q-18 12 -12 34 q20 10 32 -8 q8 -18 -20 -26" fill="#c9a25e" fill-opacity="0.4" stroke-width="2.2"/>
+  </g>
+
+  <!-- right-edge doorway post: the vestibule corner -->
+  <g filter="url(#kfWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="2340" y="0" width="60" height="900" fill="#8a6a4f" fill-opacity="0.5" stroke-width="5"/>
+    <path d="M2344 0 L2344 900" stroke="#e9dfc8" stroke-width="2" opacity="0.35"/>
+    <path d="M2360 0 L2360 900" stroke-width="2.4" opacity="0.5"/>
+    <path d="M2380 30 C2364 300 2372 600 2358 870" stroke-width="2.2" opacity="0.4"/>
+  </g>
+  <g filter="url(#kfSoft2)">
+    <ellipse cx="2350" cy="470" rx="34" ry="480" fill="#3a3f52" opacity="0.12"/>
+  </g>
+
+  <!-- bottom vignette -->
+  <g filter="url(#kfSoft)">
+    <ellipse cx="1200" cy="920" rx="1300" ry="90" fill="#2e2a33" opacity="0.08"/>
+  </g>
+</svg>

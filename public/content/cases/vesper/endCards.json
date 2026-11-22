@@ -1,0 +1,26 @@
+{
+  "endCards": {
+    "act-one-curtain": {
+      "kicker": "ACT ONE, READ",
+      "title": "The parlour has told its story",
+      "body": [
+        "You named the poison, the vessel, the fire and the door -- Sergeant Hollis pins your deductions to the board and looks, for the first time, less like a man doubting and more like a man counting.",
+        "Act 2 opens the kitchen and the stairs: where the household moved in the dark, and where a door stood off its bolt for twenty-one minutes."
+      ],
+      "button": "Step back into the house",
+      "closeTo": "hub",
+      "finale": false
+    },
+    "act-two-curtain": {
+      "kicker": "ACT TWO, READ",
+      "title": "The dark half hour has its arithmetic",
+      "body": [
+        "A door off its bolt at half eleven, wet diamond treads crossing the kitchen flags, a wireless singing to nobody at 11:21. The visitor came by the garden, crossed the house without a light, and stood in the parlour while it sat blind.",
+        "Act 3 will open the bedrooms, the bathroom and the study: where Peggy's candle burned to the eleven-o'clock mark, where the blotter keeps a pencil's plea, and where a safe holds carbon pages the fire never saw. Next build."
+      ],
+      "button": "Step back into the house",
+      "closeTo": "hub",
+      "finale": false
+    }
+  }
+}

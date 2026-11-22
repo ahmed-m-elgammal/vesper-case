@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="lfWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="47" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6"/>
+    </filter>
+    <filter id="lfSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="lfSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <!-- balustrade silhouette in the lower foreground -->
+  <g filter="url(#lfWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-20 900 L-20 700 Q40 660 130 656 L360 640" stroke-width="7" opacity="0.75"/>
+    <path d="M40 900 V706 M130 896 V668 M220 884 V656 M300 872 V648" stroke-width="6" opacity="0.6"/>
+    <path d="M40 710 q20 -14 44 -12 M130 672 q22 -12 46 -10 M220 660 q20 -10 42 -8" stroke-width="3" opacity="0.4"/>
+    <!-- newel post -->
+    <path d="M330 900 V620 Q330 600 352 600 H392 V640 Q368 644 368 660 V900" fill="#5c4a3d" fill-opacity="0.5" stroke-width="5"/>
+    <circle cx="372" cy="586" r="18" fill="#8a6a4f" fill-opacity="0.6" stroke-width="4"/>
+  </g>
+  <g filter="url(#lfSoft2)">
+    <ellipse cx="200" cy="860" rx="340" ry="70" fill="#2e2a33" opacity="0.10"/>
+  </g>
+
+  <!-- right-edge shadow: the attic rise -->
+  <g filter="url(#lfSoft2)">
+    <ellipse cx="2380" cy="500" rx="70" ry="470" fill="#3a3f52" opacity="0.12"/>
+  </g>
+
+  <!-- bottom vignette -->
+  <g filter="url(#lfSoft)">
+    <ellipse cx="1200" cy="920" rx="1300" ry="90" fill="#2e2a33" opacity="0.08"/>
+  </g>
+</svg>

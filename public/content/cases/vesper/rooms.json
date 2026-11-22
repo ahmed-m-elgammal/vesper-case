@@ -24,14 +24,14 @@
           "spot": [2286, 470, 108, 286],
           "label": "Kitchen passage",
           "lockedAct": "2",
-          "lockedLine": "The kitchen and the ground hallway open with Act 2 -- next build."
+          "lockedLine": "The kitchen passage is dark, and the Sergeant has it taped until the parlour's account closes."
         },
         {
           "to": "landing",
           "spot": [1560, 140, 760, 600],
           "label": "The stairs",
           "lockedAct": "2",
-          "lockedLine": "The stairs open with Act 2 -- next build. The bedrooms follow in Act 3."
+          "lockedLine": "The stairs go up into a taped-off dark. Close the parlour's account first."
         }
       ],
       "people": [
@@ -83,17 +83,29 @@
       "act": 2,
       "width": 2400,
       "height": 900,
-      "layers": [],
+      "layers": [
+        { "key": "kitchen_bg", "src": "/art/kitchen_bg.svg", "scrollFactor": 0.82, "depth": 0 },
+        { "key": "kitchen_mid", "src": "/art/kitchen_mid.svg", "scrollFactor": 1, "depth": 10 },
+        { "key": "kitchen_fg", "src": "/art/kitchen_fg.svg", "scrollFactor": 1.18, "depth": 20 }
+      ],
       "doors": [
-        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Back to the hall" }
+        {
+          "to": "hall",
+          "spot": [0, 240, 90, 500],
+          "label": "Back to the hall",
+          "gateOnExit": "gate-act2"
+        }
+      ],
+      "people": [
+        { "suspect": "colette", "spot": [1440, 470, 135, 290], "label": "Colette" }
       ],
       "hubPlate": [1160, 440, 360, 200],
       "hubLabel": "Kitchen",
       "hubAct": 2,
       "hints": {
-        "tier1": "The kitchen bakes its own alibi: the loaf, the radio, the lantern.",
-        "tier2": "Coming in Act 2.",
-        "tier3": "Coming in Act 2."
+        "tier1": "The kitchen bakes its own alibi: the loaf, the wireless, the lantern -- and the flags by the garden door remember feet.",
+        "tier2": "A loaf burnt -- not raw -- says the oven came back without her. The wireless sang to an empty room when the power returned. The lantern's oil measures her dark half hour. Take the magnifier to the stone flags by the garden door, and open the second book on the dresser.",
+        "tier3": "The dark ran 10:47 to 11:21: bread in at 10:35, lantern lit, wireless dead mid-song -- then singing again at 11:21 to nobody. Diamond-tread prints, rain-wet, cross the flags from the garden door toward the hall. Her rounds book has the door off its bolt at half eleven. The kitchen clears Colette -- and dates the visitor."
       }
     },
     {
@@ -121,17 +133,57 @@
       "act": 2,
       "width": 2400,
       "height": 900,
-      "layers": [],
+      "layers": [
+        { "key": "landing_bg", "src": "/art/landing_bg.svg", "scrollFactor": 0.82, "depth": 0 },
+        { "key": "landing_mid", "src": "/art/landing_mid.svg", "scrollFactor": 1, "depth": 10 },
+        { "key": "landing_fg", "src": "/art/landing_fg.svg", "scrollFactor": 1.18, "depth": 20 }
+      ],
       "doors": [
-        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Down to the hall" }
+        {
+          "to": "hall",
+          "spot": [0, 240, 90, 500],
+          "label": "Down to the hall",
+          "gateOnExit": "gate-act2"
+        },
+        {
+          "to": "peggy",
+          "spot": [400, 240, 170, 516],
+          "label": "Peggy's room",
+          "lockedAct": "3",
+          "lockedLine": "Peggy's door is shut, and the bedrooms wait for the next build."
+        },
+        {
+          "to": "edmund",
+          "spot": [1010, 240, 170, 516],
+          "label": "Edmund's room",
+          "lockedAct": "3",
+          "lockedLine": "His room keeps his past folded away -- it opens with Act 3."
+        },
+        {
+          "to": "bath",
+          "spot": [1355, 240, 150, 516],
+          "label": "The bathroom",
+          "lockedAct": "3",
+          "lockedLine": "The medicine shelves wait for Act 3 -- next build."
+        },
+        {
+          "to": "attic",
+          "spot": [2080, 190, 190, 430],
+          "label": "Up to the attic",
+          "lockedAct": "4",
+          "lockedLine": "The attic stair is taped and dark -- Act 4, next build."
+        }
+      ],
+      "people": [
+        { "suspect": "peggy", "spot": [710, 470, 135, 290], "label": "Peggy" }
       ],
       "hubPlate": [1540, 230, 340, 180],
       "hubLabel": "Landing",
       "hubAct": 2,
       "hints": {
-        "tier1": "The landing hears everything and says little.",
-        "tier2": "Coming in Act 2.",
-        "tier3": "Coming in Act 2."
+        "tier1": "The landing hears everything and says little -- but the carpet lanes and a sill of washed glass keep habits.",
+        "tier2": "The stair runner wears lanes worn by years of the same feet, and fresh candle wax on the twelfth step. Outside Peggy's door: her tonic bottle and a rinsed glass, drying unhurried.",
+        "tier3": "The runner's lanes are habit's map -- Edmund's stick, Colette's trays, and Tobias's midnight candle carried down. The rinsed tonic glass says Peggy settled for the night. Nobody's story here is a stranger's story -- the stranger never used the stairs."
       }
     },
     {

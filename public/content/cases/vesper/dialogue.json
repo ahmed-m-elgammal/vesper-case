@@ -72,7 +72,14 @@
         "hall_clock": { "next": "r_clock", "once": "asked:colette:pr-clock" },
         "pill_bottle": { "next": "r_pills", "once": "asked:colette:pr-pills" },
         "memoir_desk": { "next": "r_memoir", "once": "asked:colette:pr-memoir" },
-        "body_chair": { "next": "r_body", "once": "asked:colette:pr-body" }
+        "body_chair": { "next": "r_body", "once": "asked:colette:pr-body" },
+        "burnt_loaf": { "next": "r_loaf", "once": "asked:colette:pr-loaf" },
+        "pantry_lantern": { "next": "r_lantern", "once": "asked:colette:pr-lantern" },
+        "kitchen_radio": { "next": "r_radio", "once": "asked:colette:pr-radio" },
+        "wet_flag_prints": { "next": "r_wprints", "once": "asked:colette:pr-wprints" },
+        "colette_ledger_page": { "next": "r_ledger2", "once": "asked:colette:pr-ledger2" },
+        "stair_worn_runner": { "next": "r_runner", "once": "asked:colette:pr-runner" },
+        "peggy_tonic_glass": { "next": "r_tonic", "once": "asked:colette:pr-tonic" }
       },
       "nodes": {
         "root": {
@@ -85,9 +92,19 @@
             { "text": "@dlg.colette.root.c2", "next": "comings" },
             { "text": "@dlg.colette.root.c3", "next": "garden", "cond": { "clue": "garden_door_bolt" } },
             { "text": "@dlg.colette.root.c4", "next": "dark" },
+            { "text": "@dlg.colette.root.c5", "next": "rounds", "cond": { "clue": "colette_ledger_page" } },
             { "text": "@dlg.ui.present", "present": { "miss": "present_miss" } },
             { "text": "@dlg.ui.leave", "next": "bye" }
           ]
+        },
+        "rounds": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.colette.rounds.1" },
+            { "sp": "npc", "t": "@dlg.colette.rounds.2" },
+            { "sp": "npc", "t": "@dlg.colette.rounds.3" }
+          ],
+          "effects": { "setFlags": ["talked:colette:rounds"], "setVars": { "trust:colette": 1 } },
+          "next": "root"
         },
         "evening": {
           "beats": [
@@ -188,6 +205,34 @@
         "r_body": {
           "beats": [{ "sp": "npc", "t": "@dlg.colette.r_body.1" }],
           "next": "root"
+        },
+        "r_loaf": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_loaf.1" }],
+          "next": "root"
+        },
+        "r_lantern": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_lantern.1" }],
+          "next": "root"
+        },
+        "r_radio": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_radio.1" }],
+          "next": "root"
+        },
+        "r_wprints": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_wprints.1" }],
+          "next": "root"
+        },
+        "r_ledger2": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_ledger2.1" }],
+          "next": "root"
+        },
+        "r_runner": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_runner.1" }],
+          "next": "root"
+        },
+        "r_tonic": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_tonic.1" }],
+          "next": "root"
         }
       }
     },
@@ -206,7 +251,12 @@
         "memoir_desk": { "next": "r_memoir", "once": "asked:tobias:pr-memoir" },
         "decanter": { "next": "r_decanter", "once": "asked:tobias:pr-decanter" },
         "body_chair": { "next": "r_body", "once": "asked:tobias:pr-body" },
-        "hearth_ash": { "next": "r_ash", "once": "asked:tobias:pr-ash" }
+        "hearth_ash": { "next": "r_ash", "once": "asked:tobias:pr-ash" },
+        "stair_worn_runner": { "next": "r_runner", "once": "asked:tobias:pr-runner" },
+        "kitchen_radio": { "next": "r_radio", "once": "asked:tobias:pr-radio" },
+        "wet_flag_prints": { "next": "r_wprints", "once": "asked:tobias:pr-wprints" },
+        "pantry_lantern": { "next": "r_lantern", "once": "asked:tobias:pr-lantern" },
+        "burnt_loaf": { "next": "r_loaf", "once": "asked:tobias:pr-loaf" }
       },
       "nodes": {
         "root": {
@@ -219,9 +269,18 @@
             { "text": "@dlg.tobias.root.c2", "next": "heard" },
             { "text": "@dlg.tobias.root.c3", "next": "clockfell", "cond": { "clue": "mantel_clock" } },
             { "text": "@dlg.tobias.root.c4", "next": "master" },
+            { "text": "@dlg.tobias.root.c5", "next": "wax", "cond": { "clue": "stair_worn_runner" } },
             { "text": "@dlg.ui.present", "present": { "miss": "present_miss" } },
             { "text": "@dlg.ui.leave", "next": "bye" }
           ]
+        },
+        "wax": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.tobias.wax.1" },
+            { "sp": "npc", "t": "@dlg.tobias.wax.2" }
+          ],
+          "effects": { "setFlags": ["talked:tobias:wax"], "setVars": { "trust:tobias": 1 } },
+          "next": "root"
         },
         "attic": {
           "beats": [
@@ -310,6 +369,26 @@
         "r_ash": {
           "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_ash.1" }],
           "next": "root"
+        },
+        "r_runner": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_runner.1" }],
+          "next": "root"
+        },
+        "r_radio": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_radio.1" }],
+          "next": "root"
+        },
+        "r_wprints": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_wprints.1" }],
+          "next": "root"
+        },
+        "r_lantern": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_lantern.1" }],
+          "next": "root"
+        },
+        "r_loaf": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_loaf.1" }],
+          "next": "root"
         }
       }
     },
@@ -330,7 +409,11 @@
         "body_chair": { "next": "r_body", "once": "asked:peggy:pr-body" },
         "coat_peg_coats": { "next": "r_coats", "once": "asked:peggy:pr-coats" },
         "stair_button": { "next": "r_button", "once": "asked:peggy:pr-button" },
-        "visitor_ledger": { "next": "r_ledger", "once": "asked:peggy:pr-ledger" }
+        "visitor_ledger": { "next": "r_ledger", "once": "asked:peggy:pr-ledger" },
+        "peggy_tonic_glass": { "next": "r_tonic", "once": "asked:peggy:pr-tonic" },
+        "stair_worn_runner": { "next": "r_runner", "once": "asked:peggy:pr-runner" },
+        "wet_flag_prints": { "next": "r_wprints", "once": "asked:peggy:pr-wprints" },
+        "burnt_loaf": { "next": "r_loaf", "once": "asked:peggy:pr-loaf" }
       },
       "nodes": {
         "root": {
@@ -344,9 +427,19 @@
             { "text": "@dlg.peggy.root.c3", "next": "letter", "cond": { "clue": "mail_letter" } },
             { "text": "@dlg.peggy.root.c4", "next": "scissors", "cond": { "clue": "scissors_sideboard" } },
             { "text": "@dlg.peggy.root.c5", "next": "money", "cond": { "trust": "trust:peggy", "gte": 1 } },
+            { "text": "@dlg.peggy.root.c6", "next": "tonic", "cond": { "clue": "peggy_tonic_glass" } },
             { "text": "@dlg.ui.present", "present": { "miss": "present_miss" } },
             { "text": "@dlg.ui.leave", "next": "bye" }
           ]
+        },
+        "tonic": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.peggy.tonic.1" },
+            { "sp": "npc", "t": "@dlg.peggy.tonic.2" },
+            { "sp": "npc", "t": "@dlg.peggy.tonic.3" }
+          ],
+          "effects": { "setFlags": ["talked:peggy:tonic"], "setVars": { "trust:peggy": 1 } },
+          "next": "root"
         },
         "evening": {
           "beats": [
@@ -457,6 +550,22 @@
         },
         "r_ledger": {
           "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_ledger.1" }],
+          "next": "root"
+        },
+        "r_tonic": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_tonic.1" }],
+          "next": "root"
+        },
+        "r_runner": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_runner.1" }],
+          "next": "root"
+        },
+        "r_wprints": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_wprints.1" }],
+          "next": "root"
+        },
+        "r_loaf": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_loaf.1" }],
           "next": "root"
         }
       }

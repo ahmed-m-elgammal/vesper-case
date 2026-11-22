@@ -12,6 +12,12 @@ All room layers share the canvas `2400 x 900` (world units; camera shows 1600x90
 | `public/art/parlour_bg.svg` | background | 0.82 | panelled wall, hearth (stone, mantel, cold ember bed + fresh burn patch), fire tools, rain window + curtains, garden door, fox engraving |
 | `public/art/parlour_mid.svg` | middle | 1.00 | wing chair + slumped Edmund (tasteful), side table + tumbler, writing desk + banker's lamp + manuscript + open drawer (sketch boards), drinks tray + dosed decanter, fallen mantel clock (11:38), fender, sideboard + scissors, rug + diamond-tread print, garden-door bolt (off, scratched) |
 | `public/art/parlour_fg.svg` | foreground | 1.18 | vignette, dust motes, smoke wisp, near curtain edge |
+| `public/art/kitchen_bg.svg` | background | 0.82 | whitewashed brick, rain window over the sink, tiled splash band, dark garden beyond the garden door, quarry-tile floor + stone flags in the vestibule |
+| `public/art/kitchen_mid.svg` | middle | 1.00 | dresser + plate shelves + open rounds book + flour bin, cast-iron range (hotplates, ovens, warming shelf with the burnt loaf + kettle), hanging pans, scrubbed table + bowl + jug, wall shelf + the wireless (still switched on), pantry door ajar + hurricane lantern (oil to the mark, soot halo, glow), garden door + bolt plate, wet diamond-tread prints crossing the flags |
+| `public/art/kitchen_fg.svg` | foreground | 1.18 | passage shadow, hanging herb strings + onion string, vestibule post, vignette |
+| `public/art/landing_bg.svg` | background | 0.82 | wallpaper, picture rail, stair-well dark, rain window, attic-rise shadow, floorboards |
+| `public/art/landing_mid.svg` | middle | 1.00 | descending stair flight (runner + worn lanes + wax drips on the twelfth step), Peggy's door, sill shelf + tonic bottle + rinsed inverted glass, window seat, Edmund's door, bathroom door, linen cupboard, attic stair rising + taped attic door |
+| `public/art/landing_fg.svg` | foreground | 1.18 | balustrade + newel silhouette, attic-rise shadow, vignette |
 | `public/art/hub.svg` | hub map | — | dollhouse cutaway `1920 x 1000`: attic studio, three rooms + landing above, hall/parlour/kitchen/study at ground, cellar + laundry below, tree, rain, padlock glyphs on locked plates |
 | `public/art/plan.svg` | prologue | — (DOM) | floor plan `900 x 620` with room labels + act locks |
 
@@ -40,6 +46,13 @@ Pencil-inset style: paper card frame, wobble ink, cross-hatch, Caveat annotation
 | `public/art/closeups/cu_gardendoor.svg` | The Garden Door Bolt (off, fresh scratches) |
 | `public/art/closeups/cu_print.svg` | A Ghost of a Print (diamond tread, 7–8) |
 | `public/art/closeups/cu_scissors.svg` | Sewing Scissors |
+| `public/art/closeups/cu_loaf.svg` | The Burnt Loaf (blackened crust on the sheet) |
+| `public/art/closeups/cu_lantern.svg` | The Pantry Lantern (oil to the mark, soot halo) |
+| `public/art/closeups/cu_radio.svg` | The Wireless (amber dial lit, switch left on) |
+| `public/art/closeups/cu_flags.svg` | Wet Prints on the Flags (diamond tread, in and out) |
+| `public/art/closeups/cu_ledgerpage.svg` | The Kitchen Rounds Book (10:35 → 11:30 entries) |
+| `public/art/closeups/cu_runner.svg` | The Worn Runner (habit's lanes + wax drips) |
+| `public/art/closeups/cu_tonic.svg` | The Tonic Glass (rinsed, upside down, dry ring) |
 
 ## 2b. People portraits (conversation + notebook)
 

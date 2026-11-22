@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cuLnW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="cuLnS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="cuLnG" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="26"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#cuLnS)">
+    <ellipse cx="78" cy="76" rx="58" ry="38" fill="#c9a25e" opacity="0.12"/>
+    <ellipse cx="736" cy="524" rx="66" ry="42" fill="#9aa88f" opacity="0.12"/>
+    <ellipse cx="706" cy="86" rx="46" ry="30" fill="#3a3f52" opacity="0.10"/>
+  </g>
+  <g filter="url(#cuLnW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+
+  <!-- pantry shelf behind -->
+  <g filter="url(#cuLnW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M60 470 Q400 448 740 468 L740 560 Q400 582 60 562 Z" fill="#8a6a4f" fill-opacity="0.42" stroke-width="4"/>
+    <path d="M110 500 Q400 482 690 498 M130 534 Q400 518 670 532" stroke-width="1.8" opacity="0.3"/>
+    <circle cx="620" cy="420" r="34" fill="#d9c8a6" fill-opacity="0.4" stroke-width="3"/>
+    <circle cx="688" cy="416" r="30" fill="#d9c8a6" fill-opacity="0.35" stroke-width="3"/>
+    <path d="M96 300 H300" stroke-width="4" opacity="0.6"/>
+  </g>
+
+  <!-- soot halo on the shelf behind the lantern -->
+  <g filter="url(#cuLnS)">
+    <ellipse cx="360" cy="462" rx="120" ry="26" fill="#3a3f52" opacity="0.25"/>
+    <ellipse cx="360" cy="462" rx="60" ry="14" fill="#2e2a33" opacity="0.22"/>
+  </g>
+
+  <!-- warm lantern glow -->
+  <g filter="url(#cuLnG)">
+    <ellipse cx="360" cy="330" rx="180" ry="210" fill="#e8c97a" opacity="0.32"/>
+    <ellipse cx="360" cy="330" rx="90" ry="120" fill="#f4ecdb" opacity="0.20"/>
+  </g>
+
+  <!-- hook and bale -->
+  <g filter="url(#cuLnW)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M360 96 V130" stroke-width="4"/>
+    <path d="M360 130 q-52 30 -52 96 M360 130 q52 30 52 96" stroke-width="5"/>
+    <path d="M308 226 H412" stroke-width="5"/>
+  </g>
+
+  <!-- hurricane lantern: brass, oil burned to the mark -->
+  <g filter="url(#cuLnW)" stroke="#2e2a33" stroke-linejoin="round" fill="none">
+    <!-- vent cap -->
+    <path d="M312 208 Q360 176 408 208 Q396 232 360 234 Q324 232 312 208 Z" fill="#c9a25e" fill-opacity="0.7" stroke-width="4"/>
+    <path d="M352 190 h16 M348 200 h24" stroke-width="2" opacity="0.5"/>
+    <!-- chimney -->
+    <path d="M330 234 H390 L384 262 H336 Z" fill="#c9a25e" fill-opacity="0.5" stroke-width="3.5"/>
+    <!-- glass globe -->
+    <path d="M300 262 H420 Q446 320 440 396 H280 Q274 320 300 262 Z" fill="#e8c97a" fill-opacity="0.4" stroke-width="4"/>
+    <path d="M312 282 q-10 60 -6 96 M404 282 q10 60 8 96" stroke="#f4ecdb" stroke-width="3" opacity="0.5"/>
+    <!-- the flame -->
+    <path d="M360 380 q-16 -26 0 -48 q16 22 0 48 Z" fill="#e8c97a" stroke-width="3"/>
+    <path d="M360 372 q-8 -14 0 -26 q8 12 0 26 Z" fill="#f4ecdb" stroke-width="2"/>
+    <!-- oil font: level low, wick up -->
+    <path d="M296 396 H424 L418 452 H302 Z" fill="#c9a25e" fill-opacity="0.65" stroke-width="4"/>
+    <path d="M304 428 H416" stroke="#8a6a4f" stroke-width="3.4"/>
+    <path d="M304 428 q28 8 56 0 q28 -8 56 0" fill="#8a6a4f" fill-opacity="0.6" stroke-width="2.4"/>
+    <path d="M356 404 q4 -18 8 -24" stroke="#2e2a33" stroke-width="2.6"/>
+    <!-- base -->
+    <path d="M288 452 H432 L420 486 H300 Z" fill="#c9a25e" fill-opacity="0.75" stroke-width="4"/>
+    <path d="M304 486 H416" stroke-width="4"/>
+  </g>
+
+  <text x="96" y="130" font-family="Caveat, cursive" font-size="30" fill="#2e2a33" text-anchor="start">oil to the mark --</text>
+  <text x="110" y="166" font-family="Caveat, cursive" font-size="30" fill="#2e2a33" text-anchor="start">half an hour of one</text>
+  <text x="124" y="202" font-family="Caveat, cursive" font-size="30" fill="#2e2a33" text-anchor="start">small light.</text>
+</svg>

@@ -143,10 +143,14 @@ export class GameRoot {
     const hintView = new HintView(this.hintVM);
     this.toasts = new ToastView(this.vm);
     this.wipe = new TransitionView();
-    this.endcard = new EndCardView(this.vm, () => {
-      // The closed case goes back to its captain: the precinct reacts, the
-      // count ticks, and a promotion ceremony waits if one is due.
-      this.vm.gotoStation();
+    this.endcard = new EndCardView(this.vm, (closeTo) => {
+      // Act closers walk the player back into the house; only the finale card
+      // sends them to the precinct (the Captain, the count, the ceremony).
+      if (closeTo === 'hub') {
+        this.wipe.play(() => this.vm.gotoHub());
+      } else {
+        this.vm.gotoStation();
+      }
     });
     this.caseFiles = new CaseFilesView(this.vm, {
       onTakeCase: (id) => void this.vm.selectCase(id),
@@ -225,8 +229,10 @@ export class GameRoot {
       this.vm.bus.on('gate:solved', ({ gateId }) => {
         const gate = this.vm.repo.gate(gateId);
         if (gate?.onSolve.endCard) {
-          this.vm.markCaseSolved();
-          window.setTimeout(() => this.endcard.show(), 700);
+          // Only a finale end card closes the folder; act closers just turn the page.
+          const card = this.vm.repo.endCard(gate.onSolve.endCard);
+          if (card?.finale) this.vm.markCaseSolved();
+          window.setTimeout(() => this.endcard.show(gate.onSolve.endCard), 700);
         }
       })
     );

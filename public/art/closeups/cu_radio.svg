@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cuRdW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="57" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="cuRdS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="cuRdG" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="20"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#cuRdS)">
+    <ellipse cx="78" cy="76" rx="58" ry="38" fill="#8fa3b0" opacity="0.12"/>
+    <ellipse cx="736" cy="524" rx="66" ry="42" fill="#c9a25e" opacity="0.12"/>
+    <ellipse cx="706" cy="86" rx="46" ry="30" fill="#9aa88f" opacity="0.10"/>
+    <ellipse cx="88" cy="542" rx="50" ry="30" fill="#3a3f52" opacity="0.10"/>
+  </g>
+  <g filter="url(#cuRdW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+
+  <!-- mantel shelf -->
+  <g filter="url(#cuRdW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M90 470 Q400 452 710 468 L710 560 Q400 578 90 562 Z" fill="#8a6a4f" fill-opacity="0.45" stroke-width="4"/>
+    <path d="M120 500 Q400 486 680 498 M140 532 Q400 518 660 530" stroke-width="1.8" opacity="0.3"/>
+    <!-- jars at either side -->
+    <rect x="110" y="380" width="56" height="88" fill="#9aa88f" fill-opacity="0.35" stroke-width="3"/>
+    <path d="M118 408 H158 M118 434 H154" stroke-width="2" opacity="0.4"/>
+    <rect x="636" y="372" width="52" height="96" fill="#c9a25e" fill-opacity="0.35" stroke-width="3"/>
+    <path d="M644 400 H680 M644 428 H676" stroke-width="2" opacity="0.4"/>
+  </g>
+
+  <!-- dial glow spilling on the shelf -->
+  <g filter="url(#cuRdG)">
+    <ellipse cx="400" cy="300" rx="240" ry="180" fill="#e8c97a" opacity="0.25"/>
+  </g>
+
+  <!-- the wireless: walnut box, cloth grille, amber dial, left on -->
+  <g filter="url(#cuRdW)" stroke="#2e2a33" stroke-linejoin="round" fill="none">
+    <path d="M232 462 V232 Q232 208 258 206 H542 Q568 208 568 232 V462 Z" fill="#8a6a4f" fill-opacity="0.55" stroke-width="4.5"/>
+    <path d="M232 440 H568" stroke-width="3" opacity="0.5"/>
+    <!-- cloth grille with diamond weave -->
+    <rect x="252" y="226" width="204" height="196" fill="#3a3f52" fill-opacity="0.35" stroke-width="3"/>
+    <path d="M252 260 l16 14 M288 256 l16 14 M324 252 l16 14 M360 248 l16 14 M396 244 l16 14 M432 240 l16 14 M252 306 l16 14 M288 302 l16 14 M324 298 l16 14 M360 294 l16 14 M396 290 l16 14 M432 286 l16 14 M252 352 l16 14 M288 348 l16 14 M324 344 l16 14 M360 340 l16 14 M396 336 l16 14 M432 332 l16 14 M252 398 l16 14 M288 394 l16 14 M324 390 l16 14 M360 386 l16 14 M396 382 l16 14 M432 378 l16 14" stroke="#f4ecdb" stroke-width="1.6" opacity="0.45"/>
+    <!-- amber dial window, lit -->
+    <rect x="484" y="240" width="66" height="44" fill="#e8c97a" fill-opacity="0.9" stroke-width="3"/>
+    <path d="M492 262 H542 M496 250 v24 M512 250 v24 M528 250 v24" stroke="#2e2a33" stroke-width="2" opacity="0.6"/>
+    <!-- magic eye green -->
+    <circle cx="517" cy="308" r="14" fill="#9aa88f" fill-opacity="0.85" stroke-width="2.6"/>
+    <circle cx="517" cy="308" r="6" fill="#f4ecdb" fill-opacity="0.9" stroke-width="2"/>
+    <!-- knobs: one still turned up -->
+    <circle cx="500" cy="376" r="17" fill="#c9a25e" fill-opacity="0.85" stroke-width="3"/>
+    <path d="M500 362 V376" stroke-width="2.4"/>
+    <circle cx="500" cy="422" r="17" fill="#c9a25e" fill-opacity="0.85" stroke-width="3"/>
+    <path d="M500 436 V422" stroke-width="2.4"/>
+    <!-- switch, left ON -->
+    <circle cx="546" cy="440" r="9" fill="#c9a25e" fill-opacity="0.9" stroke-width="2.6"/>
+    <path d="M546 440 L556 430" stroke-width="3"/>
+    <!-- feet and cord -->
+    <path d="M250 462 V478 H286 M546 462 V478 H510" stroke-width="4"/>
+    <path d="M582 300 q26 66 10 176" stroke-width="2.4" opacity="0.5"/>
+    <!-- faint sound lines: singing to nobody -->
+    <path d="M600 210 q14 12 2 26 M624 196 q16 14 2 30 M648 184 q14 12 2 26" stroke-width="2.4" opacity="0.5"/>
+  </g>
+
+  <text x="104" y="122" font-family="Caveat, cursive" font-size="30" fill="#2e2a33" text-anchor="start">switched on all night --</text>
+  <text x="118" y="158" font-family="Caveat, cursive" font-size="30" fill="#2e2a33" text-anchor="start">the kitchen sang to nobody</text>
+  <text x="132" y="194" font-family="Caveat, cursive" font-size="30" fill="#2e2a33" text-anchor="start">at 11:21.</text>
+</svg>

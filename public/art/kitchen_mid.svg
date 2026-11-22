@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="kmWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="33" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6.5"/>
+    </filter>
+    <filter id="kmSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="kmSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="kmGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <!-- contact shadows -->
+  <g filter="url(#kmSoft)">
+    <ellipse cx="320" cy="780" rx="240" ry="34" fill="#3a3f52" opacity="0.18"/>
+    <ellipse cx="790" cy="784" rx="280" ry="36" fill="#3a3f52" opacity="0.20"/>
+    <ellipse cx="1500" cy="788" rx="220" ry="30" fill="#3a3f52" opacity="0.16"/>
+    <ellipse cx="1755" cy="778" rx="150" ry="24" fill="#3a3f52" opacity="0.15"/>
+    <ellipse cx="2270" cy="790" rx="140" ry="26" fill="#3a3f52" opacity="0.18"/>
+  </g>
+
+  <!-- passage doorframe (left edge, back to the hall) -->
+  <g filter="url(#kmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="-60" y="220" width="150" height="540" fill="#8a6a4f" fill-opacity="0.40" stroke-width="5"/>
+    <path d="M20 220 V760" stroke-width="5"/>
+    <path d="M34 220 V760" stroke-width="2" opacity="0.4"/>
+  </g>
+
+  <!-- kitchen dresser with the rounds book on the counter -->
+  <g filter="url(#kmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M110 560 H530 V756 H110 Z" fill="#8a6a4f" fill-opacity="0.42" stroke-width="5"/>
+    <path d="M110 480 H530 V560 H110 Z" fill="#8a6a4f" fill-opacity="0.30" stroke-width="4"/>
+    <path d="M120 500 H520 M120 540 H520" stroke-width="2" opacity="0.35"/>
+    <!-- plate shelf above -->
+    <path d="M140 300 H500" stroke-width="6"/>
+    <circle cx="200" cy="272" r="26" fill="#d9c8a6" fill-opacity="0.6" stroke-width="3"/>
+    <circle cx="270" cy="270" r="26" fill="#d9c8a6" fill-opacity="0.55" stroke-width="3"/>
+    <circle cx="340" cy="273" r="26" fill="#d9c8a6" fill-opacity="0.6" stroke-width="3"/>
+    <circle cx="410" cy="270" r="26" fill="#d9c8a6" fill-opacity="0.5" stroke-width="3"/>
+    <path d="M140 380 H500" stroke-width="5" opacity="0.8"/>
+    <circle cx="230" cy="354" r="22" fill="#9aa88f" fill-opacity="0.4" stroke-width="3"/>
+    <circle cx="310" cy="352" r="22" fill="#d9c8a6" fill-opacity="0.5" stroke-width="3"/>
+    <circle cx="390" cy="355" r="22" fill="#d9c8a6" fill-opacity="0.45" stroke-width="3"/>
+    <!-- drawers -->
+    <path d="M130 590 H510 V640 H130 Z" stroke-width="3"/>
+    <circle cx="320" cy="615" r="6" fill="#c9a25e" fill-opacity="0.9" stroke-width="2.5"/>
+    <path d="M130 660 H510 V710 H130 Z" stroke-width="3"/>
+    <circle cx="320" cy="685" r="6" fill="#c9a25e" fill-opacity="0.9" stroke-width="2.5"/>
+    <path d="M132 592 V756 M292 592 V756 M448 592 V756" stroke-width="2" opacity="0.4"/>
+    <!-- the open rounds book on the counter -->
+    <path d="M296 470 Q368 458 440 470 L440 546 Q368 558 296 546 Z" fill="#f4ecdb" stroke-width="3.5"/>
+    <path d="M368 462 V552" stroke-width="2.4"/>
+    <path d="M308 486 H354 M308 500 H354 M308 514 H352 M382 486 H428 M382 500 H428 M382 514 H426" stroke-width="1.8" opacity="0.55"/>
+    <!-- flour bin beside it -->
+    <rect x="452" y="600" width="66" height="150" fill="#9aa88f" fill-opacity="0.4" stroke-width="3.5"/>
+    <path d="M452 622 H518" stroke-width="2.4" opacity="0.5"/>
+    <circle cx="485" cy="660" r="10" fill="#c9a25e" fill-opacity="0.7" stroke-width="2.5"/>
+  </g>
+
+  <!-- cast-iron range, chimney breast, warming shelf with the burnt loaf -->
+  <g filter="url(#kmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M560 0 V380 M1020 0 V380 M560 60 H1020 M560 140 H1020" stroke-width="3" opacity="0.35"/>
+    <rect x="548" y="452" width="484" height="304" fill="#3a3f52" fill-opacity="0.5" stroke-width="5"/>
+    <path d="M548 452 H1032 M548 480 H1032" stroke-width="4"/>
+    <!-- hotplates -->
+    <ellipse cx="640" cy="466" rx="46" ry="12" fill="#2e2a33" fill-opacity="0.4" stroke-width="3"/>
+    <ellipse cx="800" cy="466" rx="46" ry="12" fill="#2e2a33" fill-opacity="0.4" stroke-width="3"/>
+    <ellipse cx="950" cy="466" rx="42" ry="11" fill="#2e2a33" fill-opacity="0.4" stroke-width="3"/>
+    <!-- oven doors -->
+    <circle cx="700" cy="580" r="64" fill="#2e2a33" fill-opacity="0.35" stroke-width="4"/>
+    <circle cx="700" cy="580" r="46" fill="none" stroke-width="2.5" opacity="0.6"/>
+    <circle cx="900" cy="580" r="64" fill="#2e2a33" fill-opacity="0.35" stroke-width="4"/>
+    <circle cx="900" cy="580" r="46" fill="none" stroke-width="2.5" opacity="0.6"/>
+    <path d="M560 660 H1032" stroke-width="3" opacity="0.5"/>
+    <rect x="600" y="676" width="140" height="60" fill="#2e2a33" fill-opacity="0.3" stroke-width="3.5"/>
+    <rect x="780" y="676" width="140" height="60" fill="#2e2a33" fill-opacity="0.3" stroke-width="3.5"/>
+    <!-- warming shelf -->
+    <path d="M576 414 H1004" stroke-width="7"/>
+    <path d="M600 414 V440 M980 414 V440" stroke-width="4"/>
+    <!-- baking sheet and the blackened loaf -->
+    <path d="M796 402 H966 L952 416 H812 Z" fill="#2e2a33" fill-opacity="0.45" stroke-width="3"/>
+    <path d="M808 398 Q812 356 856 350 Q902 344 928 366 Q946 382 944 398 Z" fill="#3a2f28" stroke-width="3.5"/>
+    <path d="M826 372 Q848 360 872 368 Q894 374 912 370" stroke="#1e1a22" stroke-width="3" opacity="0.8"/>
+    <path d="M838 386 H902 M842 394 H898" stroke="#1e1a22" stroke-width="2" opacity="0.6"/>
+    <!-- kettle on the range top -->
+    <path d="M596 436 Q612 400 652 398 Q690 398 700 428 M700 424 q22 -6 26 10 q-6 8 -22 4" fill="#8a6a4f" fill-opacity="0.5" stroke-width="3.5"/>
+    <path d="M648 398 V384 M640 384 H658" stroke-width="3"/>
+  </g>
+
+  <!-- hanging pans above the range -->
+  <g filter="url(#kmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M600 220 H990" stroke-width="4" opacity="0.8"/>
+    <path d="M660 220 V252 M790 220 V246 M910 220 V250" stroke-width="2.5"/>
+    <path d="M636 252 H688 V296 Q662 310 636 296 Z" fill="#8a6a4f" fill-opacity="0.4" stroke-width="3"/>
+    <path d="M764 246 H816 V288 Q790 302 764 288 Z" fill="#9aa88f" fill-opacity="0.4" stroke-width="3"/>
+    <path d="M884 250 H936 V292 Q910 306 884 292 Z" fill="#8a6a4f" fill-opacity="0.35" stroke-width="3"/>
+  </g>
+
+  <!-- sink below the window -->
+  <g filter="url(#kmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M1076 566 H1340 L1320 616 H1096 Z" fill="#d9c8a6" fill-opacity="0.5" stroke-width="4"/>
+    <path d="M1096 616 V636 H1320 V616" stroke-width="3.5" opacity="0.7"/>
+    <path d="M1206 552 V530 M1186 530 q20 -14 40 0" stroke-width="4"/>
+    <path d="M1350 580 V756" stroke-width="3" opacity="0.4"/>
+  </g>
+
+  <!-- scrubbed table + wall shelf with the wireless -->
+  <g filter="url(#kmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1332 300 H1588" stroke-width="6"/>
+    <path d="M1348 300 V324 M1570 300 V324" stroke-width="4"/>
+    <!-- the wireless, switched on all night -->
+    <path d="M1398 436 V338 Q1398 326 1412 326 H1506 Q1520 326 1520 338 V436 Z" fill="#8a6a4f" fill-opacity="0.55" stroke-width="4"/>
+    <rect x="1410" y="342" width="98" height="58" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.5"/>
+    <path d="M1414 350 l12 10 M1434 348 l12 10 M1454 346 l12 10 M1474 344 l12 10 M1414 372 l12 10 M1434 370 l12 10 M1454 368 l12 10 M1474 366 l12 10" stroke-width="1.6" opacity="0.5"/>
+    <circle cx="1424" cy="418" r="9" fill="#c9a25e" fill-opacity="0.85" stroke-width="2.5"/>
+    <circle cx="1494" cy="418" r="9" fill="#c9a25e" fill-opacity="0.85" stroke-width="2.5"/>
+    <rect x="1444" y="408" width="34" height="18" fill="#c9a25e" fill-opacity="0.8" stroke-width="2"/>
+    <path d="M1530 350 q24 60 8 200" stroke-width="2.2" opacity="0.45"/>
+    <!-- table -->
+    <path d="M1356 564 H1660 L1640 596 H1376 Z" fill="#c9a25e" fill-opacity="0.35" stroke-width="4.5"/>
+    <path d="M1392 596 V756 M1624 596 V756 M1392 668 H1624" stroke-width="4"/>
+    <path d="M1392 672 H1624" stroke-width="2" opacity="0.4"/>
+    <!-- bowl, jug, flour dust -->
+    <path d="M1420 560 Q1444 536 1470 560 Z" fill="#d9c8a6" fill-opacity="0.7" stroke-width="3"/>
+    <path d="M1552 534 q-10 -26 12 -30 q22 -4 18 24 q-2 16 -30 16 M1582 512 v-14" fill="#d9c8a6" fill-opacity="0.6" stroke-width="3"/>
+  </g>
+
+  <!-- pantry door ajar + hurricane lantern on its hook -->
+  <g filter="url(#kmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1856 300 V756" stroke-width="5"/>
+    <path d="M1790 300 L1856 330 V740 L1790 726 Z" fill="#2e3242" fill-opacity="0.5" stroke-width="4"/>
+    <path d="M1800 340 H1844 M1800 380 H1844 M1800 420 H1844" stroke-width="2" opacity="0.5"/>
+    <path d="M1700 296 H1792 Q1800 296 1798 306 L1794 340 L1700 340 Z" fill="#8a6a4f" fill-opacity="0.35" stroke-width="4"/>
+    <circle cx="1756" cy="700" r="8" fill="#c9a25e" fill-opacity="0.8" stroke-width="2.5"/>
+    <!-- hook + lantern (oil burned to the mark) -->
+    <path d="M1752 340 q-4 26 -8 40" stroke-width="4"/>
+    <path d="M1712 470 H1790 M1716 470 Q1712 430 1750 424 Q1790 428 1786 470" fill="#c9a25e" fill-opacity="0.45" stroke-width="3.5"/>
+    <rect x="1722" y="470" width="56" height="80" fill="#c9a25e" fill-opacity="0.35" stroke-width="3"/>
+    <path d="M1712 550 H1790 L1782 606 H1720 Z" fill="#c9a25e" fill-opacity="0.55" stroke-width="3.5"/>
+    <ellipse cx="1750" cy="512" rx="26" ry="34" fill="#e8c97a" fill-opacity="0.8" stroke-width="2.5"/>
+    <path d="M1736 534 q14 6 28 0" stroke="#2e2a33" stroke-width="2.2" opacity="0.7"/>
+    <path d="M1744 540 q6 3 12 0" stroke="#2e2a33" stroke-width="1.8" opacity="0.6"/>
+    <path d="M1746 424 V452" stroke-width="3"/>
+  </g>
+  <!-- lantern glow -->
+  <g filter="url(#kmGlow)">
+    <ellipse cx="1750" cy="530" rx="90" ry="110" fill="#e8c97a" opacity="0.30"/>
+    <ellipse cx="1750" cy="530" rx="50" ry="66" fill="#f4ecdb" opacity="0.22"/>
+  </g>
+  <!-- soot halo on the shelf behind the hook -->
+  <g filter="url(#kmSoft2)">
+    <ellipse cx="1752" cy="430" rx="58" ry="22" fill="#3a3f52" opacity="0.22"/>
+    <ellipse cx="1752" cy="430" rx="30" ry="12" fill="#2e2a33" opacity="0.20"/>
+  </g>
+
+  <!-- garden door: bolt plate, threshold, wet night beyond -->
+  <g filter="url(#kmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="2184" y="292" width="172" height="464" fill="#8a6a4f" fill-opacity="0.30" stroke-width="5"/>
+    <rect x="2200" y="306" width="140" height="130" fill="#2e3242" fill-opacity="0.5" stroke-width="3.5"/>
+    <rect x="2200" y="446" width="140" height="130" fill="#2e3242" fill-opacity="0.5" stroke-width="3.5"/>
+    <rect x="2200" y="586" width="140" height="120" fill="#8a6a4f" fill-opacity="0.35" stroke-width="3.5"/>
+    <circle cx="2256" cy="560" r="9" fill="#c9a25e" fill-opacity="0.85" stroke-width="2.5"/>
+    <path d="M2226 560 h-14 v14 h34" stroke-width="3.5"/>
+    <path d="M2188 748 H2356" stroke-width="6"/>
+  </g>
+
+  <!-- wet diamond-tread prints crossing the vestibule flags -->
+  <g filter="url(#kmWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2000 786 q-4 -22 14 -24 q18 -2 18 16 q0 18 -16 18 q-14 0 -16 -10 Z" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.5"/>
+    <path d="M2014 782 l12 -12 M2008 792 l14 -14 M2024 788 l10 -12" stroke-width="2" opacity="0.6"/>
+    <path d="M2086 806 q-4 -22 14 -24 q18 -2 18 16 q0 18 -16 18 q-14 0 -16 -10 Z" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.5"/>
+    <path d="M2100 802 l12 -12 M2094 812 l14 -14 M2110 808 l10 -12" stroke-width="2" opacity="0.6"/>
+    <path d="M2168 824 q-4 -22 14 -24 q18 -2 18 16 q0 18 -16 18 q-14 0 -16 -10 Z" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.5"/>
+    <path d="M2182 820 l12 -12 M2176 830 l14 -14 M2192 826 l10 -12" stroke-width="2" opacity="0.6"/>
+    <path d="M2246 806 q-4 -22 14 -24 q18 -2 18 16 q0 18 -16 18 q-14 0 -16 -10 Z" fill="#3a3f52" fill-opacity="0.30" stroke-width="2.5"/>
+    <path d="M2260 802 l12 -12 M2254 812 l14 -14 M2270 808 l10 -12" stroke-width="2" opacity="0.5"/>
+    <!-- rain-wet sheen around the treads -->
+    <ellipse cx="2110" cy="800" rx="150" ry="34" fill="#8fa3b0" opacity="0.14"/>
+  </g>
+</svg>

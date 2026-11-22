@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="kbWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="31" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="kbSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="kbSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <pattern id="kbBrick" width="160" height="64" patternUnits="userSpaceOnUse">
+      <path d="M0 32 H160 M0 64 H160" stroke="#8a6a4f" stroke-width="1.6" opacity="0.16" fill="none"/>
+      <path d="M40 0 V32 M120 32 V64" stroke="#8a6a4f" stroke-width="1.6" opacity="0.14" fill="none"/>
+    </pattern>
+  </defs>
+
+  <!-- paper base -->
+  <rect width="2400" height="900" fill="#f4ecdb"/>
+
+  <!-- watercolor washes: warm working kitchen, steam-cool corners -->
+  <g filter="url(#kbSoft)">
+    <ellipse cx="420" cy="300" rx="560" ry="320" fill="#9aa88f" opacity="0.18"/>
+    <ellipse cx="1980" cy="280" rx="640" ry="300" fill="#3a3f52" opacity="0.14"/>
+    <ellipse cx="1200" cy="830" rx="1300" ry="190" fill="#c9a25e" opacity="0.24"/>
+    <ellipse cx="800" cy="820" rx="520" ry="150" fill="#b4552d" opacity="0.10"/>
+    <ellipse cx="2260" cy="500" rx="260" ry="380" fill="#3a3f52" opacity="0.16"/>
+  </g>
+
+  <!-- whitewashed brick above the range -->
+  <g>
+    <rect x="0" y="0" width="560" height="520" fill="url(#kbBrick)"/>
+    <rect x="540" y="0" width="520" height="380" fill="url(#kbBrick)"/>
+    <rect x="1860" y="0" width="540" height="420" fill="url(#kbBrick)"/>
+  </g>
+
+  <!-- picture shelf + plaster line -->
+  <g filter="url(#kbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M0 542 L2400 538" stroke-width="5"/>
+    <path d="M0 96 L2400 88" stroke-width="4"/>
+    <path d="M0 130 L2400 122" stroke-width="3" opacity="0.5"/>
+    <path d="M300 96 V130 M1060 92 V126 M1900 90 V124" stroke-width="3" opacity="0.6"/>
+  </g>
+
+  <!-- window over the sink: rain still on the glass -->
+  <g filter="url(#kbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="1046" y="206" width="290" height="344" fill="#3a3f52" fill-opacity="0.30" stroke-width="6"/>
+    <path d="M1191 206 V550 M1046 378 H1336" stroke-width="4"/>
+    <rect x="1060" y="220" width="120" height="148" fill="#8fa3b0" fill-opacity="0.20" stroke-width="2.5"/>
+    <rect x="1212" y="220" width="112" height="148" fill="#3a3f52" fill-opacity="0.16" stroke-width="2.5"/>
+    <rect x="1060" y="388" width="120" height="146" fill="#3a3f52" fill-opacity="0.14" stroke-width="2.5"/>
+    <rect x="1212" y="388" width="112" height="146" fill="#8fa3b0" fill-opacity="0.16" stroke-width="2.5"/>
+    <!-- rain streaks on the panes -->
+    <path d="M1088 236 q6 60 -2 118 M1128 250 q8 52 2 108 M1244 240 q-6 66 0 116 M1282 262 q6 48 -2 100 M1108 404 q6 52 -2 110 M1258 408 q8 48 0 104" stroke="#f4ecdb" stroke-width="2.6" opacity="0.5"/>
+    <path d="M1040 550 H1350" stroke-width="7"/>
+    <path d="M1030 566 H1360" stroke-width="3" opacity="0.6"/>
+  </g>
+
+  <!-- tiled splash band behind the range -->
+  <g filter="url(#kbWobble)" stroke="#2e2a33" fill="none">
+    <rect x="520" y="440" width="540" height="120" fill="#d9c8a6" fill-opacity="0.45" stroke-width="3"/>
+    <path d="M600 440 V560 M680 440 V560 M760 440 V560 M840 440 V560 M920 440 V560 M1000 440 V560 M520 500 H1060" stroke-width="2" opacity="0.5"/>
+  </g>
+
+  <!-- garden door: dark garden beyond the glass -->
+  <g filter="url(#kbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="2176" y="286" width="188" height="470" fill="#2e3242" fill-opacity="0.55" stroke-width="6"/>
+    <path d="M2176 380 H2364 M2176 470 H2364 M2176 560 H2364" stroke-width="3.4" opacity="0.7"/>
+    <path d="M2270 286 V756" stroke-width="3.4" opacity="0.7"/>
+    <path d="M2200 320 l14 44 M2250 300 l10 40 M2320 330 l12 46 M2230 480 l16 52 M2300 500 l14 44 M2200 610 l18 60" stroke="#3a3f52" stroke-width="3" opacity="0.7"/>
+    <ellipse cx="2270" cy="600" rx="60" ry="130" fill="#8fa3b0" fill-opacity="0.10"/>
+  </g>
+
+  <!-- floor: quarry tiles to the passage, stone flags in the vestibule -->
+  <g filter="url(#kbWobble)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="0" y="756" width="2400" height="144" fill="#b9a98d" fill-opacity="0.5" stroke-width="4"/>
+    <path d="M0 756 L2400 752" stroke-width="6"/>
+    <rect x="1880" y="756" width="520" height="144" fill="#8fa3b0" fill-opacity="0.20"/>
+    <path d="M1880 756 V900" stroke-width="4" opacity="0.6"/>
+    <!-- tile joints -->
+    <path d="M120 800 H700 M760 804 H1380 M1440 798 H2000 M2060 806 H2400" stroke-width="2.4" opacity="0.45"/>
+    <path d="M120 856 H640 M700 860 H1320 M1380 854 H1940 M2000 858 H2400" stroke-width="2.4" opacity="0.45"/>
+    <path d="M180 800 V856 M420 804 V860 M660 800 V856 M900 804 V860 M1140 800 V856 M1380 804 V860 M1620 800 V856 M1860 804 V860 M1980 810 V866 M2140 806 V862 M2300 810 V866" stroke-width="2" opacity="0.4"/>
+    <!-- flag joints in the vestibule: larger, colder stones -->
+    <path d="M1980 760 L1990 898 M2160 758 L2168 900 M2320 756 L2326 898" stroke-width="2.6" opacity="0.5"/>
+  </g>
+</svg>

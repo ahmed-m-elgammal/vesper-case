@@ -113,6 +113,8 @@ export interface Door {
   lockedAct?: string;
   /** Flavor line shown when locked without a gate. */
   lockedLine?: string;
+  /** Gate offered INSTEAD of entering, while its evidence is complete and unsolved (act closers). */
+  gateOnExit?: string;
 }
 
 /** A talkable person standing in a room (hotspot wired to a dialogue graph). */
@@ -143,6 +145,19 @@ export interface Room {
   hints: { tier1: string; tier2: string; tier3: string };
 }
 
+/** One storybook act-closer / finale card, selected by gate.onSolve.endCard. */
+export interface EndCardContent {
+  kicker: string;
+  title: string;
+  body: string[];
+  /** The single action button at the foot of the card. */
+  button: string;
+  /** Where the button sends the player: the dollhouse hub, or the precinct. */
+  closeTo: 'hub' | 'station';
+  /** Only a finale card closes the folder (desk stamp + career count). */
+  finale?: boolean;
+}
+
 export interface GateSlot {
   before: string;
   after?: string;
@@ -159,6 +174,8 @@ export interface Gate {
   onSolve: {
     flags?: string[];
     unlockRooms?: string[];
+    /** Acts this gate swings open when solved (act closers open the next act). */
+    openActs?: number[];
     dialogue?: string;
     endCard?: string;
   };
@@ -232,6 +249,8 @@ export interface ContentBundle {
   dialogue: DialogueNode[];
   /** Conversation graphs keyed by id (v2 dialogue system). */
   graphs: Record<string, import('../dialogue/types').DialogueGraph>;
+  /** Act-closer / finale storybook cards, keyed by gate.onSolve.endCard id. */
+  endCards: Record<string, EndCardContent>;
   /** Locale table for "@key" text indirection (global + case-merged). */
   locale: Record<string, string>;
   chains: Chain[];

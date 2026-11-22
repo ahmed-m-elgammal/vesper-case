@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cuRnW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="63" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="cuRnS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="cuRnS2" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#cuRnS)">
+    <ellipse cx="78" cy="76" rx="58" ry="38" fill="#b4552d" opacity="0.10"/>
+    <ellipse cx="736" cy="524" rx="66" ry="42" fill="#8a6a4f" opacity="0.14"/>
+    <ellipse cx="706" cy="86" rx="46" ry="30" fill="#c9a25e" opacity="0.10"/>
+    <ellipse cx="88" cy="542" rx="50" ry="30" fill="#3a3f52" opacity="0.10"/>
+  </g>
+  <g filter="url(#cuRnW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+
+  <!-- the staircase seen from above: treads descending left, runner down the middle -->
+  <g filter="url(#cuRnW)" stroke="#2e2a33" stroke-linejoin="round" fill="none">
+    <!-- treads (top step nearest viewer) -->
+    <path d="M80 190 H720 V210 H80 Z" fill="#8a6a4f" fill-opacity="0.30" stroke-width="3.4"/>
+    <path d="M80 260 H660 V282 H80 Z" fill="#8a6a4f" fill-opacity="0.36" stroke-width="3.4"/>
+    <path d="M80 332 H600 V356 H80 Z" fill="#8a6a4f" fill-opacity="0.42" stroke-width="3.4"/>
+    <path d="M80 406 H540 V432 H80 Z" fill="#8a6a4f" fill-opacity="0.48" stroke-width="3.4"/>
+    <path d="M80 482 H480 V510 H80 Z" fill="#8a6a4f" fill-opacity="0.54" stroke-width="3.4"/>
+    <path d="M80 556 H420 V586 H80 Z" fill="#8a6a4f" fill-opacity="0.6" stroke-width="3.4"/>
+    <path d="M80 210 H720 M80 282 H660 M80 356 H600 M80 432 H540 M80 510 H480 M80 586 H420" stroke-width="4" opacity="0.6"/>
+    <!-- runner band down every tread -->
+    <path d="M180 190 H470 M190 260 H450 M200 332 H430 M210 406 H410 M220 482 H390 M230 556 H370" fill="#b4552d" fill-opacity="0.16" stroke-width="2.4"/>
+    <!-- worn pale lanes: stick's line right, trays' line left -->
+    <path d="M438 192 Q420 330 352 560" stroke="#c9a25e" stroke-width="13" opacity="0.45"/>
+    <path d="M452 196 Q436 330 368 558" stroke="#2e2a33" stroke-width="3" opacity="0.45"/>
+    <path d="M206 194 Q220 330 262 556" stroke="#c9a25e" stroke-width="11" opacity="0.4"/>
+    <path d="M194 196 Q206 330 246 556" stroke="#2e2a33" stroke-width="2.4" opacity="0.35"/>
+  </g>
+
+  <!-- three fresh wax drips on the twelfth step (nearest full tread) -->
+  <g filter="url(#cuRnW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M300 262 q-6 -14 5 -17 q11 3 5 17 q-3 10 -5 10 q-2 0 -5 -10 Z" fill="#e8c97a" fill-opacity="0.95" stroke-width="2.6"/>
+    <path d="M342 268 q-6 -14 5 -17 q11 3 5 17 q-3 10 -5 10 q-2 0 -5 -10 Z" fill="#e8c97a" fill-opacity="0.95" stroke-width="2.6"/>
+    <path d="M382 258 q-5 -12 4 -14 q9 2 4 14 q-2 9 -4 9 q-2 0 -4 -9 Z" fill="#e8c97a" fill-opacity="0.9" stroke-width="2.4"/>
+  </g>
+  <!-- drip shadows -->
+  <g filter="url(#cuRnS2)">
+    <ellipse cx="340" cy="284" rx="60" ry="10" fill="#3a3f52" opacity="0.15"/>
+  </g>
+
+  <!-- candle grease annotation lines -->
+  <g filter="url(#cuRnW)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <path d="M520 250 q26 -10 52 -6 M524 264 q28 -8 54 -2" stroke-width="2.2" opacity="0.5"/>
+    <text x="536" y="244" font-family="Caveat, cursive" font-size="24" opacity="0.8">the twelfth step:</text>
+    <text x="548" y="272" font-family="Caveat, cursive" font-size="24" opacity="0.8">three drips, down</text>
+  </g>
+
+  <text x="110" y="120" font-family="Caveat, cursive" font-size="30" fill="#2e2a33" text-anchor="start">habit's lanes -- the stick,</text>
+  <text x="130" y="156" font-family="Caveat, cursive" font-size="30" fill="#2e2a33" text-anchor="start">the trays, the midnight candle.</text>
+</svg>

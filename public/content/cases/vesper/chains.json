@@ -53,6 +53,27 @@
         "pill_bottle",
         "peggy_scissors_ownup"
       ]
+    },
+    {
+      "id": "dark",
+      "name": "The Dark Half Hour",
+      "blurb": "Twenty-one minutes of darkness: a lantern, a burnt loaf, a wireless singing to nobody -- and wet treads on the kitchen flags.",
+      "clueIds": [
+        "burnt_loaf",
+        "pantry_lantern",
+        "kitchen_radio",
+        "wet_flag_prints",
+        "colette_ledger_page"
+      ]
+    },
+    {
+      "id": "household",
+      "name": "The Household's Hours",
+      "blurb": "Worn carpet lanes and rinsed glasses -- the quiet habits that map who moved, and when.",
+      "clueIds": [
+        "stair_worn_runner",
+        "peggy_tonic_glass"
+      ]
     }
   ]
 }

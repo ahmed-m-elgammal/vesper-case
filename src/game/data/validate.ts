@@ -186,7 +186,28 @@ export function validateBundle(raw: Record<string, unknown>): string[] {
     req(go.requiresClues, `gates[${i}].requiresClues`).forEach((id) =>
       assert(clueIds.has(String(id)), `gates[${i}] requires unknown clue "${id}"`, errors)
     );
+    const onSolve = obj(go.onSolve);
+    if (Array.isArray(onSolve.openActs)) {
+      onSolve.openActs.forEach((a, j) =>
+        assert(typeof a === 'number' && a >= 1, `gates[${i}].onSolve.openActs[${j}] must be a positive act number`, errors)
+      );
+    }
   });
+
+  /* end cards (act closers + the finale card) */
+  const endCardsRaw = obj(raw.endCards);
+  const endCardsMap = obj(endCardsRaw.endCards ?? endCardsRaw);
+  for (const [id, card] of Object.entries(endCardsMap)) {
+    const co = obj(card);
+    assert(isStr(co.kicker), `endCards.${id}.kicker missing`, errors);
+    assert(isStr(co.title), `endCards.${id}.title missing`, errors);
+    reqArr(co.body, `endCards.${id}.body`, errors).forEach((ln, i) =>
+      assert(typeof ln === 'string' && ln.length > 0, `endCards.${id}.body[${i}] must be non-empty`, errors)
+    );
+    assert(isStr(co.button), `endCards.${id}.button missing`, errors);
+    assert(co.closeTo === 'hub' || co.closeTo === 'station', `endCards.${id}.closeTo must be "hub" or "station"`, errors);
+    if (co.finale !== undefined) assert(typeof co.finale === 'boolean', `endCards.${id}.finale must be boolean`, errors);
+  }
 
   /* rooms -> doors / gates */
   rooms.forEach((r, i) => {
@@ -199,6 +220,9 @@ export function validateBundle(raw: Record<string, unknown>): string[] {
         assert(roomIds.has(to), `rooms[${i}].doors[${j}] -> unknown room "${to}"`, errors);
         if (isStr(dobj.lockedByGate)) {
           assert(gateIds.has(dobj.lockedByGate), `rooms[${i}].doors[${j}] unknown gate "${dobj.lockedByGate}"`, errors);
+        }
+        if (isStr(dobj.gateOnExit)) {
+          assert(gateIds.has(dobj.gateOnExit), `rooms[${i}].doors[${j}] unknown gateOnExit "${dobj.gateOnExit}"`, errors);
         }
       }
       assert(isRect(dobj.spot), `rooms[${i}].doors[${j}].spot missing`, errors);
@@ -258,6 +282,16 @@ export function validateBundle(raw: Record<string, unknown>): string[] {
   /* cross-check: suspect count and fair-play minimums */
   assert(req(raw.suspects, 'suspects').length >= 5, 'case must have >= 5 suspects', errors);
   assert(clues.length >= 12, 'Act 1 build should ship >= 12 clues', errors);
+
+  /* every gate endCard must resolve to an authored card */
+  req(raw.gates, 'gates').forEach((g, i) => {
+    const endCard = obj(obj(g).onSolve).endCard;
+    if (isStr(endCard)) {
+      const endCardsRaw = obj(raw.endCards);
+      const endCardsMap = obj(endCardsRaw.endCards ?? endCardsRaw);
+      assert(Boolean(endCardsMap[endCard]), `gates[${i}] endCard "${endCard}" is not an authored end card`, errors);
+    }
+  });
 
   return errors;
 }
