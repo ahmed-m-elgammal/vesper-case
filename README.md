@@ -2,7 +2,9 @@
 
 A browser-based detective deduction game with a hand-drawn storybook look, built on a **data-driven MVVM architecture**. You are Detective Elias Byrne, Grade I, badge 4613, desk 14 at the Old Town Precinct. When you open the game you step out into the rain and **walk** — free 360-degree movement, around the furniture, through doorways, behind Constable Dewi and the water cooler — to your desk, where the case folders wait. The world is bigger than one mystery now; the folders on your desk decide what you work tonight.
 
-**This build ships the Walking Precinct + Prologue + Act I + Act II**: a drawn police station (exterior street with rain, interior bullpen, upper canteen/archive) that you now physically walk with the detective (WASD/arrows or tap-to-move with A* pathfinding, Y-sorted furniture, per-level position memory), the desk case-file registry (one playable case + three data-authored future folders), the captain's first-case memo, station staff you can actually talk to, and the Vesper case inside 7 Hollow Lane: Act I (the hall + the parlour, poison and hearth and bolt) **and Act II (the kitchen and the upper landing, 25 evidence items, 3 deduction gates, act-closer end cards)**, notebook, autosave, save codes. Acts 3–5 of the Vesper case (bedrooms/study, attic + the twist, interrogations + accusation) remain authored data waiting for their milestones.
+**This build ships the Walking Precinct + Prologue + Acts I, II & III**: a drawn police station (exterior street with rain, interior bullpen, upper canteen/archive) that you now physically walk with the detective (WASD/arrows or tap-to-move with A* pathfinding, Y-sorted furniture, per-level position memory), the desk case-file registry (one playable case + three data-authored future folders), the captain's first-case memo, station staff you can actually talk to, and the Vesper case inside 7 Hollow Lane: Act I (the hall + the parlour, poison and hearth and bolt), Act II (the kitchen and the upper landing, the dark half hour) **and Act III (the study, the bedrooms and the bathroom, 36 evidence items, 4 deduction gates, the UV torch finally earning its keep, forgery resolved and the confession's carbons found)**, notebook, autosave, save codes. Acts 4–5 of the Vesper case (attic + the twist, interrogations + accusation) remain authored data waiting for their milestones.
+
+**Play it live**: <https://ahmed-m-elgammal.github.io/vesper-case/> (deployed by the Pages workflow on every push to `main`; first enablement is one click — Settings → Pages → Source: **GitHub Actions**).
 
 ---
 
@@ -16,12 +18,14 @@ npm run test:dialogue  # conversation-runtime engine tests (node, no browser)
 bun run dev          # Next.js dev server on port 3000 — open the preview
 ```
 
-Production static deploy (Cloudflare Pages / itch.io / any static host):
+Production static deploy (GitHub Pages — automated, see `.github/workflows/deploy-pages.yml`):
 
 ```bash
-bun run build        # next build + static assets in .next/standalone + public
-bun run start        # serve the production build (registers the service worker)
+NEXT_PUBLIC_BASE_PATH=/vesper-case npx next build   # fully static export in out/
+# the workflow pushes it to Pages on every commit to main
 ```
+
+Other static hosts (Cloudflare Pages / itch.io) work the same way; locally, `npm run build && npm run start` serves the standalone production build. The export boots and plays with zero server: the base path (`NEXT_PUBLIC_BASE_PATH`) is prefixed onto every content/art URL at build time (`src/game/core/assetUrl.ts`).
 
 The game is fully client-side: Phaser rooms + plain DOM overlays + JSON content, no server needed. The service worker (`public/sw.js`) precaches the shell and runtime-caches content/art for offline play (registered in production builds only).
 
@@ -144,10 +148,11 @@ Hotspot rects are in world units and must sit inside the matching art objects (s
 - [x] **M2.5 (the precinct, shipped early)** — case-selection hub: drawn police station (rainy exterior + bullpen interior with data-driven hotspots), desk case-file registry (world expansion by data), detective's first-case story (intro beats + captain's memo), talkable station staff (Captain Breche, Sergeant Hollis) on the same dialogue runtime, per-case save records (GameState v3) with v1/v2 migration, Precinct button to leave the house mid-case.
 - [x] **M2.6 (the living precinct)** — upper floor (canteen + archive + records room, hand-drawn) with once-only first-entry narration per level; three new staff with full conversations (Constable Dewi, Miss Ada Quill — the records-room supervisor from the backstory, Dr. Barnaby Cray — the surgeon behind "the surgeon says poison"); captain + Hollis react to a closed case; **career ladder** (6 ranks, promotion ceremony every 10 closures, service record on the desk plaque with folder history + personnel notes), rank-gated folders with live unlock progress, end card returns to the precinct.
 - [x] **M2.7 (the walking precinct)** — the detective now walks all three precinct levels: free 360-degree movement (WASD/arrows, normalized diagonals, accel/decel) plus tap-to-move with **grid A\* over the walkable-rect union** (string-pulled paths, no corner cutting); circle-vs-rect collision resolved axis-by-axis (slides along desks, never clips corners); **Y-axis depth sorting** — he passes behind Constable Dewi and the water cooler (overlay props with floor-line `base`); walk-then-interact flow (tap a hotspot → he walks to its stand point → the action fires; E/Space works when close); per-level position memory in the save; UI-block freeze while overlays are up; `?nav=1` debug overlay of walkable/colliders/stand points; the validator checks every spawn/stand point is walkable and unblocked.
-- [x] **M5a (Act II, shipped)** — the kitchen and the upper landing open after the Act-1 gate (`onSolve.openActs`): 7 new clues (the burnt loaf, the pantry lantern, the wireless, wet flag prints, Colette's rounds book, the worn stair runner, Peggy's tonic glass), the gate-act2 deduction (offered by `gateOnExit` on the exit doors), data-driven **end cards** (`endCards.json`; only a `finale` card closes a folder — act closers walk you back into the house), new conversations (Colette's rounds, Tobias's wax, Peggy's tonic — plus 16 new evidence reactions), 2 new chains, timeline entries for 10:35/10:48/11:21, and hand-inked art: 6 room layers + 7 close-ups. Acts 3–5 wait as planned data.
-- [ ] **M2** — hub tools & transitions: UV torch, tape measure, page-turn variants, per-room ambience.
+- [x] **M5a (Act II, shipped)** — the kitchen and the upper landing open after the Act-1 gate (`onSolve.openActs`): 7 new clues (the burnt loaf, the pantry lantern, the wireless, wet flag prints, Colette's rounds book, the worn stair runner, Peggy's tonic glass), the gate-act2 deduction (offered by `gateOnExit` on the exit doors), data-driven **end cards** (`endCards.json`; only a `finale` card closes a folder — act closers walk you back into the house), new conversations (Colette's rounds, Tobias's wax, Peggy's tonic — plus 16 new evidence reactions), 2 new chains, timeline entries for 10:35/10:48/11:21, and hand-inked art: 6 room layers + 7 close-ups.
+- [x] **M5b (Act III, shipped)** — the study, Peggy's room, Edmund's room and the bathroom open when gate-act2 closes (`openActs: [3]`): 8 new clues (the candle's mark, the final notice, Ruth's journal, the medicine cabinet, the blotter under the UV torch, the 10:19 cab receipt, the safe's carbon pages 40–43, the apprentice's tin), the gate-act3 deduction "What the Study Kept", end card `act-three-curtain`, 12 room layers + 8 close-ups (generator-scripted in the same hand-inked style), Peggy owning her lie and her debts, Tobias answering for his button and remembering the carbons, the forgery red herring resolved and the confession thread grown. The UV torch now genuinely unlocks (the HUD reads `tool_uv_granted`) — and room routing no longer builds duplicate RoomVMs.
+- [ ] **M2** — hub tools & transitions: tape measure, page-turn variants, per-room ambience.
 - [ ] **M3** — evidence board & deduction engine (string links between clues).
-- [ ] **M5** — full case content, act by act (the case bible is the source of truth).
+- [ ] **M5c** — Acts 4–5: attic + cellar + laundry (the twist), interrogations, the evidence board and the final accusation (culprit / method / motive).
 - [ ] **M6** — polish: audio (Howler), captions for all key sounds, performance pass (texture atlas + WebP for photographic layers if ever added).
 
 ## 7. Verification
