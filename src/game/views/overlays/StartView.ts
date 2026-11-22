@@ -61,7 +61,7 @@ export class StartView {
       );
     }
 
-    card.append(actions, el('div', { class: 'start-build', text: 'Build Two -- The Precinct, Prologue & Act I' }));
+    card.append(actions, el('div', { class: 'start-build', text: this.vm.repo.bundle.case.build }));
     this.node.append(card);
   }
 

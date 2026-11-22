@@ -202,7 +202,7 @@ export class MenuView {
   private renderAbout(): void {
     this.body.append(
       el('div', { class: 'about-list' }, [
-        el('p', { class: 'page-body', text: 'Ink & Ashes -- Build Two (The Precinct, Prologue & Act I). A data-driven MVVM detective game: a hand-drawn police-station hub where cases are chosen from Desk 14, Phaser 3 rooms + plain DOM overlays, all world and case content in JSON, autosave to IndexedDB.' }),
+        el('p', { class: 'page-body', text: `Ink & Ashes -- ${this.vm.repo.bundle.case.build}. A data-driven MVVM detective game: a hand-drawn police-station hub where cases are chosen from Desk 14, Phaser 3 rooms + plain DOM overlays, all world and case content in JSON, autosave to IndexedDB.` }),
         el('p', { class: 'page-body', text: 'The world expands by data: each folder on the desk points at /content/cases/<id>/, and station hotspots, staff and conversations live in world.json. New cases are authored, not coded.' }),
         el('p', { class: 'page-body', text: 'Autosave runs after every clue, deduction, conversation beat and setting change.' }),
       ])
