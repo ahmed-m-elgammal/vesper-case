@@ -17,7 +17,7 @@ install_helpers
 
 echo "== start screen =="
 # fresh boot shows the start overlay; if resumed, continue instead
-$AB eval "(() => { const btns = Array.from(document.querySelectorAll('.start-actions .btn')); const b = btns.find(x => x.textContent === 'Open the case file') || btns.find(x => x.textContent === 'Continue the case'); if (b) { b.click(); return 'clicked ' + b.textContent; } return 'no start overlay: ' + btns.map(x=>x.textContent).join(','); })()"
+$AB eval "(() => { const btns = Array.from(document.querySelectorAll('.start-actions .btn')); const b = btns.find(x => x.textContent === 'Begin the night shift') || btns.find(x => x.textContent === 'Continue working') || btns.find(x => x.textContent === 'Open the case file') || btns.find(x => x.textContent === 'Continue the case'); if (b) { b.click(); return 'clicked ' + b.textContent; } return 'no start overlay: ' + btns.map(x=>x.textContent).join(','); })()"
 sleep 1.5
 shot 02-prologue-cover
 

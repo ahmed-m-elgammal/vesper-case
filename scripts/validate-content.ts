@@ -26,6 +26,15 @@ for (const [pid, p] of Object.entries(world.people) as [string, { portrait?: str
 for (const scene of ['exterior', 'interior', 'upper'] as const) {
   const art = (world as Record<string, { art?: string }>)[scene]?.art;
   if (art && !existsSync('public' + art)) problems.push(`${scene}: art missing ${art}`);
+  // walking geometry -> sprite files must exist on disk
+  const nav = (world as Record<string, { nav?: { props?: { img: string }[] } }>)[scene]?.nav;
+  for (const prop of nav?.props ?? []) {
+    if (!existsSync('public' + prop.img)) problems.push(`${scene}: nav prop sprite missing ${prop.img}`);
+  }
+}
+// the walking detective's nine frames
+for (const frame of ['down-0', 'down-1', 'down-2', 'up-0', 'up-1', 'up-2', 'side-0', 'side-1', 'side-2']) {
+  if (!existsSync(`public/art/player/${frame}.svg`)) problems.push(`player frame missing ${frame}.svg`);
 }
 
 if (problems.length) {

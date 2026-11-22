@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1320 640 250 320" width="250" height="320">
+<defs>
+    <filter id="inWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="23" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="inSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="inSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="11"/>
+    </filter>
+    <pattern id="inFloor" width="120" height="70" patternUnits="userSpaceOnUse">
+      <path d="M0 1 H120 M0 36 H120" stroke="#6b5233" stroke-width="2.4" opacity="0.35" fill="none"/>
+      <path d="M34 1 V36 M86 1 V36 M12 36 V70 M62 36 V70 M108 36 V70" stroke="#6b5233" stroke-width="2.4" opacity="0.35" fill="none"/>
+    </pattern>
+  </defs>
+
+  <!-- Constable Dewi: ink silhouette, brass buttons, notebook in hand -->
+  <g filter="url(#inWobble)" stroke="#2e2a33" stroke-linecap="round">
+    <!-- custodian helmet -->
+    <path d="M1425 700 Q1425 664 1452 656 Q1479 664 1479 700 L1479 712 H1425 Z" fill="#2e2a33" fill-opacity="0.9" stroke-width="3.6"/>
+    <path d="M1418 712 H1486" stroke-width="4"/>
+    <path d="M1432 674 Q1452 666 1472 674" stroke="#c9a25e" stroke-width="3" fill="none" opacity="0.8"/>
+    <path d="M1452 660 V710" stroke-width="2" opacity="0.5"/>
+    <!-- face patch + calm features -->
+    <path d="M1431 718 Q1430 744 1444 752 Q1462 755 1472 744 Q1478 730 1473 718 Z" fill="#f4ecdb" fill-opacity="0.9" stroke-width="2.6"/>
+    <circle cx="1443" cy="730" r="2.4" fill="#2e2a33" stroke="none"/>
+    <circle cx="1461" cy="730" r="2.4" fill="#2e2a33" stroke="none"/>
+    <path d="M1445 742 Q1452 745 1459 742" stroke-width="2.2" fill="none"/>
+    <!-- big constable torso: double-breasted tunic -->
+    <path d="M1421 762 Q1423 752 1436 750 L1468 750 Q1481 752 1483 762 L1490 852 Q1452 858 1414 852 Z" fill="#2e2a33" fill-opacity="0.88" stroke-width="3.6"/>
+    <path d="M1452 754 V852" stroke-width="2" opacity="0.4"/>
+    <path d="M1436 758 L1432 848 M1468 758 L1472 848" stroke-width="2" opacity="0.35"/>
+    <!-- brass buttons -->
+    <circle cx="1438" cy="782" r="4.4" fill="#c9a25e" stroke="none"/>
+    <circle cx="1438" cy="804" r="4.4" fill="#c9a25e" stroke="none"/>
+    <circle cx="1438" cy="826" r="4.4" fill="#c9a25e" stroke="none"/>
+    <circle cx="1466" cy="782" r="4.4" fill="#c9a25e" stroke="none"/>
+    <circle cx="1466" cy="804" r="4.4" fill="#c9a25e" stroke="none"/>
+    <circle cx="1466" cy="826" r="4.4" fill="#c9a25e" stroke="none"/>
+    <!-- collar + tie -->
+    <path d="M1442 754 L1452 764 L1462 754" fill="none" stroke-width="2.6"/>
+    <!-- sleeves; right hand holds his notebook -->
+    <path d="M1422 764 Q1408 790 1412 830 L1424 832 Q1428 798 1430 770 Z" fill="#2e2a33" fill-opacity="0.88" stroke-width="3"/>
+    <path d="M1482 764 Q1496 790 1492 828 L1480 830 Q1476 798 1474 770 Z" fill="#2e2a33" fill-opacity="0.88" stroke-width="3"/>
+    <circle cx="1417" cy="838" r="6" fill="#f4ecdb" fill-opacity="0.9" stroke-width="2.4"/>
+    <circle cx="1487" cy="834" r="6" fill="#f4ecdb" fill-opacity="0.9" stroke-width="2.4"/>
+    <!-- little beat book in the left hand -->
+    <rect x="1478" y="838" width="26" height="34" rx="3" fill="#f4ecdb" fill-opacity="0.95" stroke-width="2.4"/>
+    <path d="M1484 848 H1500 M1484 856 H1498 M1484 864 H1500" stroke-width="1.8" opacity="0.7"/>
+    <!-- trousers + boots -->
+    <path d="M1428 852 L1424 928 L1442 928 L1446 852 Z" fill="#2e2a33" fill-opacity="0.85" stroke-width="3"/>
+    <path d="M1458 852 L1462 928 L1480 928 L1476 852 Z" fill="#2e2a33" fill-opacity="0.85" stroke-width="3"/>
+    <ellipse cx="1433" cy="940" rx="17" ry="7" fill="#2e2a33" stroke-width="2.6"/>
+    <ellipse cx="1471" cy="940" rx="17" ry="7" fill="#2e2a33" stroke-width="2.6"/>
+    <!-- ground shadow -->
+    <ellipse cx="1452" cy="950" rx="64" ry="12" fill="#2e2a33" opacity="0.14" stroke="none"/>
+  </g>
+</svg>

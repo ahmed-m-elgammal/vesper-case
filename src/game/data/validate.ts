@@ -382,6 +382,65 @@ function checkScene(sc: unknown, what: string, errors: string[]): void {
     if (kind === 'dialogue') assert(isStr(ho.dialogue), `${what}.hotspots[${i}].dialogue missing`, errors);
     if (kind === 'flavor' || kind === 'locked') assert(isStr(ho.line), `${what}.hotspots[${i}].line missing`, errors);
   });
+  checkNav(so.nav, what, ids, errors);
+}
+
+/** Navigation geometry: spawn/stand points must be walkable and unblocked. */
+function checkNav(nav: unknown, what: string, hotspotIds: Set<string>, errors: string[]): void {
+  if (nav === undefined) return; // levels without nav stay tap-only
+  const no = obj(nav);
+  assert(Array.isArray(no.walk) && no.walk.length > 0, `${what}.nav.walk must be a non-empty array`, errors);
+  const walk = Array.isArray(no.walk) ? no.walk : [];
+  walk.forEach((r, i) => {
+    assert(isRect(r), `${what}.nav.walk[${i}] must be [x,y,w,h]`, errors);
+    const [x, y, w, h] = isRect(r) ? r : [0, 0, 0, 0];
+    assert(w > 0 && h > 0, `${what}.nav.walk[${i}] must have positive size`, errors);
+  });
+  const colliders: Array<[number, number, number, number]> = [];
+  (Array.isArray(no.colliders) ? no.colliders : []).forEach((r, i) => {
+    assert(isRect(r), `${what}.nav.colliders[${i}] must be [x,y,w,h]`, errors);
+    if (isRect(r)) colliders.push(r);
+  });
+  (Array.isArray(no.props) ? no.props : []).forEach((p, i) => {
+    const po = obj(p);
+    ['id', 'img'].forEach((k) => assert(isStr(po[k]), `${what}.nav.props[${i}].${k} missing`, errors));
+    ['x', 'y', 'w', 'h', 'base'].forEach((k) =>
+      assert(typeof po[k] === 'number', `${what}.nav.props[${i}].${k} must be a number`, errors)
+    );
+    if (isRect(po.solid)) colliders.push(po.solid as [number, number, number, number]);
+    if (po.person !== undefined) assert(isStr(po.person), `${what}.nav.props[${i}].person invalid`, errors);
+  });
+
+  const insideWalk = (pt: [number, number]) =>
+    walk.some((r) => {
+      if (!isRect(r)) return false;
+      const [x, y, w, h] = r;
+      return pt[0] >= x && pt[0] <= x + w && pt[1] >= y && pt[1] <= y + h;
+    });
+  const blocked = (pt: [number, number]) =>
+    colliders.some(([x, y, w, h]) => pt[0] >= x && pt[0] <= x + w && pt[1] >= y && pt[1] <= y + h);
+  const badPoint = (pt: unknown, where: string) => {
+    if (!Array.isArray(pt) || pt.length !== 2 || pt.some((n) => typeof n !== 'number')) {
+      errors.push(`${where} must be [x, y]`);
+      return;
+    }
+    const p = pt as [number, number];
+    assert(insideWalk(p), `${where} is not inside a walkable rect`, errors);
+    assert(!blocked(p), `${where} sits inside a collider`, errors);
+  };
+
+  if (no.spawn !== undefined) badPoint(no.spawn, `${what}.nav.spawn`);
+  const sn = obj(no.spawnNear);
+  for (const [from, pt] of Object.entries(sn)) {
+    assert(['exterior', 'interior', 'upper'].includes(from), `${what}.nav.spawnNear.${from} invalid level`, errors);
+    badPoint(pt, `${what}.nav.spawnNear.${from}`);
+  }
+  const sp = obj(no.standPoints);
+  for (const [hid, pt] of Object.entries(sp)) {
+    assert(hotspotIds.has(hid), `${what}.nav.standPoints.${hid} has no matching hotspot`, errors);
+    badPoint(pt, `${what}.nav.standPoints.${hid}`);
+  }
+  if (no.reach !== undefined) assert(typeof no.reach === 'number' && (no.reach as number) > 0, `${what}.nav.reach must be a positive number`, errors);
 }
 
 /** Runtime checks for world.json (the precinct that hosts every case). */

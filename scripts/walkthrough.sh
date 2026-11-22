@@ -11,7 +11,7 @@ sleep 9
 $AB eval "window.__game ? 'boot phase=' + window.__game.vm.phase$.value : 'NOBOOT'"
 
 # 1. start screen -> open case file
-$AB find text "Open the case file" click
+$AB find text "Begin the night shift" click || $AB find text "Continue working" click
 sleep 1.5
 shot 02-prologue-cover
 

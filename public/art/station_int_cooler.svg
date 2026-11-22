@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1550 550 164 262" width="164" height="262">
+<defs>
+    <filter id="inWobble" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="23" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <filter id="inSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="inSoft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="11"/>
+    </filter>
+    <pattern id="inFloor" width="120" height="70" patternUnits="userSpaceOnUse">
+      <path d="M0 1 H120 M0 36 H120" stroke="#6b5233" stroke-width="2.4" opacity="0.35" fill="none"/>
+      <path d="M34 1 V36 M86 1 V36 M12 36 V70 M62 36 V70 M108 36 V70" stroke="#6b5233" stroke-width="2.4" opacity="0.35" fill="none"/>
+    </pattern>
+  </defs>
+  <!-- ============ water cooler (1556-1708 x 556-806) ============ -->
+  <g filter="url(#inWobble)">
+    <path d="M1584 556 H1680 L1668 640 H1596 Z" fill="#8fa3b0" fill-opacity="0.5" stroke="#2e2a33" stroke-width="4"/>
+    <rect x="1592" y="640" width="96" height="120" fill="#f4ecdb" stroke="#2e2a33" stroke-width="4"/>
+    <rect x="1604" y="676" width="72" height="30" rx="4" fill="#8fa3b0" fill-opacity="0.5" stroke="#2e2a33" stroke-width="2.6"/>
+    <path d="M1592 760 H1684" stroke="#2e2a33" stroke-width="3"/>
+    <circle cx="1632" cy="706" r="10" fill="#e8b24a" fill-opacity="0.6" stroke="#2e2a33" stroke-width="2.4"/>
+  </g>
+</svg>

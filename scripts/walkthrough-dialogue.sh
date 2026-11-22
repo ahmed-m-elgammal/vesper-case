@@ -48,7 +48,7 @@ $AB eval "window.__game ? 'boot phase=' + window.__game.vm.phase\$.value : 'NOBO
 install_helpers
 
 echo "== start -> case file -> begin =="
-$AB eval "(() => { const btns = Array.from(document.querySelectorAll('.start-actions .btn')); const b = btns.find(x => x.textContent === 'Open the case file') || btns.find(x => x.textContent === 'Continue the case'); if (b) { b.click(); return 'clicked'; } return 'none'; })()" >/dev/null
+$AB eval "(() => { const btns = Array.from(document.querySelectorAll('.start-actions .btn')); const b = btns.find(x => x.textContent === 'Begin the night shift') || btns.find(x => x.textContent === 'Continue working') || btns.find(x => x.textContent === 'Open the case file') || btns.find(x => x.textContent === 'Continue the case'); if (b) { b.click(); return 'clicked'; } return 'none'; })()" >/dev/null
 sleep 1.5
 for i in 1 2 3 4 5 6 7; do
   $AB eval "(() => { const n = document.querySelectorAll('.prologue-nav')[1]; if (n && !n.disabled) { n.click(); return 'next'; } return 'last'; })()" >/dev/null

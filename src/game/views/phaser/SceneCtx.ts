@@ -26,6 +26,10 @@ export interface SceneHooks {
 export interface SceneCtx {
   vm: GameVM;
   hooks: SceneHooks;
+  /** True while a DOM overlay (dialogue, notebook, desk drawer...) covers the
+   *  canvas: scenes freeze the walking detective while it is up. GameRoot
+   *  keeps this current by watching the overlay layer. */
+  isUIBlocked?(): boolean;
 }
 
 /*

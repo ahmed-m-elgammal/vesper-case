@@ -170,8 +170,24 @@ export class GameRoot {
     layer.append(this.buildDialogue());
 
     /* ---- phaser ---- */
+    // UI-block watcher: the station scenes freeze the walking detective while
+    // any full-screen overlay (dialogue, notebook, desk drawer, cards...) is up.
+    // Every blocking view carries the 'overlay' class; the hint chip does not
+    // count, and '.hidden' nodes never do.
+    let uiBlockCount = 0;
+    const isBlockingOverlay = (n: Element) =>
+      n.classList.contains('overlay') && !n.classList.contains('hint-overlay') && !n.classList.contains('hidden');
+    const recountOverlays = () => {
+      uiBlockCount = Array.from(this.stage.querySelectorAll('.overlay')).filter(isBlockingOverlay).length;
+    };
+    const overlayObserver = new MutationObserver(recountOverlays);
+    overlayObserver.observe(this.stage, { subtree: true, childList: true, attributes: true, attributeFilter: ['class'] });
+    recountOverlays();
+    this.unsubs.push(() => overlayObserver.disconnect());
+
     const ctx: SceneCtx = {
       vm: this.vm,
+      isUIBlocked: () => uiBlockCount > 0,
       hooks: {
         openClue: (clueId) => {
           this.vm.collectClue(clueId);

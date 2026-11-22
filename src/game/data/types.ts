@@ -271,11 +271,61 @@ export interface StationHotspot {
   line?: string;
 }
 
+/* ------------------------------------------------------------------ */
+/* Station navigation -- walking the precinct (pure data, per level)    */
+/* ------------------------------------------------------------------ */
+
+/**
+ * A foreground sprite redrawn over the baked background so the painter can
+ * stand BEHIND it. The SVG keeps its original art coordinates, so (x, y) is
+ * the sprite's top-left corner in world space -- overlaying the same group it
+ * duplicates. Depth sorting is by `base` (the prop's floor line).
+ */
+export interface StationProp {
+  id: string;
+  /** Sprite URL (SVG with a world-space viewBox). */
+  img: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  /** World y of the prop's contact with the floor (depth-sort line). */
+  base: number;
+  /** Solid footprint, if the prop blocks movement (inflated by body radius). */
+  solid?: Rect;
+  /** world.people id when the prop is a character. */
+  person?: string;
+}
+
+/**
+ * Everything the walker needs for one precinct level. Walkable space is the
+ * UNION of `walk` rects minus every collider; visual rects (hotspots, art)
+ * are deliberately separate from collision geometry.
+ */
+export interface StationNav {
+  /** Where the detective appears on entry. */
+  spawn: [number, number];
+  /** Where to appear when arriving from a given level (falls back to spawn). */
+  spawnNear?: Partial<Record<StationLevel, [number, number]>>;
+  /** Walkable floor rects [x, y, w, h] (any overlap = connected space). */
+  walk: Rect[];
+  /** Solid footprints of furniture baked into the background art. */
+  colliders?: Rect[];
+  /** Depth-sorted foreground sprites (props + standing characters). */
+  props?: StationProp[];
+  /** Hotspot id -> where the detective walks before the interaction fires. */
+  standPoints?: Record<string, [number, number]>;
+  /** Interaction reach in world px (default 150). */
+  reach?: number;
+}
+
 export interface StationSceneData {
   art: string;
   title: string;
   ambientCaption: string;
   hotspots: StationHotspot[];
+  /** Walking geometry: walkable areas, colliders, props, stand points. */
+  nav?: StationNav;
   /** Narration shown once, the first time the player enters this level. */
   firstEntry?: { flag: string; lines: string[] };
 }
@@ -403,7 +453,12 @@ export interface GameState {
   /** Everything case-specific, keyed by case id -- this is what makes the world expandable. */
   cases: Record<string, CaseProgress>;
   /** World-scope progression: precinct NPC memory (talked:* etc.), case-independent. */
-  station: { flags: Record<string, boolean>; vars: Record<string, number> };
+  station: {
+    flags: Record<string, boolean>;
+    vars: Record<string, number>;
+    /** Last walking position per precinct level (restored on re-entry). */
+    pos?: Partial<Record<StationLevel, [number, number]>>;
+  };
   /** Career progression: ranks acknowledged + one pending ceremony, if any. */
   career: { promotionsSeen: string[]; pending: string | null };
   settings: Settings;
@@ -419,7 +474,7 @@ export function freshState(): GameState {
     activeCaseId: null,
     roomId: null,
     cases: {},
-    station: { flags: {}, vars: {} },
+    station: { flags: {}, vars: {}, pos: {} },
     career: { promotionsSeen: [], pending: null },
     settings: { textSize: 1, highlights: true, accent: 'rust', subtitles: true },
     updatedAt: 0,
@@ -439,7 +494,11 @@ interface LegacyState {
   gates?: Record<string, boolean>;
   hintsUsed?: Record<string, number>;
   settings?: Partial<Settings>;
-  station?: { flags?: Record<string, boolean>; vars?: Record<string, number> };
+  station?: {
+    flags?: Record<string, boolean>;
+    vars?: Record<string, number>;
+    pos?: Partial<Record<StationLevel, [number, number]>>;
+  };
   cases?: Record<string, CaseProgress>;
   activeCaseId?: string | null;
   stationLevel?: StationLevel;
@@ -491,7 +550,11 @@ export function migrateState(loaded: Partial<GameState> | null | undefined): Gam
 
   state.stationLevel = ['exterior', 'interior', 'upper'].includes(state.stationLevel) ? state.stationLevel : 'exterior';
   state.cases = state.cases ?? {};
-  state.station = { flags: { ...(old.station?.flags ?? {}) }, vars: { ...(old.station?.vars ?? {}) } };
+  state.station = {
+    flags: { ...(old.station?.flags ?? {}) },
+    vars: { ...(old.station?.vars ?? {}) },
+    pos: { ...(old.station?.pos ?? {}) },
+  };
   // Career block is additive: keep whatever a v3 save carried, else start clean.
   state.career = {
     promotionsSeen: Array.isArray(old.career?.promotionsSeen) ? old.career.promotionsSeen : [],

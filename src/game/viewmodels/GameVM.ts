@@ -51,6 +51,8 @@ export class GameVM implements DialogueContext {
   readonly unlockedRooms$: Observable<string[]>;
 
   state: GameState = freshState();
+  /** Transient: the level the detective just came from (for door-side spawns). */
+  lastStationFrom: StationLevel | null = null;
   private _repo: ContentRepository;
   private toastId = 0;
   private sessionDismissed = new Set<string>();
@@ -260,10 +262,18 @@ export class GameVM implements DialogueContext {
     this.commit();
   }
 
-  setStationLevel(level: StationLevel): void {
+  setStationLevel(level: StationLevel, from?: StationLevel): void {
     if (this.state.stationLevel === level) return;
+    this.lastStationFrom = from ?? this.state.stationLevel;
     this.state.stationLevel = level;
     this.stationLevel$.value = level;
+    this.commit();
+  }
+
+  /** Remember where the detective stands on a precinct level (walking saves). */
+  setStationPos(level: StationLevel, pos: [number, number]): void {
+    const all = (this.state.station.pos ??= {});
+    all[level] = pos;
     this.commit();
   }
 
