@@ -9,7 +9,8 @@
         "mantel_clock",
         "visitor_ledger",
         "tobias_clatter",
-        "julian_cab_receipt"
+        "julian_cab_receipt",
+        "tobias_sketch"
       ]
     },
     {
@@ -31,7 +32,8 @@
         "hearth_rug_print",
         "coat_peg_coats",
         "umbrella_stand",
-        "colette_garden_bolt"
+        "colette_garden_bolt",
+        "coal_hatch_dust"
       ]
     },
     {
@@ -58,7 +60,8 @@
         "peggy_scissors_ownup",
         "peggy_ious",
         "bath_cabinet_digitalis",
-        "tobias_sewing_tin"
+        "tobias_sewing_tin",
+        "housekeeping_tin"
       ]
     },
     {
@@ -81,6 +84,17 @@
         "stair_worn_runner",
         "peggy_tonic_glass",
         "peggy_candle_mark"
+      ]
+    },
+    {
+      "id": "ruth",
+      "name": "The Light Carried Away",
+      "blurb": "Sketchbooks older than Whistler, a stub of candle, an empty hook, a ghost's pencil -- the attic keeps the night the house called an accident.",
+      "clueIds": [
+        "ruth_sketchbooks",
+        "landing_candle_stub",
+        "attic_key_hook",
+        "tobias_ghost_drafts"
       ]
     }
   ]

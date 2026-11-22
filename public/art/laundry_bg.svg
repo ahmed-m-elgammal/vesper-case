@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="laBW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="46" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="laBS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="2400" height="900" fill="#f4ecdb"/>
+  <g filter="url(#laBS)"><ellipse cx="500" cy="260" rx="260" ry="170" fill="#8fa3b0" opacity="0.13"/><ellipse cx="1300" cy="240" rx="280" ry="170" fill="#9aa88f" opacity="0.13"/><ellipse cx="2050" cy="280" rx="240" ry="170" fill="#3a3f52" opacity="0.14"/><ellipse cx="800" cy="780" rx="340" ry="130" fill="#8a6a4f" opacity="0.12"/><ellipse cx="1900" cy="800" rx="300" ry="120" fill="#3a3f52" opacity="0.1"/></g>
+  
+  <g filter="url(#laBW)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="-10" y="180" width="130" height="560" fill="#3a3f52" fill-opacity="0.30" stroke-width="6"/>
+    <rect x="4" y="196" width="102" height="544" fill="#3a3f52" fill-opacity="0.38" stroke-width="3.5"/>
+    <path d="M-10 180 q65 -26 130 0" stroke-width="6"/>
+    <path d="M40 196 V740" stroke-width="2.2" opacity="0.5"/>
+  </g>
+  <g filter="url(#laBW)" stroke="#2e2a33" fill="none">
+    <path d="M0 66 H2400 M0 96 H2400" stroke-width="7"/>
+    <path d="M700 66 V96 M1500 66 V96" stroke-width="4"/>
+  </g>
+  <g filter="url(#laBW)" stroke="#2e2a33" fill="none">
+    <path d="M900 250 H2000" stroke-width="3.4"/>
+    <path d="M900 250 q-6 -20 8 -34 M1500 250 q-6 -20 8 -34 M2000 250 q-6 -20 8 -34" stroke-width="2.6" opacity="0.6"/>
+    <path d="M1020 250 q-16 90 -8 178 q-40 10 -78 0 q10 -92 8 -178 q38 -12 78 0 Z" fill="#f4ecdb" fill-opacity="0.5" stroke-width="3"/>
+    <path d="M1600 250 q-16 84 -8 166 q-42 10 -80 0 q10 -86 8 -166 q40 -12 80 0 Z" fill="#f4ecdb" fill-opacity="0.45" stroke-width="3"/>
+    <path d="M1880 250 q-12 70 -6 140 q-34 8 -66 0 q8 -72 6 -140 q32 -10 66 0 Z" fill="#f4ecdb" fill-opacity="0.4" stroke-width="3"/>
+  </g>
+  <g filter="url(#laBW)" stroke="#2e2a33" fill="none">
+    <rect x="2080" y="150" width="200" height="170" fill="#8fa3b0" fill-opacity="0.20" stroke-width="5"/>
+    <path d="M2180 150 V320 M2080 235 H2280" stroke-width="4"/>
+    <path d="M2110 180 q5 36 -2 72 M2160 170 q5 36 -2 72 M2210 190 q5 36 -2 72" stroke-width="2" opacity="0.5"/>
+  </g>
+
+</svg>

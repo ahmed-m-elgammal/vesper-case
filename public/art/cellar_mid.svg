@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="ceMW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="44" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="ceMS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  
+  <g filter="url(#ceMS)"><ellipse cx="700" cy="470" rx="340" ry="160" fill="#8a6a4f" opacity="0.2"/><ellipse cx="1130" cy="500" rx="260" ry="130" fill="#c9a25e" opacity="0.14"/><ellipse cx="2170" cy="430" rx="260" ry="190" fill="#3a3f52" opacity="0.22"/></g>
+  
+  <g filter="url(#ceMW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <rect x="520" y="300" width="380" height="270" fill="#8a6a4f" fill-opacity="0.30" stroke-width="5"/>
+    <path d="M528 356 H892" stroke-width="3.4"/><path d="M528 420 H892" stroke-width="3.4"/><path d="M528 484 H892" stroke-width="3.4"/>
+    <rect x="544" y="318" width="26" height="40" rx="6" fill="#9aa88f" fill-opacity="0.4" stroke-width="2.2"/><rect x="586" y="318" width="26" height="46" rx="6" fill="#c9a25e" fill-opacity="0.4" stroke-width="2.2"/><rect x="628" y="318" width="26" height="52" rx="6" fill="#8fa3b0" fill-opacity="0.4" stroke-width="2.2"/><rect x="670" y="318" width="26" height="40" rx="6" fill="#b4552d" fill-opacity="0.4" stroke-width="2.2"/><rect x="712" y="318" width="26" height="46" rx="6" fill="#9aa88f" fill-opacity="0.4" stroke-width="2.2"/><rect x="754" y="318" width="26" height="52" rx="6" fill="#c9a25e" fill-opacity="0.4" stroke-width="2.2"/><rect x="796" y="318" width="26" height="40" rx="6" fill="#8fa3b0" fill-opacity="0.4" stroke-width="2.2"/><rect x="838" y="318" width="26" height="46" rx="6" fill="#b4552d" fill-opacity="0.4" stroke-width="2.2"/><rect x="544" y="382" width="26" height="40" rx="6" fill="#9aa88f" fill-opacity="0.4" stroke-width="2.2"/><rect x="586" y="382" width="26" height="46" rx="6" fill="#c9a25e" fill-opacity="0.4" stroke-width="2.2"/><rect x="628" y="382" width="26" height="52" rx="6" fill="#8fa3b0" fill-opacity="0.4" stroke-width="2.2"/><rect x="670" y="382" width="26" height="40" rx="6" fill="#b4552d" fill-opacity="0.4" stroke-width="2.2"/><rect x="712" y="382" width="26" height="46" rx="6" fill="#9aa88f" fill-opacity="0.4" stroke-width="2.2"/><rect x="754" y="382" width="26" height="52" rx="6" fill="#c9a25e" fill-opacity="0.4" stroke-width="2.2"/><rect x="796" y="382" width="26" height="40" rx="6" fill="#8fa3b0" fill-opacity="0.4" stroke-width="2.2"/><rect x="838" y="382" width="26" height="46" rx="6" fill="#b4552d" fill-opacity="0.4" stroke-width="2.2"/><rect x="544" y="446" width="26" height="40" rx="6" fill="#9aa88f" fill-opacity="0.4" stroke-width="2.2"/><rect x="586" y="446" width="26" height="46" rx="6" fill="#c9a25e" fill-opacity="0.4" stroke-width="2.2"/><rect x="628" y="446" width="26" height="52" rx="6" fill="#8fa3b0" fill-opacity="0.4" stroke-width="2.2"/><rect x="670" y="446" width="26" height="40" rx="6" fill="#b4552d" fill-opacity="0.4" stroke-width="2.2"/><rect x="712" y="446" width="26" height="46" rx="6" fill="#9aa88f" fill-opacity="0.4" stroke-width="2.2"/><rect x="754" y="446" width="26" height="52" rx="6" fill="#c9a25e" fill-opacity="0.4" stroke-width="2.2"/><rect x="796" y="446" width="26" height="40" rx="6" fill="#8fa3b0" fill-opacity="0.4" stroke-width="2.2"/><rect x="838" y="446" width="26" height="46" rx="6" fill="#b4552d" fill-opacity="0.4" stroke-width="2.2"/>
+    <path d="M528 646 l30 14 M860 646 l-30 14" stroke-width="3" opacity="0.4"/>
+  </g>
+  <g filter="url(#ceMW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M1010 360 h300 M1010 360 V600 M1310 360 V600" stroke-width="5.5"/>
+    <ellipse cx="1058" cy="412" rx="24" ry="34" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.6"/><ellipse cx="1124" cy="412" rx="24" ry="34" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.6"/><ellipse cx="1190" cy="412" rx="24" ry="34" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.6"/><ellipse cx="1256" cy="412" rx="24" ry="34" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.6"/><ellipse cx="1058" cy="474" rx="24" ry="34" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.6"/><ellipse cx="1124" cy="474" rx="24" ry="34" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.6"/><ellipse cx="1190" cy="474" rx="24" ry="34" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.6"/><ellipse cx="1256" cy="474" rx="24" ry="34" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.6"/><ellipse cx="1058" cy="536" rx="24" ry="34" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.6"/><ellipse cx="1124" cy="536" rx="24" ry="34" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.6"/><ellipse cx="1190" cy="536" rx="24" ry="34" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.6"/><ellipse cx="1256" cy="536" rx="24" ry="34" fill="#3a3f52" fill-opacity="0.35" stroke-width="2.6"/>
+  </g>
+  <g filter="url(#ceMW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M2400 60 L1980 330 L1980 560 L2400 300 Z" fill="#3a3f52" fill-opacity="0.34" stroke-width="6"/>
+    <path d="M2400 60 L1980 330 M2320 110 L2000 310 M2240 160 L2010 292" stroke-width="4" opacity="0.65"/>
+    <path d="M1980 330 H2130" stroke-width="6"/>
+    <rect x="1984" y="332" width="132" height="24" fill="#8a6a4f" fill-opacity="0.6" stroke-width="3.4" transform="rotate(-6 2050 344)"/>
+    <ellipse cx="2060" cy="470" rx="150" ry="52" fill="#3a3f52" fill-opacity="0.42" stroke-width="3"/>
+    <path d="M1914 470 q146 -30 292 0" stroke-width="2.6" opacity="0.6"/>
+    <path d="M1990 520 q70 -16 140 0 M2010 546 q50 -12 100 0" stroke-width="2" opacity="0.4"/>
+    <path d="M2160 540 q30 -10 60 0 q-4 14 -24 14 q-24 2 -36 -14 Z" fill="#f4ecdb" fill-opacity="0.5" stroke-width="2.4"/>
+    <path d="M2196 540 l-6 24" stroke-width="2.4"/>
+  </g>
+  <g filter="url(#ceMW)" stroke="#2e2a33" fill="none" opacity="0.9">
+    <ellipse cx="1250" cy="800" rx="620" ry="56" fill="#3a3f52" fill-opacity="0.14" stroke-width="3"/>
+    <ellipse cx="1250" cy="800" rx="420" ry="34" fill="none" stroke-width="2.4" opacity="0.5"/>
+  </g>
+
+</svg>

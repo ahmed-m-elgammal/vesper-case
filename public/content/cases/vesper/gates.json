@@ -138,7 +138,52 @@
       ],
       "onSolve": {
         "flags": ["act3_clear"],
+        "openActs": [4],
         "endCard": "act-three-curtain"
+      }
+    },
+    {
+      "id": "gate-act4",
+      "title": "What the Attic Kept",
+      "prompt": "Sergeant Hollis climbs as far as the landing and stops at the attic stair, like a man who has heard something. Say what the attic kept, and what the basement ruled out -- and mind how you say the name.",
+      "requiresClues": [
+        "ruth_sketchbooks",
+        "landing_candle_stub",
+        "attic_key_hook",
+        "tobias_ghost_drafts",
+        "housekeeping_tin",
+        "coal_hatch_dust"
+      ],
+      "slots": [
+        {
+          "before": "The fox was drawn first by",
+          "after": "-- in sketchbooks dated years before Whistler had a name.",
+          "answer": "Ruth Marsh",
+          "chips": ["Ruth Marsh", "Edmund Vesper", "Tobias Grimm", "Julian Ashcombe"]
+        },
+        {
+          "before": "and her last page says who carried the light away:",
+          "after": "-- the sister the house went quiet about.",
+          "answer": "her sister, Helena",
+          "chips": ["her sister, Helena", "Edmund himself", "a runaway groom", "nobody -- ink blots"]
+        },
+        {
+          "before": "The attic stair door that night was bolted",
+          "after": "-- and she came down in the dark it made.",
+          "answer": "from the landing side",
+          "chips": ["from the landing side", "from inside the stair", "not at all", "by the storm"]
+        },
+        {
+          "before": "and the coal hatch lies untouched under its dust, so the garden door was",
+          "after": "-- for the visitor, in and out, the whole dark half hour.",
+          "answer": "the only way in",
+          "chips": ["the only way in", "one of two doors", "never used at all", "a constable's fancy"]
+        }
+      ],
+      "onSolve": {
+        "flags": ["act4_clear"],
+        "dialogue": "hollis_act4_close",
+        "endCard": "act-four-curtain"
       }
     }
   ]

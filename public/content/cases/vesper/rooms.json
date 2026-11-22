@@ -94,6 +94,13 @@
           "spot": [0, 240, 90, 500],
           "label": "Back to the hall",
           "gateOnExit": "gate-act2"
+        },
+        {
+          "to": "cellar",
+          "spot": [2288, 300, 112, 440],
+          "label": "Down the cellar stair",
+          "lockedAct": "4",
+          "lockedLine": "The cellar stair is dark, and the Sergeant has it taped until the study's papers have told their truth."
         }
       ],
       "people": [
@@ -265,14 +272,30 @@
       "act": 4,
       "width": 2400,
       "height": 900,
-      "layers": [],
+      "layers": [
+        { "key": "attic_bg", "src": "/art/attic_bg.svg", "scrollFactor": 0.82, "depth": 0 },
+        { "key": "attic_mid", "src": "/art/attic_mid.svg", "scrollFactor": 1, "depth": 10 },
+        { "key": "attic_fg", "src": "/art/attic_fg.svg", "scrollFactor": 1.18, "depth": 20 }
+      ],
       "doors": [
-        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Down the stairs" }
+        {
+          "to": "landing",
+          "spot": [0, 240, 90, 500],
+          "label": "Down to the landing",
+          "gateOnExit": "gate-act4"
+        }
+      ],
+      "people": [
+        { "suspect": "tobias", "spot": [1050, 450, 135, 300], "label": "Tobias" }
       ],
       "hubPlate": [760, 50, 780, 160],
       "hubLabel": "Attic Studio",
       "hubAct": 4,
-      "hints": { "tier1": "Ruth's pencil still lives up here.", "tier2": "Coming in Act 4.", "tier3": "Coming in Act 4." }
+      "hints": {
+        "tier1": "Two people worked in this room, years apart. One of them is not who the books say.",
+        "tier2": "Ruth's shelf keeps her sketchbooks -- the dates will do, and the last page needs no glass. The key board by the stair has an empty hook. On Tobias's desk a line stops mid-stroke, and his portfolio keeps what the published pages cover.",
+        "tier3": "The sketchbooks are dated years before Whistler, and the last page reads 'H. carried the light away -- R.' The key is gone from its hook: he carried it down to the parlour that night. The candle stub sat wedged in the door frame since 1949, the stair door was bolted from the landing side, and the ghost drafts and tea-aged copies say the apprentice's line was the published line."
+      }
     },
     {
       "id": "cellar",
@@ -280,14 +303,27 @@
       "act": 4,
       "width": 2400,
       "height": 900,
-      "layers": [],
+      "layers": [
+        { "key": "cellar_bg", "src": "/art/cellar_bg.svg", "scrollFactor": 0.82, "depth": 0 },
+        { "key": "cellar_mid", "src": "/art/cellar_mid.svg", "scrollFactor": 1, "depth": 10 },
+        { "key": "cellar_fg", "src": "/art/cellar_fg.svg", "scrollFactor": 1.18, "depth": 20 }
+      ],
       "doors": [
-        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Up to the hall" }
+        {
+          "to": "kitchen",
+          "spot": [0, 240, 90, 500],
+          "label": "Up the stair to the kitchen",
+          "gateOnExit": "gate-act4"
+        }
       ],
       "hubPlate": [380, 660, 360, 220],
       "hubLabel": "Cellar",
       "hubAct": 4,
-      "hints": { "tier1": "Coal, preserves, and the hatch nobody uses.", "tier2": "Coming in Act 4.", "tier3": "Coming in Act 4." }
+      "hints": {
+        "tier1": "The cellar answers one question only: how many ways in?",
+        "tier2": "The coal hatch is the house's other door. Take the magnifier to its mouth and read the dust.",
+        "tier3": "The dust in the chute mouth lies whole and unbroken: nobody came or went by the coal hatch, carrying anything. The garden door was the visitor's only road."
+      }
     },
     {
       "id": "laundry",
@@ -295,14 +331,25 @@
       "act": 4,
       "width": 2400,
       "height": 900,
-      "layers": [],
+      "layers": [
+        { "key": "laundry_bg", "src": "/art/laundry_bg.svg", "scrollFactor": 0.82, "depth": 0 },
+        { "key": "laundry_mid", "src": "/art/laundry_mid.svg", "scrollFactor": 1, "depth": 10 },
+        { "key": "laundry_fg", "src": "/art/laundry_fg.svg", "scrollFactor": 1.18, "depth": 20 }
+      ],
       "doors": [
-        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Up to the hall" }
+        { "to": "cellar", "spot": [0, 240, 90, 500], "label": "Back to the cellar" }
+      ],
+      "people": [
+        { "suspect": "colette", "spot": [1300, 460, 135, 290], "label": "Colette" }
       ],
       "hubPlate": [760, 660, 380, 220],
       "hubLabel": "Laundry",
       "hubAct": 4,
-      "hints": { "tier1": "Tobias sleeps where the work is.", "tier2": "Coming in Act 4.", "tier3": "Coming in Act 4." }
+      "hints": {
+        "tier1": "Where the washing lives, the household's secrets dry flat.",
+        "tier2": "The shelf above the copper keeps a biscuit tin that has not held biscuits for months. Tobias sleeps at the end of the room -- his candle tin banks the wick he carries up and down the stairs.",
+        "tier3": "In the tin: the housekeeping money, short for months, and the page she tore out of the account book. Colette skimmed the tin for her sister's debts and hid the shame with it. It was never the door she lied about -- she has bolted that door for thirty-one years."
+      }
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "title": "Ink & Ashes",
   "subtitle": "The Vesper Case",
-  "build": "Build Four -- Prologue, Acts I, II & III",
+  "build": "Build Five -- Prologue, Acts I, II, III & IV",
   "epigraph": "Eleven rooms, five sleepless guests, one storm -- and a confession that will not stay shut.",
   "location": "7 Hollow Lane",
   "dateLabel": "the night of Saturday the 14th of October",
@@ -27,6 +27,7 @@
     "You are an enquiry agent, engaged by the family solicitor before the will is read.",
     "Read the hall. Then the parlour. Then the kitchen and the stairs, where the household moved in the dark.",
     "Then the bedrooms, the bathroom and the study -- where the papers live, and where the papers lie.",
+    "Then climb the attic stair and down the cellar steps -- where the house keeps its oldest silence.",
     "Then say it plain: what killed him, and how, and why."
   ]
 }

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cuSBW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="49" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="cuSBS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#cuSBS)"><ellipse cx="80" cy="80" rx="58" ry="38" fill="#8fa3b0" opacity="0.14"/><ellipse cx="730" cy="520" rx="66" ry="42" fill="#c9a25e" opacity="0.12"/><ellipse cx="700" cy="90" rx="46" ry="30" fill="#3a3f52" opacity="0.1"/><ellipse cx="90" cy="540" rx="50" ry="30" fill="#9aa88f" opacity="0.1"/></g>
+  <g filter="url(#cuSBW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+  
+  <g filter="url(#cuSBW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M120 480 q280 -30 560 0" stroke-width="6"/>
+    <path d="M400 470 V120" stroke-width="5"/>
+    <path d="M130 150 q130 -18 260 -6 l-6 306 q-128 12 -254 4 Z" fill="#f4ecdb" fill-opacity="0.95" stroke-width="3.4"/>
+    <path d="M414 144 q128 -16 254 -4 l4 300 q-126 12 -252 6 Z" fill="#f4ecdb" fill-opacity="0.95" stroke-width="3.4"/>
+    <path d="M158 200 q90 -40 200 -10 M158 250 q100 -34 208 -8 M158 296 q96 -30 202 -6" stroke-width="2.2" opacity="0.6"/>
+    <path d="M452 210 q30 -44 64 -6 q34 -36 58 4 q-26 30 -58 10 q-30 24 -64 -8 Z" fill="#b4552d" fill-opacity="0.4" stroke-width="2.4"/>
+    <path d="M470 180 q-6 -22 16 -26" stroke-width="2" opacity="0.6"/>
+    <path d="M452 370 q90 -28 200 -8" stroke-width="2" opacity="0.5"/>
+    <text x="168" y="428" font-size="20" fill="#2e2a33" stroke="none">R.M. -- 1947</text>
+    <text x="452" y="428" font-size="20" fill="#2e2a33" stroke="none">1948 -- the lane</text>
+    <path d="M400 470 q-6 -290 0 -346 M400 124 q6 56 0 346" stroke-width="2" opacity="0.4"/>
+    <text x="410" y="530" font-size="21" font-style="italic" fill="#2e2a33" stroke="none">H. carried the light away -- R.</text>
+    <path d="M406 540 q200 -14 380 -2" stroke-width="1.6" opacity="0.4"/>
+    <path d="M396 508 q10 -8 18 0" stroke-width="2" opacity="0.7"/>
+  </g>
+
+</svg>

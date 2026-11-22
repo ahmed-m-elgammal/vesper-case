@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="laMW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="47" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="laMS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  
+  <g filter="url(#laMS)"><ellipse cx="700" cy="520" rx="380" ry="150" fill="#a8663c" opacity="0.16"/><ellipse cx="2000" cy="620" rx="420" ry="140" fill="#8a6a4f" opacity="0.2"/><ellipse cx="770" cy="380" rx="160" ry="90" fill="#c9a25e" opacity="0.16"/></g>
+  
+  <g filter="url(#laMW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M560 330 H1010 M560 330 V470 M1010 330 V470" stroke-width="5"/>
+    <rect x="712" y="330" width="126" height="112" rx="10" fill="#c9a25e" fill-opacity="0.5" stroke-width="4"/>
+    <path d="M712 372 h126" stroke-width="2.6" opacity="0.7"/>
+    <ellipse cx="775" cy="366" rx="52" ry="12" fill="#c9a25e" fill-opacity="0.6" stroke-width="3"/>
+    <path d="M748 350 h54 M748 362 h40" stroke-width="1.8" opacity="0.75"/>
+    <rect x="738" y="316" width="74" height="16" rx="8" fill="#b4552d" fill-opacity="0.5" stroke-width="2.6"/>
+  </g>
+  <g filter="url(#laMW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <ellipse cx="640" cy="560" rx="90" ry="110" fill="#a8663c" fill-opacity="0.45" stroke-width="5"/>
+    <ellipse cx="640" cy="462" rx="64" ry="16" fill="#a8663c" fill-opacity="0.6" stroke-width="4"/>
+    <path d="M640 446 V400 q30 -10 54 6" stroke-width="4.5"/>
+    <path d="M598 520 q-10 60 6 96 M682 520 q10 60 -6 96" stroke-width="3" opacity="0.55"/>
+    <path d="M560 660 H730" stroke-width="6"/>
+    <rect x="830" y="500" width="220" height="60" fill="#8a6a4f" fill-opacity="0.4" stroke-width="4.5"/>
+    <circle cx="884" cy="530" r="18" fill="#f4ecdb" fill-opacity="0.6" stroke-width="3.4"/>
+    <circle cx="986" cy="530" r="18" fill="#f4ecdb" fill-opacity="0.6" stroke-width="3.4"/>
+    <path d="M884 512 V548 M986 512 V548" stroke-width="2.6" opacity="0.7"/>
+    <path d="M1004 530 h60 M1064 530 q20 -8 24 10" stroke-width="3.4"/>
+    <path d="M840 560 V660 M1040 560 V660" stroke-width="5"/>
+    <path d="M830 660 H1060" stroke-width="6"/>
+  </g>
+  <g filter="url(#laMW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M1760 600 H2270 M1770 600 V730 M2260 600 V730" stroke-width="6"/>
+    <path d="M1770 600 q250 -26 490 0" stroke-width="4"/>
+    <rect x="1810" y="560" width="240" height="44" rx="12" fill="#9aa88f" fill-opacity="0.45" stroke-width="3.4"/>
+    <rect x="2120" y="568" width="120" height="34" rx="10" fill="#f4ecdb" fill-opacity="0.85" stroke-width="2.6"/>
+    <path d="M2130 580 h100 M2130 590 h80" stroke-width="1.6" opacity="0.7"/>
+    <path d="M1800 730 h80 v-40 h-80 Z" fill="#8a6a4f" fill-opacity="0.4" stroke-width="3"/>
+    <rect x="1930" y="716" width="44" height="26" fill="#c9a25e" fill-opacity="0.55" stroke-width="2.6"/>
+    <path d="M1938 716 v-8 q0 -6 6 -6 h16 q6 0 6 6 v8" fill="#c9a25e" fill-opacity="0.6" stroke-width="2.4"/>
+    <path d="M2230 716 q-4 -18 10 -22" stroke-width="2.2" opacity="0.5"/>
+  </g>
+  <g filter="url(#laMW)" stroke="#2e2a33" fill="none" opacity="0.9">
+    <ellipse cx="1250" cy="800" rx="620" ry="56" fill="#8fa3b0" fill-opacity="0.12" stroke-width="3"/>
+    <ellipse cx="1250" cy="800" rx="420" ry="34" fill="none" stroke-width="2.4" opacity="0.5"/>
+  </g>
+
+</svg>

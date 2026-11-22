@@ -559,6 +559,115 @@
       "note": "On the study's work shelf, Tobias's tin: needles, wax, thread, and two horn buttons still on their card -- the same cast as the one on the stair carpet. Lost days ago on his attic climb, swept along by the morning brooms. The button was never a stranger's; it was the house mending itself.",
       "toast": "The Apprentice's Tin -- the stair button's spare, found.",
       "chains": ["small"]
+    },
+    {
+      "id": "ruth_sketchbooks",
+      "name": "Ruth's Sketchbooks",
+      "room": "attic",
+      "spot": [295, 165, 275, 240],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_sketchbooks.svg",
+        "title": "Dated Years Before Whistler",
+        "caption": "Her last page is a sentence, pressed hard enough to tear the paper."
+      },
+      "note": "A shelf of sketchbooks in a woman's careful hand, dated 1946 to 1949: foxes, the lane, the lantern -- every drawing Whistler would later be. The last book ends mid-page, and beneath the unfinished fox, pressed so hard the pencil tore through: 'H. carried the light away -- R.' Ruth Marsh drew the fox first. And Ruth Marsh left a sentence.",
+      "toast": "Ruth's Sketchbooks -- the fox is hers, dated years before.",
+      "chains": ["ruth"],
+      "timeline": "t_ruth_note"
+    },
+    {
+      "id": "tobias_sketch",
+      "name": "The Half-Finished Page",
+      "room": "attic",
+      "spot": [1525, 455, 215, 130],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_sketchstop.svg",
+        "title": "Chapter Six, Mid-Stroke",
+        "caption": "The pencil line stops clean where the power died."
+      },
+      "note": "Tobias's Chapter Six lies open under the lamp: ink solid, and one pencil line stopping clean in the middle of a stroke. The lamp died with the power at 10:47; he kept inking by candle, and when the power returned at 11:21 the lamp relit mid-line. The attic kept the blackout's hours as faithfully as the hall clock -- and it keeps Tobias in it, inking, through the whole dark half hour.",
+      "toast": "The Half-Finished Page -- the line stops at 10:47, resumes at 11:21.",
+      "chains": ["clockwork"]
+    },
+    {
+      "id": "tobias_ghost_drafts",
+      "name": "The Ghost Drafts",
+      "room": "attic",
+      "spot": [1855, 255, 235, 200],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_ghostdrafts.svg",
+        "title": "The Pencil Under the Ink",
+        "caption": "Rough sheets beside their published twins -- and copies aged with tea."
+      },
+      "note": "In Tobias's portfolio: rough pencil sheets pinned beside their published twins -- the last two Hollow books were drawn in his line under Edmund's signature. Beneath them, 'restored originals' stained the exact amber of strong tea. The copies Julian sold were made here, in this attic, by this apprentice. The forgery has an author, and it is not the man who sold them.",
+      "toast": "The Ghost Drafts -- the apprentice's line is the published line.",
+      "chains": ["ruth"],
+      "timeline": "t_ghost"
+    },
+    {
+      "id": "attic_key_hook",
+      "name": "The Key Board",
+      "room": "attic",
+      "spot": [118, 330, 96, 140],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_keyhook.svg",
+        "title": "Three Hooks by the Stair Door",
+        "caption": "The middle one wears only a ring in years of dust."
+      },
+      "note": "A little board by the attic stair door: three hooks and a card reading STUDIO. Two hooks hold keys; the middle holds a bright ring where the attic key hung for years. It is gone -- and Tobias says Edmund wore it round his neck this last week, patting his pocket, saying 'Monday'. Monday, the sketchbooks went to the trust. On the murder night he showed it, proud as a boy, to his visitor in the parlour.",
+      "toast": "The Key Board -- the attic key is off its hook.",
+      "chains": ["ruth"],
+      "timeline": "t_keyshow"
+    },
+    {
+      "id": "landing_candle_stub",
+      "name": "The Candle Stub",
+      "room": "attic",
+      "spot": [50, 610, 150, 90],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_candlestub.svg",
+        "title": "Wedged in the Stair Door's Frame",
+        "caption": "The wax is cold, and the dust of thirty-one years sits over it."
+      },
+      "note": "A candle stub no taller than a thumb, wedged where the attic door frame meets the topmost step. The wax is decades old, and Colette says she has dusted that frame twice a week for thirty-one years and never once moved it. It has lain there since the storm-lit night Ruth Marsh fell: the light that went up the stair, and never came down.",
+      "toast": "The Candle Stub -- the light Ruth carried up, still in the frame.",
+      "chains": ["ruth"],
+      "timeline": "t_ruth_fall"
+    },
+    {
+      "id": "housekeeping_tin",
+      "name": "The Biscuit Tin",
+      "room": "laundry",
+      "spot": [695, 320, 145, 115],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_hoistin.svg",
+        "title": "Victory Biscuits",
+        "caption": "Housekeeping money, short for months -- and a torn page."
+      },
+      "note": "On the shelf above the copper, a biscuit tin that holds no biscuits: folded housekeeping notes, an IOU made out to Beaumont, and a page torn from the household account book, sums pencilled and crossed and pencilled again. Colette has been skimming the tin for her sister's debts, and the page she hid is the shame of it. She hid a page -- she never once left the garden door off its bolt.",
+      "toast": "The Biscuit Tin -- Colette's shame, and her sister's debts.",
+      "chains": ["small"]
+    },
+    {
+      "id": "coal_hatch_dust",
+      "name": "The Coal Hatch",
+      "room": "cellar",
+      "spot": [1985, 300, 300, 260],
+      "tool": "magnifier",
+      "closeup": {
+        "svg": "/art/closeups/cu_coalhatch.svg",
+        "title": "The Chute Mouth",
+        "caption": "The dust lies whole -- no hand, no boot, no sack."
+      },
+      "note": "Through the glass, the coal chute's mouth: the dust inside lies whole and unbroken. Nothing has come down that chute since the September delivery, and nothing has gone up. The house's other door never opened -- no coal hatch, no cellar window, no second road. The garden door is the whole story of the visitor.",
+      "toast": "The Coal Hatch -- undisturbed; the garden door was the only way in.",
+      "chains": ["door"]
     }
   ]
 }

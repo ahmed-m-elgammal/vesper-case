@@ -51,6 +51,16 @@
         "Fair enough -- that's the hall read like a hall. I've pulled the tape off the parlour door.",
         "Mind the rug. It remembers feet."
       ]
+    },
+    {
+      "id": "hollis_act4_close",
+      "speaker": "Sergeant Hollis",
+      "initial": "H",
+      "lines": [
+        "Say it again. Slowly. 'H. carried the light away' -- and the attic stair door bolted from the landing side, in 1949, on the doctor's own sister.",
+        "I certified a heart at twenty past seven because the certificate was the kindest thing in that house. Now there are two dark stairs in it and one set of initials, and I have written 'natural causes' twice in my life and meant neither.",
+        "So here is how this ends, detective. The household comes to the table -- every one of them, the doctor first among equals. You bring me a culprit, a method and a motive, and each one something I can pin to the board with my own hands."
+      ]
     }
   ],
   "graphs": {
@@ -80,7 +90,12 @@
         "colette_ledger_page": { "next": "r_ledger2", "once": "asked:colette:pr-ledger2" },
         "stair_worn_runner": { "next": "r_runner", "once": "asked:colette:pr-runner" },
         "peggy_tonic_glass": { "next": "r_tonic", "once": "asked:colette:pr-tonic" },
-        "peggy_candle_mark": { "next": "r_candle", "once": "asked:colette:pr-candle" }
+        "peggy_candle_mark": { "next": "r_candle", "once": "asked:colette:pr-candle" },
+        "housekeeping_tin": { "next": "tin", "once": "asked:colette:pr-tin" },
+        "coal_hatch_dust": { "next": "r_coal", "once": "asked:colette:pr-coal" },
+        "ruth_sketchbooks": { "next": "r_ruthsb", "once": "asked:colette:pr-ruthsb" },
+        "landing_candle_stub": { "next": "r_stub", "once": "asked:colette:pr-stub" },
+        "attic_key_hook": { "next": "r_key", "once": "asked:colette:pr-key" }
       },
       "nodes": {
         "root": {
@@ -94,6 +109,7 @@
             { "text": "@dlg.colette.root.c3", "next": "garden", "cond": { "clue": "garden_door_bolt" } },
             { "text": "@dlg.colette.root.c4", "next": "dark" },
             { "text": "@dlg.colette.root.c5", "next": "rounds", "cond": { "clue": "colette_ledger_page" } },
+            { "text": "@dlg.colette.root.c6", "next": "tin", "cond": { "clue": "housekeeping_tin" } },
             { "text": "@dlg.ui.present", "present": { "miss": "present_miss" } },
             { "text": "@dlg.ui.leave", "next": "bye" }
           ]
@@ -238,6 +254,32 @@
         "r_candle": {
           "beats": [{ "sp": "npc", "t": "@dlg.colette.r_candle.1" }],
           "next": "root"
+        },
+        "tin": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.colette.tin.1" },
+            { "sp": "npc", "t": "@dlg.colette.tin.2" },
+            { "sp": "npc", "t": "@dlg.colette.tin.3" }
+          ],
+          "effects": { "setFlags": ["talked:colette:tin"], "setVars": { "trust:colette": 1 } },
+          "next": "root"
+        },
+        "r_coal": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_coal.1" }],
+          "next": "root"
+        },
+        "r_ruthsb": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_ruthsb.1" }],
+          "next": "root"
+        },
+        "r_stub": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_stub.1" }],
+          "effects": { "setFlags": ["talked:colette:pr-stub"] },
+          "next": "root"
+        },
+        "r_key": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_key.1" }],
+          "next": "root"
         }
       }
     },
@@ -263,7 +305,12 @@
         "pantry_lantern": { "next": "r_lantern", "once": "asked:tobias:pr-lantern" },
         "burnt_loaf": { "next": "r_loaf", "once": "asked:tobias:pr-loaf" },
         "tobias_sewing_tin": { "next": "r_tin", "once": "asked:tobias:pr-tin" },
-        "study_safe_carbon": { "next": "r_carbon", "once": "asked:tobias:pr-carbon" }
+        "study_safe_carbon": { "next": "r_carbon", "once": "asked:tobias:pr-carbon" },
+        "tobias_sketch": { "next": "r_sketch", "once": "asked:tobias:pr-sketch" },
+        "tobias_ghost_drafts": { "next": "ghosts", "once": "asked:tobias:pr-ghosts" },
+        "ruth_sketchbooks": { "next": "ruthdoor", "once": "asked:tobias:pr-ruthsb" },
+        "landing_candle_stub": { "next": "r_stub", "once": "asked:tobias:pr-stub" },
+        "attic_key_hook": { "next": "r_key", "once": "asked:tobias:pr-key" }
       },
       "nodes": {
         "root": {
@@ -277,6 +324,8 @@
             { "text": "@dlg.tobias.root.c3", "next": "clockfell", "cond": { "clue": "mantel_clock" } },
             { "text": "@dlg.tobias.root.c4", "next": "master" },
             { "text": "@dlg.tobias.root.c5", "next": "wax", "cond": { "clue": "stair_worn_runner" } },
+            { "text": "@dlg.tobias.root.c6", "next": "ghosts", "cond": { "clue": "tobias_ghost_drafts" } },
+            { "text": "@dlg.tobias.root.c7", "next": "ruthdoor", "cond": { "clue": "ruth_sketchbooks" } },
             { "text": "@dlg.ui.present", "present": { "miss": "present_miss" } },
             { "text": "@dlg.ui.leave", "next": "bye" }
           ]
@@ -412,6 +461,37 @@
           ],
           "effects": { "setFlags": ["talked:tobias:pr-carbon"] },
           "next": "root"
+        },
+        "ghosts": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.tobias.ghosts.1" },
+            { "sp": "npc", "t": "@dlg.tobias.ghosts.2" },
+            { "sp": "npc", "t": "@dlg.tobias.ghosts.3" }
+          ],
+          "effects": { "setFlags": ["talked:tobias:ghosts"], "setVars": { "trust:tobias": 2 } },
+          "next": "root"
+        },
+        "ruthdoor": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.tobias.ruthdoor.1" },
+            { "sp": "npc", "t": "@dlg.tobias.ruthdoor.2" },
+            { "sp": "npc", "t": "@dlg.tobias.ruthdoor.3" }
+          ],
+          "effects": { "setFlags": ["talked:tobias:ruthdoor"] },
+          "next": "root"
+        },
+        "r_sketch": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_sketch.1" }],
+          "next": "root"
+        },
+        "r_stub": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_stub.1" }],
+          "effects": { "setFlags": ["talked:tobias:pr-stub"] },
+          "next": "root"
+        },
+        "r_key": {
+          "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_key.1" }],
+          "next": "root"
         }
       }
     },
@@ -438,7 +518,9 @@
         "wet_flag_prints": { "next": "r_wprints", "once": "asked:peggy:pr-wprints" },
         "burnt_loaf": { "next": "r_loaf", "once": "asked:peggy:pr-loaf" },
         "peggy_candle_mark": { "next": "r_candle", "once": "asked:peggy:pr-candle" },
-        "peggy_ious": { "next": "r_ious", "once": "asked:peggy:pr-ious" }
+        "peggy_ious": { "next": "r_ious", "once": "asked:peggy:pr-ious" },
+        "ruth_sketchbooks": { "next": "r_ruthsb", "once": "asked:peggy:pr-ruthsb" },
+        "landing_candle_stub": { "next": "r_stub", "once": "asked:peggy:pr-stub" }
       },
       "nodes": {
         "root": {
@@ -627,6 +709,19 @@
             { "sp": "npc", "t": "@dlg.peggy.r_ious.2" }
           ],
           "effects": { "setFlags": ["talked:peggy:pr-ious"] },
+          "next": "root"
+        },
+        "r_ruthsb": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.peggy.r_ruthsb.1" },
+            { "sp": "npc", "t": "@dlg.peggy.r_ruthsb.2" }
+          ],
+          "effects": { "setFlags": ["talked:peggy:pr-ruthsb"] },
+          "next": "root"
+        },
+        "r_stub": {
+          "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_stub.1" }],
+          "effects": { "setFlags": ["talked:peggy:pr-stub"] },
           "next": "root"
         }
       }

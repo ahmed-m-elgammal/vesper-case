@@ -13,6 +13,24 @@
       "revealedBy": "clue:edmund_journal_ruth"
     },
     {
+      "id": "t_ruth_note",
+      "time": "1949",
+      "text": "Ruth Marsh's last sketchbook ends mid-page, one sentence pressed hard: 'H. carried the light away -- R.'",
+      "revealedBy": "clue:ruth_sketchbooks"
+    },
+    {
+      "id": "t_ruth_fall",
+      "time": "1949",
+      "text": "Ruth Marsh falls on the attic stair, on a storm-lit night. The house calls it a fall in the dark -- and the stair door was bolted from the landing side.",
+      "revealedBy": "clue:landing_candle_stub"
+    },
+    {
+      "id": "t_ghost",
+      "time": "these last two years",
+      "text": "The last two Hollow books are drawn in Tobias Grimm's pencil under Edmund's signature -- and the forgeries Julian sold were traced and tea-aged in the attic.",
+      "revealedBy": "clue:tobias_ghost_drafts"
+    },
+    {
       "id": "t_peggy_up",
       "time": "8:15 pm",
       "text": "Peggy retires with a novel and her sewing -- and the day's post: a final notice.",
@@ -89,6 +107,12 @@
       "time": "10:50 pm",
       "text": "Peggy lights her bedside candle; it burns to the eleven-o'clock mark and no further.",
       "revealedBy": "clue:peggy_candle_mark"
+    },
+    {
+      "id": "t_keyshow",
+      "time": "11:00 pm",
+      "text": "Edmund shows his visitor the attic key: the sketchbooks go to the trust with Monday's preface.",
+      "revealedBy": "clue:attic_key_hook"
     },
     {
       "id": "t_return",

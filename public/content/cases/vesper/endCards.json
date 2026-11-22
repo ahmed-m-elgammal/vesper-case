@@ -27,7 +27,18 @@
       "title": "The papers have told their truth",
       "body": [
         "A pencil plea under the torch, a cab at 10:19, a candle burned to the eleven mark, and carbons of the confession the fire never saw. The forgeries were Julian's guilt; Peggy's debts were hers alone; the confession was real, and it was going to H.M. before Monday.",
-        "Act 4 climbs the attic stair and down to the cellar: Ruth Marsh's sketchbooks, a candle stub on the landing, and the truth of a storm-lit night in 1949. Next build."
+        "Act 4 climbs the attic stair and down the cellar steps: Ruth Marsh's sketchbooks, a candle stub wedged in a door frame, and the truth of a storm-lit night in 1949."
+      ],
+      "button": "Step back into the house",
+      "closeTo": "hub",
+      "finale": false
+    },
+    "act-four-curtain": {
+      "kicker": "ACT FOUR, READ",
+      "title": "The attic has said Ruth's name",
+      "body": [
+        "The fox was Ruth Marsh's first, and her last page says it plain: H. carried the light away. A candle stub wedged in the door frame, a stair door bolted from the landing side, an attic key shown to a visitor with Monday's deadline -- the house's oldest silence has a shape now, and it was never an accident.",
+        "Every clue from the parlour reads differently tonight: the hay-and-honey ash, the quick certification at 7:20, the pages only one person carried out. Act 5 brings the household to the table -- interrogations, the string board, and the accusation: culprit, method, motive."
       ],
       "button": "Step back into the house",
       "closeTo": "hub",

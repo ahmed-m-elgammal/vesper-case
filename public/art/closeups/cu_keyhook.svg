@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cuKHW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="50" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="cuKHS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#cuKHS)"><ellipse cx="80" cy="80" rx="58" ry="38" fill="#8fa3b0" opacity="0.14"/><ellipse cx="730" cy="520" rx="66" ry="42" fill="#c9a25e" opacity="0.12"/><ellipse cx="700" cy="90" rx="46" ry="30" fill="#3a3f52" opacity="0.1"/><ellipse cx="90" cy="540" rx="50" ry="30" fill="#9aa88f" opacity="0.1"/></g>
+  <g filter="url(#cuKHW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+  
+  <g filter="url(#cuKHW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <rect x="220" y="80" width="360" height="380" fill="#8a6a4f" fill-opacity="0.5" stroke-width="5"/>
+    <path d="M238 110 h324 M238 130 h300" stroke-width="2" opacity="0.4"/>
+    <text x="400" y="164" font-size="22" text-anchor="middle" fill="#2e2a33" stroke="none">7 HOLLOW LANE</text>
+    <path d="M300 220 q0 -16 14 -16 q14 0 14 16" fill="none" stroke-width="4"/>
+    <path d="M396 220 q0 -16 14 -16 q14 0 14 16" fill="none" stroke-width="4"/>
+    <path d="M486 220 q0 -16 14 -16 q14 0 14 16" fill="none" stroke-width="4"/>
+    <circle cx="314" cy="268" r="20" fill="#c9a25e" fill-opacity="0.7" stroke-width="3"/>
+    <path d="M314 288 V330 M314 330 l-16 24 M314 330 l18 22" stroke-width="4"/>
+    <circle cx="500" cy="268" r="20" fill="#c9a25e" fill-opacity="0.7" stroke-width="3"/>
+    <path d="M500 288 V326 M500 326 l14 26" stroke-width="4"/>
+    <circle cx="410" cy="272" r="24" fill="#f4ecdb" fill-opacity="0.5" stroke-width="2.6"/>
+    <circle cx="410" cy="272" r="14" stroke-width="2" opacity="0.5"/>
+    <path d="M398 300 q12 8 24 0" stroke-width="1.8" opacity="0.6"/>
+    <text x="410" y="356" font-size="17" text-anchor="middle" fill="#b4552d" stroke="none">gone -- dust keeps its shape</text>
+    <path d="M240 430 h320" stroke-width="3" opacity="0.5"/>
+  </g>
+
+</svg>

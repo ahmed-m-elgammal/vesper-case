@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cuGDW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="cuGDS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#cuGDS)"><ellipse cx="80" cy="80" rx="58" ry="38" fill="#8fa3b0" opacity="0.14"/><ellipse cx="730" cy="520" rx="66" ry="42" fill="#c9a25e" opacity="0.12"/><ellipse cx="700" cy="90" rx="46" ry="30" fill="#3a3f52" opacity="0.1"/><ellipse cx="90" cy="540" rx="50" ry="30" fill="#9aa88f" opacity="0.1"/></g>
+  <g filter="url(#cuGDW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+  
+  <g filter="url(#cuGDW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <rect x="70" y="110" width="300" height="220" fill="#f4ecdb" fill-opacity="0.9" stroke-width="3" transform="rotate(-2 220 220)"/>
+    <path d="M100 260 q30 -46 62 -6 q34 -40 58 4 q-26 28 -58 10 q-30 22 -62 -8 Z" fill="#9aa88f" fill-opacity="0.5" stroke-width="2.4" transform="rotate(-2 220 220)"/>
+    <path d="M120 200 q-8 -30 22 -34 M180 180 q-4 -22 18 -26" stroke-width="2" opacity="0.6" transform="rotate(-2 220 220)"/>
+    <text x="100" y="300" font-size="17" fill="#2e2a33" stroke="none" transform="rotate(-2 220 220)">the ghost pencil</text>
+    <rect x="420" y="96" width="310" height="236" fill="#f4ecdb" fill-opacity="0.95" stroke-width="3" transform="rotate(1.5 575 214)"/>
+    <path d="M450 262 q30 -46 62 -6 q34 -40 58 4 q-26 28 -58 10 q-30 22 -62 -8 Z" fill="#2e2a33" fill-opacity="0.6" stroke-width="2.6" transform="rotate(1.5 575 214)"/>
+    <path d="M470 200 q-8 -30 22 -34 M530 180 q-4 -22 18 -26" stroke-width="2.4" opacity="0.7" transform="rotate(1.5 575 214)"/>
+    <text x="452" y="306" font-size="17" fill="#2e2a33" stroke="none" transform="rotate(1.5 575 214)">the published ink</text>
+    <rect x="120" y="380" width="380" height="130" fill="#a8663c" fill-opacity="0.35" stroke-width="3.4"/>
+    <path d="M140 420 h340 M140 444 h300" stroke-width="1.8" opacity="0.6"/>
+    <rect x="150" y="400" width="80" height="52" fill="#f4ecdb" fill-opacity="0.6" stroke-width="2" transform="rotate(-3 190 426)"/>
+    <rect x="250" y="404" width="80" height="52" fill="#f4ecdb" fill-opacity="0.55" stroke-width="2" transform="rotate(2 290 430)"/>
+    <ellipse cx="580" cy="440" rx="70" ry="40" fill="#f4ecdb" fill-opacity="0.85" stroke-width="3"/>
+    <ellipse cx="580" cy="436" rx="54" ry="20" fill="#a8663c" fill-opacity="0.5" stroke-width="2.4"/>
+    <text x="580" y="502" font-size="17" text-anchor="middle" fill="#2e2a33" stroke="none">tea ages a drawing ten years</text>
+    <path d="M540 400 q10 -18 34 -12" stroke-width="2.2" opacity="0.6"/>
+  </g>
+
+</svg>
