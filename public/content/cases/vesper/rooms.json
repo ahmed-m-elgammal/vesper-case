@@ -114,17 +114,21 @@
       "act": 3,
       "width": 2400,
       "height": 900,
-      "layers": [],
+      "layers": [
+        { "key": "study_bg", "src": "/art/study_bg.svg", "scrollFactor": 0.82, "depth": 0 },
+        { "key": "study_mid", "src": "/art/study_mid.svg", "scrollFactor": 1, "depth": 10 },
+        { "key": "study_fg", "src": "/art/study_fg.svg", "scrollFactor": 1.18, "depth": 20 }
+      ],
       "doors": [
-        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Back to the hall" }
+        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Back to the hall", "gateOnExit": "gate-act3" }
       ],
       "hubPlate": [1540, 440, 340, 200],
       "hubLabel": "Study",
       "hubAct": 3,
       "hints": {
-        "tier1": "The study keeps the blotter's secrets.",
-        "tier2": "Coming in Act 3.",
-        "tier3": "Coming in Act 3."
+        "tier1": "The study kept the argument, the plea, and the safe. The desk, the basket and the wall behind the fox know all three.",
+        "tier2": "The blotter wants the torch: pencil pressure reads where ink never reached. The waste basket keeps what paper people crumple. Behind the fox engraving there is a door of another kind -- and a journal upstairs names its key.",
+        "tier3": "Julian begged in pencil at ten past ten and cabbed away at 10:19. The safe keeps carbons of pages 40 to 43 -- the confession survives. And on the work shelf, an apprentice's tin answers for a button."
       }
     },
     {
@@ -150,28 +154,28 @@
           "spot": [400, 240, 170, 516],
           "label": "Peggy's room",
           "lockedAct": "3",
-          "lockedLine": "Peggy's door is shut, and the bedrooms wait for the next build."
+          "lockedLine": "Peggy's door is shut. It opens when the dark half hour has its arithmetic."
         },
         {
           "to": "edmund",
           "spot": [1010, 240, 170, 516],
           "label": "Edmund's room",
           "lockedAct": "3",
-          "lockedLine": "His room keeps his past folded away -- it opens with Act 3."
+          "lockedLine": "His room keeps his past folded away -- it opens when the dark half hour has its arithmetic."
         },
         {
           "to": "bath",
           "spot": [1355, 240, 150, 516],
           "label": "The bathroom",
           "lockedAct": "3",
-          "lockedLine": "The medicine shelves wait for Act 3 -- next build."
+          "lockedLine": "The medicine shelves wait behind a door the Sergeant still tapes."
         },
         {
           "to": "attic",
           "spot": [2080, 190, 190, 430],
           "label": "Up to the attic",
           "lockedAct": "4",
-          "lockedLine": "The attic stair is taped and dark -- Act 4, next build."
+          "lockedLine": "The attic stair is taped and dark. The papers must be read before anyone climbs."
         }
       ],
       "people": [
@@ -192,14 +196,22 @@
       "act": 3,
       "width": 2400,
       "height": 900,
-      "layers": [],
+      "layers": [
+        { "key": "peggy_bg", "src": "/art/peggy_bg.svg", "scrollFactor": 0.82, "depth": 0 },
+        { "key": "peggy_mid", "src": "/art/peggy_mid.svg", "scrollFactor": 1, "depth": 10 },
+        { "key": "peggy_fg", "src": "/art/peggy_fg.svg", "scrollFactor": 1.18, "depth": 20 }
+      ],
       "doors": [
-        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Down to the hall" }
+        { "to": "landing", "spot": [0, 240, 90, 500], "label": "Back to the landing" }
       ],
       "hubPlate": [380, 230, 360, 180],
       "hubLabel": "Peggy's Room",
       "hubAct": 3,
-      "hints": { "tier1": "A novel, a candle, and a burn that stops at eleven.", "tier2": "Coming in Act 3.", "tier3": "Coming in Act 3." }
+      "hints": {
+        "tier1": "A novel, a candle, and a burn that stops at eleven.",
+        "tier2": "Take the magnifier to the candle's wax ridge and read where the flame died. The writing case on the table keeps the day's post -- and its red stamp.",
+        "tier3": "Her candle burned exactly to the eleven-o'clock mark: asleep long before any clock could have wound. The final notice is hers alone, and Tuesday's letter frightens a debtor, not a murderer."
+      }
     },
     {
       "id": "edmund",
@@ -207,14 +219,22 @@
       "act": 3,
       "width": 2400,
       "height": 900,
-      "layers": [],
+      "layers": [
+        { "key": "edmund_bg", "src": "/art/edmund_bg.svg", "scrollFactor": 0.82, "depth": 0 },
+        { "key": "edmund_mid", "src": "/art/edmund_mid.svg", "scrollFactor": 1, "depth": 10 },
+        { "key": "edmund_fg", "src": "/art/edmund_fg.svg", "scrollFactor": 1.18, "depth": 20 }
+      ],
       "doors": [
-        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Down to the hall" }
+        { "to": "landing", "spot": [0, 240, 90, 500], "label": "Back to the landing" }
       ],
       "hubPlate": [760, 230, 380, 180],
       "hubLabel": "Edmund's Room",
       "hubAct": 3,
-      "hints": { "tier1": "He kept the past in this room, folded.", "tier2": "Coming in Act 3.", "tier3": "Coming in Act 3." }
+      "hints": {
+        "tier1": "He kept the past in this room, folded.",
+        "tier2": "The journal on the nightstand names the past: a first name, a surname, and where its pages sleep. Mind the ribbon.",
+        "tier3": "Ruth Marsh drew the fox first. The journal names the safe, and the little key hangs on the ribbon -- the study wall keeps what the fire never saw."
+      }
     },
     {
       "id": "bath",
@@ -222,14 +242,22 @@
       "act": 3,
       "width": 2400,
       "height": 900,
-      "layers": [],
+      "layers": [
+        { "key": "bath_bg", "src": "/art/bath_bg.svg", "scrollFactor": 0.82, "depth": 0 },
+        { "key": "bath_mid", "src": "/art/bath_mid.svg", "scrollFactor": 1, "depth": 10 },
+        { "key": "bath_fg", "src": "/art/bath_fg.svg", "scrollFactor": 1.18, "depth": 20 }
+      ],
       "doors": [
-        { "to": "hall", "spot": [0, 240, 90, 500], "label": "Down to the hall" }
+        { "to": "landing", "spot": [0, 240, 90, 500], "label": "Back to the landing" }
       ],
       "hubPlate": [1160, 230, 360, 180],
       "hubLabel": "Bathroom",
       "hubAct": 3,
-      "hints": { "tier1": "Medicine shelves remember prescriptions.", "tier2": "Coming in Act 3.", "tier3": "Coming in Act 3." }
+      "hints": {
+        "tier1": "Medicine shelves remember prescriptions.",
+        "tier2": "Open the cabinet: three shelves, one hand. Read the labels, then the receipt book on the washstand.",
+        "tier3": "The doctor restocks this cabinet monthly -- iron and quinine, aspirin, and Edmund's digitalis, nearly full. Everything here is ordinary: the drops were not the vehicle."
+      }
     },
     {
       "id": "attic",

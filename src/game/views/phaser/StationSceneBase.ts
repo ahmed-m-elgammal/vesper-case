@@ -17,6 +17,7 @@
 import * as Phaser from 'phaser';
 import { getSceneCtx, type SceneCtx } from './SceneCtx';
 import { StationPlayer } from './StationPlayer';
+import { withBase } from '../../core/assetUrl';
 import type { StationHotspot, StationNav, StationSceneData } from '../../data/types';
 
 const WORLD_W = 1920;
@@ -71,11 +72,11 @@ export abstract class StationSceneBase extends Phaser.Scene {
     // ctx is set before the game boots (PhaserHost constructor) and must be
     // read here too: the art path comes from world.json.
     this.ctx = getSceneCtx();
-    this.load.image(this.artKey(), this.sceneData().art);
+    this.load.image(this.artKey(), withBase(this.sceneData().art));
     const nav = this.sceneData().nav;
     if (nav) {
-      for (const frame of PLAYER_FRAMES) this.load.image(`player-${frame}`, `/art/player/${frame}.svg`);
-      for (const prop of nav.props ?? []) this.load.image(`prop-${prop.id}`, prop.img);
+      for (const frame of PLAYER_FRAMES) this.load.image(`player-${frame}`, withBase(`/art/player/${frame}.svg`));
+      for (const prop of nav.props ?? []) this.load.image(`prop-${prop.id}`, withBase(prop.img));
     }
   }
 

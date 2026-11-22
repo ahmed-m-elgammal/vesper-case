@@ -433,6 +433,132 @@
       "note": "On the sill shelf outside Peggy's door: Dr. Marsh's tonic bottle -- iron and quinine, harmless, nearly full -- and a glass rinsed and left upside down to dry. She took her nightly tonic standing on the landing, at her leisure, then went in to sew. A woman settling for the night, not one dressing to go out.",
       "toast": "The Tonic Glass -- Peggy settled for the night, unhurried.",
       "chains": ["household"]
+    },
+    {
+      "id": "peggy_candle_mark",
+      "name": "The Candle's Mark",
+      "room": "peggy",
+      "spot": [1195, 440, 100, 170],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_candle.svg",
+        "title": "Burned to the Eleven Mark",
+        "caption": "A wax ridge exactly where an eleven-o'clock flame died."
+      },
+      "note": "Her bedside candle burned down to a ridge of wax that stops at the eleven-o'clock mark: she lit it when the dark came and blew it out when she slept, at eleven or just after. A woman asleep at eleven does not hear a clock wound at midnight -- and no winding happened anyway. The hall clock stood dead from 10:47.",
+      "toast": "The Candle's Mark -- burned to eleven; then sleep.",
+      "chains": ["household"],
+      "timeline": "t_candle"
+    },
+    {
+      "id": "peggy_ious",
+      "name": "The Final Notice",
+      "room": "peggy",
+      "spot": [670, 505, 180, 115],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_ious.svg",
+        "title": "In the Writing Case",
+        "caption": "Red-stamped paper: FINAL. And IOUs in a neat pile."
+      },
+      "note": "A final notice from the Meridian Credit & Loan, stamped across the day's post, and a packet of IOUs in her own hand. Drowning, and expecting the house to save her -- until Tuesday's letter, which is about a trust, not money. Debts make want; Tuesday made her frightened; neither made her a murderer.",
+      "toast": "The Final Notice -- Peggy's debts are her own, and they are not the murder.",
+      "chains": ["small"],
+      "timeline": "t_peggy_up"
+    },
+    {
+      "id": "edmund_journal_ruth",
+      "name": "The Journal by the Bed",
+      "room": "edmund",
+      "spot": [1165, 450, 120, 150],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_journal.svg",
+        "title": "His Private Book",
+        "caption": "'R. drew the fox first. The safe keeps her pages.'"
+      },
+      "note": "A leather journal in careful pencil: 'Ruth drew the fox before I did. Her books are mine to keep until the preface says so out loud. The safe keeps her pages -- the little key hangs on the ribbon, where a fox sleeps.' The key is on the ribbon still. Edmund's room keeps his past folded, and the past has a name: Ruth Marsh.",
+      "toast": "The Journal -- Ruth Marsh, and a safe that keeps her pages.",
+      "chains": ["paper"],
+      "timeline": "t_ruth"
+    },
+    {
+      "id": "bath_cabinet_digitalis",
+      "name": "The Medicine Cabinet",
+      "room": "bath",
+      "spot": [1310, 260, 190, 250],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_cabinet.svg",
+        "title": "Everything in Its Place",
+        "caption": "Three shelves, one hand. The doctor labels what she leaves."
+      },
+      "note": "Iron and quinine for Peggy, aspirin for the household, and Edmund's digitalis -- a fresh refill, nearly full, in Dr. Marsh's neat print: 'five drops in water'. She restocks this cabinet monthly; the receipt book says so. Everything here is ordinary, and everything here is hers. The right name again -- in the wrong bottle.",
+      "toast": "The Medicine Cabinet -- the doctor restocks the house's medicines.",
+      "chains": ["small"]
+    },
+    {
+      "id": "study_blotters_impression",
+      "name": "The Blotter's Impression",
+      "room": "study",
+      "spot": [560, 460, 180, 100],
+      "tool": "uv",
+      "closeup": {
+        "svg": "/art/closeups/cu_blotter.svg",
+        "title": "Under the Torch",
+        "caption": "Pencil pressure keeps what blotting-paper hides."
+      },
+      "note": "The desk blotter, under the torch: a pencil plea pressed deep by a shaking hand. 'I never meant -- the memoir -- let me make it right by Christmas, only don't go to the societies. J.A.' Julian Ashcombe leaned on this desk at ten past ten and begged. His 'I never heard of any memoir' dies here, in his own graphite.",
+      "toast": "The Blotter -- Julian's plea, pressed in pencil.",
+      "chains": ["paper"],
+      "timeline": "t_blotter"
+    },
+    {
+      "id": "julian_cab_receipt",
+      "name": "A Cab Receipt",
+      "room": "study",
+      "spot": [1195, 620, 90, 90],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_receipt.svg",
+        "title": "Dropped in the Basket",
+        "caption": "The Bell & Curtain rank. 10:19 p.m. Hall Lane."
+      },
+      "note": "A cab receipt, crumpled in the waste basket: 'The Bell & Curtain rank -- 10:19 p.m. -- Hall Lane.' Julian left the house at a quarter past ten and was in a cab four minutes later, gone before the storm's first lightning. Whatever his guilt about sketches, his feet were elsewhere by the dark half hour.",
+      "toast": "The Cab Receipt -- Julian in a cab at 10:19, gone from the story.",
+      "chains": ["clockwork"],
+      "timeline": "t_cab"
+    },
+    {
+      "id": "study_safe_carbon",
+      "name": "The Safe's Carbons",
+      "room": "study",
+      "spot": [1435, 260, 200, 210],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_safe.svg",
+        "title": "Pages 40 to 43",
+        "caption": "Carbon copies -- the fire never saw these."
+      },
+      "note": "Inside the little wall safe, a folder of carbon copies: pages forty to forty-three of 'A Confession of Sorts', Edmund's careful hand doubling through the sheet. 'Ruth Marsh drew the Hollow fox before I ever did. I mean to say so in print, her name on every line, while I live to sign the preface.' He kept carbons of everything; the originals were torn from the binding and left the house in the dark half hour -- and only one person carried pages out that night.",
+      "toast": "The Safe's Carbons -- pp. 40-43 survive; the originals left the house.",
+      "chains": ["paper"],
+      "timeline": "t_carbon"
+    },
+    {
+      "id": "tobias_sewing_tin",
+      "name": "The Apprentice's Tin",
+      "room": "study",
+      "spot": [2010, 370, 120, 130],
+      "tool": null,
+      "closeup": {
+        "svg": "/art/closeups/cu_tin.svg",
+        "title": "Buttons and Needles",
+        "caption": "Two horn buttons, spare, off the same card."
+      },
+      "note": "On the study's work shelf, Tobias's tin: needles, wax, thread, and two horn buttons still on their card -- the same cast as the one on the stair carpet. Lost days ago on his attic climb, swept along by the morning brooms. The button was never a stranger's; it was the house mending itself.",
+      "toast": "The Apprentice's Tin -- the stair button's spare, found.",
+      "chains": ["small"]
     }
   ]
 }

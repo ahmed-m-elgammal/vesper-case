@@ -370,6 +370,7 @@ export class GameRoot {
         this.destroyPrologue();
         this.hud.node.classList.add('hidden');
         this.roomVM = null;
+        this.activeRoomId = null;
         this.hud.attachRoom(null);
         this.phaser.showStation(this.vm.state.stationLevel);
         this.maybeShowIntro();
@@ -410,6 +411,7 @@ export class GameRoot {
         }
         this.hud.node.classList.remove('hidden');
         this.roomVM = null;
+        this.activeRoomId = null;
         this.hud.attachRoom(null);
         this.phaser.showHub();
         break;
@@ -419,7 +421,11 @@ export class GameRoot {
         this.hud.node.classList.remove('hidden');
         const roomId = this.vm.state.roomId;
         if (!roomId) return;
-        if (this.activeRoomId === roomId && this.phaser.game.scene.isActive('room')) break;
+        // route() fires from BOTH roomId$ and phase$ on every room entry; the
+        // guard must not depend on scene.isActive(), which is false while the
+        // scene is still booting -- that race used to build two RoomVMs (the
+        // scene kept one, the HUD the other) and desynced tool selection.
+        if (this.activeRoomId === roomId) break;
         this.activeRoomId = roomId;
         this.roomVM = new RoomVM(this.vm, roomId);
         this.hud.attachRoom(this.roomVM);

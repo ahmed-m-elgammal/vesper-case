@@ -9,6 +9,7 @@
 import * as Phaser from 'phaser';
 import type { RoomSceneData, SceneCtx } from './SceneCtx';
 import type { Hotspot } from '../../viewmodels/RoomVM';
+import { withBase } from '../../core/assetUrl';
 
 const ACCENT = 0xb4552d;
 const INK = 0x2e2a33;
@@ -43,7 +44,7 @@ export class RoomScene extends Phaser.Scene {
     for (const layer of room.layers) {
       // Layer SVGs declare explicit width/height, so the plain image loader
       // rasterizes them at full size (Phaser's svg-blob path is unreliable).
-      this.load.image(layer.key, layer.src);
+      this.load.image(layer.key, withBase(layer.src));
     }
   }
 

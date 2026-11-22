@@ -16,7 +16,18 @@
       "title": "The dark half hour has its arithmetic",
       "body": [
         "A door off its bolt at half eleven, wet diamond treads crossing the kitchen flags, a wireless singing to nobody at 11:21. The visitor came by the garden, crossed the house without a light, and stood in the parlour while it sat blind.",
-        "Act 3 will open the bedrooms, the bathroom and the study: where Peggy's candle burned to the eleven-o'clock mark, where the blotter keeps a pencil's plea, and where a safe holds carbon pages the fire never saw. Next build."
+        "Act 3 opens the bedrooms, the bathroom and the study: where Peggy's candle burned to the eleven-o'clock mark, where the blotter keeps a pencil's plea, and where a safe holds carbon pages the fire never saw."
+      ],
+      "button": "Step back into the house",
+      "closeTo": "hub",
+      "finale": false
+    },
+    "act-three-curtain": {
+      "kicker": "ACT THREE, READ",
+      "title": "The papers have told their truth",
+      "body": [
+        "A pencil plea under the torch, a cab at 10:19, a candle burned to the eleven mark, and carbons of the confession the fire never saw. The forgeries were Julian's guilt; Peggy's debts were hers alone; the confession was real, and it was going to H.M. before Monday.",
+        "Act 4 climbs the attic stair and down to the cellar: Ruth Marsh's sketchbooks, a candle stub on the landing, and the truth of a storm-lit night in 1949. Next build."
       ],
       "button": "Step back into the house",
       "closeTo": "hub",

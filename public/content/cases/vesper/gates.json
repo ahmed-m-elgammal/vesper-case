@@ -101,7 +101,44 @@
       ],
       "onSolve": {
         "flags": ["act2_clear"],
+        "openActs": [3],
         "endCard": "act-two-curtain"
+      }
+    },
+    {
+      "id": "gate-act3",
+      "title": "What the Study Kept",
+      "prompt": "Sergeant Hollis meets you at the study door with the notebook square one more time. Papers, pencils and times -- say what the study kept, and what it proves.",
+      "requiresClues": ["study_blotters_impression", "julian_cab_receipt", "study_safe_carbon", "peggy_candle_mark"],
+      "slots": [
+        {
+          "before": "The plea pressed into the blotter was written by",
+          "after": "-- in pencil, in panic, at ten past ten.",
+          "answer": "Julian Ashcombe",
+          "chips": ["Julian Ashcombe", "Dr. Helena Marsh", "Peggy Vesper-Croft", "Tobias Grimm"]
+        },
+        {
+          "before": "and it proves he knew all about",
+          "after": "-- his 'I never saw one' dies on the page.",
+          "answer": "the memoir",
+          "chips": ["the memoir", "the will", "the forgeries", "the heart drops"]
+        },
+        {
+          "before": "His cab receipt fixes his exit at",
+          "after": "-- a quarter hour past his leave, well clear of the dark.",
+          "answer": "10:19",
+          "chips": ["10:19", "10:47", "11:15", "11:38"]
+        },
+        {
+          "before": "and the pages the fire never saw survive as",
+          "after": "-- Edmund kept carbons; the thief took the torn originals.",
+          "answer": "carbon copies in the study safe",
+          "chips": ["carbon copies in the study safe", "photographs", "a second manuscript", "nothing at all"]
+        }
+      ],
+      "onSolve": {
+        "flags": ["act3_clear"],
+        "endCard": "act-three-curtain"
       }
     }
   ]

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="baBW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="10" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="baBS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="2400" height="900" fill="#f4ecdb"/>
+  <g filter="url(#baBS)"><ellipse cx="500" cy="240" rx="240" ry="170" fill="#8fa3b0" opacity="0.17"/><ellipse cx="1400" cy="220" rx="260" ry="160" fill="#9aa88f" opacity="0.14"/><ellipse cx="2000" cy="300" rx="220" ry="150" fill="#3a3f52" opacity="0.1"/><ellipse cx="1100" cy="800" rx="400" ry="110" fill="#8fa3b0" opacity="0.1"/></g>
+  
+  <g filter="url(#baBW)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="-10" y="180" width="130" height="560" fill="#3a3f52" fill-opacity="0.30" stroke-width="6"/>
+    <rect x="4" y="196" width="102" height="544" fill="#3a3f52" fill-opacity="0.38" stroke-width="3.5"/>
+    <path d="M-10 180 q65 -26 130 0" stroke-width="6"/>
+    <path d="M40 196 V740" stroke-width="2.2" opacity="0.5"/>
+  </g>
+  <g filter="url(#baBW)" stroke="#2e2a33" fill="none">
+    <path d="M0 480 H2400" stroke-width="6"/>
+    <path d="M0 540 H2400" stroke-width="2.4" opacity="0.3"/><path d="M0 596 H2400" stroke-width="2.4" opacity="0.3"/><path d="M0 652 H2400" stroke-width="2.4" opacity="0.3"/><path d="M0 708 H2400" stroke-width="2.4" opacity="0.3"/><path d="M0 764 H2400" stroke-width="2.4" opacity="0.3"/><path d="M0 820 H2400" stroke-width="2.4" opacity="0.3"/><path d="M0 876 H2400" stroke-width="2.4" opacity="0.3"/><path d="M0 932 H2400" stroke-width="2.4" opacity="0.3"/>
+    <path d="M0 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M190 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M300 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M490 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M600 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M790 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M900 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M1090 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M1200 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M1390 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M1500 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M1690 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M1800 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M1990 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M2100 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M2290 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M2400 480 V900" stroke-width="2.4" opacity="0.26"/><path d="M2590 480 V900" stroke-width="2.4" opacity="0.26"/>
+    <path d="M0 500 H2400" stroke-width="3" opacity="0.5"/>
+  </g>
+  <g filter="url(#baBW)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="700" y="140" width="260" height="300" fill="#8fa3b0" fill-opacity="0.26" stroke-width="5"/>
+    <path d="M830 140 V440 M700 266 H960" stroke-width="4"/><path d="M741.6 164 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/><path d="M788.4 180 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/><path d="M856 158 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/><path d="M913.2 184 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/><path d="M762.4 305 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/><path d="M835.2 320 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/><path d="M902.8 296 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/>
+    <path d="M692 440 H968" stroke-width="6"/>
+    
+  </g>
+  <g filter="url(#baBW)" stroke="#2e2a33" fill="none">
+    <path d="M620 130 q150 -22 330 -4" stroke-width="5" opacity="0.7"/>
+  </g>
+  <g filter="url(#baBW)" stroke="#2e2a33" fill="none">
+    <path d="M1750 130 V480 M2000 130 V480 M1750 130 H2000" stroke-width="4" opacity="0.5"/>
+    <path d="M1770 170 V440 M2020 170 V440" stroke-width="2" opacity="0.35"/>
+  </g>
+
+</svg>

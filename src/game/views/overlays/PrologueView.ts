@@ -5,6 +5,7 @@
  */
 
 import { el } from '../../core/dom';
+import { withBase } from '../../core/assetUrl';
 import type { GameVM } from '../../viewmodels/GameVM';
 import type { ProloguePage, Suspect } from '../../data/types';
 
@@ -106,7 +107,7 @@ export class PrologueView {
       }
       case 'plan': {
         const holder = el('div', { class: 'plan-holder' });
-        fetch('/art/plan.svg')
+        fetch(withBase('/art/plan.svg'))
           .then((r) => r.text())
           .then((t) => {
             holder.innerHTML = t;

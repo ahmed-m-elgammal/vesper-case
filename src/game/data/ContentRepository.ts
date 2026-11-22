@@ -11,6 +11,7 @@
 
 import { asBundle, asCaseRegistry, asWorld, validateBundle, validateCaseRegistry, validateWorld } from './validate';
 import { setLocaleTable } from '../dialogue/loc';
+import { withBase } from '../core/assetUrl';
 import type {
   CaseFileMeta,
   Clue,
@@ -20,6 +21,7 @@ import type {
   EndCardContent,
   Gate,
   Room,
+  StationSceneData,
   Suspect,
   WorldContent,
 } from './types';
@@ -70,15 +72,17 @@ export class WorldRepository {
 
   static async load(): Promise<WorldRepository> {
     const [rawWorld, rawRegistry, locale] = await Promise.all([
-      fetchJson('/content/world.json'),
-      fetchJson('/content/cases.json'),
-      fetchJson('/content/locales/en.json') as Promise<Record<string, string>>,
+      fetchJson(withBase('/content/world.json')),
+      fetchJson(withBase('/content/cases.json')),
+      fetchJson(withBase('/content/locales/en.json')) as Promise<Record<string, string>>,
     ]);
     // Give the world validator the global locale so "@key" lines can be checked.
     const worldRaw = { ...(rawWorld as Record<string, unknown>), locale };
     const problems = [...validateWorld(worldRaw), ...validateCaseRegistry(rawRegistry as Record<string, unknown>)];
     if (problems.length > 0) throw new ContentError(problems);
-    return new WorldRepository(asWorld(worldRaw), asCaseRegistry(rawRegistry as Record<string, unknown>), locale ?? {});
+    const world = asWorld(worldRaw);
+    normalizeWorldAssetPaths(world);
+    return new WorldRepository(world, asCaseRegistry(rawRegistry as Record<string, unknown>), locale ?? {});
   }
 
   case(id: string): CaseFileMeta | undefined {
@@ -96,6 +100,7 @@ export class WorldRepository {
 
   /** Fetch (and cache) an SVG as text for inline DOM injection. */
   async closeupSvg(url: string): Promise<string> {
+    url = withBase(url);
     if (!url) return '';
     const hit = this.svgCache.get(url);
     if (hit) return hit;
@@ -110,6 +115,34 @@ export class WorldRepository {
 /* ------------------------------------------------------------------ */
 /* Case bundle repository                                              */
 /* ------------------------------------------------------------------ */
+
+/**
+ * Rewrite absolute asset paths in loaded content with the deployment base
+ * (empty in dev / standalone, "/vesper-case" on GitHub Pages). Idempotent:
+ * withBase only prefixes paths that do not already carry the base.
+ */
+function normalizeCaseAssetPaths(bundle: ContentBundle): void {
+  for (const r of bundle.rooms) {
+    for (const l of r.layers) l.src = withBase(l.src);
+  }
+  for (const c of bundle.clues) {
+    if (c.closeup?.svg) c.closeup.svg = withBase(c.closeup.svg);
+  }
+  for (const s of bundle.suspects) {
+    if (s.portrait) s.portrait = withBase(s.portrait);
+  }
+}
+
+function normalizeWorldAssetPaths(world: WorldContent): void {
+  const scenes = [world.exterior, world.interior, world.upper].filter(Boolean) as StationSceneData[];
+  for (const sc of scenes) {
+    sc.art = withBase(sc.art);
+    for (const prop of sc.nav?.props ?? []) prop.img = withBase(prop.img);
+  }
+  for (const p of Object.values(world.people ?? {})) {
+    if (p.portrait) p.portrait = withBase(p.portrait);
+  }
+}
 
 export class ContentRepository {
   readonly caseId: string;
@@ -136,7 +169,7 @@ export class ContentRepository {
   static async loadCase(caseId: string, globalLocale: Record<string, string> = {}): Promise<ContentRepository> {
     const entries = await Promise.all(
       Object.entries(CASE_FILES).map(async ([key, file]) => {
-        const data = await fetchJson(`/content/cases/${caseId}/${file}`);
+        const data = await fetchJson(withBase(`/content/cases/${caseId}/${file}`));
         return [key, data] as const;
       })
     );
@@ -167,7 +200,7 @@ export class ContentRepository {
     // gate.onSolve.endCard). Accept a bare map or an { endCards: {...} } wrapper.
     let endCards: Record<string, EndCardContent> = {};
     try {
-      const ec = (await fetchJson(`/content/cases/${caseId}/endCards.json`, 'force-cache')) as Record<string, unknown>;
+      const ec = (await fetchJson(withBase(`/content/cases/${caseId}/endCards.json`), 'force-cache')) as Record<string, unknown>;
       const wrapper = ec && typeof ec === 'object' ? (ec as Record<string, unknown>).endCards : undefined;
       endCards = ((wrapper && typeof wrapper === 'object' ? wrapper : ec) ?? {}) as Record<string, EndCardContent>;
     } catch {
@@ -178,7 +211,7 @@ export class ContentRepository {
     // Locale: global table first, then an optional per-case locale.json on top.
     let locale: Record<string, string> = { ...globalLocale };
     try {
-      const caseLocale = (await fetchJson(`/content/cases/${caseId}/locale.json`, 'force-cache')) as Record<string, string>;
+      const caseLocale = (await fetchJson(withBase(`/content/cases/${caseId}/locale.json`), 'force-cache')) as Record<string, string>;
       locale = { ...locale, ...caseLocale };
     } catch {
       /* no per-case locale -- global table covers it */
@@ -187,7 +220,9 @@ export class ContentRepository {
 
     const problems = validateBundle(raw);
     if (problems.length > 0) throw new ContentError(problems);
-    return new ContentRepository(caseId, asBundle(raw));
+    const bundle = asBundle(raw);
+    normalizeCaseAssetPaths(bundle);
+    return new ContentRepository(caseId, bundle);
   }
 
   get roomList(): Room[] {
@@ -234,6 +269,7 @@ export class ContentRepository {
 
   /** Fetch (and cache) a close-up SVG as text for inline DOM injection. */
   async closeupSvg(url: string): Promise<string> {
+    url = withBase(url);
     if (!url) return '';
     const hit = this.svgCache.get(url);
     if (hit) return hit;

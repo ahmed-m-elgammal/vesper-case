@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cuJoW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="15" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="cuJoS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#cuJoS)"><ellipse cx="80" cy="80" rx="58" ry="38" fill="#8fa3b0" opacity="0.14"/><ellipse cx="730" cy="520" rx="66" ry="42" fill="#c9a25e" opacity="0.12"/><ellipse cx="700" cy="90" rx="46" ry="30" fill="#3a3f52" opacity="0.1"/><ellipse cx="90" cy="540" rx="50" ry="30" fill="#9aa88f" opacity="0.1"/></g>
+  <g filter="url(#cuJoW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+  
+  <g filter="url(#cuJoW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M120 110 q280 -22 560 0 l16 380 q-296 22 -592 0 Z" fill="#8a6a4f" fill-opacity="0.55" stroke-width="4.5"/>
+    <path d="M150 130 q260 -18 500 0 l14 344 q-264 20 -528 0 Z" fill="#f4ecdb" fill-opacity="0.94" stroke-width="3"/>
+    <path d="M400 132 V474" stroke-width="2.4" opacity="0.5"/>
+    <path d="M170 190 H386 M170 226 H380 M170 262 H384 M170 298 H372" stroke-width="2.2" opacity="0.8"/>
+    <path d="M414 190 H630 M414 226 H622 M414 262 H606" stroke-width="2.2" opacity="0.8"/>
+    <text x="150" y="178" font-size="22" fill="#2e2a33" stroke="none" opacity="0.85" transform="rotate(-3 150 178)">R. drew the fox first.</text>
+    <text x="412" y="178" font-size="22" fill="#2e2a33" stroke="none" opacity="0.85" transform="rotate(-3 412 178)">The safe keeps her pages.</text>
+    <text x="168" y="336" font-size="22" fill="#2e2a33" stroke="none" opacity="0.85" transform="rotate(-3 168 336)">mine to keep until the</text>
+    <text x="168" y="370" font-size="22" fill="#2e2a33" stroke="none" opacity="0.85" transform="rotate(-3 168 370)">preface says so out loud</text>
+    <path d="M520 330 q26 -38 58 -4 q34 -34 60 2 q-24 36 -58 16 q-36 22 -60 -14 Z" fill="#b4552d" fill-opacity="0.35" stroke-width="2.6"/>
+    <text x="470" y="396" font-size="22" fill="#2e2a33" stroke="none" opacity="0.85" transform="rotate(-3 470 396)">the little key --</text>
+    <text x="478" y="430" font-size="22" fill="#2e2a33" stroke="none" opacity="0.85" transform="rotate(-3 478 430)">on the ribbon</text>
+    <path d="M400 474 q-4 60 8 96" stroke-width="3" opacity="0.85"/>
+    <circle cx="410" cy="578" r="13" fill="#c9a25e" fill-opacity="0.6" stroke-width="2.6"/>
+    <circle cx="410" cy="578" r="4.5" fill="#3a3f52" fill-opacity="0.8" stroke-width="1.6"/>
+    <text x="436" y="570" font-size="30" fill="#2e2a33" stroke="none" opacity="0.85" transform="rotate(-3 436 570)">still there</text>
+    <text x="596" y="520" font-size="22" fill="#2e2a33" stroke="none" opacity="0.6">E.V.</text>
+  </g>
+
+</svg>

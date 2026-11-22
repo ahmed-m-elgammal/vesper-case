@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cuIoW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="14" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="cuIoS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#cuIoS)"><ellipse cx="80" cy="80" rx="58" ry="38" fill="#8fa3b0" opacity="0.14"/><ellipse cx="730" cy="520" rx="66" ry="42" fill="#c9a25e" opacity="0.12"/><ellipse cx="700" cy="90" rx="46" ry="30" fill="#3a3f52" opacity="0.1"/><ellipse cx="90" cy="540" rx="50" ry="30" fill="#9aa88f" opacity="0.1"/></g>
+  <g filter="url(#cuIoW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+  
+  <g filter="url(#cuIoW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M80 120 q320 -26 640 0 l-14 380 q-306 22 -612 0 Z" fill="#f4ecdb" fill-opacity="0.92" stroke-width="3.5"/>
+    <text x="120" y="170" font-size="30" letter-spacing="4" fill="#2e2a33" stroke="none">MERIDIAN CREDIT &amp; LOAN</text>
+    <path d="M120 186 H680" stroke-width="2.6"/>
+    <text x="120" y="222" font-size="20" fill="#2e2a33" stroke="none" opacity="0.8">re: account of Mrs. M. Vesper-Croft</text>
+    <text x="120" y="256" font-size="20" fill="#2e2a33" stroke="none" opacity="0.8">final demand -- settlement within 14 days</text>
+    <rect x="420" y="280" width="240" height="110" fill="none" stroke="#b4552d" stroke-width="6" opacity="0.8" transform="rotate(-8 540 335)"/>
+    <text x="452" y="330" font-size="44" fill="#b4552d" stroke="none" opacity="0.85" transform="rotate(-8 540 335)">FINAL</text>
+    <text x="452" y="368" font-size="30" fill="#b4552d" stroke="none" opacity="0.8" transform="rotate(-8 540 335)">NOTICE</text>
+    <path d="M110 420 H300 M110 450 H260 M110 480 H290" stroke-width="2" opacity="0.5"/>
+    <path d="M96 140 q-20 200 10 340" stroke-width="2" opacity="0.4"/>
+  </g>
+  <g filter="url(#cuIoW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M580 430 q90 -10 140 8 l-10 96 q-70 14 -128 -6 Z" fill="#f4ecdb" fill-opacity="0.95" stroke-width="2.6"/>
+    <text x="588" y="468" font-size="20" fill="#2e2a33" stroke="none" opacity="0.85" transform="rotate(-3 588 468)">IOU -- £4, to J.</text>
+    <text x="588" y="502" font-size="20" fill="#2e2a33" stroke="none" opacity="0.85" transform="rotate(-3 588 502)">IOU -- £10, the rent</text>
+    <path d="M320 470 q80 -14 170 0 l-8 84 q-80 14 -158 -2 Z" fill="#f4ecdb" fill-opacity="0.95" stroke-width="2.6"/>
+    <text x="330" y="510" font-size="20" fill="#2e2a33" stroke="none" opacity="0.85" transform="rotate(-3 330 510)">IOUs, her own hand</text>
+  </g>
+
+</svg>

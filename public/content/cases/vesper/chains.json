@@ -8,7 +8,8 @@
         "hall_clock",
         "mantel_clock",
         "visitor_ledger",
-        "tobias_clatter"
+        "tobias_clatter",
+        "julian_cab_receipt"
       ]
     },
     {
@@ -40,7 +41,10 @@
       "clueIds": [
         "mail_letter",
         "memoir_desk",
-        "summons_slip"
+        "summons_slip",
+        "study_blotters_impression",
+        "study_safe_carbon",
+        "edmund_journal_ruth"
       ]
     },
     {
@@ -51,7 +55,10 @@
         "stair_button",
         "scissors_sideboard",
         "pill_bottle",
-        "peggy_scissors_ownup"
+        "peggy_scissors_ownup",
+        "peggy_ious",
+        "bath_cabinet_digitalis",
+        "tobias_sewing_tin"
       ]
     },
     {
@@ -69,10 +76,11 @@
     {
       "id": "household",
       "name": "The Household's Hours",
-      "blurb": "Worn carpet lanes and rinsed glasses -- the quiet habits that map who moved, and when.",
+      "blurb": "Worn carpet lanes, rinsed glasses and candle marks -- the quiet habits that map who moved, and when.",
       "clueIds": [
         "stair_worn_runner",
-        "peggy_tonic_glass"
+        "peggy_tonic_glass",
+        "peggy_candle_mark"
       ]
     }
   ]

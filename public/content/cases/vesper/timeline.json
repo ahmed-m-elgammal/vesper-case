@@ -7,6 +7,18 @@
       "revealedBy": "file"
     },
     {
+      "id": "t_ruth",
+      "time": "1948",
+      "text": "Ruth Marsh draws the fox first; Edmund keeps her sketchbooks and his silence.",
+      "revealedBy": "clue:edmund_journal_ruth"
+    },
+    {
+      "id": "t_peggy_up",
+      "time": "8:15 pm",
+      "text": "Peggy retires with a novel and her sewing -- and the day's post: a final notice.",
+      "revealedBy": "clue:peggy_ious"
+    },
+    {
       "id": "t_arrival",
       "time": "9:00 pm",
       "text": "Julian Ashcombe arrives and repairs with Edmund to the study.",
@@ -19,10 +31,28 @@
       "revealedBy": "locked"
     },
     {
+      "id": "t_blotter",
+      "time": "10:11 pm",
+      "text": "Edmund demands the money back. Julian writes a pencil plea -- pressed into the blotter.",
+      "revealedBy": "clue:study_blotters_impression"
+    },
+    {
       "id": "t_julian_leaves",
       "time": "10:15 pm",
       "text": "Julian leaves by the front door. The ledger has it: 'gone quarter past ten.'",
       "revealedBy": "clue:visitor_ledger"
+    },
+    {
+      "id": "t_cab",
+      "time": "10:19 pm",
+      "text": "A cab takes Julian from the Bell & Curtain rank, away to Hall Lane. Gone before the dark.",
+      "revealedBy": "clue:julian_cab_receipt"
+    },
+    {
+      "id": "t_carbon",
+      "time": "10:20 pm",
+      "text": "Edmund bolts the study: seals the solicitor's letter, locks the carbon pages in the safe.",
+      "revealedBy": "clue:study_safe_carbon"
     },
     {
       "id": "t_call",
@@ -53,6 +83,12 @@
       "time": "10:48 pm",
       "text": "Colette lights the pantry lantern and bakes on in the dark; Peggy carries her candle up.",
       "revealedBy": "clue:pantry_lantern"
+    },
+    {
+      "id": "t_candle",
+      "time": "10:50 pm",
+      "text": "Peggy lights her bedside candle; it burns to the eleven-o'clock mark and no further.",
+      "revealedBy": "clue:peggy_candle_mark"
     },
     {
       "id": "t_return",

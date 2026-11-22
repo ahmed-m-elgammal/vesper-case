@@ -6,6 +6,7 @@
 
 import * as Phaser from 'phaser';
 import { getSceneCtx, type SceneCtx } from './SceneCtx';
+import { withBase } from '../../core/assetUrl';
 
 export class HubScene extends Phaser.Scene {
   private ctx!: SceneCtx;
@@ -16,7 +17,7 @@ export class HubScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image('hub', '/art/hub.svg');
+    this.load.image('hub', withBase('/art/hub.svg'));
   }
 
   create(): void {
@@ -52,7 +53,7 @@ export class HubScene extends Phaser.Scene {
         } else {
           const actNames: Record<number, string> = {
             2: 'Act 2 -- the kitchen and the stairs. It opens when the parlour\'s account closes.',
-            3: 'Act 3 -- bedrooms, bathroom and study. Next build.',
+            3: 'Act 3 -- bedrooms, bathroom and study. It opens when the dark half hour has its arithmetic.',
             4: 'Act 4 -- attic and basement. Next build.',
             5: 'Act 5 -- interrogations and the accusation. Next build.',
           };

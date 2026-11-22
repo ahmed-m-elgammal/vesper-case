@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="edFW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="9" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="edFS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  
+  <g filter="url(#edFS)"><ellipse cx="1200" cy="860" rx="900" ry="160" fill="#3a3f52" opacity="0.1"/></g>
+  <g filter="url(#edFS)">
+    <ellipse cx="1200" cy="-60" rx="1500" ry="220" fill="#3a3f52" opacity="0.10"/>
+    <ellipse cx="-40" cy="460" rx="240" ry="620" fill="#3a3f52" opacity="0.14"/>
+    <ellipse cx="2440" cy="460" rx="220" ry="600" fill="#3a3f52" opacity="0.12"/>
+  </g>
+  <g fill="#2e2a33">
+    <circle cx="520" cy="210" r="2.2" opacity="0.20"/><circle cx="940" cy="330" r="1.8" opacity="0.18"/>
+    <circle cx="1500" cy="180" r="2.4" opacity="0.20"/><circle cx="1980" cy="300" r="1.7" opacity="0.16"/>
+    <circle cx="700" cy="520" r="1.9" opacity="0.15"/><circle cx="1740" cy="470" r="2.1" opacity="0.15"/>
+  </g>
+</svg>

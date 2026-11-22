@@ -79,7 +79,8 @@
         "wet_flag_prints": { "next": "r_wprints", "once": "asked:colette:pr-wprints" },
         "colette_ledger_page": { "next": "r_ledger2", "once": "asked:colette:pr-ledger2" },
         "stair_worn_runner": { "next": "r_runner", "once": "asked:colette:pr-runner" },
-        "peggy_tonic_glass": { "next": "r_tonic", "once": "asked:colette:pr-tonic" }
+        "peggy_tonic_glass": { "next": "r_tonic", "once": "asked:colette:pr-tonic" },
+        "peggy_candle_mark": { "next": "r_candle", "once": "asked:colette:pr-candle" }
       },
       "nodes": {
         "root": {
@@ -233,6 +234,10 @@
         "r_tonic": {
           "beats": [{ "sp": "npc", "t": "@dlg.colette.r_tonic.1" }],
           "next": "root"
+        },
+        "r_candle": {
+          "beats": [{ "sp": "npc", "t": "@dlg.colette.r_candle.1" }],
+          "next": "root"
         }
       }
     },
@@ -256,7 +261,9 @@
         "kitchen_radio": { "next": "r_radio", "once": "asked:tobias:pr-radio" },
         "wet_flag_prints": { "next": "r_wprints", "once": "asked:tobias:pr-wprints" },
         "pantry_lantern": { "next": "r_lantern", "once": "asked:tobias:pr-lantern" },
-        "burnt_loaf": { "next": "r_loaf", "once": "asked:tobias:pr-loaf" }
+        "burnt_loaf": { "next": "r_loaf", "once": "asked:tobias:pr-loaf" },
+        "tobias_sewing_tin": { "next": "r_tin", "once": "asked:tobias:pr-tin" },
+        "study_safe_carbon": { "next": "r_carbon", "once": "asked:tobias:pr-carbon" }
       },
       "nodes": {
         "root": {
@@ -389,6 +396,22 @@
         "r_loaf": {
           "beats": [{ "sp": "npc", "t": "@dlg.tobias.r_loaf.1" }],
           "next": "root"
+        },
+        "r_tin": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.tobias.r_tin.1" },
+            { "sp": "npc", "t": "@dlg.tobias.r_tin.2" }
+          ],
+          "effects": { "setFlags": ["talked:tobias:tin"], "setVars": { "trust:tobias": 1 } },
+          "next": "root"
+        },
+        "r_carbon": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.tobias.r_carbon.1" },
+            { "sp": "npc", "t": "@dlg.tobias.r_carbon.2" }
+          ],
+          "effects": { "setFlags": ["talked:tobias:pr-carbon"] },
+          "next": "root"
         }
       }
     },
@@ -413,7 +436,9 @@
         "peggy_tonic_glass": { "next": "r_tonic", "once": "asked:peggy:pr-tonic" },
         "stair_worn_runner": { "next": "r_runner", "once": "asked:peggy:pr-runner" },
         "wet_flag_prints": { "next": "r_wprints", "once": "asked:peggy:pr-wprints" },
-        "burnt_loaf": { "next": "r_loaf", "once": "asked:peggy:pr-loaf" }
+        "burnt_loaf": { "next": "r_loaf", "once": "asked:peggy:pr-loaf" },
+        "peggy_candle_mark": { "next": "r_candle", "once": "asked:peggy:pr-candle" },
+        "peggy_ious": { "next": "r_ious", "once": "asked:peggy:pr-ious" }
       },
       "nodes": {
         "root": {
@@ -428,6 +453,8 @@
             { "text": "@dlg.peggy.root.c4", "next": "scissors", "cond": { "clue": "scissors_sideboard" } },
             { "text": "@dlg.peggy.root.c5", "next": "money", "cond": { "trust": "trust:peggy", "gte": 1 } },
             { "text": "@dlg.peggy.root.c6", "next": "tonic", "cond": { "clue": "peggy_tonic_glass" } },
+            { "text": "@dlg.peggy.root.c7", "next": "candle", "cond": { "clue": "peggy_candle_mark" } },
+            { "text": "@dlg.peggy.root.c8", "next": "notices", "cond": { "clue": "peggy_ious" } },
             { "text": "@dlg.ui.present", "present": { "miss": "present_miss" } },
             { "text": "@dlg.ui.leave", "next": "bye" }
           ]
@@ -484,6 +511,24 @@
             { "sp": "npc", "t": "@dlg.peggy.money.2" }
           ],
           "effects": { "setFlags": ["talked:peggy:money"] },
+          "next": "root"
+        },
+        "candle": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.peggy.candle.1" },
+            { "sp": "npc", "t": "@dlg.peggy.candle.2" },
+            { "sp": "npc", "t": "@dlg.peggy.candle.3" }
+          ],
+          "effects": { "setFlags": ["talked:peggy:candle"], "setVars": { "trust:peggy": 1 } },
+          "next": "root"
+        },
+        "notices": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.peggy.notices.1" },
+            { "sp": "npc", "t": "@dlg.peggy.notices.2" },
+            { "sp": "npc", "t": "@dlg.peggy.notices.3" }
+          ],
+          "effects": { "setFlags": ["talked:peggy:notices"], "setVars": { "trust:peggy": 1 } },
           "next": "root"
         },
         "present_miss": {
@@ -566,6 +611,22 @@
         },
         "r_loaf": {
           "beats": [{ "sp": "npc", "t": "@dlg.peggy.r_loaf.1" }],
+          "next": "root"
+        },
+        "r_candle": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.peggy.r_candle.1" },
+            { "sp": "npc", "t": "@dlg.peggy.r_candle.2" }
+          ],
+          "effects": { "setFlags": ["talked:peggy:pr-candle"] },
+          "next": "root"
+        },
+        "r_ious": {
+          "beats": [
+            { "sp": "npc", "t": "@dlg.peggy.r_ious.1" },
+            { "sp": "npc", "t": "@dlg.peggy.r_ious.2" }
+          ],
+          "effects": { "setFlags": ["talked:peggy:pr-ious"] },
           "next": "root"
         }
       }

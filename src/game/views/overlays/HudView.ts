@@ -17,6 +17,7 @@ export class HudView {
   private magBtn: HTMLButtonElement;
   private uvBtn: HTMLButtonElement;
   private roomVM: RoomVM | null = null;
+  private lastTool: 'magnifier' | 'uv' = 'magnifier';
 
   constructor(
     private vm: GameVM,
@@ -60,9 +61,27 @@ export class HudView {
     this.magBtn.addEventListener('click', () => this.selectTool('magnifier'));
     this.uvBtn = el('button', { class: 'tool-btn locked', title: 'UV torch -- found later in the case' }) as HTMLButtonElement;
     this.uvBtn.innerHTML = '<span class="tool-glyph">\u25CF</span><span class="tool-name">UV torch</span>';
-    this.uvBtn.addEventListener('click', () => vm.toast('The UV torch is packed away for a later act.', 'info'));
+    this.uvBtn.addEventListener('click', () => {
+      // The Act 1 closer grants the torch (flag tool_uv_granted); until then it
+      // stays packed away.
+      if (HudView.uvGranted(this.vm)) {
+        this.lastTool = 'uv';
+        this.selectTool('uv');
+      } else {
+        this.vm.toast('The UV torch is packed away for a later act.', 'info');
+      }
+    });
     dock.append(this.magBtn, this.uvBtn);
     this.node.append(dock);
+
+    // The torch's lock follows its flag live (safe with no case active).
+    const syncUv = () => {
+      const granted = HudView.uvGranted(this.vm);
+      this.uvBtn.classList.toggle('locked', !granted);
+      this.uvBtn.title = granted ? 'UV torch' : 'UV torch -- found later in the case';
+    };
+    syncUv();
+    this.vm.flags$.subscribe(syncUv);
 
     // bottom-right counter + save flash
     const bottomRight = el('div', { class: 'hud-bottomright' });
@@ -91,12 +110,20 @@ export class HudView {
   /** Root wires the active RoomVM so the tool dock can drive it. */
   attachRoom(roomVM: RoomVM | null): void {
     this.roomVM = roomVM;
-    if (roomVM) roomVM.tool$.value = 'magnifier';
-    this.selectTool('magnifier');
+    // Keep the player's chosen tool across rooms (the torch stays only if granted).
+    const tool = this.lastTool === 'uv' && !HudView.uvGranted(this.vm) ? 'magnifier' : this.lastTool;
+    if (roomVM) roomVM.tool$.value = tool;
+    this.selectTool(tool);
+  }
+
+  /** The Act 1 closer's grant flag, read safely (null when no case is active). */
+  private static uvGranted(vm: GameVM): boolean {
+    return Boolean(vm.cpOrNull()?.flags['tool_uv_granted']);
   }
 
   private selectTool(tool: 'magnifier' | 'uv'): void {
     if (!this.roomVM) return;
+    this.lastTool = tool;
     this.roomVM.tool$.value = tool;
     this.magBtn.classList.toggle('active', tool === 'magnifier');
     this.uvBtn.classList.toggle('active', tool === 'uv');

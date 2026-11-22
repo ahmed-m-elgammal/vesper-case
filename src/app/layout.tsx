@@ -9,14 +9,16 @@ import "@fontsource/crimson-pro/700.css";
 import "./globals.css";
 import "@/game/style.css";
 
+const ASSET_BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export const metadata: Metadata = {
   title: "Ink & Ashes -- The Vesper Case",
   description:
     "A hand-drawn detective deduction game in one house, one night. Read the case file, walk the rooms, connect the clues, name the culprit.",
-  manifest: "/manifest.webmanifest",
+  manifest: `${ASSET_BASE}/manifest.webmanifest`,
   icons: {
-    icon: "/icons/icon-192.png",
-    apple: "/icons/icon-192.png",
+    icon: `${ASSET_BASE}/icons/icon-192.png`,
+    apple: `${ASSET_BASE}/icons/icon-192.png`,
   },
 };
 

@@ -262,5 +262,22 @@
   "dlg.peggy.r_tonic.1": "That's my tonic, detective -- iron and quinine, the doctor's own, and harmless as tap water. Ask me about it if you like; I'll say the same thing standing on one foot.",
   "dlg.peggy.r_runner.1": "You can read a family in a stair carpet. My lane is along the left wall -- eight months of minding my skirts. Uncle Edmund's stick wears the right, and Tobias takes the middle like a man who owns the dark. It's an honest carpet. More than most of us manage.",
   "dlg.peggy.r_wprints.1": "Diamond tread, wet with rain, in a house where every boot in the hall is accounted for? No. Nobody here walked in from a garden. I'd have heard the front door from my sill if they'd used it -- and nobody heard the garden one at all.",
-  "dlg.peggy.r_loaf.1": "I smelled no bread burning until morning -- my room is two floors from the kitchen and the storm swallowed everything smaller than the thunder. Colette's loaf was the least of that night, poor thing."
+  "dlg.peggy.r_loaf.1": "I smelled no bread burning until morning -- my room is two floors from the kitchen and the storm swallowed everything smaller than the thunder. Colette's loaf was the least of that night, poor thing.",
+  "dlg.peggy.root.c7": "Your candle, and where it stopped.",
+  "dlg.peggy.root.c8": "The notices in your writing case.",
+  "dlg.peggy.candle.1": "My candle. So you did go into my room. I suppose you had every right -- and I suppose I owe you the truth now that you are holding it.",
+  "dlg.peggy.candle.2": "I lied about the winding, detective. There was no winding. I was asleep before eleven -- the dark frightened me more than I'd admit, so I let the candle burn itself down and slept like the dead. Like the poor dear dead.",
+  "dlg.peggy.candle.3": "I only wanted my evening to sound the way evenings always sounded in this house. I never heard anything at all that night -- except the storm, and Mr. Ashcombe's door at quarter past ten.",
+  "dlg.peggy.notices.1": "The red stamp. Meridian Credit & Loan, and no mistake -- the final one, they promise me every month.",
+  "dlg.peggy.notices.2": "They are mine, every pound of them: a bad year, a dead aunt's rent, my own bad arithmetic. My uncle knew, and never once raised his voice about it. I thought the Tuesday letter --",
+  "dlg.peggy.notices.3": "No. I read his face when he sealed it. The letter is about the trust, not my debts. Nobody's inheritance was moving anywhere, least of all to me, and I knew it before he died.",
+  "dlg.peggy.r_candle.1": "You went into my room.",
+  "dlg.peggy.r_candle.2": "Keep the candle, then. It says what I was too proud to say: I slept, and the house burned, and my uncle died, and none of it was me.",
+  "dlg.peggy.r_ious.1": "Yes. All mine, and older than my mourning.",
+  "dlg.peggy.r_ious.2": "If I had wanted his money you would have found me cheerful, not drowning. Ask the lending office -- they will tell you how little inheritance there ever was in it.",
+  "dlg.tobias.r_tin.1": "That's my tin -- where did you...? The work shelf, in the study; I left it out Thursday. Yes: two buttons still on the card. The one on the stair is mine, from days ago. The attic stair takes its toll in horn buttons.",
+  "dlg.tobias.r_tin.2": "Match them if you like -- they were never anyone's but mine. I mended the coat on Friday and never missed the one that had gone walkabout.",
+  "dlg.tobias.r_carbon.1": "The carbons -- he showed me those once, proud as a boy. 'Proof of the work,' he said. Pages forty to forty-three, and he read a bit aloud. About Ruth.",
+  "dlg.tobias.r_carbon.2": "I never learned who Ruth was. He never said her name twice -- the once was for me, and I think the twice would have been for himself.",
+  "dlg.colette.r_candle.1": "Miss Peggy's candle burns to eleven exactly -- I dust that little table of a Thursday, and the mark never moves. A tidy sleeper. Whatever her money troubles, they kept civilised hours; it was the garden door that kept none."
 }

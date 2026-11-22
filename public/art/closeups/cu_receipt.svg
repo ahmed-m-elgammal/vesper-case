@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="cuReW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="18" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="cuReS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="#f4ecdb"/>
+  <g filter="url(#cuReS)"><ellipse cx="80" cy="80" rx="58" ry="38" fill="#8fa3b0" opacity="0.14"/><ellipse cx="730" cy="520" rx="66" ry="42" fill="#c9a25e" opacity="0.12"/><ellipse cx="700" cy="90" rx="46" ry="30" fill="#3a3f52" opacity="0.1"/><ellipse cx="90" cy="540" rx="50" ry="30" fill="#9aa88f" opacity="0.1"/></g>
+  <g filter="url(#cuReW)" fill="none" stroke="#2e2a33" stroke-linecap="round">
+    <rect x="14" y="14" width="772" height="572" stroke-width="2.8"/>
+    <rect x="22" y="22" width="756" height="556" stroke-width="1.6" opacity="0.75"/>
+  </g>
+  
+  <g filter="url(#cuReW)" stroke="#2e2a33" fill="none" stroke-linejoin="round">
+    <path d="M170 110 q230 -18 460 0 l-10 340 q-220 18 -440 0 Z" fill="#f4ecdb" fill-opacity="0.95" stroke-width="3"/>
+    <path d="M180 140 q210 -14 430 0 M186 200 q200 -12 420 0 M182 260 q214 -14 428 0 M188 320 q198 -12 416 0 M184 380 q220 -14 436 0" stroke-width="1.6" opacity="0.35"/>
+    <path d="M214 150 q-18 130 8 260" stroke-width="1.8" opacity="0.5"/>
+    <path d="M580 150 q22 140 -6 262" stroke-width="1.8" opacity="0.5"/>
+    <text x="230" y="190" font-size="24" letter-spacing="2" fill="#2e2a33" stroke="none">THE BELL &amp; CURTAIN</text>
+    <text x="230" y="222" font-size="17" fill="#2e2a33" stroke="none" opacity="0.8">licensed cab stand -- night rank</text>
+    <path d="M214 246 H586" stroke-width="2.4"/>
+    <text x="226" y="300" font-size="30" fill="#2e2a33" stroke="none" opacity="0.85" transform="rotate(-3 226 300)">10:19 p.m.</text>
+    <text x="226" y="356" font-size="30" fill="#2e2a33" stroke="none" opacity="0.85" transform="rotate(-3 226 356)">to HALL LANE</text>
+    <text x="470" y="420" font-size="18" fill="#2e2a33" stroke="none" opacity="0.7">paid -- one shilling</text>
+    <text x="300" y="520" font-size="30" fill="#2e2a33" stroke="none" opacity="0.85" transform="rotate(-3 300 520)">crumpled once, dropped in the basket</text>
+    <path d="M330 470 q40 24 90 6 M300 486 q60 26 140 4" stroke-width="2" opacity="0.5"/>
+  </g>
+
+</svg>

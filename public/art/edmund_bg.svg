@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900">
+  <defs>
+    <filter id="edBW" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
+    <filter id="edBS" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="2400" height="900" fill="#f4ecdb"/>
+  <g filter="url(#edBS)"><ellipse cx="420" cy="220" rx="240" ry="160" fill="#3a3f52" opacity="0.13"/><ellipse cx="1150" cy="200" rx="260" ry="160" fill="#8fa3b0" opacity="0.15"/><ellipse cx="2000" cy="260" rx="240" ry="160" fill="#9aa88f" opacity="0.13"/><ellipse cx="1600" cy="770" rx="340" ry="120" fill="#8a6a4f" opacity="0.12"/></g>
+  
+  <g filter="url(#edBW)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="-10" y="180" width="130" height="560" fill="#3a3f52" fill-opacity="0.30" stroke-width="6"/>
+    <rect x="4" y="196" width="102" height="544" fill="#3a3f52" fill-opacity="0.38" stroke-width="3.5"/>
+    <path d="M-10 180 q65 -26 130 0" stroke-width="6"/>
+    <path d="M40 196 V740" stroke-width="2.2" opacity="0.5"/>
+  </g>
+  <g filter="url(#edBW)" stroke="#2e2a33" fill="none">
+    <path d="M0 84 H2400" stroke-width="6"/>
+    <rect x="320" y="160" width="180" height="140" fill="#f4ecdb" fill-opacity="0.7" stroke-width="4"/>
+    <rect x="540" y="160" width="180" height="140" fill="#f4ecdb" fill-opacity="0.7" stroke-width="4"/>
+    <rect x="760" y="160" width="180" height="140" fill="#f4ecdb" fill-opacity="0.7" stroke-width="4"/>
+    <path d="M360 230 q30 -44 90 -6 q30 -40 70 4" stroke-width="2.6" opacity="0.6"/>
+    <path d="M580 226 q26 -40 80 -2 q28 -34 64 6" stroke-width="2.6" opacity="0.6"/>
+    <path d="M800 232 q34 -42 84 -4 q26 -36 66 8" stroke-width="2.6" opacity="0.6"/>
+    <path d="M410 268 h60 M630 264 h56 M850 270 h58" stroke-width="2" opacity="0.5"/>
+  </g>
+  <g filter="url(#edBW)" stroke="#2e2a33" fill="none" stroke-linecap="round">
+    <rect x="1780" y="130" width="300" height="340" fill="#8fa3b0" fill-opacity="0.26" stroke-width="5"/>
+    <path d="M1930 130 V470 M1780 272.79999999999995 H2080" stroke-width="4"/><path d="M1828 154 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/><path d="M1882 170 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/><path d="M1960 148 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/><path d="M2026 174 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/><path d="M1852 317 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/><path d="M1936 334 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/><path d="M2014 306.8 q5 44 -2 88" stroke="#f4ecdb" stroke-width="2.2" opacity="0.55"/>
+    <path d="M1772 470 H2088" stroke-width="6"/>
+    <path d="M1734 112 q44 66 8 210.8 q-6 66 18 136" fill="#9aa88f" fill-opacity="0.5" stroke-width="3.6"/>
+       <path d="M2126 112 q-44 66 -8 210.8 q6 66 -18 136" fill="#9aa88f" fill-opacity="0.5" stroke-width="3.6"/>
+  </g>
+  <g filter="url(#edBW)" stroke="#2e2a33" fill="none">
+    <path d="M0 560 H2400" stroke-width="4.5"/>
+    <path d="M0 574 H2400" stroke-width="1.8" opacity="0.5"/>
+    <path d="M0 626 H2400" stroke-width="2" opacity="0.4"/>
+    <path d="M90 560 V626" stroke-width="2" opacity="0.35"/><path d="M430 560 V626" stroke-width="2" opacity="0.35"/><path d="M770 560 V626" stroke-width="2" opacity="0.35"/><path d="M1110 560 V626" stroke-width="2" opacity="0.35"/><path d="M1450 560 V626" stroke-width="2" opacity="0.35"/><path d="M1790 560 V626" stroke-width="2" opacity="0.35"/><path d="M2130 560 V626" stroke-width="2" opacity="0.35"/><path d="M2470 560 V626" stroke-width="2" opacity="0.35"/>
+  </g>
+  <g filter="url(#edBW)" stroke="#2e2a33" fill="none"><path d="M0 666 H2400" stroke-width="2" opacity="0.30"/><path d="M0 712 H2400" stroke-width="2" opacity="0.30"/><path d="M0 758 H2400" stroke-width="2" opacity="0.30"/><path d="M0 804 H2400" stroke-width="2" opacity="0.30"/><path d="M0 850 H2400" stroke-width="2" opacity="0.30"/><path d="M120 650 V896" stroke-width="2" opacity="0.22"/><path d="M335 650 V896" stroke-width="2" opacity="0.22"/><path d="M550 650 V896" stroke-width="2" opacity="0.22"/><path d="M645 650 V896" stroke-width="2" opacity="0.22"/><path d="M860 650 V896" stroke-width="2" opacity="0.22"/><path d="M1075 650 V896" stroke-width="2" opacity="0.22"/><path d="M1170 650 V896" stroke-width="2" opacity="0.22"/><path d="M1385 650 V896" stroke-width="2" opacity="0.22"/><path d="M1600 650 V896" stroke-width="2" opacity="0.22"/><path d="M1695 650 V896" stroke-width="2" opacity="0.22"/><path d="M1910 650 V896" stroke-width="2" opacity="0.22"/><path d="M2125 650 V896" stroke-width="2" opacity="0.22"/><path d="M2220 650 V896" stroke-width="2" opacity="0.22"/><path d="M2435 650 V896" stroke-width="2" opacity="0.22"/></g>
+
+</svg>

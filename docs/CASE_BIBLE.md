@@ -113,23 +113,22 @@
 
 ## 4. Clue chains (IDs match `clues.json` / `chains.json`)
 
-### Built now (Prologue + Act 1 + Act 2 — 25 discoverable clues, 3 gates)
+### Built now (Prologue + Acts 1–3 — 36 discoverable clues, 4 gates)
 
 | Chain | Clues | State |
 |---|---|---|
-| The Night's Clockwork | `hall_clock`, `mantel_clock`, `visitor_ledger`, `tobias_clatter` (testimony) | complete in Act 1 |
+| The Night's Clockwork | `hall_clock`, `mantel_clock`, `visitor_ledger`, `tobias_clatter` (testimony), `julian_cab_receipt` | complete in Act 3 |
 | What Went in the Glass | `whiskey_glass`, `decanter`, `hearth_ash` | complete in Act 1 |
 | A Door Off the Bolt | `garden_door_bolt`, `hearth_rug_print`, `coat_peg_coats`, `umbrella_stand`, `colette_garden_bolt` (testimony), `wet_flag_prints` (Act 2) | complete in Act 2 |
-| Paper & Money | `mail_letter`, `memoir_desk`, `summons_slip` | grows in Act 3 (blotter) |
-| Small Things & False Trails | `stair_button`, `scissors_sideboard`, `pill_bottle`, `peggy_scissors_ownup` (testimony) | resolves Act 3 |
+| Paper & Money | `mail_letter`, `memoir_desk`, `summons_slip`, `study_blotters_impression`, `study_safe_carbon`, `edmund_journal_ruth` | complete in Act 3 |
+| Small Things & False Trails | `stair_button`, `scissors_sideboard`, `pill_bottle`, `peggy_scissors_ownup` (testimony), `peggy_ious`, `bath_cabinet_digitalis`, `tobias_sewing_tin` | resolves in Act 3 |
 | The Dark Half Hour | `burnt_loaf`, `pantry_lantern`, `kitchen_radio`, `wet_flag_prints`, `colette_ledger_page` | complete in Act 2 |
-| The Household's Hours | `stair_worn_runner`, `peggy_tonic_glass` | complete in Act 2 |
+| The Household's Hours | `stair_worn_runner`, `peggy_tonic_glass`, `peggy_candle_mark` | complete in Act 3 |
 
 *Testimony clues* (`spot: null`, text-only close-ups) are granted through conversations, not scenes: `colette_garden_bolt` (Colette's 11:30 round), `tobias_clatter` (the clatter + the quiet), `peggy_scissors_ownup` (Edmund alive, humming, carrying the memoir at 10:40).
 
-### Coming (Acts 3–5, planned IDs)
+### Coming (Acts 4–5, planned IDs)
 
-- **Act 3 (bedrooms, bathroom, study)**: `peggy_candle_mark`, `peggy_ious`, `edmund_journal_ruth`, `bath_cabinet_digitalis`, `study_blotters_impression`, `study_safe_carbon`, `julian_cab_receipt`, `tobias_sewing_tin` → forgery thread resolves; the carbon copy of pp. 40–43 appears.
 - **Act 4 (attic, basement)**: `ruth_sketchbooks`, `landing_candle_stub`, `attic_key_hook`, `tobias_ghost_drafts`, `housekeeping_tin`, `coal_hatch_dust` → **the 60% twist lands here** (§5).
 - **Act 5 (interrogations + board + accusation)**: inkjs interrogations; string-board links; final accusation: **culprit = Dr. Helena Marsh, method = foxglove in the whiskey decanter, motive = silencing the confession (Ruth's last night)**.
 
@@ -146,7 +145,7 @@
    - stems burned in the **parlour hearth**;
    - came and went by the **kitchen garden door**.
    - Requires: `hearth_ash`, `decanter`, `whiskey_glass`, `garden_door_bolt`, `hearth_rug_print`.
-3. **gate-act2 — "What the Dark Half Hour Proved"** (closes Act 2; offered when leaving the kitchen or the landing via `door.gateOnExit`; end card `act-two-curtain`, non-finale):
+3. **gate-act2 — "What the Dark Half Hour Proved"** (closes Act 2; swings Act 3 open via `onSolve.openActs: [3]`; offered when leaving the kitchen or the landing via `door.gateOnExit`; end card `act-two-curtain`, non-finale):
    - the visitor's whole visit fell inside **the blackout**;
    - the wet treads cross the kitchen flags toward **the hall**;
    - the wireless sang again to an empty kitchen at **11:21**;
@@ -154,6 +153,13 @@
    - Requires: `burnt_loaf`, `pantry_lantern`, `kitchen_radio`, `wet_flag_prints`, `colette_ledger_page`.
 
 *End cards* live in `endCards.json`; only a card with `finale: true` marks the folder solved (the desk stamp, the precinct count, the career check) — act closers walk the player back into the house.
+
+4. **gate-act3 — "What the Study Kept"** (closes Act 3; offered when leaving the study or any Act 3 bedroom via `door.gateOnExit`; end card `act-three-curtain`, non-finale — Act 4 stays sealed until its own gate exists):
+   - the plea pressed into the blotter was written by **Julian Ashcombe** (UV torch);
+   - and it proves he knew all about **the memoir**;
+   - his cab receipt fixes his exit at **10:19**;
+   - and the pages the fire never saw survive as **carbon copies in the study safe**.
+   - Requires: `study_blotters_impression`, `julian_cab_receipt`, `study_safe_carbon`, `peggy_candle_mark`.
 
 ---
 
@@ -170,7 +176,7 @@ The player expects the memoir to *redeem* Ruth (Edmund's confession naming her t
 | Prologue | case file | 0.25 | — | Pell's summons, victim, plan, suspects, kit |
 | 1 (built) | entrance hall, parlour | 1.5 | gate-parlour, gate-act1 | poison, decanter, hearth, garden door |
 | 2 (built) | kitchen, upper landing | 1.5 | gate-act2 | 11:21 return, 11:30 bolt, lantern movements; landing door + tonic glass clear the upstairs sleepers |
-| 3 | bedrooms, bathroom, study | 2 | study-truth gate | forgery resolved, carbon pp. 40–43, candle mark clears Peggy |
+| 3 (built) | bedrooms, bathroom, study | 2 | gate-act3 | forgery resolved (blotter + cab receipt), carbon pp. 40–43 in the safe, candle mark clears Peggy, journal names Ruth |
 | 4 | attic, basement | 1.5 | attic-recognition gate | **twist**: Ruth's last night |
 | 5 | interrogations (Ink), evidence board, accusation | 2 | final accusation | culprit/method/motive, each with evidence |
 
